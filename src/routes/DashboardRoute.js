@@ -22,19 +22,54 @@ class DashboardRoute extends Component {
         return (
           <div className="Dashboard"> 
            {/* <NavMenu /> */}
-           <Header />
-           <Switch>
-               <Link to={Home}>Home</Link>
-               <Link to={Pantry}>Pantry</Link>
-                 <Link to={MarketPlace}>MarketPlace</Link>
-                 <Link to={RecipeSearch}>RecipeSearch</Link>
-                 <Link to={AccountInfo}>AccountInfo</Link> 
+              <Header />
+              <Switch>
 
-           </Switch>
+              <div className="home-link">             
+                    <Link
+                        id="home"
+                        to={Home}>
+                        Home
+                    </Link>
+               </div> 
+
+               <div className="pantry">                
+                    <Link 
+                        id="pantry"
+                        to={Pantry}>
+                        Pantry
+                    </Link>
+               </div> 
+
+               <div className="marketPlace">               
+                    <Link 
+                        id="marketplace"
+                        to={MarketPlace}>
+                        MarketPlace
+                    </Link>
+               </div> 
+
+               <div className="recipeSearch">                
+                    <Link 
+                        id="recipeSearch"
+                        to={RecipeSearch}>
+                        RecipeSearch
+                    </Link>
+               </div> 
+
+               <div className="accountInfo">                
+                    <Link 
+                        id="accountInfo"
+                        to={AccountInfo}>
+                        AccountInfo
+                    </Link>
+               </div> 
+
+              </Switch>
 
            </div>  
 
-        )
+        );
     }
 }
 
