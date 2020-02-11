@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Link, Route } from 'react-router-dom';
+import { Switch, Link } from 'react-router-dom';
 
 import './DashboardRoute.css';
 // import NavMenu from './NavMenu/NavMenu';
@@ -24,41 +24,11 @@ class DashboardRoute extends Component {
            {/* <NavMenu /> */}
            <Header />
            <Switch>
-               <Route 
-                 exact
-                 path='/'
-                 render={routeProps => {
-                     return <Home {...routeProps} />;                     
-                 }} 
-                /> 
-               <Route
-                 exact
-                 path='/Pantry'
-                 render={routeProps => {
-                     return <Pantry {...routeProps} />;                     
-                 }}
-                 />
-                 <Route
-                   exact
-                   path="MarketPlace"
-                   render={routeProps => {
-                       return <MarketPlace {...routeProps} />;
-                   }}
-                 />
-                 <Route
-                   exact
-                   path="RecipeSearch"
-                   render={routeProps => {
-                       return <RecipeSearch {...routeProps} />;
-                   }}  
-                 />  
-                 <Route
-                   exact
-                   path="AccountInfo"
-                   render={routeProps => {
-                       return <AccountInfo {...routeProps} />;
-                   }}
-                 />  
+               <Link to={Home}>Home</Link>
+               <Link to={Pantry}>Pantry</Link>
+                 <Link to={MarketPlace}>MarketPlace</Link>
+                 <Link to={RecipeSearch}>RecipeSearch</Link>
+                 <Link to={AccountInfo}>AccountInfo</Link> 
 
            </Switch>
 
