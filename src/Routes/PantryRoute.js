@@ -69,16 +69,14 @@ class PantryRoute extends Component {
       </Link>
     )
     );
-
   }
 
-  setStateAddIngredient = () => {
-    if (this.state.addIngredient === false) {
-      this.setState({
-        addIngredient: true
-      })
-    }
-    else { this.setState({ addIngredient: false }) }
+
+  setStateAddIngredientTrue = () => {
+    this.setState({ addIngredient: true })
+  }
+  setStateAddIngredientFalse = () => {
+    this.setState({ addIngredient: false })
   }
 
   render() {
@@ -89,8 +87,9 @@ class PantryRoute extends Component {
         <AddIngredient
           addIngredient={this.state.addIngredient}
           allIngredients={this.state.ingredients}
+          closeAddForm={this.setStateAddIngredientFalse}
         />
-        <button id="modal-btn" type="submit" onClick={() => this.setStateAddIngredient()}>
+        <button id="modal-btn" type="submit" onClick={() => this.setStateAddIngredientTrue()}>
           Add an ingredient
           </button>
       </section>
