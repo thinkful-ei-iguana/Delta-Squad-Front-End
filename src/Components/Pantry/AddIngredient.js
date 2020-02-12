@@ -12,17 +12,16 @@ class AddIngredient extends Component {
     }
   }
 
+
   handleSubmit = (e) => {
     e.preventDefault();
-    this.setState({
-      newIngredient: e.target.value
-    })
-
-    let newIngredient = this.state.newIngredient;
+    let { ingredient_name, in_stock, notes } = e.target;
+    // let newIngredient = { ingredient_name, in_stock, notes};
     const authToken = TokenService.getAuthToken();
     const ingredientJson = JSON.stringify({
-      newIngredient: newIngredient,
-      // ingredient_owner: this.props.allIngredients[0].ingredient_owner
+      ingredient_name: ingredient_name.value,
+      in_stock: in_stock.value,
+      notes: notes.value
     });
     const url = `${config.API_ENDPOINT}/pantry`;
 

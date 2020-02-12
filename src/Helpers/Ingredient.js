@@ -1,7 +1,7 @@
 
 import config from "../config";
 
-const RecipeHelper = {
+const IngredientHelper = {
 
   updateRecipe(updatedData, id) {
     return fetch(`${config.API_ENDPOINT}/recipes/edit/${id}`, {
@@ -14,3 +14,6 @@ const RecipeHelper = {
     });
   }
 }
+
+
+export default IngredientHelper;
