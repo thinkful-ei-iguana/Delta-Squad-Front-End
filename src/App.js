@@ -13,6 +13,7 @@ import NotFoundRoute from "./Routes/NotFoundRoute";
 import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
 import Header from "./Components/Header";
+import AddMealPlan from "./Components/Planner/MakeMealPlans";
 // import Landing from "./Components/Landing";
 // import AuthHelper from "../src/Helpers/Auth";
 // import Context from "./Contexts/Context";
@@ -133,7 +134,11 @@ class App extends React.Component {
               path={"/pantry/:ingredientId"}
               component={IndividualIngredient}
             />
-            <PrivateRoute exact path={"/planner"} component={MealPlans} />
+            <PrivateRoute
+              exact
+              path={"/planner"}
+              component={(MealPlans, AddMealPlan)}
+            />
             {/* <PrivateRoute
               path={"/marketplace"}
               component={MarketplaceRoute}
