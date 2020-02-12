@@ -1,6 +1,8 @@
 import React from "react";
 import config from "../config";
 import Recipe from "./Recipe";
+import UserContext from "../Contexts/UserContext";
+import TokenService from '../Helpers/Token';
 import "../Styles/Recipe.css";
 
 export default class RecentResults extends React.Component {
@@ -10,13 +12,14 @@ export default class RecentResults extends React.Component {
       recipes: []
     };
   }
+  static contextType = UserContext;
 
   componentDidMount() {
     fetch(`${config.API_ENDPOINT}/recipes`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${config.API_TOKEN}`
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res => res.json())
@@ -24,6 +27,7 @@ export default class RecentResults extends React.Component {
   }
 
   render() {
+    // console.log('this.context.user is', this.context.user);
     return (
       <div className="RecentResults">
         <section className="flex-container">

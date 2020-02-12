@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Recipe from "../Helpers/Recipe";
-import Context from "../Components/Context";
-import RecipeHelper from "../Helpers/Recipe";
+import Recipe from "../../Helpers/Recipe";
+import Context from "../../Contexts/Context";
+import RecipeHelper from "../../Helpers/Recipe";
 import "../Styles/Buttons.css";
 export default class CreateRecipe extends React.Component {
   static contextType = Context;
   static defaultProps = {
     location: {},
     history: {
-      push: () => {}
+      push: () => { }
     }
   };
 

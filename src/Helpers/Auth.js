@@ -1,4 +1,5 @@
 import config from "../config";
+import TokenService from './Token'
 
 const AuthHelper = {
   createAccount(newAccount) {
@@ -16,19 +17,9 @@ const AuthHelper = {
     return fetch(`${config.API_ENDPOINT}/accounts/${user_name}`, {
       method: "DELETE",
       headers: {
-        Authorization: `Bearer ${config.API_TOKEN}`
+        "content-type": "application/json",
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
       }
-    });
-  },
-  login(credentials) {
-    return fetch(`${config.API_ENDPOINT}/auth/login`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify(credentials)
-    }).then(res => {
-      return !res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
     });
   },
   getCurrentUser(token) {
@@ -36,7 +27,7 @@ const AuthHelper = {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${token}`
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res => res.json())
@@ -48,7 +39,8 @@ const AuthHelper = {
     return fetch(`${config.API_ENDPOINT}/accounts/${user_name}`, {
       method: "GET",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res => res.json())
@@ -56,12 +48,36 @@ const AuthHelper = {
         return data.dbUser;
       });
   },
+  login(credentials) {
+    return fetch(`${config.API_ENDPOINT}/auth/login`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
+
+      },
+      body: JSON.stringify(credentials)
+    }).then(res => {
+      return !res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
+    });
+  },
+  refreshToken() {
+    console.trace('refreshToken spam?');
+    return fetch(`${config.API_ENDPOINT}/auth/token`, {
+      method: "PUT",
+      headers: {
+        authorization: `Bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
   updateAccount(updatedData, id) {
     return fetch(`${config.API_ENDPOINT}/accounts/edit/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${config.TOKEN_KEY}`
+        Authorization: `Bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify(updatedData)
     });

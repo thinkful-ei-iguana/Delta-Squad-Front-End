@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Recipe from "../Helpers/Recipe";
-import Context from "../Components/Context";
+import Recipe from "../../Helpers/Recipe";
+import Context from "../../Contexts/Context";
 import "../Styles/Buttons.css";
 
 export default class CreateRecipe extends React.Component {
@@ -10,7 +10,7 @@ export default class CreateRecipe extends React.Component {
     currentUser: {},
     location: {},
     history: {
-      push: () => {}
+      push: () => { }
     }
   };
 

@@ -1,24 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AuthHelper from "../Helpers/Auth";
-import Context from "../Components/Context";
-import "../Styles/Login.css";
-import "../Styles/Home.css";
+import AuthHelper from "../../Helpers/Auth";
+import Context from "../../Contexts/Context";
+import UserContext from "../../Contexts/UserContext";
 
-export default class Login extends React.Component {
-  static contextType = Context;
+
+class LoginForm extends React.Component {
   static defaultProps = {
     location: {},
     history: {
-      push: () => {}
-    }
+      push: () => { }
+    },
+    onLoginSuccess: () => { }
   };
-
   state = { error: null };
+
+  static contextType = UserContext;
+
+
+  // firstInput = React.createRef();
 
   onLoginSuccess = () => {
     const { location, history } = this.props;
-    const destination = (location.state || {}).from || "/Home";
+    const destination = (location.state || {}).from || "/home";
     history.push(destination);
   };
 
@@ -27,20 +31,24 @@ export default class Login extends React.Component {
     this.setState({ error: null });
     const { user_name, password } = e.target;
     AuthHelper.login({
-      user_name: user_name.value.toLowerCase(),
+      user_name: user_name.value,
       password: password.value
     })
       .then(res => {
         user_name.value = "";
         password.value = "";
-        this.context.saveAuthToken(res.authToken);
-        this.context.onLogin();
-        this.props.history.push("/");
+        this.context.processLogin(res.authToken);
+        this.props.onLoginSuccess()
       })
       .catch(res => {
         this.setState({ error: res.error });
       });
   };
+
+  // componentDidMount() {
+  //   console.log('first input is', this.firstInput);
+  //   this.firstInput.current.focus();
+  // }
 
   render() {
     return (
@@ -83,7 +91,7 @@ export default class Login extends React.Component {
               value="login"
               onClick={this.submitButtonHasBeenClicked}
             />
-            <Link to="/Create-Account">
+            <Link to="/register">
               <button className="newAccount">Create an account</button>
             </Link>
           </div>
@@ -92,3 +100,7 @@ export default class Login extends React.Component {
     );
   }
 }
+
+export default LoginForm;
+
+

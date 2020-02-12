@@ -1,19 +1,24 @@
 import React from "react";
-import { Route, BrowserRouter as Router } from "react-router-dom";
-import NavMenu from "../src/Components/Nav-Menu";
-import Landing from "../src/Components/Landing";
-import AccountCreation from "../src/Components/Account-Creation";
-import AccountLogin from "../src/Components/Account-Login";
-import SearchResults from "../src/Components/Search-Results";
-import Home from "../src/Components/Home";
-import AuthHelper from "../src/Helpers/Auth";
-import Context from "../src/Components/Context";
-import config from "./config";
-import CreateRecipe from "../src/Components/Create-Recipe";
-import EditRecipe from "../src/Components/Edit-Recipe";
-import Profile from "../src/Components/Profile";
+import { Route, Switch } from "react-router-dom";
+import LoginRoute from "./Routes/LoginRoute";
+import RegistrationRoute from "./Routes/RegistrationRoute";
+import Home from "./Components/Home"; // dashboard route??
+import PrivateRoute from "./Components/PrivateOnly/PrivateRoute";
+import PublicOnlyRoute from "./Components/PublicOnly/PublicOnlyRoute";
+import RecipesRoute from "./Routes/RecipesRoute";
+import PantryRoute from "./Routes/PantryRoute";
+import IndividualIngredient from "./Components/Pantry/IndividualIngredient";
+import NotFoundRoute from "./Routes/NotFoundRoute";
+import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
-import DetailedView from "../src/Components/Detailed-View";
+// import NavMenu from "./Components/Nav-Menu";
+// import Landing from "./Components/Landing";
+// import AuthHelper from "../src/Helpers/Auth";
+// import Context from "./Contexts/Context";
+// import config from "./config";
+// import MarketplaceRoute from "./Routes/MarketplaceRoute";
+// import MealPlanningRoute from "./Routes/MealPlanningRoute";
+// import DetailedView from "./Components/Recipes/Individual-Recipe";
 
 const options = {
   bottom: "64px", // default: '32px'
@@ -35,154 +40,136 @@ class App extends React.Component {
     this.state = {
       currentUser: {},
       isLoggedIn: false,
-      hasToken: this.hasAuthToken(),
-      recipes: []
+      // hasToken: this.hasAuthToken(),
+      recipes: [],
+      hasError: false
     };
   }
 
-  componentDidMount() {
-    if (this.hasAuthToken()) {
-      AuthHelper.getCurrentUser(this.getAuthToken()).then(data =>
-        this.setState(prevState => ({
-          currentUser: data,
-          isLoggedIn: true
-        }))
-      );
-    }
-    fetch("http://localhost:8000/api/recipes")
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        this.setState({ recipes: data });
-      });
-  }
+  // componentDidMount() {
+  //   if (this.hasAuthToken()) {
+  //     AuthHelper.getCurrentUser(this.getAuthToken()).then(data =>
+  //       this.setState(prevState => ({
+  //         currentUser: data,
+  //         isLoggedIn: true
+  //       }))
+  //     );
+  //   }
+  //   fetch("http://localhost:8000/api/recipes")
+  //     .then(res => {
+  //       return res.json();
+  //     })
+  //     .then(data => {
+  //       this.setState({ recipes: data });
+  //     });
+  // }
 
-  saveAuthToken = token => {
-    window.localStorage.setItem(config.TOKEN_KEY, token);
-  };
-  getAuthToken = () => {
-    return window.localStorage.getItem(config.TOKEN_KEY);
-  };
-  hasAuthToken = () => {
-    return !!this.getAuthToken();
-  };
-  makeBasicAuthToken = (userName, password) => {
-    return window.btoa(`${userName}:${password}`);
-  };
+  // saveAuthToken = token => {
+  //   window.localStorage.setItem(config.TOKEN_KEY, token);
+  // };
+  // getAuthToken = () => {
+  //   return window.localStorage.getItem(config.TOKEN_KEY);
+  // };
+  // hasAuthToken = () => {
+  //   return !!this.getAuthToken();
+  // };
+  // makeBasicAuthToken = (userName, password) => {
+  //   return window.btoa(`${userName}:${password}`);
+  // };
 
-  onLogin = () => {
-    AuthHelper.getCurrentUser(this.getAuthToken()).then(
-      data =>
-        (this.setState = () => ({
-          currentUser: data,
-          isLoggedIn: true
-        }))
-    );
-  };
+  // onLogin = () => {
+  //   AuthHelper.getCurrentUser(this.getAuthToken()).then(
+  //     data =>
+  //       (this.setState = () => ({
+  //         currentUser: data,
+  //         isLoggedIn: true
+  //       }))
+  //   );
+  // };
 
-  onLogout = () => {
-    window.localStorage.removeItem(config.TOKEN_KEY);
-    this.setState({ currentUser: {}, isLoggedIn: false });
-  };
+  // onLogout = () => {
+  //   window.localStorage.removeItem(config.TOKEN_KEY);
+  //   this.setState({ currentUser: {}, isLoggedIn: false });
+  // };
 
   render() {
     const darkmode = new Darkmode(options);
     darkmode.showWidget();
+
     return (
-      <Context.Provider
-        value={{
-          currentUser: this.state.currentUser,
-          hasToken: this.state.hasToken,
-          isLoggedIn: this.state.isLoggedIn,
-          saveAuthToken: this.saveAuthToken,
-          getAuthToken: this.getAuthToken,
-          hasAuthToken: this.hasAuthToken,
-          makeBasicAuthToken: this.makeBasicAuthToken,
-          recipes: this.state.recipes,
-          onLogin: this.onLogin,
-          onLogout: this.onLogout
-        }}
-      >
-        {" "}
-        <div className="App">
-          <Router>
-            <Route
+      // <Context.Provider
+      //   value={{
+      //     currentUser: this.state.currentUser,
+      //     hasToken: this.state.hasToken,
+      //     isLoggedIn: this.state.isLoggedIn,
+      //     saveAuthToken: this.saveAuthToken,
+      //     getAuthToken: this.getAuthToken,
+      //     hasAuthToken: this.hasAuthToken,
+      //     makeBasicAuthToken: this.makeBasicAuthToken,
+      //     recipes: this.state.recipes,
+      //     onLogin: this.onLogin,
+      //     onLogout: this.onLogout
+      //   }}
+      // >
+      <div className="App">
+        {/* <Header /> */}
+        <main>
+
+          <Switch>
+            {/* <PrivateRoute
               exact
-              path="/"
-              render={routeProps => {
-                return (
-                  <>
-                    <NavMenu {...routeProps} />
-                    <Landing {...routeProps} />
-                  </>
-                );
-              }}
-            />
-            <Route
-              exact
-              path="/Home"
-              render={routeProps => {
-                return <Home {...routeProps} />;
-              }}
-            />
-            <Route
-              exact
-              path="/Login"
-              render={routeProps => {
-                return <AccountLogin {...routeProps} />;
-              }}
-            />
-            <Route
-              exact
-              path="/Create-Account"
-              render={routeProps => {
-                return <AccountCreation {...routeProps} />;
-              }}
-            />
-            {/* <Route
-              exact
-              path="/Edit-Account"
-              render={routeProps => {
-                return <EditAccount {...routeProps} />;
-              }}
+              path={"/"}
+              component={DashboardRoute}
             /> */}
-            <Route
+            <PrivateRoute
               exact
-              path="/user/:username"
-              render={routeProps => {
-                return <Profile {...routeProps} />;
-              }}
+              path={"/"}
+              component={Home} // dashboard route??
             />
-            <Route
+            <PrivateRoute
               exact
-              path="/search/:searchterm"
-              render={routeProps => {
-                return <SearchResults {...routeProps} />;
-              }}
+              path={"/user/:username"}
+              component={Profile}
             />
-            <Route
-              path="/Create-Recipe"
-              render={routeProps => {
-                return <CreateRecipe {...routeProps} />;
-              }}
-            />
-            <Route
-              path="/recipe/:recipeid"
-              render={routeProps => {
-                return <DetailedView {...routeProps} />;
-              }}
-            />
-            <Route
+            <PrivateRoute
               exact
-              path="/Edit-Recipe/:recipeid"
-              render={routeProps => {
-                return <EditRecipe {...routeProps} />;
-              }}
+              path={"/recipes"}
+              component={RecipesRoute}
             />
-          </Router>
-        </div>
-      </Context.Provider>
+            <PrivateRoute
+              exact
+              path={"/pantry"}
+              component={PantryRoute}
+            />
+            <PrivateRoute
+              path={"/pantry/:ingredientId"}
+              component={IndividualIngredient}
+            />
+            {/* <PrivateRoute
+              path={"/marketplace"}
+              component={MarketplaceRoute}
+            />
+            <PrivateRoute
+              path={"/mealplanning"}
+              component={MealPlanningRoute}
+            /> */}
+            <PublicOnlyRoute
+              exact
+              path={"/register"}
+              component={RegistrationRoute}
+            />
+            <PublicOnlyRoute
+              exact
+              path={"/login"}
+              component={LoginRoute}
+            />
+            <Route
+              component={NotFoundRoute}
+            />
+          </Switch>
+        </main>
+      </div>
+      // </Context.Provider>
     );
   }
 }
