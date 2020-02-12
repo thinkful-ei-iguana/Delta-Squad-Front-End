@@ -11,7 +11,7 @@ import IndividualIngredient from "./Components/Pantry/IndividualIngredient";
 import NotFoundRoute from "./Routes/NotFoundRoute";
 import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
-// import NavMenu from "./Components/Nav-Menu";
+import Header from "./Components/Header";
 // import Landing from "./Components/Landing";
 // import AuthHelper from "../src/Helpers/Auth";
 // import Context from "./Contexts/Context";
@@ -112,7 +112,7 @@ class App extends React.Component {
       //   }}
       // >
       <div className="App">
-        {/* <Header /> */}
+        <Header user={this.state.currentUser} />
         <main>
 
           <Switch>
