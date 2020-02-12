@@ -59,7 +59,7 @@ export default class Login extends React.Component {
           if (currentUsername === user_name.value) {
             return "";
           } else {
-            return `username: ${user_name.value}`.toLowerCase();
+            return `username: ${user_name.value}`;
           }
         },
         password() {

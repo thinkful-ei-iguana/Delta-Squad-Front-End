@@ -2,12 +2,7 @@ import React from "react";
 import AuthHelper from "../Helpers/Auth";
 import { Link } from "react-router-dom";
 import Recipe from "../Components/Recipe";
-<<<<<<< Updated upstream
-import Context from "../Components/Context";
-=======
-import Context from "./Context";
-import "../Styles/Buttons.css";
->>>>>>> Stashed changes
+import Context from "../Contexts/Context";
 
 export default class Profile extends React.Component {
   constructor(props) {
@@ -71,20 +66,9 @@ export default class Profile extends React.Component {
 
   renderNoRecipes = () => {
     return (
-<<<<<<< Updated upstream
       <h3 className="noRecipe">
         {this.context.currentUser.first_name} has no recipes currently
       </h3>
-=======
-      <div className="no-recipe-div">
-        <h3 className="noRecipe">
-          {this.context.currentUser.first_name} has no recipes currently
-        </h3>
-        <Link type="submit" className="noRecipeGoHome" to={"/"}>
-          Home
-        </Link>
-      </div>
->>>>>>> Stashed changes
     );
   };
 
@@ -126,7 +110,7 @@ export default class Profile extends React.Component {
           {recipesOwned.length > 0
             ? this.renderRecipe(recipesOwned)
             : this.renderNoRecipes()
-          // this.checkRecipeOwner())
+            // this.checkRecipeOwner())
           }
         </div>
       </>

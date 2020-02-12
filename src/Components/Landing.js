@@ -1,7 +1,7 @@
 import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { Link } from "react-router-dom";
-import Context from "../Components/Context";
+import Context from "../Contexts/Context";
 import RecentResults from "./Recent-Results";
 
 export default class Landing extends React.Component {
@@ -14,7 +14,7 @@ export default class Landing extends React.Component {
     if (this.context.recipes.length === 0) {
       return <p>Loading</p>;
     }
-    document.addEventListener("click", function(event) {
+    document.addEventListener("click", function (event) {
       event.preventDefault(event);
     });
 
