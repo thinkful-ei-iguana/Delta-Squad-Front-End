@@ -4,7 +4,6 @@ import Recipe from "../Recipe";
 import UserContext from "../../Contexts/UserContext";
 import TokenService from '../../Helpers/Token';
 // import "../Styles/Recipe.css";
-
 export default class RecentResults extends React.Component {
   constructor(props) {
     super(props);
