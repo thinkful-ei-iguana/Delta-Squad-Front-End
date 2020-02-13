@@ -26,6 +26,7 @@ export default class SearchRecipe extends React.Component {
           this.setState({
             searchResults: results,
           });
+          console.log(this.state.searchResults);
         })
         .catch(err => {
           this.setState({
@@ -35,8 +36,11 @@ export default class SearchRecipe extends React.Component {
     }
 
     displaySearchResults = () => {
+      if (this.state.searchResults === []) {
+        return;
+      }
         return (
-                this.state.searchResults.map(recipe => <li id={recipe.id}>{recipe.title}</li>);
+                this.state.searchResults.map(recipe => <li key={recipe.id}>{recipe.title}</li>)
         )
     }
 
@@ -50,6 +54,7 @@ export default class SearchRecipe extends React.Component {
 
                 <section className="recipeResults">
                     <h3>Results:</h3>
+                    {this.displaySearchResults()}
 
                 </section>
 

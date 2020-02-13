@@ -12,6 +12,7 @@ import NotFoundRoute from "./Routes/NotFoundRoute";
 import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
 import Header from "./Components/Header";
+import searchRecipes from "./Components/Recipes/Search-Recipe";
 // import Landing from "./Components/Landing";
 // import AuthHelper from "../src/Helpers/Auth";
 // import Context from "./Contexts/Context";
@@ -134,6 +135,11 @@ class App extends React.Component {
               exact
               path={"/recipes"}
               component={RecipesRoute}
+            />
+            <PrivateRoute
+              exact
+              path={"/recipes/search"}
+              component={searchRecipes}
             />
             <PrivateRoute
               exact

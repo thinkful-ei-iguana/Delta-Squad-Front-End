@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import config from '../config';
 import TokenService from '../Helpers/Token.js'
+import searchRecipe from '../Components/Recipes/Search-Recipe'
 import IndividualRecipe from '../Components/Recipes/Individual-Recipe'
 
 
@@ -72,6 +73,7 @@ class RecipesRoute extends Component {
   render() {
     return (
       <section>
+        <Link to="recipes/search">Search for new recipes</Link>
         {this.state.recipes && this.renderRecipes()}
 
       </section>
