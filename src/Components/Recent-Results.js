@@ -1,6 +1,6 @@
 import React from "react";
 import config from "../config";
-import Recipe from "./Recipe";
+// import Recipe from "./Recipe";
 import UserContext from "../Contexts/UserContext";
 import TokenService from "../Helpers/Token";
 import "../Styles/Recipe.css";

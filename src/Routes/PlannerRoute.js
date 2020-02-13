@@ -8,10 +8,10 @@ class PlannerRoute extends Component {
     super(props);
 
     this.state = {
-      title: [],
-      meal_date: [],
-      prep_time: [],
-      ingredients_required: []
+      title: "",
+      meal_date: "",
+      prep_time: "",
+      ingredients_required: ""
     };
   }
 

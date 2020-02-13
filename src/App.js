@@ -13,10 +13,11 @@ import NotFoundRoute from "./Routes/NotFoundRoute";
 import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
 import Header from "./Components/Header";
-import AddMealPlan from "./Components/Planner/MakeMealPlans";
+import MakeMealPlans from "./Components/Planner/MakeMealPlans";
+import EditMealPlan from "./Components/Planner/EditMealPlan";
 // import Landing from "./Components/Landing";
 // import AuthHelper from "../src/Helpers/Auth";
-// import Context from "./Contexts/Context";
+// import Context from "./Contexts/UserContext";
 // import config from "./config";
 // import MarketplaceRoute from "./Routes/MarketplaceRoute";
 // import MealPlanningRoute from "./Routes/MealPlanningRoute";
@@ -137,7 +138,7 @@ class App extends React.Component {
             <PrivateRoute
               exact
               path={"/planner"}
-              component={(MealPlans, AddMealPlan)}
+              component={(MealPlans, MakeMealPlans, EditMealPlan)}
             />
             {/* <PrivateRoute
               path={"/marketplace"}
@@ -153,9 +154,10 @@ class App extends React.Component {
           </Switch>
         </main>
       </div>
+      //{" "}
       // </Context.Provider>
     );
   }
 }
-console.log("First commit!");
+
 export default App;
