@@ -54,8 +54,8 @@ class Header extends Component {
   };
 
   renderLogoutLink() {
-    console.log("nav menu context is", this.context);
-    console.log("nav menu props is", this.props);
+    // console.log("nav menu context is", this.context);
+    // console.log("nav menu props is", this.props);
     return (
       <div>
         <nav className="log-out-user">

@@ -2,32 +2,30 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import config from "../config";
 import TokenService from "../Helpers/Token";
+import AddMealPlan from "../Components/Planner/MakeMealPlans";
 
 class PlannerRoute extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      title: "",
-      meal_date: "",
-      prep_time: "",
-      ingredients_required: ""
+      title: [],
+      planned_date: [],
+      prep_time: [],
+      needed_ingredients: []
     };
   }
 
   componentDidMount() {
-    this.getTitle();
-    this.getMealDate();
-    this.getPrepTime();
-    this.getIngredientsReq();
+    this.getMealPlans();
   }
 
   // GET; then set state.title with response
-  getTitle = () => {
-    console.log("planner route get title");
+  getMealPlans = () => {
+    // console.log("planner route get mealplans");
     const url = `${config.API_ENDPOINT}/planner`;
     const authToken = TokenService.getAuthToken();
-    console.log("auth token is", authToken);
+    // console.log("auth token is", authToken);
     fetch(url, {
       method: "GET",
       headers: {
@@ -37,51 +35,9 @@ class PlannerRoute extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log("get title data is", data);
+        // console.log("get mealplans data is", data);
         return this.setState({
-          title: data
-        });
-      });
-  };
-
-  getMealDate = () => {
-    console.log("planner route get meal date");
-    const url = `${config.API_ENDPOINT}/planner`;
-    const authToken = TokenService.getAuthToken();
-    console.log("auth token is", authToken);
-    fetch(url, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `Bearer ${authToken}`
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log("get title data is", data);
-        return this.setState({
-          meal_date: data
-        });
-      });
-  };
-
-  getPrepTime = () => {
-    console.log("planner route get prep time");
-    const url = `${config.API_ENDPOINT}/planner`;
-    const authToken = TokenService.getAuthToken();
-    console.log("auth token is", authToken);
-    fetch(url, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `Bearer ${authToken}`
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log("get prep time data is", data);
-        return this.setState({
-          meal_date: data
+          mealplans: data
         });
       });
   };
@@ -90,30 +46,73 @@ class PlannerRoute extends Component {
 
   // PATCH using ingredient id, new route
 
-  renderIngredients = () => {
-    const ingredients = this.state.ingredients;
-    console.log("ingredients is", ingredients);
-    if (ingredients.length > 0) {
-      return ingredients.map(ingredient => (
+  renderMealPlans = () => {
+    const mealplans = this.state.mealplans;
+    // console.log("mealplans is", mealplans);
+
+    return mealplans.map(mealplan => (
+      <section key="abc">
         <Link
+          key={mealplan.id}
           to={{
-            pathname: `/pantry/${ingredient.id}`,
+            pathname: `/planner/${mealplan.id}`,
             state: {
-              ingredient_name: ingredient.ingredient_name,
-              in_stock: ingredient.in_stock,
-              notes: ingredient.notes,
-              ingredient_owner: ingredient.ingredient_owner
+              title: mealplan.title,
+              planned_date: mealplan.planned_date,
+              prep_time: mealplan.prep_time,
+              needed_ingredients: mealplan.needed_ingredients
             }
           }}
         >
-          {ingredient.ingredient_name},
+          {mealplan.title}
+        </Link>{" "}
+        <span>{mealplan.planned_date}</span>{" "}
+        <Link
+          // key={mealplan.id}   ...needs to be unique
+          className="edit-mealplan-button"
+          to={{
+            pathname: `/planner/edit/${mealplan.id}`,
+            state: {
+              id: mealplan.id,
+              title: mealplan.title,
+              planned_date: mealplan.planned_date,
+              prep_time: mealplan.prep_time,
+              needed_ingredients: mealplan.needed_ingredients
+            }
+          }}
+        >
+          Edit
         </Link>
-      ));
-    }
+        <br />
+      </section>
+    ));
+  };
+  setStateAddMealPlanTrue = () => {
+    this.setState({ addMealPlan: true });
+  };
+  setStateAddMealPlanFalse = () => {
+    this.setState({ addMealPlan: false });
   };
 
   render() {
-    return <section>{this.renderIngredients()}</section>;
+    // console.log("this.state.add", this.state.addMealPlan);
+    return (
+      <section>
+        {this.state.mealplans && this.renderMealPlans()}
+        <AddMealPlan
+          addMealPlan={this.state.addMealPlan}
+          allMealPlans={this.state.mealplans}
+          closeAddForm={this.setStateAddMealPlanFalse}
+        />
+        <button
+          id="modal-btn"
+          type="submit"
+          onClick={() => this.setStateAddMealPlanTrue()}
+        >
+          Add a mealplan
+        </button>
+      </section>
+    );
   }
 }
 

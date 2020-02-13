@@ -8,19 +8,16 @@ import PublicOnlyRoute from "./Components/PublicOnly/PublicOnlyRoute";
 import RecipesRoute from "./Routes/RecipesRoute";
 import PantryRoute from "./Routes/PantryRoute";
 import IndividualIngredient from "./Components/Pantry/IndividualIngredient";
-import MealPlans from "./Components/Planner/MealPlans";
+import PlannerRoute from "./Routes/PlannerRoute";
 import NotFoundRoute from "./Routes/NotFoundRoute";
 import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
 import Header from "./Components/Header";
-import MakeMealPlans from "./Components/Planner/MakeMealPlans";
-import EditMealPlan from "./Components/Planner/EditMealPlan";
 // import Landing from "./Components/Landing";
 // import AuthHelper from "../src/Helpers/Auth";
 // import Context from "./Contexts/UserContext";
 // import config from "./config";
 // import MarketplaceRoute from "./Routes/MarketplaceRoute";
-// import MealPlanningRoute from "./Routes/MealPlanningRoute";
 // import DetailedView from "./Components/Recipes/Individual-Recipe";
 
 const options = {
@@ -135,11 +132,7 @@ class App extends React.Component {
               path={"/pantry/:ingredientId"}
               component={IndividualIngredient}
             />
-            <PrivateRoute
-              exact
-              path={"/planner"}
-              component={(MealPlans, MakeMealPlans, EditMealPlan)}
-            />
+            <PrivateRoute exact path={"/planner"} component={PlannerRoute} />
             {/* <PrivateRoute
               path={"/marketplace"}
               component={MarketplaceRoute}

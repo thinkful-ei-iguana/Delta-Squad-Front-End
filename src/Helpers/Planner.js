@@ -19,38 +19,38 @@ const PlannerHelper = {
     });
   },
 
-  deleteMealPlan(id) {
-    return fetch(`${config.API_ENDPOINT}/planner/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${config.TOKEN_KEY}`
-      }
-    });
-  },
+  // deleteMealPlan(id) {
+  //   return fetch(`${config.API_ENDPOINT}/planner/${id}`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       Authorization: `Bearer ${config.TOKEN_KEY}`
+  //     }
+  //   });
+  // },
 
-  mealPlanById(id) {
-    // console.log("getting recipe by id");
-    return fetch(`${config.API_ENDPOINT}/planner/${id}`, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json"
-      }
-    }).then(res =>
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
-  },
-  getAllMyMealPlans(mealplan_owner) {
-    return fetch(`${config.API_ENDPOINT}/planner/user/${mealplan_owner}`, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json"
-      }
-    }).then(res =>
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
-  },
+  // mealPlanById(id) {
+  //   // console.log("getting recipe by id");
+  //   return fetch(`${config.API_ENDPOINT}/planner/${id}`, {
+  //     method: "GET",
+  //     headers: {
+  //       "content-type": "application/json"
+  //     }
+  //   }).then(res =>
+  //     !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+  //   );
+  // },
+  // getAllMyMealPlans(mealplan_owner) {
+  //   return fetch(`${config.API_ENDPOINT}/planner/user/${mealplan_owner}`, {
+  //     method: "GET",
+  //     headers: {
+  //       "content-type": "application/json"
+  //     }
+  //   }).then(res =>
+  //     !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+  //   );
+  // },
   updateMealPlan(updatedData, id) {
-    return fetch(`${config.API_ENDPOINT}/mealplan/edit/${id}`, {
+    return fetch(`${config.API_ENDPOINT}/planner/edit/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

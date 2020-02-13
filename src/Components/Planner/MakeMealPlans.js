@@ -8,40 +8,35 @@ class AddMealPlan extends Component {
     super(props);
 
     this.state = {
-      title: "",
-      planned_date: "",
-      prep_time: "",
-      needed_ingredients: ""
+      addMealPlan: false,
+      newMealPlan: []
     };
   }
 
   handleSubmit = e => {
     e.preventDefault();
-    // const created_by = this.context.currentUser.id;
+    console.log(this.props, "this props");
     let { title, planned_date, prep_time, needed_ingredients } = e.target;
-    this.setState({ error: null });
-    const mealJson = JSON.stringify({
+    const mealPlanJson = JSON.stringify({
       title: title.value,
       planned_date: planned_date.value,
       prep_time: prep_time.value,
       needed_ingredients: needed_ingredients.value
-      // mealplan_owner: mealplan_owner.value,
-      // created_by: created_by.value
     });
-    PlannerHelper.addMealPlan(mealJson).then(data => {
+    PlannerHelper.addMealPlan(mealPlanJson).then(data => {
       console.log("post data is", data);
       this.props.closeAddForm();
     });
   };
 
-  handleAddMealPlan = () => {
-    console.log(this.state, "this state");
+  handleAddMealPlanWindow = () => {
+    // console.log(this.state);
     return (
       <div>
         {this.props.addMealPlan === true && (
           <div id="modal">
             <form id="modal-content" onSubmit={this.handleSubmit}>
-              <label>Title:</label>
+              <label>Mealplan:</label>
               <input type="text">{this.props.title}</input>
               <label>Meal Date:</label>
               <input type="text">{this.props.planned_date}</input>
@@ -55,7 +50,7 @@ class AddMealPlan extends Component {
                 id="close"
                 // onClick={this.props.toggleAddForm}
               >
-                Hit it!
+                Plan it!
               </button>
             </form>
           </div>
@@ -76,9 +71,9 @@ class AddMealPlan extends Component {
   // }
 
   render() {
-    console.log(this.state.addMealPlan);
+    // console.log(this.state.addMealPlan, "this.state.addmealplan");
 
-    return <div>{this.handleAddMealPlan()}</div>;
+    return <div>{this.handleAddMealPlanWindow()}</div>;
   }
 }
 

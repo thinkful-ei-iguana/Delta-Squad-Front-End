@@ -21,7 +21,7 @@ class RecipesRoute extends Component {
   getRecipes = () => {
     const url = `${config.API_ENDPOINT}/recipes`;
     const authToken = TokenService.getAuthToken();
-    console.log("auth token recipes GET is", authToken);
+    // console.log("auth token recipes GET is", authToken);
     fetch(url, {
       method: "GET",
       headers: {
@@ -31,7 +31,7 @@ class RecipesRoute extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log("get recipes data is", data);
+        // console.log("get recipes data is", data);
         return this.setState({
           recipes: data
         });
@@ -44,7 +44,7 @@ class RecipesRoute extends Component {
 
   renderRecipes = () => {
     const recipes = this.state.recipes;
-    console.log("recipes in render is", recipes);
+    console.log("recipes in render is", this.state);
     if (recipes.length > 0) {
       return recipes.map(recipe => {
         return (
