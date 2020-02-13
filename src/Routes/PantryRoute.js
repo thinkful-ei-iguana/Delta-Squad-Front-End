@@ -54,19 +54,40 @@ class PantryRoute extends Component {
     console.log('ingredients is', ingredients);
 
     return (ingredients.map(ingredient =>
-      <Link
-        to={{
-          pathname: `/pantry/${ingredient.id}`,
-          state: {
-            key: ingredient.id,
-            ingredient_name: ingredient.ingredient_name,
-            in_stock: ingredient.in_stock,
-            notes: ingredient.notes,
-            ingredient_owner: ingredient.ingredient_owner
-          }
-        }}
-      >{ingredient.ingredient_name}, {ingredient.in_stock} <br />
-      </Link>
+      <section>
+        <Link
+          key={ingredient.id}
+          to={{
+            pathname: `/pantry/${ingredient.id}`,
+            state: {
+              ingredient_name: ingredient.ingredient_name,
+              in_stock: ingredient.in_stock,
+              notes: ingredient.notes,
+              ingredient_owner: ingredient.ingredient_owner
+            }
+          }}
+        >{ingredient.ingredient_name}
+        </Link> {' '}
+        <span>{ingredient.in_stock}</span>
+        {' '}
+        <Link
+          // key={ingredient.id}   ...needs to be unique
+          className="edit-ingredient-button"
+          to={{
+            pathname: `/pantry/${ingredient.id}`,
+            state: {
+              id: ingredient.id,
+              ingredient_name: ingredient.ingredient_name,
+              in_stock: ingredient.in_stock,
+              notes: ingredient.notes,
+              ingredient_owner: ingredient.ingredient_owner
+            }
+          }}
+        >
+          Edit
+        </Link>
+        <br />
+      </section>
     )
     );
   }
