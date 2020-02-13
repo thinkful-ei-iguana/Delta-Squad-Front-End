@@ -9,10 +9,8 @@ class PlannerRoute extends Component {
     super(props);
 
     this.state = {
-      title: [],
-      planned_date: [],
-      prep_time: [],
-      needed_ingredients: []
+      mealplans: [],
+      addMealPlan: false
     };
   }
 
@@ -71,7 +69,7 @@ class PlannerRoute extends Component {
           // key={mealplan.id}   ...needs to be unique
           className="edit-mealplan-button"
           to={{
-            pathname: `/planner/edit/${mealplan.id}`,
+            pathname: `/planner/${mealplan.id}`,
             state: {
               id: mealplan.id,
               title: mealplan.title,
