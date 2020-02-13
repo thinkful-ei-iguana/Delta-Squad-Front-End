@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
     console.log("this.props.location is", this.props.location);
     const destination = (location.state || {}).from || "/home";
     history.push(destination);
-    this.context.setUser = this.props.location;
+    // this.context.setUser = this.props.location
   };
 
   loginSubmit = e => {

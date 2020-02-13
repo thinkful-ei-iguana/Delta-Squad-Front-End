@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import LoginRoute from "./Routes/LoginRoute";
 import RegistrationRoute from "./Routes/RegistrationRoute";
-import Home from "./Components/Home"; // dashboard route??
+import Home from "./Components/Dashboard/Home"; // dashboard route??
 import PrivateRoute from "./Components/PrivateOnly/PrivateRoute";
 import PublicOnlyRoute from "./Components/PublicOnly/PublicOnlyRoute";
 import RecipesRoute from "./Routes/RecipesRoute";
@@ -40,7 +40,6 @@ class App extends React.Component {
     this.state = {
       currentUser: {},
       isLoggedIn: false,
-      // hasToken: this.hasAuthToken(),
       recipes: [],
       hasError: false
     };

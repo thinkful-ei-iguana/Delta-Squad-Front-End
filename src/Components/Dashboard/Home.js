@@ -1,5 +1,5 @@
 import React from "react";
-import RecentResults from "../Components/Recent-Results";
+import RecentResults from "./Recent-Results";
 
 export default class Home extends React.Component {
   render() {
