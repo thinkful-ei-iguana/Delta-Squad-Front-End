@@ -56,8 +56,6 @@ class Header extends Component {
   };
 
   renderLogoutLink() {
-    console.log('nav menu context is', this.context);
-    console.log('nav menu props is', this.props);
     return (
       <div>
         <nav className="log-out-user">
@@ -103,9 +101,9 @@ class Header extends Component {
           <Link
             className="nav-link-text recipes"
             to={'/recipes'}>Recipes</Link>
-          {/* <Link
+          <Link
             className="nav-link-text meal-planning"
-          to={`/mealplanning`}>Plan a meal</Link> */}
+            to={`/planning`}>Plan a meal</Link>
 
         </div>
       </section >
@@ -117,7 +115,7 @@ class Header extends Component {
       <header id="header-nav-container">
         <h1 className="heading login-page-header">
           <Link className="heading login-page-link" to="/login">
-            Kitchen Helper
+            Kitchen Helperrr
           </Link>
         </h1>
         {TokenService.hasAuthToken()

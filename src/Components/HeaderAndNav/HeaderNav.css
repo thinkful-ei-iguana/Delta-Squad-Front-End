@@ -1,10 +1,25 @@
+@font-face {
+  font-family: 'cookiesregular';
+  src: url('./src/Assets/cookies-webfont.woff') format('woff'),
+       url('./src/Assets/cookies-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+h1 {
+  font-family: 'cookiesregular';
+
+}
+
 #header-nav-container {
   text-align: center;
   text-decoration: none;
 }
 
-.heading, .recipes, .pantry {
+.heading{
   text-decoration: none;
+  border: 3px solid black;
 }
 
 /* .log-out-user-link{

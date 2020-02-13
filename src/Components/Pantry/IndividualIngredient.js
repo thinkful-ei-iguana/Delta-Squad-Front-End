@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TokenService from '../../Helpers/Token'
 import config from '../../config';
+import "./Pantry.css";
 
 
 class IndividualIngredient extends Component {
@@ -76,12 +77,12 @@ class IndividualIngredient extends Component {
   render() {
     console.log('this.props', this.props);
     return (
-      <div>
-        <section>
-          <p>Update this ingredient:</p>
+      <div id="individual-ingredient-view">
+        <section id="original-ingredient-data">
           <p>Ingredient: {this.props.location.state.ingredient_name}
             <br />In stock? {this.props.location.state.in_stock}
             <br />Notes: {this.props.location.state.notes}</p>
+          <h2 id="update-header">Update this ingredient:</h2>
         </section>
         <form id="modal-content"
           onSubmit={this.handleSubmit}
@@ -112,11 +113,7 @@ class IndividualIngredient extends Component {
           >Hit it!</button>
         </form>
       </div>
-      // <section>
-      //   <p>Ingredient: {this.props.location.state.ingredient_name}</p>
-      //   <p>In stock: {this.props.location.state.in_stock}</p>
-      //   <p>Notes: {this.props.location.state.notes}</p>
-      // </section>
+
     )
   }
 }
