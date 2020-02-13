@@ -85,7 +85,7 @@ class AddMealPlan extends Component {
   render() {
     console.log(this.state.addIngredient);
 
-    return <div>{this.handleAddIngredientWindow}</div>;
+    return <div>{this.handleAddMealPlanWindow}</div>;
   }
 }
 
