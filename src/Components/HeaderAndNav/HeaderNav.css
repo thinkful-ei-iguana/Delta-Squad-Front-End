@@ -1,0 +1,23 @@
+#header-nav-container {
+  text-align: center;
+  text-decoration: none;
+}
+
+.heading, .recipes, .pantry {
+  text-decoration: none;
+}
+
+/* .log-out-user-link{
+  margin-left: -400px;
+} */
+
+#site-sections-box-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.nav-link-text {
+  margin: 10px;
+  padding: 10px;
+}
+

@@ -1,0 +1,40 @@
+/* PantryRoute.js */
+
+#pantry-router-container {
+  display:flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+#edit-ingredient-button {
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-left: 5px;
+  padding: 2px;
+  text-align: right;
+
+}
+
+.individual-ingredients {
+  margin: 6px;
+}
+
+#add-ingredient-button {
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+/* AddIngredient.js */
+
+#modal {
+  border: 3px solid black;
+  padding: 5px;
+  margin-top: 10px
+}
+
+/* IndividualIngredient.js */
+
+#ingredient-detail-page-container {
+  text-align: center;
+}
