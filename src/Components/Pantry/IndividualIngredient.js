@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import TokenService from "../../Helpers/Token";
-import config from "../../config";
+import TokenService from '../../Helpers/Token'
+import config from '../../config';
+import "./Pantry.css";
+
+
 
 class IndividualIngredient extends Component {
   constructor(props) {
@@ -78,39 +81,48 @@ class IndividualIngredient extends Component {
   render() {
     console.log("this.props", this.props);
     return (
-      <div>
-        <section>
-          <p>Update this ingredient:</p>
-          <p>
-            Ingredient: {this.props.location.state.ingredient_name}
-            <br />
-            In stock? {this.props.location.state.in_stock}
-            <br />
-            Notes: {this.props.location.state.notes}
-          </p>
-        </section>
-        <form id="modal-content" onSubmit={this.handleSubmit}>
-          <label>Ingredient:</label>
-          <input id="ingredient" name="ingredient_name" type="text"></input>
-          <div id="ingredient-in-stock">
-            <select id="in-stock" name="in_stock">
-              In stock:
+
+      <div id="individual-ingredient-view">
+        <section id="original-ingredient-data">
+          <p>Ingredient: {this.props.location.state.ingredient_name}
+            <br />In stock? {this.props.location.state.in_stock}
+            <br />Notes: {this.props.location.state.notes}</p>
+          <h2 id="update-header">Update this ingredient:</h2>
+
+          <div>
+            <section>
+              <p>Update this ingredient:</p>
+              <p>
+                Ingredient: {this.props.location.state.ingredient_name}
+                <br />
+                In stock? {this.props.location.state.in_stock}
+                <br />
+                Notes: {this.props.location.state.notes}
+              </p>
+
+            </section>
+            <form id="modal-content" onSubmit={this.handleSubmit}>
+              <label>Ingredient:</label>
+              <input id="ingredient" name="ingredient_name" type="text"></input>
+              <div id="ingredient-in-stock">
+                <select id="in-stock" name="in_stock">
+                  In stock:
               <option value="in-stock">In stock</option>
-              <option value="out">Out</option>
-              <option value="low">Low</option>
-            </select>
+                  <option value="out">Out</option>
+                  <option value="low">Low</option>
+                </select>
+              </div>
+              <label>Notes:</label>
+              <input id="notes" name="notes" type="text"></input>
+              <button id="close">Hit it!</button>
+            </form>
           </div>
-          <label>Notes:</label>
-          <input id="notes" name="notes" type="text"></input>
-          <button id="close">Hit it!</button>
-        </form>
+        </section>
       </div>
-      // <section>
-      //   <p>Ingredient: {this.props.location.state.ingredient_name}</p>
-      //   <p>In stock: {this.props.location.state.in_stock}</p>
-      //   <p>Notes: {this.props.location.state.notes}</p>
-      // </section>
-    );
+    )
+
+
+
   }
 }
 
