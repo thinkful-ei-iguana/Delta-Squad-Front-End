@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import config from '../config';
-import TokenService from '../Helpers/Token'
+import TokenService from "../Helpers/Token";
+import AddIngredient from "../Components/Pantry/AddIngredient";
+// import Modal from "../Components/Modal/Modal";
+import "../index.css"
 
 
 class PantryRoute extends Component {
@@ -9,12 +12,14 @@ class PantryRoute extends Component {
     super(props)
 
     this.state = {
-      ingredients: []
+      ingredients: [],
+      addIngredient: false
     }
   }
 
   componentDidMount() {
     this.getIngredients();
+
   }
 
   // GET; then set state.ingredients with response
@@ -32,9 +37,9 @@ class PantryRoute extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log('get ingredients data is', data);
-        return this.setState({
-          ingredients: data
+        console.log('get ingredients data  is', data);
+        this.setState({
+          ingredients: data,
         });
       })
   }
@@ -47,33 +52,51 @@ class PantryRoute extends Component {
   renderIngredients = () => {
     const ingredients = this.state.ingredients;
     console.log('ingredients is', ingredients);
-    if (ingredients.length > 0) {
-      return (ingredients.map(ingredient =>
-        <Link
-          to={{
-            pathname: `/pantry/${ingredient.id}`,
-            state: {
-              ingredient_name: ingredient.ingredient_name,
-              in_stock: ingredient.in_stock,
-              notes: ingredient.notes,
-              ingredient_owner: ingredient.ingredient_owner
-            }
-          }}
-        >{ingredient.ingredient_name},
-        </Link>
-      )
-      );
-    }
+
+    return (ingredients.map(ingredient =>
+      <Link
+        to={{
+          pathname: `/pantry/${ingredient.id}`,
+          state: {
+            key: ingredient.id,
+            ingredient_name: ingredient.ingredient_name,
+            in_stock: ingredient.in_stock,
+            notes: ingredient.notes,
+            ingredient_owner: ingredient.ingredient_owner
+          }
+        }}
+      >{ingredient.ingredient_name}, {ingredient.in_stock} <br />
+      </Link>
+    )
+    );
+  }
+
+
+  setStateAddIngredientTrue = () => {
+    this.setState({ addIngredient: true })
+  }
+  setStateAddIngredientFalse = () => {
+    this.setState({ addIngredient: false })
   }
 
   render() {
+    console.log('this.state.add', this.state.addIngredient)
     return (
       <section>
-        {this.renderIngredients()}
-
+        {this.state.ingredients && this.renderIngredients()}
+        <AddIngredient
+          addIngredient={this.state.addIngredient}
+          allIngredients={this.state.ingredients}
+          closeAddForm={this.setStateAddIngredientFalse}
+        />
+        <button id="modal-btn" type="submit" onClick={() => this.setStateAddIngredientTrue()}>
+          Add an ingredient
+          </button>
       </section>
     )
   }
 }
+
+
 
 export default PantryRoute;
