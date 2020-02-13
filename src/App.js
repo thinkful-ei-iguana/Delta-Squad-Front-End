@@ -13,6 +13,7 @@ import NotFoundRoute from "./Routes/NotFoundRoute";
 import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
 import Header from "./Components/Header";
+import searchRecipes from "./Components/Recipes/Search-Recipe";
 // import Landing from "./Components/Landing";
 // import AuthHelper from "../src/Helpers/Auth";
 // import Context from "./Contexts/UserContext";
@@ -124,9 +125,26 @@ class App extends React.Component {
               path={"/"}
               component={Home} // dashboard route??
             />
-            <PrivateRoute exact path={"/user/:username"} component={Profile} />
-            <PrivateRoute exact path={"/recipes"} component={RecipesRoute} />
-            <PrivateRoute exact path={"/pantry"} component={PantryRoute} />
+            <PrivateRoute
+              exact
+              path={"/user/:username"}
+              component={Profile}
+            />
+            <PrivateRoute
+              exact
+              path={"/recipes"}
+              component={RecipesRoute}
+            />
+            <PrivateRoute
+              exact
+              path={"/recipes/search"}
+              component={searchRecipes}
+            />
+            <PrivateRoute
+              exact
+              path={"/pantry"}
+              component={PantryRoute}
+            />
             <PrivateRoute
               path={"/pantry/:ingredientId"}
               component={IndividualIngredient}
