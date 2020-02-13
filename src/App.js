@@ -7,17 +7,18 @@ import PrivateRoute from "./Components/PrivateOnly/PrivateRoute";
 import PublicOnlyRoute from "./Components/PublicOnly/PublicOnlyRoute";
 import RecipesRoute from "./Routes/RecipesRoute";
 import PantryRoute from "./Routes/PantryRoute";
+import PlannerRoute from "./Routes/PlannerRoute";
 import IndividualIngredient from "./Components/Pantry/IndividualIngredient";
 import NotFoundRoute from "./Routes/NotFoundRoute";
 import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
 import Header from "./Components/Header";
+import searchRecipes from "./Components/Recipes/Search-Recipe";
 // import Landing from "./Components/Landing";
 // import AuthHelper from "../src/Helpers/Auth";
-// import Context from "./Contexts/Context";
+// import Context from "./Contexts/UserContext";
 // import config from "./config";
 // import MarketplaceRoute from "./Routes/MarketplaceRoute";
-// import MealPlanningRoute from "./Routes/MealPlanningRoute";
 // import DetailedView from "./Components/Recipes/Individual-Recipe";
 
 const options = {
@@ -112,8 +113,11 @@ class App extends React.Component {
       // >
       <div className="App">
         <main>
+<<<<<<< HEAD
 
           <Header user={this.state.currentUser} />
+=======
+>>>>>>> master
           <Switch>
             {/* <PrivateRoute
               exact
@@ -137,6 +141,11 @@ class App extends React.Component {
             />
             <PrivateRoute
               exact
+              path={"/recipes/search"}
+              component={searchRecipes}
+            />
+            <PrivateRoute
+              exact
               path={"/pantry"}
               component={PantryRoute}
             />
@@ -144,33 +153,25 @@ class App extends React.Component {
               path={"/pantry/:ingredientId"}
               component={IndividualIngredient}
             />
+            <PrivateRoute exact path={"/planner"} component={PlannerRoute} />
             {/* <PrivateRoute
               path={"/marketplace"}
               component={MarketplaceRoute}
-            />
-            <PrivateRoute
-              path={"/mealplanning"}
-              component={MealPlanningRoute}
-            /> */}
+            />*/}
             <PublicOnlyRoute
               exact
               path={"/register"}
               component={RegistrationRoute}
             />
-            <PublicOnlyRoute
-              exact
-              path={"/login"}
-              component={LoginRoute}
-            />
-            <Route
-              component={NotFoundRoute}
-            />
+            <PublicOnlyRoute exact path={"/login"} component={LoginRoute} />
+            <Route component={NotFoundRoute} />
           </Switch>
         </main>
       </div>
+      //{" "}
       // </Context.Provider>
     );
   }
 }
-console.log("First commit!");
+
 export default App;

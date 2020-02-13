@@ -1,28 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AuthHelper from "../../Helpers/Auth";
-import Context from "../../Contexts/Context";
+// import Context from "../../Contexts/Context";
 import UserContext from "../../Contexts/UserContext";
-
 
 class LoginForm extends React.Component {
   static defaultProps = {
     location: {},
     history: {
-      push: () => { }
+      push: () => {}
     },
-    onLoginSuccess: () => { }
+    onLoginSuccess: () => {}
   };
   state = { error: null };
 
   static contextType = UserContext;
 
-
   // firstInput = React.createRef();
 
   onLoginSuccess = () => {
     const { location, history } = this.props;
-    console.log('this.props.location is', this.props.location);
+    console.log("this.props.location is", this.props.location);
     const destination = (location.state || {}).from || "/home";
     history.push(destination);
     // this.context.setUser = this.props.location
@@ -40,7 +38,7 @@ class LoginForm extends React.Component {
         user_name.value = "";
         password.value = "";
         this.context.processLogin(res.authToken);
-        this.props.onLoginSuccess()
+        this.props.onLoginSuccess();
       })
       .catch(res => {
         this.setState({ error: res.error });
@@ -104,5 +102,3 @@ class LoginForm extends React.Component {
 }
 
 export default LoginForm;
-
-
