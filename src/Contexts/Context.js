@@ -5,6 +5,7 @@ const Context = React.createContext({
   hasToken: "",
   isLoggedIn: false,
   recipes: [],
+  mealplans: [],
   lightMode: () => {},
   saveAuthToken: () => {},
   getAuthToken: () => {},
