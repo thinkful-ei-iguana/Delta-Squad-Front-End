@@ -39,6 +39,10 @@ class EditMealPlan extends Component {
   //     }
   //   };
 
+  // let mealPlanId = this.props.match.params.mealPlanId;
+  // const url = `${config.API_ENDPOINT}/planner${mealPlanId}`;
+  // const authToken = TokenService.getAuthToken();
+
   handleEditSuccess = () => {
     const { history } = this.props;
     history.push("/");

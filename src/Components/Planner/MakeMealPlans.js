@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-// import config from "../../config";
-// import TokenService from "../../Helpers/Token";
+import config from "../../config";
+import TokenService from "../../Helpers/Token";
 import PlannerHelper from "../../Helpers/Planner";
 
 class AddMealPlan extends Component {
@@ -9,13 +9,13 @@ class AddMealPlan extends Component {
 
     this.state = {
       addMealPlan: false,
-      newMealPlan: []
+      newMealPlan: [],
+      postMealPlan: []
     };
   }
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.props, "this props");
     let { title, planned_date, prep_time, needed_ingredients } = e.target;
     const mealPlanJson = JSON.stringify({
       title: title.value,
@@ -25,27 +25,33 @@ class AddMealPlan extends Component {
     });
     PlannerHelper.addMealPlan(mealPlanJson).then(data => {
       console.log("post data is", data);
+      this.props.refreshMealPlans();
       this.props.closeAddForm();
     });
   };
 
   handleAddMealPlanWindow = () => {
-    // console.log(this.state);
     return (
       <div>
         {this.props.addMealPlan === true && (
           <div id="modal">
             <form id="modal-content" onSubmit={this.handleSubmit}>
               <label>Mealplan:</label>
-              <input type="text">{this.props.title}</input>
+              <input name="title" type="text">
+                {this.props.title}
+              </input>
               <label>Meal Date:</label>
-              <input type="text">{this.props.planned_date}</input>
+              <input name="planned_date" type="text">
+                {this.props.planned_date}
+              </input>
               <label>Prep Time:</label>
-              <input type="text">{this.props.prep_time}</input>
+              <input name="prep_time" type="text">
+                {this.props.prep_time}
+              </input>
               <label>
                 Ingredients Required: {this.props.needed_ingredients}
               </label>
-              <input type="text"></input>
+              <input name="needed_ingredients" type="text"></input>
               <button
                 id="close"
                 // onClick={this.props.toggleAddForm}
@@ -71,7 +77,7 @@ class AddMealPlan extends Component {
   // }
 
   render() {
-    // console.log(this.state.addMealPlan, "this.state.addmealplan");
+    console.log(this.props.addMealPlan, "this.props.addMealPlan");
 
     return <div>{this.handleAddMealPlanWindow()}</div>;
   }

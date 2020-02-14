@@ -49,7 +49,7 @@ class PlannerRoute extends Component {
     // console.log("mealplans is", mealplans);
 
     return mealplans.map(mealplan => (
-      <section key="abc">
+      <section key={mealplan.id}>
         <Link
           key={mealplan.id}
           to={{
@@ -101,6 +101,7 @@ class PlannerRoute extends Component {
           addMealPlan={this.state.addMealPlan}
           allMealPlans={this.state.mealplans}
           closeAddForm={this.setStateAddMealPlanFalse}
+          refreshMealPlans={this.getMealPlans}
         />
         <button
           id="modal-btn"
