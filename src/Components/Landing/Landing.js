@@ -1,8 +1,9 @@
 import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { Link } from "react-router-dom";
-import Context from "../Contexts/Context";
-import RecentResults from "./Recent-Results";
+import './Landing.css';
+// import Context from "../Contexts/Context";
+// import RecentResults from "./Recent-Results";
 
 export default class Landing extends React.Component {
   // static contextType = Context;
@@ -22,14 +23,10 @@ export default class Landing extends React.Component {
       <div className="Landing">
         <header id="Landing-Header" className="flex-container">
           <div className="k-h-logo">
-            <img src="../images/Landing-BannerD1.gif" alt="Kitchen Helper Logo" />
+            <img src="Landing-BannerD1.gif" alt="Kitchen Helper Logo" />
           </div>
           <div className="flex-item"></div>
-          <div className="login-signup">
-            <Link className="Login-Signup" to="/">
-              Continue to Kitchen Helper!
-            </Link>
-          </div>
+          
         </header>
         <section id="landingDocumentation">
           <div className="site-description">
@@ -44,10 +41,16 @@ export default class Landing extends React.Component {
               amazing meals at home while staying organized and never running out 
               of that special ingredient you need for your amazing lasagna recipe.
             </p>
+
             <img src="" alt="Recipe Search" id="recipe-search"/>
             <img src="" alt="Pantry Ingredient List" id="pantry-list"/>
             <img src="" alt="Meal Planning" id="meal-planning-form" />
 
+            <div className="login-signup">
+            <Link className="Login-Signup" to="/">
+              Continue to Kitchen Helper!
+            </Link>
+          </div>
           </div>
          
         </section>

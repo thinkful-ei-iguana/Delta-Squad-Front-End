@@ -12,6 +12,7 @@ import NotFoundRoute from "./Routes/NotFoundRoute";
 import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
 import Header from "./Components/Header";
+import Landing from "./Components/Landing/Landing";
 // import Landing from "./Components/Landing";
 // import AuthHelper from "../src/Helpers/Auth";
 // import Context from "./Contexts/Context";
@@ -152,6 +153,11 @@ class App extends React.Component {
               path={"/mealplanning"}
               component={MealPlanningRoute}
             /> */}
+            <PublicOnlyRoute
+              exact 
+              path={"/landing"}
+              component={Landing}
+              />
             <PublicOnlyRoute
               exact
               path={"/register"}
