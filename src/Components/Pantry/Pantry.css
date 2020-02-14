@@ -16,10 +16,13 @@
   font-weight: normal;
   font-style: normal;
 }
-
-* {
-  font-family: 'Nanum Gothic', sans-serif;
-}
+/*
+ #F8FFCA Yellow Green
+ #B6D084 Chartreuse
+ #FFCB32 Mimosa
+ #2F7604 Green
+ #141514 Black
+ */
 
 #my-pantry-header {
   font-size: 40px;
@@ -51,6 +54,7 @@
   padding: 4px;
   margin-left: 10px;
   margin-top: 20px;
+  background-color: #FFCB32;
 }
 
 .individual-ingredients {
@@ -58,6 +62,7 @@
   flex-direction: row;
   justify-content: center;
   margin-bottom: -35px;
+  background-color: #B6D084;
 }
 
 #add-ingredient-button {
@@ -82,7 +87,7 @@
 #modal {
   border: 3px solid black;
   padding: 5px;
-  margin-top: 10px
+  margin-top: 10px;
 }
 
 /* IndividualIngredient.js */
@@ -111,4 +116,7 @@
   justify-content: center;
   align-items: center;
   min-width: 305px;
+  background-color: #2F7604;
+  color: white;
+  font-weight: bold;
 }
