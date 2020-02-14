@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
-// import PlannerHelper from "../../Helpers/Planner";
-// import MealPlans from "./MealPlans";
 import config from "../../config";
 import TokenService from "../../Helpers/Token";
 
-class EditMealPlan extends Component {
+class MealPlan extends Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +32,7 @@ class EditMealPlan extends Component {
     const authToken = TokenService.getAuthToken();
     let { title, planned_date, prep_time, needed_ingredients } = e.target;
 
-    let updateMealPlan = {
+    let updatedMealPlan = {
       id: mealPlanId,
       title: title.value || this.props.location.state.title,
       planned_date:
@@ -44,14 +41,14 @@ class EditMealPlan extends Component {
       needed_ingredients:
         needed_ingredients.value || this.props.location.state.needed_ingredients
     };
-    console.log("updated mealplan to be sent to server is:", updateMealPlan);
+    console.log("updated mealplan to be sent to server is:", updatedMealPlan);
     fetch(url, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${authToken}`
       },
-      body: JSON.stringify(updateMealPlan)
+      body: JSON.stringify(updatedMealPlan)
     })
       .then(res => {
         if (!res.ok) return res.json().then(error => Promise.reject(error));
@@ -108,7 +105,7 @@ class EditMealPlan extends Component {
     );
   };
 
-  handleDeleteMealplan = e => {
+  handleDeleteMealPlan = e => {
     e.preventDefault();
     let mealPlanId = this.props.match.params.mealPlanId;
     const url = `${config.API_ENDPOINT}/planner/${mealPlanId}`;
@@ -136,19 +133,18 @@ class EditMealPlan extends Component {
 
   render() {
     console.log("this.props", this.props);
-    console.log("this.state", this.state);
     return (
       <div id="individual-mealplan-view">
         <section id="original-mealplan-data">
           <h2 id="update-header"></h2>
           <p>
-            Mealplan: {this.props.location.state.title}
+            Title: {this.props.location.state.title}
             <br />
             Planned date: {this.props.location.state.planned_date}
             <br />
-            Time to prepare: {this.props.location.state.prep_time}
+            Time to make: {this.props.location.state.prep_time}
             <br />
-            Ingredients needed: {this.props.location.state.needed_ingredients}
+            Ingredients required: {this.props.location.state.needed_ingredients}
           </p>
         </section>
         <button
@@ -176,6 +172,20 @@ class EditMealPlan extends Component {
       </div>
     );
   }
+  // return (
+  //   <section>
+  //     <p>Title: {this.props.location.state.title}</p>
+  //     <p>Meal date: {this.props.location.state.planned_date}</p>
+  //     <p>Prep time: {this.props.location.state.prep_time}</p>
+  //     <p>
+  //       Ingredients required: {this.props.location.state.recipe_ingredients}
+  //     </p>
+  //   </section>
+  // )
+
+  // <div key={mealplan.id} className="food-item">
+  //   <mealplan {...mealplan} />;
+  // </div>
 }
 
-export default EditMealPlan;
+export default MealPlan;

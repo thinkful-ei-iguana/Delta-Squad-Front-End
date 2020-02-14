@@ -1,59 +1,56 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import config from '../config';
+import config from "../config";
 import TokenService from "../Helpers/Token";
 import AddIngredient from "../Components/Pantry/AddIngredient";
 // import Modal from "../Components/Modal/Modal";
-import "../index.css"
-
+import "../index.css";
 
 class PantryRoute extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       ingredients: [],
       addIngredient: false
-    }
+    };
   }
 
   componentDidMount() {
     this.getIngredients();
-
   }
 
   // GET; then set state.ingredients with response
   getIngredients = () => {
-    console.log('pantry route get ingredients');
+    console.log("pantry route get ingredients");
     const url = `${config.API_ENDPOINT}/pantry`;
     const authToken = TokenService.getAuthToken();
-    console.log('autho token is', authToken);
+    console.log("autho token is", authToken);
     fetch(url, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-type': 'application/json',
-        'Authorization': `Bearer ${authToken}`
+        "Content-type": "application/json",
+        Authorization: `Bearer ${authToken}`
       }
     })
       .then(res => res.json())
       .then(data => {
-        console.log('get ingredients data  is', data);
+        console.log("get ingredients data  is", data);
         this.setState({
-          ingredients: data,
+          ingredients: data
         });
-      })
-  }
+      });
+  };
 
   // POST - add ingredient in pop-out view
-
 
   // PATCH using ingredient id, new route
 
   renderIngredients = () => {
     const ingredients = this.state.ingredients;
-    console.log('ingredients is', ingredients);
+    console.log("ingredients is", ingredients);
 
-    return (ingredients.map(ingredient =>
+    return ingredients.map(ingredient => (
       <section>
         <Link
           key={ingredient.id}
@@ -66,10 +63,10 @@ class PantryRoute extends Component {
               ingredient_owner: ingredient.ingredient_owner
             }
           }}
-        >{ingredient.ingredient_name}
-        </Link> {' '}
-        <span>{ingredient.in_stock}</span>
-        {' '}
+        >
+          {ingredient.ingredient_name}
+        </Link>{" "}
+        <span>{ingredient.in_stock}</span>{" "}
         <Link
           // key={ingredient.id}   ...needs to be unique
           className="edit-ingredient-button"
@@ -88,20 +85,18 @@ class PantryRoute extends Component {
         </Link>
         <br />
       </section>
-    )
-    );
-  }
-
+    ));
+  };
 
   setStateAddIngredientTrue = () => {
-    this.setState({ addIngredient: true })
-  }
+    this.setState({ addIngredient: true });
+  };
   setStateAddIngredientFalse = () => {
-    this.setState({ addIngredient: false })
-  }
+    this.setState({ addIngredient: false });
+  };
 
   render() {
-    console.log('this.state.add', this.state.addIngredient)
+    console.log("this.state.add", this.state.addIngredient);
     return (
       <section>
         {this.state.ingredients && this.renderIngredients()}
@@ -110,14 +105,16 @@ class PantryRoute extends Component {
           allIngredients={this.state.ingredients}
           closeAddForm={this.setStateAddIngredientFalse}
         />
-        <button id="modal-btn" type="submit" onClick={() => this.setStateAddIngredientTrue()}>
+        <button
+          id="modal-btn"
+          type="submit"
+          onClick={() => this.setStateAddIngredientTrue()}
+        >
           Add an ingredient
-          </button>
+        </button>
       </section>
-    )
+    );
   }
 }
-
-
 
 export default PantryRoute;

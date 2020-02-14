@@ -67,15 +67,6 @@ class AddMealPlan extends Component {
     );
   };
 
-  // setStateAddIngredient = () => {
-  //   if (this.state.addMealPlan === false) {
-  //     this.setState({
-  //       addMealPlan: true
-  //     })
-  //   }
-  //   else { this.setState({ addMealPlan: false }) }
-  // }
-
   render() {
     console.log(this.props.addMealPlan, "this.props.addMealPlan");
 

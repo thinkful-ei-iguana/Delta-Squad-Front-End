@@ -49,7 +49,7 @@ class PlannerRoute extends Component {
     // console.log("mealplans is", mealplans);
 
     return mealplans.map(mealplan => (
-      <section key={mealplan.id}>
+      <section>
         <Link
           key={mealplan.id}
           to={{
@@ -64,7 +64,7 @@ class PlannerRoute extends Component {
         >
           {mealplan.title}
         </Link>{" "}
-        <span>{mealplan.planned_date}</span>{" "}
+        <span>{mealplan.planned_date}</span> <span>{mealplan.prep_time}</span>{" "}
         <Link
           // key={mealplan.id}   ...needs to be unique
           className="edit-mealplan-button"
@@ -79,15 +79,17 @@ class PlannerRoute extends Component {
             }
           }}
         >
-          Edit
+          Edit MealPlan
         </Link>
         <br />
       </section>
     ));
   };
+
   setStateAddMealPlanTrue = () => {
     this.setState({ addMealPlan: true });
   };
+
   setStateAddMealPlanFalse = () => {
     this.setState({ addMealPlan: false });
   };
@@ -95,21 +97,24 @@ class PlannerRoute extends Component {
   render() {
     // console.log("this.state.add", this.state.addMealPlan);
     return (
-      <section>
-        {this.state.mealplans && this.renderMealPlans()}
+      <section id="planner-route-container">
+        <h2 id="my-planner-header">My Mealplans</h2>
+        {this.state.ingredients && this.renderIngredients()}
+        {this.state.mealplans.length > 0 && (
+          <button
+            id="modal-btn"
+            type="submit"
+            onClick={() => this.setStateAddMealPlanTrue()}
+          >
+            Add a MealPlan
+          </button>
+        )}
         <AddMealPlan
           addMealPlan={this.state.addMealPlan}
           allMealPlans={this.state.mealplans}
           closeAddForm={this.setStateAddMealPlanFalse}
           refreshMealPlans={this.getMealPlans}
         />
-        <button
-          id="modal-btn"
-          type="submit"
-          onClick={() => this.setStateAddMealPlanTrue()}
-        >
-          Add a mealplan
-        </button>
       </section>
     );
   }

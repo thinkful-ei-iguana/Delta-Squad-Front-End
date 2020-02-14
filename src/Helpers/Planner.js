@@ -19,6 +19,16 @@ const PlannerHelper = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
     });
   },
+  updateMealPlan(updatedData, id) {
+    return fetch(`${config.API_ENDPOINT}/planner/edit/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${config.TOKEN_KEY}`
+      },
+      body: JSON.stringify(updatedData)
+    });
+  }
 
   // deleteMealPlan(id) {
   //   return fetch(`${config.API_ENDPOINT}/planner/${id}`, {
@@ -50,16 +60,6 @@ const PlannerHelper = {
   //     !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
   //   );
   // },
-  updateMealPlan(updatedData, id) {
-    return fetch(`${config.API_ENDPOINT}/planner/edit/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${config.TOKEN_KEY}`
-      },
-      body: JSON.stringify(updatedData)
-    });
-  }
 };
 
 export default PlannerHelper;
