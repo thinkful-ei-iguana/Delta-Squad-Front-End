@@ -1,4 +1,5 @@
 import React from "react";
+import './Search-Recipe.css'
 
 export default class SearchRecipe extends React.Component {
     constructor(props) {
@@ -40,7 +41,7 @@ export default class SearchRecipe extends React.Component {
         return;
       }
         return (
-                this.state.searchResults.map(recipe => <li key={recipe.id}>{recipe.title}</li>)
+                this.state.searchResults.map(recipe => <li className="individualResult" key={recipe.id}>{recipe.title}</li>)
         )
     }
 
@@ -48,12 +49,12 @@ export default class SearchRecipe extends React.Component {
         return(
             <div className="searchRecipe">
                 <form onSubmit={this.handleSearch}>
-                    <input type="text" onChange={e => this.setState({searchTerms: e.target.value})}></input>
-                    <button type="submit">Search</button>
+                    <input id="searchBar" type="text" onChange={e => this.setState({searchTerms: e.target.value})}></input>
+                    <button id="searchButton" type="submit">Search</button>
                 </form>
 
                 <section className="recipeResults">
-                    <h3>Results:</h3>
+                    <h2 id="results">Results:</h2>
                     {this.displaySearchResults()}
 
                 </section>

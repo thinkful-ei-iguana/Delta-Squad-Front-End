@@ -1,58 +1,56 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import config from '../config';
+import config from "../config";
 import TokenService from "../Helpers/Token";
 import AddIngredient from "../Components/Pantry/AddIngredient";
 import "../Components/Pantry/Pantry.css"
 // import Modal from "../Components/Modal/Modal";
+import "../index.css";
 
 
 class PantryRoute extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       ingredients: [],
       addIngredient: false
-    }
+    };
   }
 
   componentDidMount() {
     this.getIngredients();
-
   }
 
   // GET; then set state.ingredients with response
   getIngredients = () => {
-    console.log('pantry route get ingredients');
+    console.log("pantry route get ingredients");
     const url = `${config.API_ENDPOINT}/pantry`;
     const authToken = TokenService.getAuthToken();
-    console.log('autho token is', authToken);
+    console.log("autho token is", authToken);
     fetch(url, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-type': 'application/json',
-        'Authorization': `Bearer ${authToken}`
+        "Content-type": "application/json",
+        Authorization: `Bearer ${authToken}`
       }
     })
       .then(res => res.json())
       .then(data => {
-        console.log('get ingredients data  is', data);
+        console.log("get ingredients data  is", data);
         this.setState({
-          ingredients: data,
+          ingredients: data
         });
-      })
-  }
+      });
+  };
 
   // POST - add ingredient in pop-out view
-
 
   // PATCH using ingredient id, new route
 
   renderIngredients = () => {
     const ingredients = this.state.ingredients;
-    console.log('ingredients is', ingredients);
-
+    console.log("ingredients is", ingredients);
     return (ingredients.map(ingredient =>
       <section className="individual-ingredients" key={ingredient.id}>
         {/* <Link
@@ -93,14 +91,14 @@ class PantryRoute extends Component {
 
 
   setStateAddIngredientTrue = () => {
-    this.setState({ addIngredient: true })
-  }
+    this.setState({ addIngredient: true });
+  };
   setStateAddIngredientFalse = () => {
-    this.setState({ addIngredient: false })
-  }
+    this.setState({ addIngredient: false });
+  };
 
   render() {
-    console.log('this.state.add', this.state.addIngredient)
+    console.log("this.state.add", this.state.addIngredient);
     return (
       <section id="pantry-router-container">
         <h2 id="my-pantry-header">My Pantry</h2>
@@ -118,11 +116,10 @@ class PantryRoute extends Component {
           {this.state.ingredients && this.renderIngredients()}
         </div>
 
+
       </section>
-    )
+    );
   }
 }
-
-
 
 export default PantryRoute;

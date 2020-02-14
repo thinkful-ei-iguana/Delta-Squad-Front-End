@@ -7,7 +7,7 @@ export default class Login extends React.Component {
   static defaultProps = {
     location: {},
     history: {
-      push: () => { }
+      push: () => {}
     }
   };
 
