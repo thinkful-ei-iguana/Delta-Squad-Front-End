@@ -36,7 +36,7 @@ button {
   height: 100px;
   font-family: 'cookiesregular';
   font-size: 25px;
-  
+  cursor: pointer;
 }
 
 .recipePage {

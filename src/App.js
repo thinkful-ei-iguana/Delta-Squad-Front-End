@@ -14,6 +14,7 @@ import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
 import Header from "./Components/Header";
 import searchRecipes from "./Components/Recipes/Search-Recipe";
+import createRecipes from "./Components/Recipes/Create-Recipe";
 // import Landing from "./Components/Landing";
 // import AuthHelper from "../src/Helpers/Auth";
 // import Context from "./Contexts/UserContext";
@@ -140,6 +141,11 @@ class App extends React.Component {
               exact
               path={"/recipes/search"}
               component={searchRecipes}
+            />
+            <PrivateRoute
+              exact
+              path={"/recipes/create"}
+              component={createRecipes}
             />
             <PrivateRoute
               exact

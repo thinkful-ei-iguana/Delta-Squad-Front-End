@@ -77,6 +77,7 @@ class RecipesRoute extends Component {
     return (
       <section>
         <Link to="recipes/search"><button className="bigButton">Search for new recipes</button></Link>
+        <Link to="recipes/create"><button className="bigButton">Create new recipe</button></Link>
         {this.state.recipes && this.renderRecipes()}
 
       </section>
