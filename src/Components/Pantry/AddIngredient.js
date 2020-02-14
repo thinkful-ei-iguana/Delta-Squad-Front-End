@@ -25,6 +25,7 @@ class AddIngredient extends Component {
     IngredientHelper.addIngredient(ingredientJson)
       .then(data => {
         console.log('post data is', data);
+        this.props.refreshIngredients();
         this.props.closeAddForm();
       });
   }

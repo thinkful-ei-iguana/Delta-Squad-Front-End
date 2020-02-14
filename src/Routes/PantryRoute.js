@@ -114,6 +114,7 @@ class PantryRoute extends Component {
         <AddIngredient
           addIngredient={this.state.addIngredient}
           allIngredients={this.state.ingredients}
+          refreshIngredients={this.getIngredients}
           closeAddForm={this.setStateAddIngredientFalse}
         />
 
