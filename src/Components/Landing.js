@@ -34,7 +34,7 @@ export default class Landing extends React.Component {
         <section id="landingDocumentation">
           <div className="site-description">
             <p>
-              Kitchen Helper is best friend in the kitchen.  
+              Kitchen Helper is a best friend in the kitchen.  
               This app combines the ability to track the items in your pantry, the 
               opportunity to plan your meals for a given time period and puts a large
               database of recipes at your fingertips.  You also have the ability to add
