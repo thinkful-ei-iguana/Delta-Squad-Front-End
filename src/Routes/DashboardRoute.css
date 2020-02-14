@@ -7,20 +7,31 @@
   margin: 10px;
   text-align: center;
   font-size: 30px;
-  vertical-align: middle;
-}
-.dashboard-link-text {
-  text-decoration: none;
-  vertical-align: middle;
+  vertical-align: middle; 
+  background-color: #FFCB32;
 }
 
+.dashboard-link-text {
+  text-decoration: none;
+  line-height: 140px;
+  padding: 3px; 
+  color: black;
+  font-weight: bold;
+}
+
+.dashboard.meal-plan {
+  font-size: 25px;
+}
 
 #dashboard-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   vertical-align: middle;
+}
 
+Link {
+  margin-top: 40px;
 }
 
 @media screen and (min-width: 420px){
@@ -30,6 +41,19 @@
     min-width: 200px;
   }
 
+  .dashboard-link-text {
+    line-height: 185px;
+  }
+
+  .dashboard.meal-plan {
+    font-size: 30px;
+  }
+
+  #dashboard-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: 700px){
@@ -39,11 +63,13 @@
     height: 250px;
     min-width: 250px;
   }
+
+  .dashboard-link-text {
+    line-height: 230px;
+  }
   
   #dashboard-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     margin-top: 50px;
+    text-align: center;
   }
 }
