@@ -20,55 +20,49 @@ class DashboardRoute extends Component {
 
     render() {
         return (
-          <div className="Dashboard"> 
-           {/* <NavMenu /> */}
-              <Header />
-              <Switch>
+            <div id="dashboard-container">
+                <ul id="dashboard-links-list">
+                    <li className="dashboard pantry">
+                        <Link
+                            className="dashboard-link-text"
+                            to={"/pantry"}>
+                            Pantry
+                        </Link>
+                    </li>
 
-              <div className="home-link">             
-                    <Link
-                        id="home"
-                        to={Home}>
-                        Home
-                    </Link>
-               </div> 
+                    {/* <div className="marketPlace">               
+                        <Link 
+                            id="marketplace"
+                            to={MarketPlace}>
+                            MarketPlace
+                        </Link>
+                </div>  */}
 
-               <div className="pantry">                
-                    <Link 
-                        id="pantry"
-                        to={Pantry}>
-                        Pantry
-                    </Link>
-               </div> 
+                    <li className="dashboard recipes">
+                        <Link
+                            className="dashboard-link-text"
 
-               <div className="marketPlace">               
-                    <Link 
-                        id="marketplace"
-                        to={MarketPlace}>
-                        MarketPlace
-                    </Link>
-               </div> 
+                            to={"/recipes"}>
+                            Recipes
+                        </Link>
+                    </li>
+                    <li className="dashboard meal-plan">
+                        <Link
+                            className="dashboard-link-text"
+                            to={"/planner"}>
+                            Plan a Meal
+                        </Link>
+                    </li>
 
-               <div className="recipeSearch">                
-                    <Link 
-                        id="recipeSearch"
-                        to={RecipeSearch}>
-                        RecipeSearch
-                    </Link>
-               </div> 
-
-               <div className="accountInfo">                
-                    <Link 
-                        id="accountInfo"
-                        to={AccountInfo}>
-                        AccountInfo
-                    </Link>
-               </div> 
-
-              </Switch>
-
-           </div>  
-
+                    {/* <div className="accountInfo">                
+                        <Link 
+                            id="accountInfo"
+                            to={AccountInfo}>
+                            AccountInfo
+                        </Link>
+                </div>  */}
+                </ul>
+            </div >
         );
     }
 }

@@ -22,9 +22,11 @@
  #141514 Black
  */
 
+ 
  .App {
   font-family: 'Nanum Gothic', sans-serif;
-  background-color:#F8FFCA
+  background-color:#F8FFCA;
+  height: 2000px;
 }
 
 button {
