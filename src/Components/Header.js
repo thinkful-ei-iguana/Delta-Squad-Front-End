@@ -75,11 +75,11 @@ class Header extends Component {
 
   renderLoginLink() {
     return (
-      <nav className="heading login-page-heading">
-        <Link className="heading login-page-login" to="/login">
+      <nav className="login-page-heading">
+        <Link className="login-page-login" to="/login">
           Login
         </Link>{" "}
-        <Link className="heading login-page-register" to="/register">
+        <Link className="login-page-register" to="/register">
           Sign up
         </Link>
       </nav>
@@ -88,7 +88,7 @@ class Header extends Component {
 
   renderNavMenu() {
     return (
-      <section>
+      <section id="navBar">
         <Link className="nav-link-text pantry" to={`/pantry`}>
           Pantry
         </Link>
@@ -109,9 +109,9 @@ class Header extends Component {
 
   render() {
     return (
-      <header>
-        <h1 className="heading login-page-header">
-          <Link className="heading login-page-link" to="/login">
+      <header className="heading">
+        <h1 className="login-page-header">
+          <Link className="login-page-link" to="/login">
             Kitchen Helper
           </Link>
         </h1>
