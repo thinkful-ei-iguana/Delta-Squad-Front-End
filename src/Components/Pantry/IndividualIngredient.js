@@ -11,7 +11,7 @@ class IndividualIngredient extends Component {
 
     this.state = {
       ingredient: [],
-      addIngredient: false
+      updateIngredient: false
     };
   }
 
@@ -50,7 +50,7 @@ class IndividualIngredient extends Component {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${authToken}`
+        "authorization": `Bearer ${authToken}`
       },
       body: JSON.stringify(updatedIngredient)
     })
@@ -78,29 +78,21 @@ class IndividualIngredient extends Component {
   //   })
   // }
 
-  render() {
-    console.log("this.props", this.props);
+  handleGoBack = () => {
+    return this.props.history.push("/pantry")
+  }
+
+  setStateUpdateIngredientTrue = () => {
+    this.setState({
+      updateIngredient: true
+    })
+  }
+
+  handleUpdateIngredient = () => {
     return (
-
-      <div id="individual-ingredient-view">
-        <section id="original-ingredient-data">
-          <p>Ingredient: {this.props.location.state.ingredient_name}
-            <br />In stock? {this.props.location.state.in_stock}
-            <br />Notes: {this.props.location.state.notes}</p>
-          <h2 id="update-header">Update this ingredient:</h2>
-
+      <div>
+        {this.state.updateIngredient === true &&
           <div>
-            <section>
-              <p>Update this ingredient:</p>
-              <p>
-                Ingredient: {this.props.location.state.ingredient_name}
-                <br />
-                In stock? {this.props.location.state.in_stock}
-                <br />
-                Notes: {this.props.location.state.notes}
-              </p>
-
-            </section>
             <form id="modal-content" onSubmit={this.handleSubmit}>
               <label>Ingredient:</label>
               <input id="ingredient" name="ingredient_name" type="text"></input>
@@ -116,8 +108,66 @@ class IndividualIngredient extends Component {
               <input id="notes" name="notes" type="text"></input>
               <button id="close">Hit it!</button>
             </form>
-          </div>
+
+          </div>}
+      </div>
+    )
+  }
+
+  handleDeleteIngredient = (e) => {
+    e.preventDefault();
+    let ingredientId = this.props.match.params.ingredientId;
+    const url = `${config.API_ENDPOINT}/pantry/${ingredientId}`;
+    const authToken = TokenService.getAuthToken();
+
+    console.log(
+      "ingredient to be sent to server is",
+      ingredientId
+    );
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        "authorization": `Bearer ${authToken}`
+      }
+    })
+      .then(res => {
+        if (!res.ok) return res.json().then(error => Promise.reject(error));
+      })
+      .then(data => {
+        console.log("delete is", data);
+        this.props.history.push("/pantry");
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
+  render() {
+    console.log("this.props", this.props);
+    return (
+
+      <div id="individual-ingredient-view">
+        <section id="original-ingredient-data">
+          <h2 id="update-header"></h2>
+          <p>
+            Ingredient: {this.props.location.state.ingredient_name}
+            <br />
+            In stock? {this.props.location.state.in_stock}
+            <br />
+            Notes: {this.props.location.state.notes}
+          </p>
         </section>
+        <button id="update-ingredient-button" type="submit" onClick={() => this.setStateUpdateIngredientTrue()}>
+          Update
+        </button>
+        <button id="update-ingredient-button" type="submit" onClick={(e) => this.handleDeleteIngredient(e)}>
+          Delete
+        </button>
+        {this.handleUpdateIngredient()}
+        <button id="go-back-button" type="submit" onClick={() => this.handleGoBack()}>
+          Go back
+        </button>
       </div>
     )
 

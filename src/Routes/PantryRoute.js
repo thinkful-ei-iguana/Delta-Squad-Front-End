@@ -104,7 +104,11 @@ class PantryRoute extends Component {
     return (
       <section id="pantry-router-container">
         <h2 id="my-pantry-header">My Pantry</h2>
+        {this.state.ingredients.length > 0 && <button id="add-ingredient-button" type="submit" onClick={() => this.setStateAddIngredientTrue()}>
+          Add an ingredient
+          </button>}
         <div id="ingredients-container">
+
           {this.state.ingredients && this.renderIngredients()}
         </div>
         <AddIngredient
@@ -112,9 +116,7 @@ class PantryRoute extends Component {
           allIngredients={this.state.ingredients}
           closeAddForm={this.setStateAddIngredientFalse}
         />
-        <button id="add-ingredient-button" type="submit" onClick={() => this.setStateAddIngredientTrue()}>
-          Add an ingredient
-          </button>
+
       </section>
     )
   }
