@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import AuthHelper from "../../Helpers/Auth";
 // import Context from "../../Contexts/Context";
 import UserContext from "../../Contexts/UserContext";
+import "./Login.css";
 
 class LoginForm extends React.Component {
   static defaultProps = {
     location: {},
     history: {
-      push: () => {}
+      push: () => { }
     },
-    onLoginSuccess: () => {}
+    onLoginSuccess: () => { }
   };
   state = { error: null };
 
@@ -52,47 +53,52 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="Login">
+      <div className="login">
         <header className="Login-Header"></header>
         <form
-          className="Login-Form"
+          className="login-form"
           onSubmit={this.loginSubmit}
           onMouseOver={this.submitButtonHasBeenHovered}
         >
-          <label className="field a-field a-field_a2">
-            <input
-              className="field__input a-field__input"
-              required
-              name="user_name"
-              placeholder="Username"
-              onChange={this.userNameChanged}
-            />
-            <span className="a-field__label-wrap">
-              <span className="a-field__label">Username</span>
-            </span>
+          <label
+            htmlFor="user_name"
+            className="username-fields-label">
+            Username
+            </label>
+          <input
+            id="user_name"
+            className="username-fields"
+            required
+            name="user_name"
+            placeholder="Username"
+            onChange={this.userNameChanged}
+          />
+          <br />
+          <label
+            htmlFor="password"
+            className="password-fields">
+            Password
           </label>
-          <label className="field a-field a-field_a2">
-            <input
-              className="field__input a-field__input"
-              required
-              name="password"
-              type="password"
-              placeholder="Password"
-              onChange={this.passwordHasChanged}
-            />
-            <span className="a-field__label-wrap">
-              <span className="a-field__label">Password</span>
-            </span>
-          </label>
+          <input
+            id="password"
+            className="password-fields"
+            required
+            name="password"
+            type="password"
+            placeholder="Password"
+            onChange={this.passwordHasChanged}
+          />
+
           <div className="btn-row">
             <input
               type="submit"
-              className="submitLogin"
-              value="login"
+              className="submit-login"
+              value="Submit"
               onClick={this.submitButtonHasBeenClicked}
             />
+            <br />
             <Link to="/register">
-              <button className="newAccount">Create an account</button>
+              <button className="new-account">Create an account</button>
             </Link>
           </div>
         </form>

@@ -91,6 +91,12 @@ class Header extends Component {
       <section>
         <div id="site-sections-box-container">
           <Link
+            className="nav-link-text home"
+            to={"/"}>
+            Home
+          </Link>
+
+          <Link
             className="nav-link-text pantry"
             to={`/pantry`}>Pantry</Link>
           {/* <Link
@@ -115,7 +121,7 @@ class Header extends Component {
       <header id="header-nav-container">
         <h1 className="heading login-page-header">
           <Link className="heading login-page-link" to="/login">
-            Kitchen Helperrr
+            Kitchen Helper
           </Link>
         </h1>
         {TokenService.hasAuthToken()
