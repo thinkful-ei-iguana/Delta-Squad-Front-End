@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import config from "../config";
 import TokenService from "../Helpers/Token";
 import AddIngredient from "../Components/Pantry/AddIngredient";
-import "../Components/Pantry/Pantry.css"
+import "../Components/Pantry/Pantry.css";
 // import Modal from "../Components/Modal/Modal";
 import "../index.css";
-
 
 class PantryRoute extends Component {
   constructor(props) {
@@ -51,7 +50,7 @@ class PantryRoute extends Component {
   renderIngredients = () => {
     const ingredients = this.state.ingredients;
     console.log("ingredients is", ingredients);
-    return (ingredients.map(ingredient =>
+    return ingredients.map(ingredient => (
       <section className="individual-ingredients" key={ingredient.id}>
         {/* <Link
           to={{
@@ -66,8 +65,7 @@ class PantryRoute extends Component {
         >*/}
         <h2 className="ingredient-name">{ingredient.ingredient_name}</h2>
         {/* </Link>  */}
-        <span className="ingredient-stock">{ingredient.in_stock}</span>
-        {' '}
+        <span className="ingredient-stock">{ingredient.in_stock}</span>{" "}
         <Link
           className="edit-ingredient-button"
           to={{
@@ -84,11 +82,9 @@ class PantryRoute extends Component {
           View/Edit
         </Link>
         {/* <br /> */}
-      </section >
-    )
-    );
-  }
-
+      </section>
+    ));
+  };
 
   setStateAddIngredientTrue = () => {
     this.setState({ addIngredient: true });
