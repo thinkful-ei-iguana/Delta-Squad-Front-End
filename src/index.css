@@ -27,6 +27,22 @@
   background-color:#F8FFCA
 }
 
+button {
+  background-color: #FFCB32;
+}
+
+.bigButton {
+  width: 200px;
+  height: 100px;
+  font-family: 'cookiesregular';
+  font-size: 25px;
+  
+}
+
+.recipePage {
+  align-content: center;
+}
+
 .heading {
   text-align: center;
   font-family: 'cookiesregular';
@@ -38,11 +54,15 @@
 }
 .log-out-user-link, .login-page-link {
   color: #141514;
+  text-decoration: none;
+  font-family: 'cookiesregular';
+  padding: 5%;
 }
 
 .nav-link-text {
   font-family: 'cookiesregular';
   color: #141514;
+  text-decoration: none;
 }
 
 #navBar {
