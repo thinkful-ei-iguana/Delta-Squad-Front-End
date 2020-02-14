@@ -21,6 +21,9 @@ export default class Landing extends React.Component {
     return (
       <div className="Landing">
         <header id="Landing-Header" className="flex-container">
+          <div className="k-h-logo">
+            <img src="../images/Landing-BannerD1.gif" alt="Kitchen Helper Logo" />
+          </div>
           <div className="flex-item"></div>
           <div className="login-signup">
             <Link className="Login-Signup" to="/">
