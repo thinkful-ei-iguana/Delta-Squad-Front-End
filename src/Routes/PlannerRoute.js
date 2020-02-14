@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import config from "../config";
 import TokenService from "../Helpers/Token";
 import AddMealPlan from "../Components/Planner/MakeMealPlans";
+import "../Styles/Planner.css";
 
 class PlannerRoute extends Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class PlannerRoute extends Component {
     const mealplans = this.state.mealplans;
     console.log("mealplans is", mealplans);
     return mealplans.map(mealplan => (
-      <section key={mealplan.id}>
+      <section className="mealplan-section" key={mealplan.id}>
         {/* <Link
           to={{
             pathname: `/planner/${mealplan.id}`,
@@ -97,11 +98,14 @@ class PlannerRoute extends Component {
     console.log("this.state.add", this.state.addMealPlan);
     return (
       <section id="planner-route-container">
-        <h2 id="my-planner-header">My Mealplans</h2>
+        <h2 className="my-planner-header" id="my-planner-header">
+          My Mealplans
+        </h2>
         {this.state.mealplans && this.renderMealPlans()}
         {this.state.mealplans.length > 0 && (
           <button
             id="modal-btn"
+            className="Add-Meal-Plan-Button"
             type="submit"
             onClick={() => this.setStateAddMealPlanTrue()}
           >

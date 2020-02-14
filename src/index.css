@@ -1,16 +1,19 @@
 @font-face {
-  font-family: 'cookiesregular';
-  src: url('./Assets/webfontkit-20200213-144022/cookies-webfont.woff2') format('woff2'),
-       url('./Assets/webfontkit-20200213-144022/cookies-webfont.woff') format('woff');
+  font-family: "cookiesregular";
+  src: url("./Assets/webfontkit-20200213-144022/cookies-webfont.woff2")
+      format("woff2"),
+    url("./Assets/webfontkit-20200213-144022/cookies-webfont.woff")
+      format("woff");
   font-weight: normal;
   font-style: normal;
-
 }
 
 @font-face {
-  font-family: 'cookiesmilkregular';
-  src: url('./Assets/webfontkit-20200213-145809/cookiesmilk-regular-webfont.woff2') format('woff2'),
-       url('./Assets/webfontkit-20200213-145809/cookiesmilk-regular-webfont.woff') format('woff');
+  font-family: "cookiesmilkregular";
+  src: url("./Assets/webfontkit-20200213-145809/cookiesmilk-regular-webfont.woff2")
+      format("woff2"),
+    url("./Assets/webfontkit-20200213-145809/cookiesmilk-regular-webfont.woff")
+      format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -22,21 +25,13 @@
  #141514 Black
  */
 
- .App {
-  font-family: 'Nanum Gothic', sans-serif;
-  background-color:#F8FFCA
+.App {
+  font-family: "Nanum Gothic", sans-serif;
+  background-color: #f8ffca;
 }
 
 button {
-  background-color: #FFCB32;
-}
-
-.bigButton {
-  width: 200px;
-  height: 100px;
-  font-family: 'cookiesregular';
-  font-size: 25px;
-  
+  background-color: #ffcb32;
 }
 
 .recipePage {
@@ -45,29 +40,30 @@ button {
 
 .heading {
   text-align: center;
-  font-family: 'cookiesregular';
-  color:  #141514;
-  background-color: #B6D084;
+  font-family: "cookiesregular";
+  color: #141514;
+  background-color: #b6d084;
   margin-left: 10%;
   margin-right: 10%;
   border: 2px black solid;
 }
-.log-out-user-link, .login-page-link {
+.log-out-user-link,
+.login-page-link {
   color: #141514;
   text-decoration: none;
-  font-family: 'cookiesregular';
+  font-family: "cookiesregular";
   padding: 5%;
 }
 
 .nav-link-text {
-  font-family: 'cookiesregular';
+  font-family: "cookiesregular";
   color: #141514;
   text-decoration: none;
 }
 
 #navBar {
   text-align: center;
-  background-color:  #B6D084;
+  background-color: #b6d084;
 }
 
 body {
@@ -87,7 +83,6 @@ code {
 #modal-btn {
   color: red;
 }
-
 
 .modal {
   position: fixed;
@@ -127,9 +122,6 @@ code {
 .actions {
   opacity: 1;
   visibility: visible;
-  transform: scale(1.0);
+  transform: scale(1);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
-
-
-
