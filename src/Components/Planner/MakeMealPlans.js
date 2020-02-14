@@ -36,20 +36,20 @@ class AddMealPlan extends Component {
         {this.props.addMealPlan === true && (
           <div id="modal">
             <form id="modal-content" onSubmit={this.handleSubmit}>
-              <label>Mealplan:</label>
+              <label>MealPlan:</label>
               <input name="title" type="text">
                 {this.props.title}
               </input>
-              <label>Meal Date:</label>
+              <label>Meal-Date:</label>
               <input name="planned_date" type="text">
                 {this.props.planned_date}
               </input>
-              <label>Prep Time:</label>
+              <label>Prep-Time:</label>
               <input name="prep_time" type="text">
                 {this.props.prep_time}
               </input>
               <label>
-                Ingredients Required: {this.props.needed_ingredients}
+                Ingredients-Required: {this.props.needed_ingredients}
               </label>
               <input name="needed_ingredients" type="text"></input>
               <button

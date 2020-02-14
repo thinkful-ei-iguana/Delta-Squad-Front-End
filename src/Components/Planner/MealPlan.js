@@ -12,7 +12,6 @@ class MealPlan extends Component {
     };
   }
 
-
   componentDidMount() {
     this.setMealPlan();
   }
@@ -81,11 +80,10 @@ class MealPlan extends Component {
             <form id="modal-content" onSubmit={this.handleSubmit}>
               <label>Mealplan:</label>
               <input id="mealplan" name="title" type="text"></input>
-              <div id="mealplan-date">
-                <input id="planned-date" name="planned_date">
-                  Mealplan Date:
-                </input>
-              </div>
+              <label id="planned-date" name="planned_date">
+                Mealplan Date:
+              </label>
+              <input id="planned-date" name="planned_date"></input>
               <label id="meaplan-prep-time">Time to make:</label>
               <input
                 id="mealplan-prep-time"
@@ -156,7 +154,7 @@ class MealPlan extends Component {
           Update
         </button>
         <button
-          id="update-mealplan-button"
+          id="delete-mealplan-button"
           type="submit"
           onClick={e => this.handleDeleteMealPlan(e)}
         >

@@ -20,10 +20,10 @@ class PlannerRoute extends Component {
 
   // GET; then set state.title with response
   getMealPlans = () => {
-    // console.log("planner route get mealplans");
+    console.log("planner route get mealplans");
     const url = `${config.API_ENDPOINT}/planner`;
     const authToken = TokenService.getAuthToken();
-    // console.log("auth token is", authToken);
+    console.log("auth token is", authToken);
     fetch(url, {
       method: "GET",
       headers: {
@@ -46,12 +46,10 @@ class PlannerRoute extends Component {
 
   renderMealPlans = () => {
     const mealplans = this.state.mealplans;
-    // console.log("mealplans is", mealplans);
-
+    console.log("mealplans is", mealplans);
     return mealplans.map(mealplan => (
-      <section>
-        <Link
-          key={mealplan.id}
+      <section key={mealplan.id}>
+        {/* <Link
           to={{
             pathname: `/planner/${mealplan.id}`,
             state: {
@@ -61,10 +59,11 @@ class PlannerRoute extends Component {
               needed_ingredients: mealplan.needed_ingredients
             }
           }}
-        >
-          {mealplan.title}
-        </Link>{" "}
-        <span>{mealplan.planned_date}</span> <span>{mealplan.prep_time}</span>{" "}
+        > */}
+        <h2 className="mealplan-title">{mealplan.title}</h2>
+        {/* </Link>{" "} */}
+        <span className="planned-date">{mealplan.planned_date}</span>{" "}
+        <span className="prep-time">{mealplan.prep_time}</span>{" "}
         <Link
           // key={mealplan.id}   ...needs to be unique
           className="edit-mealplan-button"
@@ -95,11 +94,11 @@ class PlannerRoute extends Component {
   };
 
   render() {
-    // console.log("this.state.add", this.state.addMealPlan);
+    console.log("this.state.add", this.state.addMealPlan);
     return (
       <section id="planner-route-container">
         <h2 id="my-planner-header">My Mealplans</h2>
-        {this.state.ingredients && this.renderIngredients()}
+        {this.state.mealplans && this.renderMealPlans()}
         {this.state.mealplans.length > 0 && (
           <button
             id="modal-btn"
@@ -112,8 +111,8 @@ class PlannerRoute extends Component {
         <AddMealPlan
           addMealPlan={this.state.addMealPlan}
           allMealPlans={this.state.mealplans}
-          closeAddForm={this.setStateAddMealPlanFalse}
           refreshMealPlans={this.getMealPlans}
+          closeAddForm={this.setStateAddMealPlanFalse}
         />
       </section>
     );
