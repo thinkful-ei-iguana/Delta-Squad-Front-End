@@ -12,7 +12,7 @@ class MealPlan extends Component {
     };
   }
 
-  //
+
   componentDidMount() {
     this.setMealPlan();
   }
