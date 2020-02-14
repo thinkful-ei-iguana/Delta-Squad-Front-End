@@ -37,7 +37,7 @@
   flex-direction: column;
   justify-content: center;
   /* align-items: flex-start; */
-  border: 2px solid black;
+  /* border: 2px solid black; */
   min-width: 305px;
   margin-bottom: 5px;
 }
@@ -62,7 +62,8 @@
 
 #add-ingredient-button {
   font-size: 16px;
-  margin-top: 15px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .ingredient-name {
@@ -101,8 +102,6 @@
   text-align: center;
 }
 
-#update-header {}
-
 #modal-content {
   border: 2px solid black;
   padding: 5px;
@@ -111,4 +110,9 @@
   justify-content: center;
   align-items: center;
   min-width: 305px;
+  margin-bottom: 20px;
+}
+
+#update-ingredient-button {
+  margin-bottom: 25px;
 }
