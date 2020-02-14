@@ -107,16 +107,16 @@ class PantryRoute extends Component {
         {this.state.ingredients.length > 0 && <button id="add-ingredient-button" type="submit" onClick={() => this.setStateAddIngredientTrue()}>
           Add an ingredient
           </button>}
-        <div id="ingredients-container">
-
-          {this.state.ingredients && this.renderIngredients()}
-        </div>
         <AddIngredient
           addIngredient={this.state.addIngredient}
           allIngredients={this.state.ingredients}
           refreshIngredients={this.getIngredients}
           closeAddForm={this.setStateAddIngredientFalse}
         />
+        <div id="ingredients-container">
+
+          {this.state.ingredients && this.renderIngredients()}
+        </div>
 
       </section>
     )
