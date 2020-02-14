@@ -1,0 +1,123 @@
+/* PantryRoute.js */
+
+@font-face {
+  font-family: 'cookiesregular';
+  src: url('../../Assets/webfontkit-20200213-144022/cookies-webfont.woff2') format('woff2'),
+       url('../../Assets/webfontkit-20200213-144022/cookies-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'cookiesmilkregular';
+  src: url('../../Assets/webfontkit-20200213-145809/cookiesmilk-regular-webfont.woff2') format('woff2'),
+       url('../../Assets/webfontkit-20200213-145809/cookiesmilk-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+/*
+ #F8FFCA Yellow Green
+ #B6D084 Chartreuse
+ #FFCB32 Mimosa
+ #2F7604 Green
+ #141514 Black
+ */
+
+#my-pantry-header {
+  font-size: 40px;
+  font-family: 'cookiesregular';
+}
+
+#pantry-router-container {
+  display:flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+#ingredients-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: flex-start; */
+  /* border: 2px solid black; */
+  min-width: 305px;
+  margin-bottom: 5px;
+}
+
+.edit-ingredient-button {
+  /* display: inline; */
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-bottom: 45px;
+  padding: 4px;
+  margin-left: 10px;
+  margin-top: 20px;
+  background-color: #FFCB32;
+  color: #141514;
+}
+
+.individual-ingredients {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: -35px;
+  background-color: #B6D084;
+}
+
+#add-ingredient-button {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.ingredient-name {
+  /* display: inline; */
+  font-weight: bold;
+}
+
+.ingredient-stock {
+  /* display: inline; */
+  margin-left: 15px;
+  margin-top: 27px;
+}
+
+
+/* AddIngredient.js */
+
+#modal {
+  border: 3px solid black;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+/* IndividualIngredient.js */
+
+#original-ingredient-data {
+  text-align: center;
+}
+
+#individual-ingredient-view{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#ingredient-detail-page-container {
+  text-align: center;
+}
+
+#modal-content {
+  border: 2px solid black;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 305px;
+  background-color: #2F7604;
+  color: white;
+  font-weight: bold;
+
+}

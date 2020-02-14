@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import config from "../config";
 import TokenService from "../Helpers/Token";
 import AddIngredient from "../Components/Pantry/AddIngredient";
+import "../Components/Pantry/Pantry.css"
 // import Modal from "../Components/Modal/Modal";
 import "../index.css";
+
 
 class PantryRoute extends Component {
   constructor(props) {
@@ -49,11 +51,9 @@ class PantryRoute extends Component {
   renderIngredients = () => {
     const ingredients = this.state.ingredients;
     console.log("ingredients is", ingredients);
-
-    return ingredients.map(ingredient => (
-      <section>
-        <Link
-          key={ingredient.id}
+    return (ingredients.map(ingredient =>
+      <section className="individual-ingredients" key={ingredient.id}>
+        {/* <Link
           to={{
             pathname: `/pantry/${ingredient.id}`,
             state: {
@@ -63,12 +63,12 @@ class PantryRoute extends Component {
               ingredient_owner: ingredient.ingredient_owner
             }
           }}
-        >
-          {ingredient.ingredient_name}
-        </Link>{" "}
-        <span>{ingredient.in_stock}</span>{" "}
+        >*/}
+        <h2 className="ingredient-name">{ingredient.ingredient_name}</h2>
+        {/* </Link>  */}
+        <span className="ingredient-stock">{ingredient.in_stock}</span>
+        {' '}
         <Link
-          // key={ingredient.id}   ...needs to be unique
           className="edit-ingredient-button"
           to={{
             pathname: `/pantry/${ingredient.id}`,
@@ -81,12 +81,14 @@ class PantryRoute extends Component {
             }
           }}
         >
-          Edit
+          View/Edit
         </Link>
-        <br />
-      </section>
-    ));
-  };
+        {/* <br /> */}
+      </section >
+    )
+    );
+  }
+
 
   setStateAddIngredientTrue = () => {
     this.setState({ addIngredient: true });
@@ -98,20 +100,21 @@ class PantryRoute extends Component {
   render() {
     console.log("this.state.add", this.state.addIngredient);
     return (
-      <section>
-        {this.state.ingredients && this.renderIngredients()}
+      <section id="pantry-router-container">
+        <h2 id="my-pantry-header">My Pantry</h2>
+        {this.state.ingredients.length > 0 && <button id="add-ingredient-button" type="submit" onClick={() => this.setStateAddIngredientTrue()}>
+          Add an ingredient
+          </button>}
+        <div id="ingredients-container">
+
+          {this.state.ingredients && this.renderIngredients()}
+        </div>
         <AddIngredient
           addIngredient={this.state.addIngredient}
           allIngredients={this.state.ingredients}
+          refreshIngredients={this.getIngredients}
           closeAddForm={this.setStateAddIngredientFalse}
         />
-        <button
-          id="modal-btn"
-          type="submit"
-          onClick={() => this.setStateAddIngredientTrue()}
-        >
-          Add an ingredient
-        </button>
       </section>
     );
   }

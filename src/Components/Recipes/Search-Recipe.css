@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'cookiesregular';
+    src: url('../../Assets/webfontkit-20200213-144022/cookies-webfont.woff2') format('woff2'),
+         url('../../Assets/webfontkit-20200213-144022/cookies-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+
+.recipeResults {
+    list-style: none;
+    margin: 5%;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+#results {
+    font-family: 'cookiesregular';
+}
+
+.individualResult {
+    padding: 2%;
+}
+
+.searchRecipe {
+    margin: 5%;
+}

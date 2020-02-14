@@ -41,10 +41,12 @@
 //   }
 // }
 
+
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import TokenService from "../Helpers/Token";
-import UserContext from "../Contexts/UserContext";
+import TokenService from "../../Helpers/Token";
+import UserContext from "../../Contexts/UserContext";
+import "./HeaderNav.css";
 
 class Header extends Component {
   static contextType = UserContext;
@@ -54,14 +56,12 @@ class Header extends Component {
   };
 
   renderLogoutLink() {
-    // console.log("nav menu context is", this.context);
-    // console.log("nav menu props is", this.props);
     return (
       <div>
         <nav className="log-out-user">
           <div className="logged-in-user">{this.context.user.name}</div>
           <Link
-            className="log-out-user-link"
+            className="heading log-out-user-link"
             onClick={this.handleLogoutClick}
             to="/login"
           >
@@ -75,11 +75,11 @@ class Header extends Component {
 
   renderLoginLink() {
     return (
-      <nav className="login-page-heading">
-        <Link className="login-page-login login-page-link" to="/login">
+      <nav className="heading login-page-heading">
+        <Link className="heading login-page-login" to="/login">
           Login
         </Link>{" "}
-        <Link className="login-page-register login-page-link" to="/register">
+        <Link className="heading login-page-register" to="/register">
           Sign up
         </Link>
       </nav>
@@ -88,31 +88,34 @@ class Header extends Component {
 
   renderNavMenu() {
     return (
-      <section id="navBar">
-        <Link className="nav-link-text pantry" to={`/pantry`}>
-          Pantry
-        </Link>
-        {/* <Link
+      <section>
+        <div id="site-sections-box-container">
+          <Link
+            className="nav-link-text pantry"
+            to={`/pantry`}>Pantry</Link>
+          {/* <Link
             className="nav-link-text marketplace"
-            to={`/marketplace`}>Marketplace</Link> */}
-        <br />
-        <Link className="nav-link-text recipes" to={"/recipes"}>
-          Recipes
-        </Link>
-        <br />
-        <Link className="nav-link-text meal-planning" to={`/planner`}>
-          Meal Plans
-        </Link>
-      </section>
-    );
+          to={`/marketplace`}>Marketplace</Link> */}
+          <br />
+
+          <Link
+            className="nav-link-text recipes"
+            to={'/recipes'}>Recipes</Link>
+          <Link
+            className="nav-link-text meal-planning"
+            to={`/planning`}>Plan a meal</Link>
+
+        </div>
+      </section >
+    )
   }
 
   render() {
     return (
-      <header className="heading">
-        <h1 className="login-page-header">
-          <Link className="login-page-link" to="/login">
-            Kitchen Helper
+      <header id="header-nav-container">
+        <h1 className="heading login-page-header">
+          <Link className="heading login-page-link" to="/login">
+            Kitchen Helperrr
           </Link>
         </h1>
         {TokenService.hasAuthToken()
