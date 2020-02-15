@@ -14,8 +14,10 @@ import NotFoundRoute from "./Routes/NotFoundRoute";
 import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
 import Header from "./Components/Header";
+import Landing from "./Routes/LandingPage/LandingPage";
 import searchRecipes from "./Components/Recipes/Search-Recipe";
-// import Landing from "./Components/Landing";
+
+
 // import AuthHelper from "../src/Helpers/Auth";
 // import Context from "./Contexts/UserContext";
 // import config from "./config";
@@ -59,8 +61,8 @@ class App extends React.Component {
           <Switch>
             <PrivateRoute
               exact
-              path={"/"}
-              component={DashboardRoute} // dashboard route??
+              path={"/home"}
+              component={Home} // dashboard route??
             />
             <PrivateRoute exact path={"/user/:username"} component={Profile} />
             <PrivateRoute exact path={"/recipes"} component={RecipesRoute} />
@@ -84,6 +86,11 @@ class App extends React.Component {
               path={"/marketplace"}
               component={MarketplaceRoute}
             />*/}
+            <PublicOnlyRoute
+              exact 
+              path={"/"}
+              component={Landing}
+              />
             <PublicOnlyRoute
               exact
               path={"/register"}
