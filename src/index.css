@@ -24,10 +24,10 @@
  #2F7604 Green
  #141514 Black
  */
- 
- .App {
-  font-family: 'Nanum Gothic', sans-serif;
-  background-color:#F8FFCA;
+
+.App {
+  font-family: "Nanum Gothic", sans-serif;
+  background-color: #f8ffca;
   height: 2000px;
 }
 
@@ -54,6 +54,12 @@ button {
   text-decoration: none;
   font-family: "cookiesregular";
   padding: 5%;
+}
+
+.dashboard-link-selector {
+  font-family: "cookiesregular";
+  color: #141514;
+  text-decoration: none;
 }
 
 .nav-link-text {
