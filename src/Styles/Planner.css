@@ -1,0 +1,64 @@
+.my-planner-header {
+  color: #141514;
+  text-align: center;
+  text-decoration: none;
+  font-family: "cookiesregular";
+  font-size: xx-large;
+  padding: 2%;
+}
+
+.mealplan-title {
+  color: #141514;
+  text-decoration: none;
+  font-family: "cookiesregular";
+  padding: 5px;
+  text-align: center;
+  font-size: x-large;
+}
+.planned-date {
+  text-align: center;
+  font-weight: bold;
+  margin-right: 15px;
+}
+.prep-time {
+  text-align: center;
+  margin-right: 15px;
+}
+.mealplan-section {
+  text-align: center;
+}
+
+.bigButton {
+  width: 200px;
+  height: 100px;
+  font-family: "cookiesregular";
+  font-size: 25px;
+}
+
+.planner-route-container {
+  align-content: center;
+  text-align: center;
+}
+
+.Add-Meal-Plan-Button {
+  font-family: "cookiesregular";
+  height: 100px;
+  width: 290px;
+  font-size: 25px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  margin-top: 20px;
+}
+
+.edit-mealplan-button {
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-bottom: 45px;
+  padding: 4px;
+  margin-left: 10px;
+  margin-top: 20px;
+  background-color: #ffcb32;
+  color: #141514;
+}

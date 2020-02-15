@@ -1,3 +1,78 @@
+@font-face {
+  font-family: "cookiesregular";
+  src: url("./Assets/webfontkit-20200213-144022/cookies-webfont.woff2")
+      format("woff2"),
+    url("./Assets/webfontkit-20200213-144022/cookies-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "cookiesmilkregular";
+  src: url("./Assets/webfontkit-20200213-145809/cookiesmilk-regular-webfont.woff2")
+      format("woff2"),
+    url("./Assets/webfontkit-20200213-145809/cookiesmilk-regular-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/*
+ #F8FFCA Yellow Green
+ #B6D084 Chartreuse
+ #FFCB32 Mimosa
+ #2F7604 Green
+ #141514 Black
+ */
+
+.App {
+  font-family: "Nanum Gothic", sans-serif;
+  background-color: #f8ffca;
+  height: 2000px;
+}
+
+button {
+  background-color: #ffcb32;
+}
+
+.recipePage {
+  align-content: center;
+}
+
+.heading {
+  text-align: center;
+  font-family: "cookiesregular";
+  color: #141514;
+  background-color: #b6d084;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: 2px black solid;
+}
+.log-out-user-link,
+.login-page-link {
+  color: #141514;
+  text-decoration: none;
+  font-family: "cookiesregular";
+  padding: 5%;
+}
+
+.dashboard-link-selector {
+  font-family: "cookiesregular";
+  color: #141514;
+  text-decoration: none;
+}
+
+.nav-link-text {
+  font-family: "cookiesregular";
+  color: #141514;
+  text-decoration: none;
+}
+
+#navBar {
+  text-align: center;
+  background-color: #b6d084;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -15,7 +90,6 @@ code {
 #modal-btn {
   color: red;
 }
-
 
 .modal {
   position: fixed;
@@ -55,6 +129,6 @@ code {
 .actions {
   opacity: 1;
   visibility: visible;
-  transform: scale(1.0);
+  transform: scale(1);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }

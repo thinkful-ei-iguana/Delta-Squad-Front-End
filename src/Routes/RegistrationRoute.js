@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../Helpers/Auth";
+import "./Registration.css"
 
 export default class Login extends React.Component {
   static defaultProps = {
     location: {},
     history: {
-      push: () => { }
+      push: () => {}
     }
   };
 
@@ -43,59 +44,57 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <div className="Creation">
+      <div className="register">
         <header className="Creation-Header"></header>
-        <form className="Creation-Form" onSubmit={this.createSubmit}>
+        <form className="register-form" onSubmit={this.createSubmit}>
           <label className="field a-field a-field_a2">
-            <input
-              className="field__input a-field__input"
-              required
-              name="first_name"
-              placeholder="Name"
-            />
-            <span className="a-field__label-wrap">
-              <span className="a-field__label">Display name</span>
-            </span>
+            Display name
           </label>
+          <input
+            className="field__input a-field__input"
+            required
+            name="first_name"
+            placeholder="Name"
+          />
+          <br />
           <label className="field a-field a-field_a2">
-            <input
-              className="field__input a-field__input"
-              required
-              name="user_name"
-              placeholder="Username"
-            />
-            <span className="a-field__label-wrap">
-              <span className="a-field__label">Username</span>
-            </span>
+            Username
           </label>
+          <input
+            className="field__input a-field__input"
+            required
+            name="user_name"
+            placeholder="Username"
+          />
+          <br />
           <label className="field a-field a-field_a2">
-            <input
-              className="field__input a-field__input"
-              required
-              type="email"
-              name="user_email"
-              placeholder="Email"
-            />
-            <span className="a-field__label-wrap">
-              <span className="a-field__label">Email</span>
-            </span>
+            Email
           </label>
+          <input
+            className="register-email-input"
+            required
+            type="email"
+            name="user_email"
+            placeholder="Email"
+          />
+          <br />
+
           <label className="field a-field a-field_a2">
-            <input
-              className="field__input a-field__input"
-              required
-              name="password"
-              type="password"
-              placeholder="Password"
-            />
-            <span className="a-field__label-wrap">
-              <span className="a-field__label">Password</span>
-            </span>
+            Password
           </label>
+          <input
+            className="field__input a-field__input"
+            required
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
           <div className="btn-row">
-            <button className="submitCreate">Create</button>
+            <button className="register-submit">Create</button>
+            <br />
+
             <Link to="/Login">
-              <button className="newAccount">Already have an account?</button>
+              <button className="new-account">Already have an account?</button>
             </Link>
           </div>
         </form>

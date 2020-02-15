@@ -8,7 +8,7 @@ class AddIngredient extends Component {
     super(props)
 
     this.state = {
-      addIngredient: false,
+      // addIngredient: false,
       newIngredient: [],
     }
   }
@@ -17,7 +17,6 @@ class AddIngredient extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     let { ingredient_name, in_stock, notes } = e.target;
-    // let newIngredient = { ingredient_name, in_stock, notes};
     const ingredientJson = JSON.stringify({
       ingredient_name: ingredient_name.value,
       in_stock: in_stock.value,
@@ -26,10 +25,9 @@ class AddIngredient extends Component {
     IngredientHelper.addIngredient(ingredientJson)
       .then(data => {
         console.log('post data is', data);
+        this.props.refreshIngredients();
         this.props.closeAddForm();
       });
-
-
   }
 
 
@@ -50,7 +48,7 @@ class AddIngredient extends Component {
                 <select
                   name="in_stock">In stock:
                 <option value="in-stock">In stock</option>
-                  <option value="out">Out</option>
+                  <option value="out-of-stock">Out</option>
                   <option value="low">Low</option>
                 </select>
               </div>
@@ -81,7 +79,6 @@ class AddIngredient extends Component {
 
 
   render() {
-    console.log(this.state.addIngredient);
 
     return (
       <div>
