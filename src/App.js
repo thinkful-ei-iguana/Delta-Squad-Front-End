@@ -12,7 +12,7 @@ import NotFoundRoute from "./Routes/NotFoundRoute";
 import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
 import Header from "./Components/Header";
-import Landing from "./Components/Landing/Landing";
+import Landing from "./Routes/LandingPage/LandingPage";
 // import Landing from "./Components/Landing";
 // import AuthHelper from "../src/Helpers/Auth";
 // import Context from "./Contexts/Context";
@@ -123,7 +123,7 @@ class App extends React.Component {
             /> */}
             <PrivateRoute
               exact
-              path={"/"}
+              path={"/home"}
               component={Home} // dashboard route??
             />
             <PrivateRoute
@@ -155,7 +155,7 @@ class App extends React.Component {
             /> */}
             <PublicOnlyRoute
               exact 
-              path={"/landing"}
+              path={"/"}
               component={Landing}
               />
             <PublicOnlyRoute

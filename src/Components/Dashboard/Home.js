@@ -6,6 +6,7 @@ export default class Home extends React.Component {
     return (
       <div className="Home">
         <section id="Home-Header">
+          <p className="user-greeting">Welcome,     ! Let's get cooking!</p>
           <form id="SearchForm">
             <label className="field a-field a-field_a2">
               <input
