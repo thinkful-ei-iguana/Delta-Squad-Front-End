@@ -9,7 +9,7 @@ import './LandingPage.css';
 export default class Landing extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isLoggedIn : false}
+    this.state = { isLoggedIn : false }
   }
   
   render() { 
@@ -21,8 +21,7 @@ export default class Landing extends React.Component {
               classname="Landing-Logo" 
               src={LandingLogo} 
               alt="Kitchen Helper Logo" 
-              width="60%"
-              height="250px"/>
+              />
           </div>
           <div className="flex-item"></div>
           
@@ -43,11 +42,13 @@ export default class Landing extends React.Component {
 
             <div className="login-signup">
               <div className="LoginBtn">
+                <label className="login-label" >Login: </label>
               <Link className="login-btn" to='/login'>
                 Let's Get Cooking!
               </Link>
               </div>
               <div className="RegistrationBtn">
+                <label className="registration-label">Sign Up:</label>
                 <Link className="registration-btn" to='/register'>
                   Come Join the Fun!
                 </Link>

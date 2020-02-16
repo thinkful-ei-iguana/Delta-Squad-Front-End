@@ -62,7 +62,7 @@ class App extends React.Component {
             <PrivateRoute
               exact
               path={"/home"}
-              component={Home} // dashboard route??
+              component={DashboardRoute} // dashboard route??
             />
             <PrivateRoute exact path={"/user/:username"} component={Profile} />
             <PrivateRoute exact path={"/recipes"} component={RecipesRoute} />
