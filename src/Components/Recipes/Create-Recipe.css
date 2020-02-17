@@ -1,0 +1,25 @@
+.field__input {
+    display: block;
+    width: 100%;
+}
+
+#Creation {
+    background-color: #B6D084;
+    border: black solid 2px;
+    margin: 5%;
+    padding: 2.5%;
+}
+
+.a-field {
+    padding: 2.5%;
+}
+
+.Creation-Header {
+    font-family: 'cookiesregular';
+    text-align: center;
+    font-size: 25px;
+}
+
+textarea {
+    margin-bottom: 2.5%
+}

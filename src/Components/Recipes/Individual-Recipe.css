@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'cookiesregular';
+    src: url('../../Assets/webfontkit-20200213-144022/cookies-webfont.woff2') format('woff2'),
+         url('../../Assets/webfontkit-20200213-144022/cookies-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*
+ #F8FFCA Yellow Green
+ #B6D084 Chartreuse
+ #FFCB32 Mimosa
+ #2F7604 Green
+ #141514 Black
+ */
+
+.recipePageHeader {
+    font-size: 20px;
+    font-family: 'cookiesregular';
+}
+
+.recipeInfo {
+    font-weight: bold;
+    font-size: 24px;
+    padding-left: 5%;
+}
+
+#recipeView {
+    background-color: #B6D084;
+    border: black solid 2px;
+    margin: 5%;
+    padding: 2.5%;
+}
+
+.a-field {
+    font-family: 'cookiesregular';
+}

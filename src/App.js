@@ -16,7 +16,7 @@ import Darkmode from "darkmode-js";
 import Header from "./Components/Header";
 import Landing from "./Routes/LandingPage/LandingPage";
 import searchRecipes from "./Components/Recipes/Search-Recipe";
-
+import individualRecipe from "./Components/Recipes/Individual-Recipe";
 import createRecipes from "./Components/Recipes/Create-Recipe";
 // import Landing from "./Components/Landing";
 
@@ -73,12 +73,12 @@ class App extends React.Component {
               path={"/recipes/search"}
               component={searchRecipes}
             />
-
             <PrivateRoute
               exact
               path={"/recipes/create"}
               component={createRecipes}
             />
+            <PrivateRoute exact path={"/recipes/:recipeId"} component={individualRecipe} />
             <PrivateRoute
               exact
               path={"/pantry"}

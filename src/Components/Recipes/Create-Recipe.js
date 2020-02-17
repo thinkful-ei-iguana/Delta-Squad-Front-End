@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Recipe from "../../Helpers/Recipe";
-import Context from "../../Contexts/Context";
+import './Create-Recipe.css'
+
 
 export default class CreateRecipe extends React.Component {
-  static contextType = Context;
   static defaultProps = {
     currentUser: {},
     location: {},
@@ -13,11 +13,11 @@ export default class CreateRecipe extends React.Component {
     }
   };
 
-  /*componentDidMount() {
-    if (!this.context.hasAuthToken()) {
+  componentDidMount() {
+   /* if (!this.context.hasAuthToken()) {
       this.props.history.push("/Login");
-    }
-  }*/
+    }*/
+  }
 
   handleCreationSuccess = () => {
     const { history } = this.props;
@@ -28,7 +28,6 @@ export default class CreateRecipe extends React.Component {
 
   createSubmit = e => {
     e.preventDefault();
-    const created_by = this.context.currentUser.id;
     const {
       title,
       recipe_description,
@@ -37,11 +36,13 @@ export default class CreateRecipe extends React.Component {
     } = e.target;
 
     this.setState({ error: null });
+    let recipeIngredients = recipe_ingredients.value.split(',');
+
     Recipe.createRecipe({
       title: title.value,
-      owner: this.context.currentUser.id,
+      //owner: this.context.currentUser.id,
       recipe_description: recipe_description.value,
-      recipe_ingredients: recipe_ingredients.value,
+      recipe_ingredients: recipeIngredients,
       time_to_make: time_to_make.value,
     //  created_by: created_by.value
     })
@@ -60,10 +61,13 @@ export default class CreateRecipe extends React.Component {
   render() {
     return (
     
-      <div className="Creation">
-        <header className="Creation-Header"></header>
+      <div id="Creation">
+        <header className="Creation-Header">
+          New Recipe!
+        </header>
         <form className="Creation-Form" onSubmit={this.createSubmit}>
           <label className="field a-field a-field_a2">
+            Title: 
             <input
               className="field__input a-field__input"
               required
@@ -73,18 +77,19 @@ export default class CreateRecipe extends React.Component {
             <span className="a-field__label-wrap"></span>
           </label>
           <label className="field a-field a-field_a2">
-            <input
+            Description: <textarea
               className="field__input a-field__input"
               required
               type="text"
               name="recipe_description"
               placeholder="Recipe description"
-            />
+            ></textarea>
             <span className="a-field__label-wrap">
               <span className="a-field__label"></span>
             </span>
           </label>
           <label className="field a-field a-field_a2">
+            Ingredients (separate by commas):
             <input
               className="field__input a-field__input"
               required
@@ -97,6 +102,7 @@ export default class CreateRecipe extends React.Component {
             </span>
           </label>
           <label className="field a-field a-field_a2">
+            Total Prep Time:
             <input
               className="field__input a-field__input"
               required
@@ -108,7 +114,8 @@ export default class CreateRecipe extends React.Component {
               <span className="a-field__label"></span>
             </span>
           </label>
-          <label className="field a-field a-field_a2">
+         { /*<label className="field a-field a-field_a2">
+            Image URL:
             <input
               className="field__input a-field__input"
               required
@@ -119,10 +126,10 @@ export default class CreateRecipe extends React.Component {
             <span className="a-field__label-wrap">
               <span className="a-field__label"></span>
             </span>
-          </label>
+          </label> */}
           <div className="btn-row">
             <button className="submitCreateRecipe">Create recipe</button>
-            <Link to="">
+            <Link to="/recipes">
               <button className="cancelEditRecipe">Cancel</button>
             </Link>
           </div>

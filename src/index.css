@@ -43,6 +43,15 @@ button {
   cursor: pointer;
 }
 
+.bigButton:hover {
+  background-color: #2F7604;
+}
+
+button:hover {
+  background-color: #2F7604;
+  color: #FFCB32;
+}
+
 .recipePage {
   align-content: center;
 }
@@ -56,6 +65,9 @@ button {
   margin-right: 10%;
   border: 2px black solid;
 }
+
+
+
 .log-out-user-link,
 .login-page-link {
   color: #141514;
@@ -64,16 +76,32 @@ button {
   padding: 5%;
 }
 
+.log-out-user-link:hover {
+  color: #2F7604;
+}
+
+.login-page-link:hover {
+  color: #2F7604;
+}
+
 .dashboard-link-selector {
   font-family: "cookiesregular";
   color: #141514;
   text-decoration: none;
 }
 
+.dashboard-link-selector:hover {
+  color: #2F7604;
+}
+
 .nav-link-text {
   font-family: "cookiesregular";
   color: #141514;
   text-decoration: none;
+}
+
+.nav-link-text:hover {
+  color: #2F7604;
 }
 
 #navBar {
