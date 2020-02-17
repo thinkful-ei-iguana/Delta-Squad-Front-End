@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import Auth from "../Helpers/Auth";
 import Context from "../Component/Context";
 
-export default class Login extends React.Component {
+export default class EditAccount extends React.Component {
   static contextType = Context;
   static defaultProps = {
     location: {},
     history: {
-      push: () => {}
+      push: () => { }
     }
   };
 

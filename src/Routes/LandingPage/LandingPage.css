@@ -1,0 +1,33 @@
+.Landing {
+    text-align: center;
+    background-color: #B6D084;
+}
+
+.flex-container {
+    display: flex;
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+}
+
+/* .Landing-Logo {
+    width: 600px;
+    height: 250px;
+
+} */
+
+img {
+    width: 55%;
+    border: 2px black;
+
+}
+
+/* #landingDocumentation {
+    
+} */
+
+.site-description {
+    
+    justify-content: center;
+    align-items: center;
+}

@@ -89,6 +89,10 @@ class Header extends Component {
   renderNavMenu() {
     return (
       <section id="navBar">
+        <Link className="dashboard-link-selector" to={"/"}>
+          Home
+        </Link>
+        <br />
         <Link className="nav-link-text pantry" to={`/pantry`}>
           Pantry
         </Link>

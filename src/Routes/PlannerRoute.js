@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import config from "../config";
 import TokenService from "../Helpers/Token";
 import AddMealPlan from "../Components/Planner/MakeMealPlans";
+import "../Styles/Planner.css";
 
 class PlannerRoute extends Component {
   constructor(props) {
@@ -20,10 +21,10 @@ class PlannerRoute extends Component {
 
   // GET; then set state.title with response
   getMealPlans = () => {
-    // console.log("planner route get mealplans");
+    console.log("planner route get mealplans");
     const url = `${config.API_ENDPOINT}/planner`;
     const authToken = TokenService.getAuthToken();
-    // console.log("auth token is", authToken);
+    console.log("auth token is", authToken);
     fetch(url, {
       method: "GET",
       headers: {
@@ -46,12 +47,10 @@ class PlannerRoute extends Component {
 
   renderMealPlans = () => {
     const mealplans = this.state.mealplans;
-    // console.log("mealplans is", mealplans);
-
+    console.log("mealplans is", mealplans);
     return mealplans.map(mealplan => (
-      <section key="abc">
-        <Link
-          key={mealplan.id}
+      <section className="mealplan-section" key={mealplan.id}>
+        {/* <Link
           to={{
             pathname: `/planner/${mealplan.id}`,
             state: {
@@ -61,10 +60,11 @@ class PlannerRoute extends Component {
               needed_ingredients: mealplan.needed_ingredients
             }
           }}
-        >
-          {mealplan.title}
-        </Link>{" "}
-        <span>{mealplan.planned_date}</span>{" "}
+        > */}
+        <h2 className="mealplan-title">{mealplan.title}</h2>
+        {/* </Link>{" "} */}
+        <span className="planned-date">{mealplan.planned_date}</span>{" "}
+        <span className="prep-time">{mealplan.prep_time}</span>{" "}
         <Link
           // key={mealplan.id}   ...needs to be unique
           className="edit-mealplan-button"
@@ -79,36 +79,45 @@ class PlannerRoute extends Component {
             }
           }}
         >
-          Edit
+          Edit MealPlan
         </Link>
         <br />
       </section>
     ));
   };
+
   setStateAddMealPlanTrue = () => {
     this.setState({ addMealPlan: true });
   };
+
   setStateAddMealPlanFalse = () => {
     this.setState({ addMealPlan: false });
   };
 
   render() {
-    // console.log("this.state.add", this.state.addMealPlan);
+    console.log("this.state.add", this.state.addMealPlan);
     return (
-      <section>
+      <section id="planner-route-container">
+        <h2 className="my-planner-header" id="my-planner-header">
+          My Mealplans
+        </h2>
         {this.state.mealplans && this.renderMealPlans()}
+        {this.state.mealplans.length > 0 && (
+          <button
+            id="modal-btn"
+            className="Add-Meal-Plan-Button"
+            type="submit"
+            onClick={() => this.setStateAddMealPlanTrue()}
+          >
+            Add a MealPlan
+          </button>
+        )}
         <AddMealPlan
           addMealPlan={this.state.addMealPlan}
           allMealPlans={this.state.mealplans}
+          refreshMealPlans={this.getMealPlans}
           closeAddForm={this.setStateAddMealPlanFalse}
         />
-        <button
-          id="modal-btn"
-          type="submit"
-          onClick={() => this.setStateAddMealPlanTrue()}
-        >
-          Add a mealplan
-        </button>
       </section>
     );
   }
