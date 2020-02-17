@@ -1,11 +1,14 @@
 import config from "../config";
+import TokenService from './Token'
 
 const RecipeHelper = {
   createRecipe(newRecipe) {
+    const authToken = TokenService.getAuthToken();
     return fetch(`${config.API_ENDPOINT}/recipes`, {
       method: "POST",
       headers: {
-        "content-type": "application/json"
+        "Content-type": "application/json",
+        Authorization: `Bearer ${authToken}`
       },
       body: JSON.stringify(newRecipe)
     }).then(res =>
