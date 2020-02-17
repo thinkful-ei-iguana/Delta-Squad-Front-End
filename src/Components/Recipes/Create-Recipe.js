@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Recipe from "../../Helpers/Recipe";
+import './Create-Recipe.css'
 
 
 export default class CreateRecipe extends React.Component {
@@ -33,14 +34,15 @@ export default class CreateRecipe extends React.Component {
       recipe_ingredients,
       time_to_make
     } = e.target;
-    console.log('title is', title.value);
+
     this.setState({ error: null });
-    console.log('id is', this.context);
+    let recipeIngredients = recipe_ingredients.value.split(',');
+
     Recipe.createRecipe({
       title: title.value,
       //owner: this.context.currentUser.id,
       recipe_description: recipe_description.value,
-      recipe_ingredients: recipe_ingredients.value,
+      recipe_ingredients: recipeIngredients,
       time_to_make: time_to_make.value,
     //  created_by: created_by.value
     })
@@ -59,10 +61,13 @@ export default class CreateRecipe extends React.Component {
   render() {
     return (
     
-      <div className="Creation">
-        <header className="Creation-Header"></header>
+      <div id="Creation">
+        <header className="Creation-Header">
+          New Recipe!
+        </header>
         <form className="Creation-Form" onSubmit={this.createSubmit}>
           <label className="field a-field a-field_a2">
+            Title: 
             <input
               className="field__input a-field__input"
               required
@@ -72,18 +77,19 @@ export default class CreateRecipe extends React.Component {
             <span className="a-field__label-wrap"></span>
           </label>
           <label className="field a-field a-field_a2">
-            <input
+            Description: <textarea
               className="field__input a-field__input"
               required
               type="text"
               name="recipe_description"
               placeholder="Recipe description"
-            />
+            ></textarea>
             <span className="a-field__label-wrap">
               <span className="a-field__label"></span>
             </span>
           </label>
           <label className="field a-field a-field_a2">
+            Ingredients (separate by commas):
             <input
               className="field__input a-field__input"
               required
@@ -96,6 +102,7 @@ export default class CreateRecipe extends React.Component {
             </span>
           </label>
           <label className="field a-field a-field_a2">
+            Total Prep Time:
             <input
               className="field__input a-field__input"
               required
@@ -108,6 +115,7 @@ export default class CreateRecipe extends React.Component {
             </span>
           </label>
           <label className="field a-field a-field_a2">
+            Image URL:
             <input
               className="field__input a-field__input"
               required

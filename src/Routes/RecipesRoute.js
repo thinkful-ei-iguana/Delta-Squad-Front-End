@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import config from '../config';
 import TokenService from '../Helpers/Token.js'
+import './RecipesRoute.css';
 import searchRecipe from '../Components/Recipes/Search-Recipe'
 import IndividualRecipe from '../Components/Recipes/Individual-Recipe'
 
@@ -51,17 +52,17 @@ class RecipesRoute extends Component {
         return (
           <div key={recipe.id}>
             <Link
-              id="individual-recipe"
+              className="individual-recipe"
               to={{
                 pathname: `/recipes/${recipe.id}`,
                 state: {
                   title: recipe.title,
                   description: recipe.recipe_description,
                   timeToMake: recipe.time_to_make
-                }
+                } 
               }}
             >
-              {recipe.title}
+              <li>{recipe.title}</li>
             </Link>
           </div>
         );
@@ -71,9 +72,10 @@ class RecipesRoute extends Component {
 
   render() {
     return (
-      <section>
+      <section className="recipeSection">
         <Link to="recipes/search"><button className="bigButton">Search for new recipes</button></Link>
         <Link to="recipes/create"><button className="bigButton">Create new recipe</button></Link>
+        <h1 id="recipeHeader">My Recipes:</h1>
         {this.state.recipes && this.renderRecipes()}
 
       </section>

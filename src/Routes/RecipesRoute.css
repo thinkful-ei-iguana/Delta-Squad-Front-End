@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'cookiesregular';
+    src: url('../Assets/webfontkit-20200213-144022/cookies-webfont.woff2') format('woff2'),
+         url('../Assets/webfontkit-20200213-144022/cookies-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+
+.recipeSection {
+    text-align: center;
+}
+
+.individual-recipe {
+    color: black;
+    list-style: none;
+    text-align: center;
+    font-size: 24px;
+    text-decoration: none;
+    font-family: 'cookiesregular';
+}
+
+.individual-recipe:hover {
+    color:  #2F7604;
+}
+
+#recipeHeader {
+    text-align: center;
+    font-size: 32px;
+    font-family: 'cookiesregular';
+}
