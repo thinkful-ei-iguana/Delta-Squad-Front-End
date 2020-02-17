@@ -22,13 +22,12 @@ img {
 
 }
 
+/* #landingDocumentation {
+    
+} */
+
 .site-description {
-    text-align: center;
+    
     justify-content: center;
     align-items: center;
-}
-p {
-    width: 65%;
-    text-align: center;
-   
 }
