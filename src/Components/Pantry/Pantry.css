@@ -64,6 +64,7 @@
   justify-content: center;
   margin-bottom: -35px;
   background-color: #B6D084;
+  padding: 5px;
 }
 
 #add-ingredient-button {
@@ -90,12 +91,30 @@
   border: 3px solid black;
   padding: 5px;
   margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#ingredient-name, #notes {
+  margin-top: 5px;
+}
+
+#ingredient-in-stock {
+  margin-top: -8px;
+  margin-bottom: 10px;
+  margin-left: -8px;
+}
+
+#close {
+  font-size: 16px;
 }
 
 /* IndividualIngredient.js */
 
 #original-ingredient-data {
   text-align: center;
+  font-size: 24px;
+  margin-top: 50px;
+  margin-bottom: 40px;
 }
 
 #individual-ingredient-view{
@@ -119,5 +138,19 @@
   background-color: #2F7604;
   color: white;
   font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
 
+/* #update-ingredient-button {
+
+} */
+
+#delete-ingredient-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#delete-ingredient-button, #update-ingredient-button, #go-back-button {
+  font-size: 16px;
 }

@@ -24,11 +24,15 @@
  #2F7604 Green
  #141514 Black
  */
+ 
+ main {
+   height:1500px;
+ }
 
 .App {
   font-family: "Nanum Gothic", sans-serif;
   background-color: #f8ffca;
-  height: 2000px;
+  /* height: 2000px; */
 }
 
 button {

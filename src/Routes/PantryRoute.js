@@ -52,19 +52,7 @@ class PantryRoute extends Component {
     console.log("ingredients is", ingredients);
     return ingredients.map(ingredient => (
       <section className="individual-ingredients" key={ingredient.id}>
-        {/* <Link
-          to={{
-            pathname: `/pantry/${ingredient.id}`,
-            state: {
-              ingredient_name: ingredient.ingredient_name,
-              in_stock: ingredient.in_stock,
-              notes: ingredient.notes,
-              ingredient_owner: ingredient.ingredient_owner
-            }
-          }}
-        >*/}
-        <h2 className="ingredient-name">{ingredient.ingredient_name}</h2>
-        {/* </Link>  */}
+        <h2 className="ingredient-name">{ingredient.ingredient_name.toLowerCase()}</h2>
         <span className="ingredient-stock">{ingredient.in_stock}</span>{" "}
         <Link
           className="edit-ingredient-button"
