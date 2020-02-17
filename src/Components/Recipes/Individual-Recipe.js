@@ -101,7 +101,7 @@ export default class DetailedView extends React.Component {
         </span>
         <div>{this.deleteOption()}</div>
         <div>{this.ownerOption()}</div>
-        <Link to="/">
+        <Link to="/recipes">
           <button className="cancel-view">Cancel</button>
         </Link>
       </div>

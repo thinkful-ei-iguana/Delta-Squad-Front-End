@@ -114,7 +114,7 @@ export default class CreateRecipe extends React.Component {
               <span className="a-field__label"></span>
             </span>
           </label>
-          <label className="field a-field a-field_a2">
+         { /*<label className="field a-field a-field_a2">
             Image URL:
             <input
               className="field__input a-field__input"
@@ -126,10 +126,10 @@ export default class CreateRecipe extends React.Component {
             <span className="a-field__label-wrap">
               <span className="a-field__label"></span>
             </span>
-          </label>
+          </label> */}
           <div className="btn-row">
             <button className="submitCreateRecipe">Create recipe</button>
-            <Link to="">
+            <Link to="/recipes">
               <button className="cancelEditRecipe">Cancel</button>
             </Link>
           </div>
