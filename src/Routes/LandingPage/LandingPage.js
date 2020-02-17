@@ -1,7 +1,7 @@
 import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { Link } from "react-router-dom";
-import LandingLogo from "../../Assets/LandingLogo.gif";
+// import LandingLogo from "../../Assets/LandingLogo.gif";
 import './LandingPage.css';
 // import Context from "../Contexts/Context";
 // import RecentResults from "../Components/Recent-Results";
@@ -17,11 +17,11 @@ export default class Landing extends React.Component {
       <div className="Landing">
         <header id="Landing-Header" className="flex-container">
           <div className="flex-item branding">
-            <img 
+            {/* <img 
               classname="Landing-Logo" 
               src={LandingLogo} 
               alt="Kitchen Helper Logo" 
-              />
+              /> */}
           </div>
           <div className="flex-item"></div>
           

@@ -57,6 +57,7 @@ class App extends React.Component {
 
       <div className="App">
         <main>
+        
           <Header user={this.state.currentUser} />
           <Switch>
             <PrivateRoute

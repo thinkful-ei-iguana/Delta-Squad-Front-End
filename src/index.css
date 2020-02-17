@@ -40,6 +40,8 @@ button {
 }
 
 .heading {
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-family: "cookiesregular";
   color: #141514;
@@ -131,4 +133,12 @@ code {
   visibility: visible;
   transform: scale(1);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.landing-image {
+  display: inline-block;    
+}
+
+.landinglogo {
+  margin: 0 22.5%;
 }
