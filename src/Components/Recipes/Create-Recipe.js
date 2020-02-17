@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Recipe from "../../Helpers/Recipe";
 import Context from "../../Contexts/Context";
-import "../Styles/Buttons.css";
 
 export default class CreateRecipe extends React.Component {
   static contextType = Context;
@@ -14,11 +13,11 @@ export default class CreateRecipe extends React.Component {
     }
   };
 
-  componentDidMount() {
+  /*componentDidMount() {
     if (!this.context.hasAuthToken()) {
       this.props.history.push("/Login");
     }
-  }
+  }*/
 
   handleCreationSuccess = () => {
     const { history } = this.props;
@@ -44,7 +43,7 @@ export default class CreateRecipe extends React.Component {
       recipe_description: recipe_description.value,
       recipe_ingredients: recipe_ingredients.value,
       time_to_make: time_to_make.value,
-      created_by: created_by.value
+    //  created_by: created_by.value
     })
       .then(recipe => {
         title.value = "";
@@ -60,6 +59,7 @@ export default class CreateRecipe extends React.Component {
 
   render() {
     return (
+    
       <div className="Creation">
         <header className="Creation-Header"></header>
         <form className="Creation-Form" onSubmit={this.createSubmit}>

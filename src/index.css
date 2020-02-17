@@ -32,7 +32,15 @@
 }
 
 button {
-  background-color: #ffcb32;
+  background-color: #FFCB32;
+}
+
+.bigButton {
+  width: 200px;
+  height: 100px;
+  font-family: 'cookiesregular';
+  font-size: 25px;
+  cursor: pointer;
 }
 
 .recipePage {
