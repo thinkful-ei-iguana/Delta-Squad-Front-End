@@ -95,7 +95,7 @@ class IndividualIngredient extends Component {
           <div>
             <form id="modal-content" onSubmit={this.handleSubmit}>
               <label>Ingredient:</label>
-              <input id="ingredient" name="ingredient_name" type="text"></input>
+              <input id="ingredient-name" name="ingredient_name" type="text"></input>
               <div id="ingredient-in-stock">
                 <select id="in-stock" name="in_stock">
                   In stock:
@@ -150,21 +150,21 @@ class IndividualIngredient extends Component {
       <div id="individual-ingredient-view">
         <section id="original-ingredient-data">
           <h2 id="update-header"></h2>
-          <p>
-            Ingredient: {this.props.location.state.ingredient_name}
+          <span id="current-individual-ingredient">
+            Ingredient: {this.props.location.state.ingredient_name.toLowerCase()}
             <br />
             In stock? {this.props.location.state.in_stock}
             <br />
             Notes: {this.props.location.state.notes}
-          </p>
+          </span>
         </section>
         <button id="update-ingredient-button" type="submit" onClick={() => this.setStateUpdateIngredientTrue()}>
           Update
         </button>
-        <button id="update-ingredient-button" type="submit" onClick={(e) => this.handleDeleteIngredient(e)}>
+        {this.handleUpdateIngredient()}
+        <button id="delete-ingredient-button" type="submit" onClick={(e) => this.handleDeleteIngredient(e)}>
           Delete
         </button>
-        {this.handleUpdateIngredient()}
         <button id="go-back-button" type="submit" onClick={() => this.handleGoBack()}>
           Go back
         </button>
