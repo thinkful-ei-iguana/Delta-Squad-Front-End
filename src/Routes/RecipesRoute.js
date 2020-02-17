@@ -23,7 +23,6 @@ class RecipesRoute extends Component {
   getRecipes = () => {
     const url = `${config.API_ENDPOINT}/recipes`;
     const authToken = TokenService.getAuthToken();
-    // console.log("auth token recipes GET is", authToken);
     fetch(url, {
       method: "GET",
       headers: {
@@ -62,11 +61,8 @@ class RecipesRoute extends Component {
                 }
               }}
             >
-              {recipe.title},
+              {recipe.title}
             </Link>
-            <p>
-              also inserting status of ingredients, and link to planning a meal
-            </p>
           </div>
         );
       });

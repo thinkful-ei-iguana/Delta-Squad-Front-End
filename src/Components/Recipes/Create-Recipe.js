@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Recipe from "../../Helpers/Recipe";
-import Context from "../../Contexts/Context";
-import TokenService from "../../Helpers/Token";
+
 
 export default class CreateRecipe extends React.Component {
-  static contextType = Context;
   static defaultProps = {
     currentUser: {},
     location: {},
@@ -15,7 +13,6 @@ export default class CreateRecipe extends React.Component {
   };
 
   componentDidMount() {
-    console.log('context is', this.context);
    /* if (!this.context.hasAuthToken()) {
       this.props.history.push("/Login");
     }*/
@@ -30,7 +27,6 @@ export default class CreateRecipe extends React.Component {
 
   createSubmit = e => {
     e.preventDefault();
-    const created_by = this.context.currentUser.id;
     const {
       title,
       recipe_description,
@@ -42,7 +38,7 @@ export default class CreateRecipe extends React.Component {
     console.log('id is', this.context);
     Recipe.createRecipe({
       title: title.value,
-      owner: this.context.currentUser.id,
+      //owner: this.context.currentUser.id,
       recipe_description: recipe_description.value,
       recipe_ingredients: recipe_ingredients.value,
       time_to_make: time_to_make.value,

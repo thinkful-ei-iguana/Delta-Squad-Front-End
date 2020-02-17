@@ -18,8 +18,9 @@ export default class DetailedView extends React.Component {
   };
 
   componentDidMount() {
-    const { recipeid } = this.props.match.params;
-    RecipeHelper.recipeById(recipeid).then(
+    const { recipeId } = this.props.match.params;
+    console.log('recipeid is:', recipeId);
+    RecipeHelper.recipeById(recipeId).then(
       recipeData =>
         this.setState({
           recipe: recipeData
@@ -28,6 +29,8 @@ export default class DetailedView extends React.Component {
           this.setState({ owner: ownerData });
         })
     );
+
+    console.log('state is:', this.state);
   }
 
   deleteRecipe = () => {
