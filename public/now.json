@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "alias": "member-delta-squad-app",
   "name": "delta-squad-app",
   "routes": [
     { "handle": "filesystem" },
