@@ -19,13 +19,6 @@ class LoginForm extends React.Component {
 
   // firstInput = React.createRef();
 
-  onLoginSuccess = () => {
-    const { location, history } = this.props;
-    console.log("this.props.location is", this.props.location);
-    const destination = (location.state || {}).from || "/home";
-    history.push(destination);
-    // this.context.setUser = this.props.location
-  };
 
   loginSubmit = e => {
     e.preventDefault();
@@ -46,6 +39,13 @@ class LoginForm extends React.Component {
       });
   };
 
+  // onLoginSuccess = () => {
+  //   const { location, history } = this.props;
+  //   console.log("this.props is", this.props);
+  //   // const destination = ("/home" || location.state || {}).from;
+  //   history.push("/home");
+  //   // this.context.setUser = this.props.location
+  // };
   // componentDidMount() {
   //   console.log('first input is', this.firstInput);
   //   this.firstInput.current.focus();
@@ -58,7 +58,6 @@ class LoginForm extends React.Component {
         <form
           className="login-form"
           onSubmit={this.loginSubmit}
-          onMouseOver={this.submitButtonHasBeenHovered}
         >
           <label
             htmlFor="user_name"
@@ -86,7 +85,6 @@ class LoginForm extends React.Component {
             name="password"
             type="password"
             placeholder="Password"
-            onChange={this.passwordHasChanged}
           />
 
           <div className="btn-row">
@@ -94,7 +92,6 @@ class LoginForm extends React.Component {
               type="submit"
               className="submit-login"
               value="Submit"
-              onClick={this.submitButtonHasBeenClicked}
             />
             <br />
             <Link to="/register">

@@ -64,7 +64,7 @@ class App extends React.Component {
             <PrivateRoute
               exact
               path={"/home"}
-              component={DashboardRoute} // dashboard route??
+              component={DashboardRoute}
             />
             <PrivateRoute exact path={"/user/:username"} component={Profile} />
             <PrivateRoute exact path={"/recipes"} component={RecipesRoute} />
@@ -100,10 +100,10 @@ class App extends React.Component {
               component={MarketplaceRoute}
             />*/}
             <PublicOnlyRoute
-              exact 
+              exact
               path={"/"}
               component={Landing}
-              />
+            />
             <PublicOnlyRoute
               exact
               path={"/register"}

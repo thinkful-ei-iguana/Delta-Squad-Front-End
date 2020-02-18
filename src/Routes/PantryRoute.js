@@ -69,7 +69,6 @@ class PantryRoute extends Component {
         >
           View/Edit
         </Link>
-        {/* <br /> */}
       </section>
     ));
   };
@@ -86,9 +85,9 @@ class PantryRoute extends Component {
     return (
       <section id="pantry-router-container">
         <h2 id="my-pantry-header">My Pantry</h2>
-        {this.state.ingredients.length > 0 && <button id="add-ingredient-button" type="submit" onClick={() => this.setStateAddIngredientTrue()}>
+        <button id="add-ingredient-button" type="submit" onClick={() => this.setStateAddIngredientTrue()}>
           Add an ingredient
-          </button>}
+          </button>
         <AddIngredient
           addIngredient={this.state.addIngredient}
           allIngredients={this.state.ingredients}
