@@ -60,17 +60,17 @@ export default class Landing extends React.Component {
               </div>
             </div>
             <div className="sampleImages">
-              <ul>
-                <li>
-                  <img src={RecipeSearch} alt="Recipe Search and Create Buttons" id="recipe-search" />
-                </li>
-                <li>
-                  <img src={PantryAddForm} alt="Pantry Ingredient Add Form" id="pantry-add-form" />
-                </li>
-                <li>
-                  <img src={MealPlanAdd} alt="Meal Planning Add Button" id="meal-planning-add-button" />
-                </li>
-              </ul>
+              {/* <ul className="appSampleImages"> */}
+                {/* <li className="landingSample"> */}
+                  <img src={RecipeSearch} className="landingSamples" alt="Recipe Search and Create Buttons" id="recipe-search" />
+                {/* </li>
+                <li className="landingSample"> */}
+                  <img src={PantryAddForm} className="landingSamples" alt="Pantry Ingredient Add Form" id="pantry-add-form" />
+                {/* </li> */}
+                {/* <li className="landingSample"> */}
+                  <img src={MealPlanAdd} className="landingSamples" alt="Meal Planning Add Button" id="meal-planning-add-button" />
+                {/* </li> */}
+              {/* </ul> */}
             </div>
           </div>
         </section>

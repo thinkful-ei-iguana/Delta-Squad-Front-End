@@ -18,7 +18,7 @@
 
 } */
 
-img {
+.landinglogo {
     justify-content: center;
     align-items: center;
     width: 55%;
@@ -39,7 +39,21 @@ img {
     align-items: center;
 }
 
-.sampleImages {
+.landingSamples {
     display: inline-block;
+    padding: 10px;
 
+    width: 25%;
 }
+
+/* .appSampleImages {
+    list-style-type: none;
+    width: 200px;
+    height: 200px;
+}
+
+.landingSample {
+    display: inline;
+    
+
+} */
