@@ -1,11 +1,14 @@
 import config from "../config";
+import TokenService from './Token'
 
 const RecipeHelper = {
   createRecipe(newRecipe) {
+    const authToken = TokenService.getAuthToken();
     return fetch(`${config.API_ENDPOINT}/recipes`, {
       method: "POST",
       headers: {
-        "content-type": "application/json"
+        "Content-type": "application/json",
+        Authorization: `Bearer ${authToken}`
       },
       body: JSON.stringify(newRecipe)
     }).then(res =>
@@ -13,12 +16,14 @@ const RecipeHelper = {
     );
   },
   recipeById(id) {
+    const authToken = TokenService.getAuthToken();
     // console.log("getting recipe by id");
     return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
       method: "GET",
       headers: {
-        "content-type": "application/json"
-      }
+        "Content-type": "application/json",
+        Authorization: `Bearer ${authToken}`
+      },
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
@@ -28,11 +33,13 @@ const RecipeHelper = {
   // )}
 
   getRecipeOwnerData(id) {
+    const authToken = TokenService.getAuthToken();
     return fetch(`${config.API_ENDPOINT}/recipe/${id}`, {
       method: "GET",
       headers: {
-        "content-type": "application/json"
-      }
+        "Content-type": "application/json",
+        Authorization: `Bearer ${authToken}`
+      },
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
@@ -48,11 +55,13 @@ const RecipeHelper = {
     );
   },
   delete(id) {
+    const authToken = TokenService.getAuthToken();
     return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
       method: "DELETE",
       headers: {
-        Authorization: `Bearer ${config.TOKEN_KEY}`
-      }
+        "Content-type": "application/json",
+        Authorization: `Bearer ${authToken}`
+      },
     });
   },
 

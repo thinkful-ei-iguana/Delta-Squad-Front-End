@@ -9,10 +9,17 @@ class LoginRoute extends Component {
     }
   };
 
+  onLoginSuccess = () => {
+    const { location, history } = this.props;
+    console.log("this.props is", this.props);
+    const destination = (location.state || {}).from || "/home";
+    history.push(destination);
+  };
+
   render() {
     return (
       <section>
-        <LoginForm />
+        <LoginForm onLoginSuccess={this.onLoginSuccess} />
       </section>
     );
   }

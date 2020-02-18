@@ -16,7 +16,10 @@ import Darkmode from "darkmode-js";
 import Header from "./Components/Header";
 import Landing from "./Routes/LandingPage/LandingPage";
 import searchRecipes from "./Components/Recipes/Search-Recipe";
-
+import individualRecipe from "./Components/Recipes/Individual-Recipe";
+import createRecipes from "./Components/Recipes/Create-Recipe";
+import viewSearchRecipes from "./Components/Recipes/View-Search";
+// import Landing from "./Components/Landing";
 
 // import AuthHelper from "../src/Helpers/Auth";
 // import Context from "./Contexts/UserContext";
@@ -63,7 +66,7 @@ class App extends React.Component {
             <PrivateRoute
               exact
               path={"/home"}
-              component={DashboardRoute} // dashboard route??
+              component={DashboardRoute}
             />
             <PrivateRoute exact path={"/user/:username"} component={Profile} />
             <PrivateRoute exact path={"/recipes"} component={RecipesRoute} />
@@ -72,7 +75,25 @@ class App extends React.Component {
               path={"/recipes/search"}
               component={searchRecipes}
             />
-            <PrivateRoute exact path={"/pantry"} component={PantryRoute} />
+            <PrivateRoute
+              exact
+              path={"/recipes/create"}
+              component={createRecipes}
+            />
+            <PrivateRoute 
+              exact path={"/recipes/:recipeId"} 
+              component={individualRecipe} />
+            <PrivateRoute 
+              exact path={"/recipes/search/:recipeId"} 
+              component={viewSearchRecipes} />
+            
+            
+            <PrivateRoute
+              exact
+              path={"/pantry"}
+              component={PantryRoute}
+            />
+
             <PrivateRoute
               path={"/pantry/:ingredientId"}
               component={IndividualIngredient}
@@ -88,10 +109,10 @@ class App extends React.Component {
               component={MarketplaceRoute}
             />*/}
             <PublicOnlyRoute
-              exact 
+              exact
               path={"/"}
               component={Landing}
-              />
+            />
             <PublicOnlyRoute
               exact
               path={"/register"}

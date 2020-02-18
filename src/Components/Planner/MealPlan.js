@@ -135,7 +135,7 @@ class MealPlan extends Component {
     return (
       <div id="individual-mealplan-view">
         <section id="original-mealplan-data">
-          <h2 id="update-header"></h2>
+          <h2 id="update-header">Update</h2>
           <p>
             Title: {this.props.location.state.title}
             <br />

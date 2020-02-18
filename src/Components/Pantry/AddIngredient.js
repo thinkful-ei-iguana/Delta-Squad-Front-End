@@ -42,10 +42,12 @@ class AddIngredient extends Component {
             >
               <label>Ingredient:</label>
               <input
+                id="ingredient-name"
                 name="ingredient_name"
                 type="text"></input>
               <div id="ingredient-in-stock">
                 <select
+                  id="in-stock"
                   name="in_stock">In stock:
                 <option value="in-stock">In stock</option>
                   <option value="out-of-stock">Out</option>
@@ -54,6 +56,7 @@ class AddIngredient extends Component {
               </div>
               <label>Notes:</label>
               <input
+                id="notes"
                 name="notes"
                 type="text"></input>
               <button id="close"

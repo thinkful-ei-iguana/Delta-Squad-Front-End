@@ -1,5 +1,6 @@
 import React from "react";
-import './Search-Recipe.css'
+import './Search-Recipe.css';
+import { Link } from "react-router-dom";
 
 export default class SearchRecipe extends React.Component {
     constructor(props) {
@@ -41,16 +42,25 @@ export default class SearchRecipe extends React.Component {
         return;
       }
         return (
-                this.state.searchResults.map(recipe => <li className="individualResult" key={recipe.id}>{recipe.title}</li>)
+                this.state.searchResults.map(recipe => <li key={recipe.id}>
+                <Link className="individualResult"
+                to={{
+                  pathname: `/recipes/search/${recipe.id}`,
+                  state: {
+                    recipeId: recipe.id 
+                  }}}>
+                {recipe.title}
+                </Link>
+                </li>)
         )
     }
 
     render () {
         return(
             <div className="searchRecipe">
-                <form onSubmit={this.handleSearch}>
-                    <input id="searchBar" type="text" onChange={e => this.setState({searchTerms: e.target.value})}></input>
-                    <button id="searchButton" type="submit">Search</button>
+                <form className="searchArea" onSubmit={this.handleSearch}>
+                    <input  id="searchBar" type="text" placeholder="Search by ingredients" onChange={e => this.setState({searchTerms: e.target.value})}></input>
+                    <button  id="searchButton" type="submit">Search</button>
                 </form>
 
                 <section className="recipeResults">

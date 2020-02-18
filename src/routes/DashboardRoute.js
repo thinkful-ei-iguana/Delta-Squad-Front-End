@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './DashboardRoute.css';
 // import NavMenu from './NavMenu/NavMenu';
@@ -22,13 +22,13 @@ class DashboardRoute extends Component {
         return (
             <div id="dashboard-container">
                 <ul id="dashboard-links-list">
-                    <li className="dashboard pantry">
-                        <Link
-                            className="dashboard-link-text"
-                            to={"/pantry"}>
+                <Link
+                    className="dashboard-link-text"
+                    to={"/pantry"}>
+                    <li className="dashboard pantry">   
                             Pantry
-                        </Link>
                     </li>
+                </Link>
 
                     {/* <div className="marketPlace">               
                         <Link 
@@ -37,23 +37,20 @@ class DashboardRoute extends Component {
                             MarketPlace
                         </Link>
                 </div>  */}
-
-                    <li className="dashboard recipes">
-                        <Link
-                            className="dashboard-link-text"
-
-                            to={"/recipes"}>
-                            Recipes
-                        </Link>
+                <Link
+                    className="dashboard-link-text"
+                    to={"/recipes"}>
+                    <li className="dashboard recipes">          
+                            Recipes    
                     </li>
+                </Link>
+                <Link
+                    className="dashboard-link-text"
+                    to={"/planner"}>
                     <li className="dashboard meal-plan">
-                        <Link
-                            className="dashboard-link-text"
-                            to={"/planner"}>
                             Plan a Meal
-                        </Link>
                     </li>
-
+                </Link>
                     {/* <div className="accountInfo">                
                         <Link 
                             id="accountInfo"

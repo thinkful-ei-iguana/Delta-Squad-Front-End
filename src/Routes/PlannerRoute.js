@@ -102,16 +102,16 @@ class PlannerRoute extends Component {
           My Mealplans
         </h2>
         {this.state.mealplans && this.renderMealPlans()}
-        {this.state.mealplans.length > 0 && (
-          <button
-            id="modal-btn"
-            className="Add-Meal-Plan-Button"
-            type="submit"
-            onClick={() => this.setStateAddMealPlanTrue()}
-          >
-            Add a MealPlan
+        {/* {this.state.mealplans.length > 0 && ( */}
+        <button
+          id="modal-btn"
+          className="Add-Meal-Plan-Button"
+          type="submit"
+          onClick={() => this.setStateAddMealPlanTrue()}
+        >
+          Add a MealPlan
           </button>
-        )}
+        {/* )} */}
         <AddMealPlan
           addMealPlan={this.state.addMealPlan}
           allMealPlans={this.state.mealplans}

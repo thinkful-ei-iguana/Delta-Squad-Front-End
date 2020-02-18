@@ -52,19 +52,7 @@ class PantryRoute extends Component {
     console.log("ingredients is", ingredients);
     return ingredients.map(ingredient => (
       <section className="individual-ingredients" key={ingredient.id}>
-        {/* <Link
-          to={{
-            pathname: `/pantry/${ingredient.id}`,
-            state: {
-              ingredient_name: ingredient.ingredient_name,
-              in_stock: ingredient.in_stock,
-              notes: ingredient.notes,
-              ingredient_owner: ingredient.ingredient_owner
-            }
-          }}
-        >*/}
-        <h2 className="ingredient-name">{ingredient.ingredient_name}</h2>
-        {/* </Link>  */}
+        <h2 className="ingredient-name">{ingredient.ingredient_name.toLowerCase()}</h2>
         <span className="ingredient-stock">{ingredient.in_stock}</span>{" "}
         <Link
           className="edit-ingredient-button"
@@ -81,7 +69,6 @@ class PantryRoute extends Component {
         >
           View/Edit
         </Link>
-        {/* <br /> */}
       </section>
     ));
   };
@@ -98,9 +85,9 @@ class PantryRoute extends Component {
     return (
       <section id="pantry-router-container">
         <h2 id="my-pantry-header">My Pantry</h2>
-        {this.state.ingredients.length > 0 && <button id="add-ingredient-button" type="submit" onClick={() => this.setStateAddIngredientTrue()}>
+        <button id="add-ingredient-button" type="submit" onClick={() => this.setStateAddIngredientTrue()}>
           Add an ingredient
-          </button>}
+          </button>
         <AddIngredient
           addIngredient={this.state.addIngredient}
           allIngredients={this.state.ingredients}

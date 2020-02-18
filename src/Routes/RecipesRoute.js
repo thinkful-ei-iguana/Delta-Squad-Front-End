@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import config from '../config';
 import TokenService from '../Helpers/Token.js'
-import searchRecipe from '../Components/Recipes/Search-Recipe'
-import IndividualRecipe from '../Components/Recipes/Individual-Recipe'
+import './RecipesRoute.css';
+// import searchRecipe from '../Components/Recipes/Search-Recipe'
+// import IndividualRecipe from '../Components/Recipes/Individual-Recipe'
 
 
 class RecipesRoute extends Component {
@@ -23,7 +24,6 @@ class RecipesRoute extends Component {
   getRecipes = () => {
     const url = `${config.API_ENDPOINT}/recipes`;
     const authToken = TokenService.getAuthToken();
-    // console.log("auth token recipes GET is", authToken);
     fetch(url, {
       method: "GET",
       headers: {
@@ -52,7 +52,7 @@ class RecipesRoute extends Component {
         return (
           <div key={recipe.id}>
             <Link
-              id="individual-recipe"
+              className="individual-recipe"
               to={{
                 pathname: `/recipes/${recipe.id}`,
                 state: {
@@ -62,11 +62,8 @@ class RecipesRoute extends Component {
                 }
               }}
             >
-              {recipe.title},
+              <li>{recipe.title}</li>
             </Link>
-            <p>
-              also inserting status of ingredients, and link to planning a meal
-            </p>
           </div>
         );
       });
@@ -75,8 +72,10 @@ class RecipesRoute extends Component {
 
   render() {
     return (
-      <section>
+      <section className="recipeSection">
         <Link to="recipes/search"><button className="bigButton">Search for new recipes</button></Link>
+        <Link to="recipes/create"><button className="bigButton">Create new recipe</button></Link>
+        <h1 id="recipeHeader">My Recipes:</h1>
         {this.state.recipes && this.renderRecipes()}
 
       </section>

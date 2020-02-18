@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import config from "../../config";
-import TokenService from "../../Helpers/Token";
+// import config from "../../config";
+// import TokenService from "../../Helpers/Token";
 import PlannerHelper from "../../Helpers/Planner";
 
 class AddMealPlan extends Component {
@@ -34,8 +34,8 @@ class AddMealPlan extends Component {
     return (
       <div>
         {this.props.addMealPlan === true && (
-          <div id="modal">
-            <form id="modal-content" onSubmit={this.handleSubmit}>
+          <div id="modal-planner">
+            <form id="modal-content-planner" onSubmit={this.handleSubmit}>
               <label>MealPlan:</label>
               <input name="title" type="text">
                 {this.props.title}
@@ -53,8 +53,8 @@ class AddMealPlan extends Component {
               </label>
               <input name="needed_ingredients" type="text"></input>
               <button
-                id="close"
-                // onClick={this.props.toggleAddForm}
+                id="close-planner"
+              // onClick={this.props.toggleAddForm}
               >
                 Plan it!
               </button>

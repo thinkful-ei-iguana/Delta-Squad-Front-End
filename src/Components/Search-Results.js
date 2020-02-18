@@ -10,7 +10,7 @@ export default class SearchResults extends React.Component {
   componentDidMount() {
     fetch(
       `http://localhost:8000/api/recipes/${
-        this.props.location.pathname.split("/")[2]
+      this.props.location.pathname.split("/")[2]
       }`
     )
       .then(res => res.json())
@@ -21,7 +21,7 @@ export default class SearchResults extends React.Component {
   render() {
     return (
       <div className="Landing">
-        <Link to="/">Home</Link>
+        <Link to="/home">Home</Link>
         <header id="Landing-Header">
           <form id="SearchForm">
             <label className="field a-field a-field_a2">
@@ -39,8 +39,8 @@ export default class SearchResults extends React.Component {
             <p>{this.state.recipeSearch.time_to_make}</p>
           </>
         ) : (
-          "I'm sorry I can't find that."
-        )}
+            "I'm sorry I can't find that."
+          )}
       </div>
     );
   }
