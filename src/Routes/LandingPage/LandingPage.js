@@ -1,7 +1,9 @@
 import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { Link } from "react-router-dom";
-import LandingLogo from "../../Assets/LandingLogo.gif";
+import MealPlanAdd from "../../Assets/MealPlanAdd.JPG";
+import PantryAddForm from '../../Assets/PantryAddForm.JPG';
+import RecipeSearch from '../../Assets/RecipeSearch.JPG';
 import "./LandingPage.css";
 // import Context from "../Contexts/Context";
 // import RecentResults from "../Components/Recent-Results";
@@ -58,9 +60,17 @@ export default class Landing extends React.Component {
               </div>
             </div>
             <div className="sampleImages">
-              <img src="" alt="Recipe Search" id="recipe-search" />
-              <img src="" alt="Pantry Ingredient List" id="pantry-list" />
-              <img src="" alt="Meal Planning" id="meal-planning-form" />
+              <ul>
+                <li>
+                  <img src={RecipeSearch} alt="Recipe Search and Create Buttons" id="recipe-search" />
+                </li>
+                <li>
+                  <img src={PantryAddForm} alt="Pantry Ingredient Add Form" id="pantry-add-form" />
+                </li>
+                <li>
+                  <img src={MealPlanAdd} alt="Meal Planning Add Button" id="meal-planning-add-button" />
+                </li>
+              </ul>
             </div>
           </div>
         </section>

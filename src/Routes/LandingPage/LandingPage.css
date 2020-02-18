@@ -1,6 +1,8 @@
 .Landing {
     text-align: center;
     background-color: #B6D084;
+    margin-top: 0;
+    /* padding: 10px; */
 }
 
 .flex-container {
@@ -29,7 +31,15 @@ img {
 } */
 
 .site-description {
-    
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-left: 20px; 
+    margin-right: 20px;   
     justify-content: center;
     align-items: center;
+}
+
+.sampleImages {
+    display: inline-block;
+
 }
