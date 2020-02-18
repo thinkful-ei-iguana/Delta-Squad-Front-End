@@ -17,11 +17,12 @@ export default class Landing extends React.Component {
       <div className="Landing">
         <header id="Landing-Header" className="flex-container">
           <div className="flex-item branding">
-            <img
-              className="Landing-Logo"
-              src={LandingLogo}
-              alt="Kitchen Helper Logo"
-            />
+            {/* <img 
+              classname="Landing-Logo" 
+              src={LandingLogo} 
+              alt="Kitchen Helper Logo" 
+              /> */}
+
           </div>
           <div className="flex-item"></div>
         </header>

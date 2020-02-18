@@ -17,6 +17,8 @@
 } */
 
 img {
+    justify-content: center;
+    align-items: center;
     width: 55%;
     border: 2px black;
 
