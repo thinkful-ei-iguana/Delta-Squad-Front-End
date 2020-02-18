@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import config from '../config';
 import TokenService from '../Helpers/Token.js'
 import './RecipesRoute.css';
-import searchRecipe from '../Components/Recipes/Search-Recipe'
-import IndividualRecipe from '../Components/Recipes/Individual-Recipe'
+// import searchRecipe from '../Components/Recipes/Search-Recipe'
+// import IndividualRecipe from '../Components/Recipes/Individual-Recipe'
 
 
 class RecipesRoute extends Component {
@@ -59,7 +59,7 @@ class RecipesRoute extends Component {
                   title: recipe.title,
                   description: recipe.recipe_description,
                   timeToMake: recipe.time_to_make
-                } 
+                }
               }}
             >
               <li>{recipe.title}</li>

@@ -149,7 +149,7 @@ class IndividualIngredient extends Component {
 
       <div id="individual-ingredient-view">
         <section id="original-ingredient-data">
-          <h2 id="update-header"></h2>
+          {/* <h2 id="update-header">Your ingredient</h2> */}
           <span id="current-individual-ingredient">
             Ingredient: {this.props.location.state.ingredient_name.toLowerCase()}
             <br />

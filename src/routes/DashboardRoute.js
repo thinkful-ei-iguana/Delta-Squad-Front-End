@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './DashboardRoute.css';
 // import NavMenu from './NavMenu/NavMenu';
