@@ -58,9 +58,9 @@ export default class SearchRecipe extends React.Component {
     render () {
         return(
             <div className="searchRecipe">
-                <form onSubmit={this.handleSearch}>
-                    <input id="searchBar" type="text" onChange={e => this.setState({searchTerms: e.target.value})}></input>
-                    <button id="searchButton" type="submit">Search</button>
+                <form className="searchArea" onSubmit={this.handleSearch}>
+                    <input  id="searchBar" type="text" placeholder="Search by ingredients" onChange={e => this.setState({searchTerms: e.target.value})}></input>
+                    <button  id="searchButton" type="submit">Search</button>
                 </form>
 
                 <section className="recipeResults">
