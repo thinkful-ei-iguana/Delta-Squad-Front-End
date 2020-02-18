@@ -7,6 +7,14 @@
   
   }
 
+  /*
+ #F8FFCA Yellow Green
+ #B6D084 Chartreuse
+ #FFCB32 Mimosa
+ #2F7604 Green
+ #141514 Black
+ */
+
 .recipeResults {
     list-style: none;
     margin: 5%;
@@ -19,6 +27,14 @@
 
 .individualResult {
     padding: 2%;
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.individualResult:hover {
+    background-color: #FFCB32; 
 }
 
 .searchRecipe {
