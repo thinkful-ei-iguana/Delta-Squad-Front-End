@@ -59,24 +59,12 @@ class IndividualIngredient extends Component {
       })
       .then(data => {
         console.log("patch data is", data);
-        // this.resetFields(updatedIngredient)
-        // this.context.editBookmark(newBookmark)
         this.props.history.push("/pantry");
       })
       .catch(error => {
         console.error(error);
       });
   };
-
-  // resetFields = (newFields) => {
-  //   this.setState({
-  //     id: newFields.id || '',
-  //     title: newFields.title || '',
-  //     url: newFields.url || '',
-  //     description: newFields.description || '',
-  //     rating: newFields.rating || '',
-  //   })
-  // }
 
   handleGoBack = () => {
     return this.props.history.push("/pantry")
