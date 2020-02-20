@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import config from "../../config";
 // import TokenService from "../../Helpers/Token";
 import PlannerHelper from "../../Helpers/Planner";
+import Calendar from "./Calendar";
 
 class AddMealPlan extends Component {
   constructor(props) {
@@ -54,7 +55,7 @@ class AddMealPlan extends Component {
               <input name="needed_ingredients" type="text"></input>
               <button
                 id="close-planner"
-              // onClick={this.props.toggleAddForm}
+                // onClick={this.props.toggleAddForm}
               >
                 Plan it!
               </button>
