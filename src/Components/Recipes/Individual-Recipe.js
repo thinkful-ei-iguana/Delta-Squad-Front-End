@@ -83,7 +83,8 @@ export default class DetailedView extends React.Component {
         <p className="recipeInfo">{this.state.recipe.title}</p>
         <p className="recipePageHeader">Recipe Ingredients:</p>
         <p className="recipeInfo">
-          {this.state.recipe.recipe_ingredients}
+          {this.state.recipe.recipe_ingredients &&
+            this.state.recipe.recipe_ingredients.join(', ')}
         </p>
        
         <p className="recipePageHeader">Recipe Description: </p>

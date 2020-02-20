@@ -36,7 +36,7 @@ export default class CreateRecipe extends React.Component {
     } = e.target;
 
     this.setState({ error: null });
-    let recipeIngredients = recipe_ingredients.value.split(',');
+    let recipeIngredients = recipe_ingredients.value.split(', ');
 
     Recipe.createRecipe({
       title: title.value,
