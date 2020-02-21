@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Recipe from "../../Helpers/Recipe";
 
 export default class SearchRecipe extends React.Component {
     constructor(props) {
@@ -40,10 +41,30 @@ export default class SearchRecipe extends React.Component {
         })
     }
 
+    handleCreationSuccess = () => {
+      const { history } = this.props;
+      history.push("/");
+    };
+
+    addRecipe = () => {  
+      Recipe.createRecipe({
+        title: this.state.recipe.title,
+        recipe_description: this.state.instructions.steps.join(', '),
+        recipe_ingredients: this.state.ingredients,
+        time_to_make: (this.state.recipe.preparationMinutes + this.state.recipe.cookingMinutes)
+      })
+        .then(recipe => {
+          this.handleCreationSuccess();
+        })
+        .catch(res => {
+          this.setState({ error: res.error });
+        });
+    }
+
     render() {
         console.log('we here');
-        //console.log(this.state);
-        console.log(this.state.instructions)
+        console.log(this.state.recipe);
+       // console.log(this.state.instructions)
         let instructionsArr = []
         if (this.state.ingredients) {
           this.state.instructions.steps.map(instruction => instructionsArr.push(instruction.step))
@@ -74,7 +95,7 @@ export default class SearchRecipe extends React.Component {
             {this.state.recipe.preparationMinutes + this.state.recipe.cookingMinutes} minutes</p>
     
 
-
+            <button onClick={this.addRecipe}>Add to my recipes!</button>
             <Link to="/recipes/search">
               <button className="cancel-view">Cancel</button>
             </Link>
