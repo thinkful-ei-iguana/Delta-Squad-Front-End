@@ -91,7 +91,7 @@ export default class SearchRecipe extends React.Component {
                 this.state.ingredients.map(ingredient => `${ingredient.name}, `)}
             </p>
            
-            <p className="recipePageHeader">Recipe Description: </p>
+            <p className="recipePageHeader">Recipe Instructions: </p>
             <section className="recipeInfo instructions">
               {instructionsArr.map(inst => <p key={inst}>{inst}</p>)}
                 </section>

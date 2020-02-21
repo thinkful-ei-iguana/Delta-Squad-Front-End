@@ -71,6 +71,14 @@ export default class DetailedView extends React.Component {
   };
 
   render() {
+    let instructionsArr = []
+    if (this.state.recipe.recipe_description) {
+      let desc = this.state.recipe.recipe_description.slice(2);
+      let desc1 = desc.slice(0, -2);
+      let descarr = desc1.split('","');
+      console.log(descarr);
+      descarr.map(instruction => instructionsArr.push(instruction))
+    }
     return (
       <div className="view" id="recipeView">
         <div className="image-container">
@@ -87,13 +95,14 @@ export default class DetailedView extends React.Component {
             this.state.recipe.recipe_ingredients.join(', ')}
         </p>
        
-        <p className="recipePageHeader">Recipe Description: </p>
+        <p className="recipePageHeader">Recipe Instructions: </p>
         <p className="recipeInfo">
-          {this.state.recipe.recipe_description}
+          {instructionsArr.map(
+            inst => <p key={inst}>{inst}</p> )}
         </p>
 
         <p className="recipePageHeader">Time to make the recipe:</p>
-        <p className="recipeInfo">{this.state.recipe.time_to_make}</p>
+        <p className="recipeInfo">{this.state.recipe.time_to_make} Minutes</p>
 
         <p>Owner:</p>
         <p className="recipeInfo">{this.state.recipe.owner}</p>
