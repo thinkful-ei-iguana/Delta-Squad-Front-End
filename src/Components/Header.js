@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import TokenService from "../Helpers/Token";
 import UserContext from "../Contexts/UserContext";
+import LandingLogo from "../Assets/LandingLogo.gif";
 
 class Header extends Component {
   static contextType = UserContext;
@@ -71,11 +72,12 @@ class Header extends Component {
   render() {
     return (
       <header className="heading">
-        <h1 className="login-page-header">
-          <Link className="login-page-link" to="/login">
-            Kitchen Helper
-          </Link>
-        </h1>
+        <div className="landing-image">     
+          <img src={LandingLogo} alt="Landing Logo" className="landinglogo" />
+            <Link className="login-page-link" to="/">
+            
+            </Link>
+        </div> 
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}

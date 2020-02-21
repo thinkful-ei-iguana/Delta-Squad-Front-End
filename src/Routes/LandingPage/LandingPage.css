@@ -1,6 +1,8 @@
 .Landing {
     text-align: center;
     background-color: #B6D084;
+    margin-top: 0;
+    /* padding: 10px; */
 }
 
 .flex-container {
@@ -16,7 +18,9 @@
 
 } */
 
-img {
+.landinglogo {
+    justify-content: center;
+    align-items: center;
     width: 55%;
     border: 2px black;
 
@@ -27,7 +31,29 @@ img {
 } */
 
 .site-description {
-    
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-left: 20px; 
+    margin-right: 20px;   
     justify-content: center;
     align-items: center;
 }
+
+.landingSamples {
+    display: inline-block;
+    padding: 10px;
+
+    width: 25%;
+}
+
+/* .appSampleImages {
+    list-style-type: none;
+    width: 200px;
+    height: 200px;
+}
+
+.landingSample {
+    display: inline;
+    
+
+} */

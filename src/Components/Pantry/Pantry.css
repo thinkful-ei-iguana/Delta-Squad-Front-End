@@ -48,8 +48,8 @@
 .edit-ingredient-button {
   /* display: inline; */
   text-decoration: none;
-  border: 1px solid black;
-  border-radius: 3px;
+  /* border: 1px solid black; */
+  /* border-radius: 3px; */
   margin-bottom: 45px;
   padding: 4px;
   margin-left: 10px;
@@ -88,7 +88,7 @@
 /* AddIngredient.js */
 
 #modal {
-  border: 3px solid black;
+  /* border: 3px solid black; */
   padding: 5px;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -128,7 +128,7 @@
 }
 
 #modal-content {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   padding: 5px;
   display: flex;
   flex-direction: column;
