@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Recipe from "../../Helpers/Recipe";
 
 export default class SearchRecipe extends React.Component {
     constructor(props) {
@@ -40,12 +41,39 @@ export default class SearchRecipe extends React.Component {
         })
     }
 
+    handleCreationSuccess = () => {
+      const { history } = this.props;
+      history.push("/");
+    };
+
+    addRecipe = () => {  
+      let instructionsSet = [];
+      let ingredientsSet = [];
+      this.state.instructions.steps.map(instruction => instructionsSet.push(instruction.step))
+      this.state.ingredients.map(ing => ingredientsSet.push(ing.name))
+      let recipeObj = { 
+          title: this.state.recipe.title,
+          recipe_description: instructionsSet,
+          recipe_ingredients: ingredientsSet,
+          time_to_make: (this.state.recipe.preparationMinutes + this.state.recipe.cookingMinutes)
+        }
+      console.log("recipeObj: ",  recipeObj);
+      Recipe.createRecipe(recipeObj)
+        .then(recipe => {
+          this.handleCreationSuccess();
+        })
+        .catch(res => {
+          this.setState({ error: res.error });
+        });
+    }
+
     render() {
         console.log('we here');
-        //console.log(this.state);
-        console.log(this.state.instructions)
+        console.log(this.state.recipe);
+        //console.log(this.state.instructions)
         let instructionsArr = []
-        if (this.state.ingredients) {
+        if (this.state.instructions) {
+          console.log(this.state.instructions);
           this.state.instructions.steps.map(instruction => instructionsArr.push(instruction.step))
         }
         return(
@@ -64,7 +92,7 @@ export default class SearchRecipe extends React.Component {
                 this.state.ingredients.map(ingredient => `${ingredient.name}, `)}
             </p>
            
-            <p className="recipePageHeader">Recipe Description: </p>
+            <p className="recipePageHeader">Recipe Instructions: </p>
             <section className="recipeInfo instructions">
               {instructionsArr.map(inst => <p key={inst}>{inst}</p>)}
                 </section>
@@ -74,7 +102,7 @@ export default class SearchRecipe extends React.Component {
             {this.state.recipe.preparationMinutes + this.state.recipe.cookingMinutes} minutes</p>
     
 
-
+            <button onClick={this.addRecipe}>Add to my recipes!</button>
             <Link to="/recipes/search">
               <button className="cancel-view">Cancel</button>
             </Link>

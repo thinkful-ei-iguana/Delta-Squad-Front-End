@@ -36,12 +36,13 @@ export default class CreateRecipe extends React.Component {
     } = e.target;
 
     this.setState({ error: null });
-    let recipeIngredients = recipe_ingredients.value.split(',');
+    let recipeIngredients = recipe_ingredients.value.split(', ');
+    console.log('split does this: ', recipe_description.value.split('. '))
 
     Recipe.createRecipe({
       title: title.value,
       //owner: this.context.currentUser.id,
-      recipe_description: recipe_description.value,
+      recipe_description: recipe_description.value.split('. '),
       recipe_ingredients: recipeIngredients,
       time_to_make: time_to_make.value,
     //  created_by: created_by.value
@@ -77,7 +78,7 @@ export default class CreateRecipe extends React.Component {
             <span className="a-field__label-wrap"></span>
           </label>
           <label className="field a-field a-field_a2">
-            Description: <textarea
+            Instructions (separate by period): <textarea
               className="field__input a-field__input"
               required
               type="text"
@@ -102,7 +103,7 @@ export default class CreateRecipe extends React.Component {
             </span>
           </label>
           <label className="field a-field a-field_a2">
-            Total Prep Time:
+            Total Prep Time (in minutes):
             <input
               className="field__input a-field__input"
               required
