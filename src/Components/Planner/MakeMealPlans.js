@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import config from "../../config";
 // import TokenService from "../../Helpers/Token";
 import PlannerHelper from "../../Helpers/Planner";
+import Calendar from "rc-calendar";
 
 class AddMealPlan extends Component {
   constructor(props) {
@@ -13,6 +14,29 @@ class AddMealPlan extends Component {
       postMealPlan: []
     };
   }
+
+  // planned_date should = whatever is selected for in calendar.
+  // calendar should be rendered once the input field is selected
+
+  componentDidMount() {
+    this.setCalendar();
+  }
+  setCalendar = () => {
+    const planned_date = this.props.location.state;
+    console.log("original planned_date", this.props.location.state);
+
+    this.setState({
+      calendar: planned_date
+    });
+  };
+
+  // setCalendar = () => {
+  //   return (
+  //     <div>
+  //       <Calendar onSelect={(this.onSelect = this.props.planned_date)} />
+  //     </div>
+  //   );
+  // };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -54,7 +78,7 @@ class AddMealPlan extends Component {
               <input name="needed_ingredients" type="text"></input>
               <button
                 id="close-planner"
-              // onClick={this.props.toggleAddForm}
+                // onClick={this.props.toggleAddForm}
               >
                 Plan it!
               </button>
@@ -68,7 +92,9 @@ class AddMealPlan extends Component {
   };
 
   render() {
+    console.log(this.props);
     console.log(this.props.addMealPlan, "this.props.addMealPlan");
+    console.log(this.props.planned_date, "props of planned date");
 
     return <div>{this.handleAddMealPlanWindow()}</div>;
   }

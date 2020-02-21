@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import config from "../../config";
 import TokenService from "../../Helpers/Token";
+import Calendar from "rc-calendar";
 
 class MealPlan extends Component {
   constructor(props) {
@@ -145,6 +146,8 @@ class MealPlan extends Component {
             <br />
             Ingredients required: {this.props.location.state.needed_ingredients}
           </p>
+          ReactDOM.render(
+          <Calendar />, container);
         </section>
         <button
           id="update-mealplan-button"
