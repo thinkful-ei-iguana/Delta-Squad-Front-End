@@ -18,17 +18,17 @@ class AddMealPlan extends Component {
   // planned_date should = whatever is selected for in calendar.
   // calendar should be rendered once the input field is selected
 
-  componentDidMount() {
-    this.setCalendar();
-  }
-  setCalendar = () => {
-    const planned_date = this.props.location.state;
-    console.log("original planned_date", this.props.location.state);
+  // componentDidMount() {
+  //   this.setCalendar();
+  // }
+  // setCalendar = () => {
+  //   const planned_date = this.props.location.state;
+  //   console.log("original planned_date", this.props.location.state);
 
-    this.setState({
-      calendar: planned_date
-    });
-  };
+  //   this.setState({
+  //     calendar: planned_date
+  //   });
+  // };
 
   // setCalendar = () => {
   //   return (
@@ -37,6 +37,10 @@ class AddMealPlan extends Component {
   //     </div>
   //   );
   // };
+
+  handleSetCalendar = () => {
+    return <Calendar onSelect={console.log(this.props)} />;
+  };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -83,6 +87,7 @@ class AddMealPlan extends Component {
                 Plan it!
               </button>
             </form>
+            <Calendar />
           </div>
         )}
       </div>
