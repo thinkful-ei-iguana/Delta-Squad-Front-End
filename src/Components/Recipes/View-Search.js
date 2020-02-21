@@ -47,12 +47,18 @@ export default class SearchRecipe extends React.Component {
     };
 
     addRecipe = () => {  
-      Recipe.createRecipe({
-        title: this.state.recipe.title,
-        recipe_description: this.state.instructions.steps.join(', '),
-        recipe_ingredients: this.state.ingredients,
-        time_to_make: (this.state.recipe.preparationMinutes + this.state.recipe.cookingMinutes)
-      })
+      let instructionsSet = [];
+      let ingredientsSet = [];
+      this.state.instructions.steps.map(instruction => instructionsSet.push(instruction.step))
+      this.state.ingredients.map(ing => ingredientsSet.push(ing.name))
+      let recipeObj = { 
+          title: this.state.recipe.title,
+          recipe_description: instructionsSet.join(', '),
+          recipe_ingredients: ingredientsSet,
+          time_to_make: (this.state.recipe.preparationMinutes + this.state.recipe.cookingMinutes)
+        }
+      console.log("recipeObj: ",  recipeObj);
+      Recipe.createRecipe(recipeObj)
         .then(recipe => {
           this.handleCreationSuccess();
         })
