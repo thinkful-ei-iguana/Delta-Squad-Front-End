@@ -53,7 +53,7 @@ export default class SearchRecipe extends React.Component {
       this.state.ingredients.map(ing => ingredientsSet.push(ing.name))
       let recipeObj = { 
           title: this.state.recipe.title,
-          recipe_description: instructionsSet.join(', '),
+          recipe_description: instructionsSet,
           recipe_ingredients: ingredientsSet,
           time_to_make: (this.state.recipe.preparationMinutes + this.state.recipe.cookingMinutes)
         }
