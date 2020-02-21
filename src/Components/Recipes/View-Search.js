@@ -70,9 +70,10 @@ export default class SearchRecipe extends React.Component {
     render() {
         console.log('we here');
         console.log(this.state.recipe);
-       // console.log(this.state.instructions)
+        //console.log(this.state.instructions)
         let instructionsArr = []
-        if (this.state.ingredients) {
+        if (this.state.instructions) {
+          console.log(this.state.instructions);
           this.state.instructions.steps.map(instruction => instructionsArr.push(instruction.step))
         }
         return(
