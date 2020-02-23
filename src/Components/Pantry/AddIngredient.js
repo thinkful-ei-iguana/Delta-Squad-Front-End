@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import { useHistory } from "react-router-dom";
 import ReactDOM from "react-dom";
 import IngredientHelper from "../../Helpers/Ingredient";
@@ -8,42 +8,52 @@ import config from "../../config";
 import TokenService from "../../Helpers/Token";
 import Modal, { ModalProvider, BaseModalBackground } from "styled-react-modal";
 
-const StyledModal = Modal.styled`
+export default class FancyModalButton extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isOpen: false,
+      opacity: 0
+    }
+  }
+
+
+  StyledModal = Modal.styled`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #2F7604;
-  opacity: ${props => props.opacity};
+  background-color: white;
+  opacity: ${props => this.props.opacity};
   transition: opacity ease 500ms;
-`;
+  `;
 
-
-function FancyModalButton(props) {
-
-  const [isOpen, setIsOpen] = useState(false);
-  const [opacity, setOpacity] = useState(0);
-
-  function toggleModal(e) {
-    setIsOpen(!isOpen);
+  toggleModal = (e) => {
+    // setIsOpen(!isOpen);
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
   }
 
-  function afterOpen() {
-    setTimeout(() => {
-      setOpacity(1);
-    }, 10);
-  }
-
-  function beforeClose() {
-    return new Promise(resolve => {
-      setOpacity(0);
-      setTimeout(resolve, 200);
+  afterOpen = () => {
+    // setTimeout(() => {
+    this.setState({
+      opacity: 1
     });
+    // }, 10);
   }
-  // console.log('props is uuuuu', props);
 
+  beforeClose = () => {
+    this.setState({
+      opacity: 0
+    });
+    // return new Promise(resolve => {
+    //   setOpacity(0);
+    //   // setTimeout(resolve, 200);
+    // });
+  }
 
-
-  function handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     let { ingredient_name, in_stock, notes } = e.target;
     const ingredientJson = JSON.stringify({
@@ -55,71 +65,74 @@ function FancyModalButton(props) {
     IngredientHelper.addIngredient(ingredientJson)
       .then(data => {
         console.log('post data is', data);
-        toggleModal(e);
-        // this.props.refreshIngredients();
-        // this.props.closeAddForm();
+        this.props.refreshIngredients();
+        this.toggleModal(e);
       });
   }
 
-  return (
-    <div>
-      <button id="add-ingredient-button" onClick={toggleModal}>Add an ingredient</button>
-      <StyledModal
-        isOpen={isOpen}
-        afterOpen={afterOpen}
-        beforeClose={beforeClose}
-        onBackgroundClick={toggleModal}
-        onEscapeKeydown={toggleModal}
-        opacity={opacity}
-        backgroundProps={{ opacity }}
-      >
-        {/* <span>I am a m odal!</span> */}
-        <form id="modal-content"
-          onSubmit={handleSubmit}
-        >
-          <label>Ingredient:</label>
-          <input
-            id="ingredient-name"
-            name="ingredient_name"
-            type="text"></input>
-          <div id="ingredient-in-stock">
-            <select
-              id="in-stock"
-              name="in_stock">In stock:
-                <option value="in-stock">In stock</option>
-              <option value="out-of-stock">Out</option>
-              <option value="low">Low</option>
-            </select>
-          </div>
-          <label>Notes:</label>
-          <input
-            id="notes"
-            name="notes"
-            type="text"></input>
-          <button id="close"
-          // onClick={props.refreshIngredients}
-          // onClick={toggleModal}
-          >Hit it!</button>
-        </form>
-      </StyledModal>
-    </div>
-  );
-}
-
-const FadingBackground = styled(BaseModalBackground)`
-  opacity: ${props => props.opacity};
+  fadingBackground = styled(BaseModalBackground)`
+  opacity: ${props => this.state.opacity};
   transition: opacity ease 200ms;
 `;
 
-function AddIngredient() {
-  return (
-    <ModalProvider backgroundComponent={FadingBackground}>
-      <div className="modal-container">
-        <FancyModalButton />
-      </div>
-    </ModalProvider>
-  );
+  render() {
+    return (
+      <ModalProvider backgroundComponent={this.fadingBackground}>
+        <div>
+          <button id="add-ingredient-button" onClick={this.toggleModal}>Add an ingredient</button>
+          <this.StyledModal
+            isOpen={this.state.isOpen}
+            afterOpen={this.afterOpen}
+            beforeClose={this.beforeClose}
+            onBackgroundClick={this.toggleModal}
+            onEscapeKeydown={this.toggleModal}
+            opacity={this.state.opacity}
+            backgroundProps={this.state.opacity}
+          >
+            <form id="modal-content"
+              onSubmit={this.handleSubmit}
+            >
+              <label>Ingredient:</label>
+              <input
+                id="ingredient-name"
+                name="ingredient_name"
+                type="text"></input>
+              <div id="ingredient-in-stock">
+                <select
+                  id="in-stock"
+                  name="in_stock">In stock:
+                <option value="in-stock">In stock</option>
+                  <option value="out-of-stock">Out</option>
+                  <option value="low">Low</option>
+                </select>
+              </div>
+              <label>Notes:</label>
+              <input
+                id="notes"
+                name="notes"
+                type="text"></input>
+              <button id="close"
+              // onClick={props.refreshIngredients}
+              // onClick={toggleModal}
+              >Hit it!</button>
+            </form>
+          </this.StyledModal>
+        </div>
+      </ModalProvider>
+    );
+  }
 }
 
-export default AddIngredient;
+
+// function AddIngredient() {
+//   return (
+//     <ModalProvider backgroundComponent={FadingBackground}>
+//       <div className="modal-container">
+//         <FancyModalButton />
+//       </div>
+//     </ModalProvider>
+//   );
+// }
+
+// export default AddIngredient;
 
