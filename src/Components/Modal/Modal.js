@@ -28,51 +28,36 @@ export default class FancyModalButton extends Component {
   `;
 
   toggleModal = (e) => {
-    // setIsOpen(!isOpen);
     this.setState({
       isOpen: !this.state.isOpen
     })
   }
 
   afterOpen = () => {
-    // setTimeout(() => {
     this.setState({
       opacity: 1
     });
-    // }, 10);
   }
 
   beforeClose = () => {
     this.setState({
       opacity: 0
     });
-    // return new Promise(resolve => {
-    //   setOpacity(0);
-    //   // setTimeout(resolve, 200);
-    // });
   }
 
   handleSubmit = (e) => {
-    console.log('hit handle submit');
     let ingredientId = this.props.id;
 
-    console.log('handle submit ingredient id', ingredientId);
     const url = `${config.API_ENDPOINT}/pantry/${ingredientId}`;
-    // const url = `${config.API_ENDPOINT}/pantry`;
     const authToken = TokenService.getAuthToken();
     let { ingredient_name, in_stock, notes } = e.target;
-    console.log('e.target is', e.target);
-    console.log('props ingredient name', this.props.ingredient_name);
     let updatedIngredient = {
       id: ingredientId,
       ingredient_name: ingredient_name ? ingredient_name.value : this.props.ingredient_name,
       in_stock: in_stock ? in_stock.value : this.props.in_stock,
       notes: notes ? notes.value : this.props.notes
     };
-    console.log(
-      "updated ingredient to be sent to server is",
-      updatedIngredient
-    );
+
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -85,7 +70,6 @@ export default class FancyModalButton extends Component {
         if (!res.ok) return res.json().then(error => Promise.reject(error));
       })
       .then(data => {
-        console.log("patch data is", data);
         this.props.getIngredients();
         this.toggleModal();
       })
@@ -94,20 +78,11 @@ export default class FancyModalButton extends Component {
       });
   };
 
-  // function handleGoBack() {
-  //   return props.history.push("/pantry")
-  // }
-
   handleDeleteIngredient = () => {
-    console.log('props in delete modal is', this.props);
     let ingredientId = this.props.id;
     const url = `${config.API_ENDPOINT}/pantry/${ingredientId}`;
     const authToken = TokenService.getAuthToken();
 
-    console.log(
-      "ingredient to be sent to server is",
-      ingredientId
-    );
     fetch(url, {
       method: "DELETE",
       headers: {
@@ -127,11 +102,16 @@ export default class FancyModalButton extends Component {
       });
   }
 
+
+  fadingBackground = styled(BaseModalBackground)`
+    opacity: ${props => props.opacity};
+    transition: opacity ease 200ms;
+    `;
+
   render() {
     return (
-      <ModalProvider>
+      <ModalProvider backgroundComponent={this.fadingBackground}>
         <div className="modal-container">
-
           <button className="edit-ingredient-button" onClick={this.toggleModal}>View/Edit</button>
           <this.StyledModal
             isOpen={this.state.isOpen}
@@ -173,15 +153,13 @@ export default class FancyModalButton extends Component {
                   placeholder={this.props.notes}
                 >
                 </input>
-                <button id="update-ingredient-button" type="submit"
-                // onClick={this.handleSubmit}
-                >
+                <button id="update-ingredient-button" type="submit">
                   Update
-        </button>
+                </button>
               </form>
               <button id="delete-ingredient-button" type="submit" onClick={this.handleDeleteIngredient}>
                 Delete
-        </button>
+              </button>
             </div>
           </this.StyledModal>
         </div >
@@ -189,8 +167,3 @@ export default class FancyModalButton extends Component {
     );
   }
 }
-
-// const FadingBackground = styled(BaseModalBackground)`
-// opacity: ${props => props.opacity};
-// transition: opacity ease 200ms;
-// `;

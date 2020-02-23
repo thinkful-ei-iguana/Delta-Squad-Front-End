@@ -29,28 +29,21 @@ export default class FancyModalButton extends Component {
   `;
 
   toggleModal = (e) => {
-    // setIsOpen(!isOpen);
     this.setState({
       isOpen: !this.state.isOpen
     })
   }
 
   afterOpen = () => {
-    // setTimeout(() => {
     this.setState({
       opacity: 1
     });
-    // }, 10);
   }
 
   beforeClose = () => {
     this.setState({
       opacity: 0
     });
-    // return new Promise(resolve => {
-    //   setOpacity(0);
-    //   // setTimeout(resolve, 200);
-    // });
   }
 
   handleSubmit = (e) => {
@@ -61,19 +54,17 @@ export default class FancyModalButton extends Component {
       in_stock: in_stock.value,
       notes: notes.value
     });
-    console.log('ingredientJson is', ingredientJson);
     IngredientHelper.addIngredient(ingredientJson)
       .then(data => {
-        console.log('post data is', data);
         this.props.refreshIngredients();
         this.toggleModal(e);
       });
   }
 
   fadingBackground = styled(BaseModalBackground)`
-  opacity: ${props => this.state.opacity};
-  transition: opacity ease 200ms;
-`;
+    opacity: ${props => this.state.opacity};
+    transition: opacity ease 200ms;
+  `;
 
   render() {
     return (
@@ -122,17 +113,4 @@ export default class FancyModalButton extends Component {
     );
   }
 }
-
-
-// function AddIngredient() {
-//   return (
-//     <ModalProvider backgroundComponent={FadingBackground}>
-//       <div className="modal-container">
-//         <FancyModalButton />
-//       </div>
-//     </ModalProvider>
-//   );
-// }
-
-// export default AddIngredient;
 
