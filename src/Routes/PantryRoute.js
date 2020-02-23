@@ -1,6 +1,13 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import config from "../config";
+import React, { Component, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+  useLocation,
+  useParams
+} from "react-router-dom"; import config from "../config";
 import TokenService from "../Helpers/Token";
 import AddIngredient from "../Components/Pantry/AddIngredient";
 import "../Components/Pantry/Pantry.css";
@@ -17,15 +24,25 @@ class PantryRoute extends Component {
     this.state = {
       ingredients: [],
       addIngredient: false,
-      filtered: [],
+      filteredIngredients: [],
       sorted: [],
-      searchTerm: ""
+      searchTerm: "",
+      filterOption: "",
+      isOpen: false,
+      show: false
     };
   }
 
   componentDidMount() {
     this.getIngredients();
+    this.renderIngredients();
   }
+
+  showModal = e => {
+    this.setState({
+      show: !this.state.show
+    });
+  };
 
   // GET; then set state.ingredients with response
   getIngredients = () => {
@@ -42,13 +59,17 @@ class PantryRoute extends Component {
       .then(data => {
         console.log("get ingredients data  is", data);
         this.setState({
-          ingredients: data
+          ingredients: data,
+          filteredIngredients: data
         });
       });
   };
 
   renderIngredients = () => {
     const ingredients = this.state.ingredients;
+    let location = this.props.history.location;
+    let background = location.state && location.state.background;
+
 
     // const ingredients = this.state.ingredients.sort();
     console.log("ingredients is", ingredients);
@@ -56,112 +77,85 @@ class PantryRoute extends Component {
       <section className="individual-ingredients" key={ingredient.id}>
         <h2 className="ingredient-name">{ingredient.ingredient_name.toLowerCase()}</h2>
         <span className="ingredient-stock">{ingredient.in_stock}</span>{" "}
-        {/* <Link
-          className="edit-ingredient-button"
+        <Link
+          onClick={e => {
+            this.showModal();
+          }}
           to={{
             pathname: `/pantry/${ingredient.id}`,
             state: {
-              id: ingredient.id,
-              ingredient_name: ingredient.ingredient_name,
-              in_stock: ingredient.in_stock,
-              notes: ingredient.notes,
-              ingredient_owner: ingredient.ingredient_owner
+              background: location,
             }
-          }}
-        > */}
-        <ModalMod
+          }}>View/Edit
+          <ModalMod
+            show={this.state.show}
+            onClose={this.showModal} />
+        </Link>
+        {/* <button  onClick={e => {
+              this.showModal();
+         }}
+          > show Modal </button> */}
+        {/* <ModalMod show={this.state.show} /> */}
+        {/* <Link
+            to={{
+              pathname: `/pantry/${ingredient.id}`,
+              state: { background: location }
+            }}>View/Edit</Link> */}
+        {/* <ModalMod
           id={ingredient.id}
           ingredient_name={ingredient.ingredient_name}
           in_stock={ingredient.in_stock}
           notes={ingredient.notes}
-          ingredient_owner={ingredient.ingredient_owner} />
-        {/* View/Edit */}
-        {/* </Link> */}
+          ingredient_owner={ingredient.ingredient_owner} /> */}
+
       </section>
     ));
   };
 
-  renderIngredientsAlpha = () => {
+  setFilterOption = (e) => {
+    console.log('setfilter option this.state.filterOption is', e.target.value);
+    this.setState({ filterOption: e.target.value });
+  }
 
-    const ingredients = this.state.ingredients.sort(this.compareValues('ingredient_name'));
-    this.setState({ ingredients: ingredients })
+  renderIngredientsFilter = () => {
+    let ingredients = this.state.ingredients;
 
-    // const ingredients = this.state.ingredients.sort();
-    console.log("ingredients is", ingredients);
-    return ingredients.map(ingredient => (
-      <section className="individual-ingredients" key={ingredient.id}>
-        <h2 className="ingredient-name">{ingredient.ingredient_name.toLowerCase()}</h2>
-        <span className="ingredient-stock">{ingredient.in_stock}</span>{" "}
-        {/* <Link
-          className="edit-ingredient-button"
-          to={{
-            pathname: `/pantry/${ingredient.id}`,
-            state: {
-              id: ingredient.id,
-              ingredient_name: ingredient.ingredient_name,
-              in_stock: ingredient.in_stock,
-              notes: ingredient.notes,
-              ingredient_owner: ingredient.ingredient_owner
-            }
-          }}
-        > */}
-        <ModalMod
-          id={ingredient.id}
-          ingredient_name={ingredient.ingredient_name}
-          in_stock={ingredient.in_stock}
-          notes={ingredient.notes}
-          ingredient_owner={ingredient.ingredient_owner} />
-        {/* View/Edit */}
-        {/* </Link> */}
-      </section>
-    ));
+    if (this.state.filterOption === "in-stock") {
+      const ingredientsInStock = this.state.ingredients.sort(this.compareValues('in_stock'));
+      ingredients = ingredientsInStock.filter(ingredient => ingredient.in_stock === "in-stock")
+    }
+    else if (this.state.filterOption === "out-of-stock") {
+      const ingredientsOutOfStock = this.state.ingredients.sort(this.compareValues('in_stock'));
+      ingredients = ingredientsOutOfStock.filter(ingredient => ingredient.in_stock === "out-of-stock")
+    }
+    else if (this.state.filterOption === "low") {
+      const ingredientsLow = this.state.ingredients.sort(this.compareValues('in_stock'));
+      ingredients = ingredientsLow.filter(ingredient => ingredient.in_stock === "low")
+    }
+
+    let ingredientJSXArray = [];
+    for (let i = 0; i < ingredients.length; i++) {
+      ingredientJSXArray.push(
+        <section className="individual-ingredients" key={ingredients[i].id}>
+          <h2 className="ingredient-name">{ingredients[i].ingredient_name.toLowerCase()}</h2>
+          <span className="ingredient-stock">{ingredients[i].in_stock}</span>{" "}
+          <ModalMod
+            id={ingredients[i].id}
+            ingredient_name={ingredients[i].ingredient_name}
+            in_stock={ingredients[i].in_stock}
+            notes={ingredients[i].notes}
+            ingredient_owner={ingredients[i].ingredient_owner} />
+        </section>
+      );
+    }
+    return ingredientJSXArray;
   };
 
-  renderIngredientsFilter = (e) => {  // need to force rerendering
-    console.log('e.targetval', e.target.value);
-    // if (name.value === 'name') {
-    //   const ingredients = this.state.ingredients.sort(this.compareValues('ingredient_name'));
-    // }
-    // else if ()
-    const ingredients = this.state.ingredients.sort(this.compareValues('in_stock'));
-    this.setState({ ingredients: ingredients })
-    // const ingredients = this.state.ingredients.sort();
-    console.log("ingredients is", ingredients);
-    return ingredients.map(ingredient => (
-      <section className="individual-ingredients" key={ingredient.id}>
-        <h2 className="ingredient-name">{ingredient.ingredient_name.toLowerCase()}</h2>
-        <span className="ingredient-stock">{ingredient.in_stock}</span>{" "}
-        {/* <Link
-          className="edit-ingredient-button"
-          to={{
-            pathname: `/pantry/${ingredient.id}`,
-            state: {
-              id: ingredient.id,
-              ingredient_name: ingredient.ingredient_name,
-              in_stock: ingredient.in_stock,
-              notes: ingredient.notes,
-              ingredient_owner: ingredient.ingredient_owner
-            }
-          }}
-        > */}
-        <ModalMod
-          id={ingredient.id}
-          ingredient_name={ingredient.ingredient_name}
-          in_stock={ingredient.in_stock}
-          notes={ingredient.notes}
-          ingredient_owner={ingredient.ingredient_owner} />
-        {/* View/Edit */}
-        {/* </Link> */}
-      </section>
-    ));
-  };
+  // console.log("name selected");
+  //     const ingredientsName = this.state.ingredients.sort(this.compareValues('in_stock'));
+  //     console.log("ingredientsName", ingredientsName);
+  //     this.setState({ filteredIngredients: ingredientsName });
 
-  // setStateAddIngredientTrue = () => {
-  //   this.setState({ addIngredient: true });
-  // };
-  // setStateAddIngredientFalse = () => {
-  //   this.setState({ addIngredient: false });
-  // };
 
   compareValues(key, order = 'asc') {
     return function innerSort(a, b) {
@@ -186,13 +180,6 @@ class PantryRoute extends Component {
     };
   }
 
-  filterInventory = () => {
-    this.renderIngredientsInventory();
-  }
-
-  filterName = () => {
-    this.renderIngredientsAlpha();
-  }
 
   handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -226,16 +213,20 @@ class PantryRoute extends Component {
     this.setState({ searchTerm: e.target.value });
   }
 
+
   render() {
+
     return (
 
       <section id="pantry-router-container">
         <h2 id="my-pantry-header">My Pantry</h2>
         <p>Filter by:</p>
-        <select id="pantry-filter" onChange={(e) => this.renderIngredientsFilter(e)}>
-          <option name="default" value="">No filter</option>
-          <option name="name" value="">Name</option>
-          <option name="in-stock" value="">Inventory</option>
+        <select id="pantry-filter" onChange={(e) => this.setFilterOption(e)}>
+          <option name="default" value="default">No filter</option>
+          <option name="in-stock" value="in-stock">In stock</option>
+          <option name="in-stock" value="low">Low</option>
+
+          <option name="in-stock" value="out-of-stock">Out of stock</option>
         </select>
         <form onSubmit={this.handleSearchSubmit}>
           <label
@@ -257,11 +248,14 @@ class PantryRoute extends Component {
           addIngredient={this.state.addIngredient}
           allIngredients={this.state.ingredients}
           refreshIngredients={this.getIngredients}
-          closeAddForm={this.setStateAddIngredientFalse}
+        // closeAddForm={this.setStateAddIngredientFalse}
         />
         <div id="ingredients-container">
 
-          {this.state.ingredients && this.renderIngredients()}
+          {(this.state.filterOption && this.renderIngredientsFilter()) ||
+            this.state.ingredients && this.renderIngredients()}
+
+          {/* {this.state.ingredients && this.renderIngredients()} */}
         </div>
 
 

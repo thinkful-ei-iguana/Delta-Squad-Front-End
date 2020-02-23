@@ -1,8 +1,11 @@
 
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import ReactDOM from "react-dom";
 import IngredientHelper from "../../Helpers/Ingredient";
 import styled from "styled-components";
+import config from "../../config";
+import TokenService from "../../Helpers/Token";
 import Modal, { ModalProvider, BaseModalBackground } from "styled-react-modal";
 
 const StyledModal = Modal.styled`
@@ -38,6 +41,8 @@ function FancyModalButton(props) {
   }
   // console.log('props is uuuuu', props);
 
+
+
   function handleSubmit(e) {
     e.preventDefault();
     let { ingredient_name, in_stock, notes } = e.target;
@@ -46,6 +51,7 @@ function FancyModalButton(props) {
       in_stock: in_stock.value,
       notes: notes.value
     });
+    console.log('ingredientJson is', ingredientJson);
     IngredientHelper.addIngredient(ingredientJson)
       .then(data => {
         console.log('post data is', data);
@@ -67,7 +73,7 @@ function FancyModalButton(props) {
         opacity={opacity}
         backgroundProps={{ opacity }}
       >
-        {/* <span>I am a modal!</span> */}
+        {/* <span>I am a m odal!</span> */}
         <form id="modal-content"
           onSubmit={handleSubmit}
         >
@@ -116,3 +122,4 @@ function AddIngredient() {
 }
 
 export default AddIngredient;
+

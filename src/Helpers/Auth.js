@@ -72,16 +72,16 @@ const AuthHelper = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
-  updateAccount(updatedData, id) {
-    return fetch(`${config.API_ENDPOINT}/accounts/edit/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${TokenService.getAuthToken()}`
-      },
-      body: JSON.stringify(updatedData)
-    });
-  }
+  // updateAccount(updatedData, id) {
+  //   return fetch(`${config.API_ENDPOINT}/accounts/edit/${id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "content-type": "application/json",
+  //       Authorization: `Bearer ${TokenService.getAuthToken()}`
+  //     },
+  //     body: JSON.stringify(updatedData)
+  //   });
+  // }
 };
 
 export default AuthHelper;
