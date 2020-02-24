@@ -11,7 +11,7 @@ import PlannerRoute from "./Routes/PlannerRoute";
 import IndividualIngredient from "./Components/Pantry/IndividualIngredient";
 import MealPlan from "./Components/Planner/MealPlan";
 import NotFoundRoute from "./Routes/NotFoundRoute";
-import Profile from "./Components/Profile";
+// import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
 import Header from "./Components/Header";
 import Landing from "./Routes/LandingPage/LandingPage";
@@ -19,7 +19,7 @@ import searchRecipes from "./Components/Recipes/Search-Recipe";
 import individualRecipe from "./Components/Recipes/Individual-Recipe";
 import createRecipes from "./Components/Recipes/Create-Recipe";
 import viewSearchRecipes from "./Components/Recipes/View-Search";
-import Modal from "./Components/Modal/Modal";
+// import Modal from "./Components/Modal/Modal";
 // import AuthHelper from "../src/Helpers/Auth";
 // import Context from "./Contexts/UserContext";
 // import config from "./config";
@@ -67,7 +67,6 @@ class App extends React.Component {
               path={"/home"}
               component={DashboardRoute}
             />
-            <PrivateRoute exact path={"/user/:username"} component={Profile} />
             <PrivateRoute exact path={"/recipes"} component={RecipesRoute} />
             <PrivateRoute
               exact
@@ -90,7 +89,7 @@ class App extends React.Component {
             <PrivateRoute
               exact
               path={"/pantry/:ingredientId"}
-              component={Modal}
+              component={IndividualIngredient}
             />
             <PrivateRoute
               exact
