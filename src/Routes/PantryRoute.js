@@ -7,7 +7,8 @@ import {
   useHistory,
   useLocation,
   useParams
-} from "react-router-dom"; import config from "../config";
+} from "react-router-dom";
+import config from "../config";
 import TokenService from "../Helpers/Token";
 import AddIngredient from "../Components/Pantry/AddIngredient";
 import "../Components/Pantry/Pantry.css";

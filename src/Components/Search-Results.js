@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import config from "../config";
+
 
 export default class SearchResults extends React.Component {
   constructor(props) {
@@ -9,7 +11,7 @@ export default class SearchResults extends React.Component {
 
   componentDidMount() {
     fetch(
-      `http://localhost:8000/api/recipes/${
+      `${config.API_ENDPOINT}recipes/${
       this.props.location.pathname.split("/")[2]
       }`
     )
