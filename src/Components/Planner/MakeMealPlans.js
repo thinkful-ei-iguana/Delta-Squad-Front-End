@@ -2,7 +2,11 @@ import React, { Component } from "react";
 // import config from "../../config";
 // import TokenService from "../../Helpers/Token";
 import PlannerHelper from "../../Helpers/Planner";
-import Calendar from "rc-calendar";
+import RecipesRoute from "../../Routes/RecipesRoute";
+import RecipeHelper from "../../Helpers/Recipe";
+import { Link } from "react-router-dom";
+import Context from "../../Contexts/Context";
+import "./Mealplan.css";
 
 class AddMealPlan extends Component {
   constructor(props) {
@@ -11,40 +15,33 @@ class AddMealPlan extends Component {
     this.state = {
       addMealPlan: false,
       newMealPlan: [],
-      postMealPlan: []
+      postMealPlan: [],
+      recipe: {},
+      owner: {}
     };
   }
 
-  // planned_date should = whatever is selected for in calendar.
-  // calendar should be rendered once the input field is selected
-
   componentDidMount() {
-    this.setCalendar();
+    RecipeHelper.getRecipes()
+      .then(recipeData => {
+        console.log(recipeData, "this is foo");
+        this.setState({
+          recipe: recipeData
+        });
+        RecipeHelper.getRecipeOwnerData(recipeData.owner).then(ownerData => {
+          this.setState({ owner: ownerData });
+        });
+      })
+      .then(console.log("state is:", this.state.recipe));
   }
-  setCalendar = () => {
-    const planned_date = this.props.location.state;
-    console.log("original planned_date", this.props.location.state);
-
-    this.setState({
-      calendar: planned_date
-    });
-  };
-
-  // setCalendar = () => {
-  //   return (
-  //     <div>
-  //       <Calendar onSelect={(this.onSelect = this.props.planned_date)} />
-  //     </div>
-  //   );
-  // };
 
   handleSubmit = e => {
     e.preventDefault();
-    let { title, planned_date, prep_time, needed_ingredients } = e.target;
+    let { title, planned_date, time_to_make, needed_ingredients } = e.target;
     const mealPlanJson = JSON.stringify({
       title: title.value,
       planned_date: planned_date.value,
-      prep_time: prep_time.value,
+      time_to_make: time_to_make.value,
       needed_ingredients: needed_ingredients.value
     });
     PlannerHelper.addMealPlan(mealPlanJson).then(data => {
@@ -55,27 +52,30 @@ class AddMealPlan extends Component {
   };
 
   handleAddMealPlanWindow = () => {
+    console.log(this.props, "this.props");
+    console.log(this.state, "this.state");
     return (
       <div>
         {this.props.addMealPlan === true && (
           <div id="modal-planner">
             <form id="modal-content-planner" onSubmit={this.handleSubmit}>
               <label>MealPlan:</label>
-              <input name="title" type="text">
-                {this.props.title}
-              </input>
-              <label>Meal-Date:</label>
+              <select className="mealplantitle-select" name="title" type="text">
+                <option>{this.state.recipe[0].title}</option>
+                <option>{this.state.recipe[1].title}</option>
+              </select>
+              <label>Meal Date:</label>
               <input name="planned_date" type="text">
                 {this.props.planned_date}
               </input>
-              <label>Prep-Time:</label>
-              <input name="prep_time" type="text">
-                {this.props.prep_time}
-              </input>
+              <label>Prep Time:</label>
+              <h2 name="time_to_make" type="text">
+                {this.state.recipe.time_to_make}
+              </h2>
               <label>
                 Ingredients-Required: {this.props.needed_ingredients}
               </label>
-              <input name="needed_ingredients" type="text"></input>
+              <h2 name="needed_ingredients" type="text"></h2>
               <button
                 id="close-planner"
                 // onClick={this.props.toggleAddForm}
