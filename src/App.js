@@ -19,8 +19,7 @@ import searchRecipes from "./Components/Recipes/Search-Recipe";
 import individualRecipe from "./Components/Recipes/Individual-Recipe";
 import createRecipes from "./Components/Recipes/Create-Recipe";
 import viewSearchRecipes from "./Components/Recipes/View-Search";
-// import Landing from "./Components/Landing";
-
+import Modal from "./Components/Modal/Modal";
 // import AuthHelper from "../src/Helpers/Auth";
 // import Context from "./Contexts/UserContext";
 // import config from "./config";
@@ -60,7 +59,7 @@ class App extends React.Component {
 
       <div className="App">
         <main>
-        
+
           <Header user={this.state.currentUser} />
           <Switch>
             <PrivateRoute
@@ -80,34 +79,35 @@ class App extends React.Component {
               path={"/recipes/create"}
               component={createRecipes}
             />
-            <PrivateRoute 
-              exact path={"/recipes/:recipeId"} 
-              component={individualRecipe} />
-            <PrivateRoute 
-              exact path={"/recipes/search/:recipeId"} 
-              component={viewSearchRecipes} />
-            
-            
+            <PrivateRoute
+              exact path={"/recipes/:recipeId"}
+              component={individualRecipe}
+            />
+            <PrivateRoute
+              exact path={"/recipes/search/:recipeId"}
+              component={viewSearchRecipes}
+            />
+            <PrivateRoute
+              exact
+              path={"/pantry/:ingredientId"}
+              component={Modal}
+            />
             <PrivateRoute
               exact
               path={"/pantry"}
+              // path={[`/pantry/:ingredientId`, `/pantry`]}
               component={PantryRoute}
             />
-
             <PrivateRoute
-              path={"/pantry/:ingredientId"}
-              component={IndividualIngredient}
+              exact
+              path={"/planner"}
+              component={PlannerRoute}
             />
-            <PrivateRoute exact path={"/planner"} component={PlannerRoute} />
             <PrivateRoute
               exact
               path={"/planner/:mealPlanId"}
               component={MealPlan}
             />
-            {/* <PrivateRoute
-              path={"/marketplace"}
-              component={MarketplaceRoute}
-            />*/}
             <PublicOnlyRoute
               exact
               path={"/"}

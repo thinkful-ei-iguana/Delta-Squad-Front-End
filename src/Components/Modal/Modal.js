@@ -1,58 +1,63 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 import TokenService from '../../Helpers/Token'
 import config from '../../config';
 import styled from "styled-components";
 import Modal, { ModalProvider, BaseModalBackground } from "styled-react-modal";
 import "../../index.css";
+import { render } from "@testing-library/react";
 
-const StyledModal = Modal.styled`
-display: flex;
-align-items: center;
-justify-content: center;
-background-color: white;
-opacity: ${props => props.opacity};
-transition: opacity ease 500ms;
-`;
 
-function FancyModalButton(props) {
-  // console.log('props in modal is', props);
-  const [isOpen, setIsOpen] = useState(false);
-  const [opacity, setOpacity] = useState(0);
+export default class FancyModalButton extends Component {
+  constructor(props) {
+    super(props)
 
-  function toggleModal(e) {
-    setIsOpen(!isOpen);
+    this.state = {
+      isOpen: false,
+      opacity: 0
+    }
   }
 
-  function afterOpen() {
-    setTimeout(() => {
-      setOpacity(1);
-    }, 10);
+
+  StyledModal = Modal.styled`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  opacity: ${props => this.props.opacity};
+  transition: opacity ease 500ms;
+  `;
+
+  toggleModal = (e) => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
   }
 
-  function beforeClose() {
-    return new Promise(resolve => {
-      setOpacity(0);
-      setTimeout(resolve, 200);
+  afterOpen = () => {
+    this.setState({
+      opacity: 1
     });
   }
 
-  function handleSubmit(e) {
-    let ingredientId = this.props.match.params.ingredientId;
+  beforeClose = () => {
+    this.setState({
+      opacity: 0
+    });
+  }
+
+  handleSubmit = (e) => {
+    let ingredientId = this.props.id;
+
     const url = `${config.API_ENDPOINT}/pantry/${ingredientId}`;
     const authToken = TokenService.getAuthToken();
     let { ingredient_name, in_stock, notes } = e.target;
-
     let updatedIngredient = {
       id: ingredientId,
-      ingredient_name:
-        ingredient_name.value || this.props.location.state.ingredient_name,
-      in_stock: in_stock.value || this.props.location.state.in_stock,
-      notes: notes.value || this.props.location.state.notes
+      ingredient_name: ingredient_name ? ingredient_name.value : this.props.ingredient_name,
+      in_stock: in_stock ? in_stock.value : this.props.in_stock,
+      notes: notes ? notes.value : this.props.notes
     };
-    console.log(
-      "updated ingredient to be sent to server is",
-      updatedIngredient
-    );
+
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -65,29 +70,19 @@ function FancyModalButton(props) {
         if (!res.ok) return res.json().then(error => Promise.reject(error));
       })
       .then(data => {
-        console.log("patch data is", data);
-        props.history.push("/pantry");
+        this.props.getIngredients();
+        this.toggleModal();
       })
       .catch(error => {
         console.error(error);
       });
   };
 
-  function handleGoBack() {
-    return props.history.push("/pantry")
-  }
-
-  function handleDeleteIngredient(props) {
-    debugger;
-    console.log('props in delete modal is', props);
-    let ingredientId = props.match.params.ingredientId;
+  handleDeleteIngredient = () => {
+    let ingredientId = this.props.id;
     const url = `${config.API_ENDPOINT}/pantry/${ingredientId}`;
     const authToken = TokenService.getAuthToken();
 
-    console.log(
-      "ingredient to be sent to server is",
-      ingredientId
-    );
     fetch(url, {
       method: "DELETE",
       headers: {
@@ -99,83 +94,76 @@ function FancyModalButton(props) {
         if (!res.ok) return res.json().then(error => Promise.reject(error));
       })
       .then(data => {
-        console.log("delete is", data);
-        // props.history.push("/pantry");
+        this.props.getIngredients();
+        this.toggleModal();
       })
       .catch(error => {
         console.error(error);
       });
   }
 
-  return (
-    <div>
-      <button onClick={toggleModal}>View/Edit</button>
-      <StyledModal
-        isOpen={isOpen}
-        afterOpen={afterOpen}
-        beforeClose={beforeClose}
-        onBackgroundClick={toggleModal}
-        onEscapeKeydown={toggleModal}
-        opacity={opacity}
-        backgroundProps={{ opacity }}
-      >
-        <p>Ingredient currently is PASTA PASTA</p>
-        <form id="modal-content"
-          onSubmit={handleSubmit}
-        >
-          <label>Ingredient:</label>
-          <input
-            id="ingredient-name"
-            name="ingredient_name"
-            type="text"></input>
-          <div id="ingredient-in-stock">
-            <select
-              id="in-stock"
-              name="in_stock">In stock:
+
+  fadingBackground = styled(BaseModalBackground)`
+    opacity: ${props => props.opacity};
+    transition: opacity ease 200ms;
+    `;
+
+  render() {
+    return (
+      <ModalProvider backgroundComponent={this.fadingBackground}>
+        <div className="modal-container">
+          <button className="edit-ingredient-button" onClick={this.toggleModal}>View/Edit</button>
+          <this.StyledModal
+            isOpen={this.state.isOpen}
+            afterOpen={this.afterOpen}
+            beforeClose={this.beforeClose}
+            onBackgroundClick={this.toggleModal}
+            onEscapeKeydown={this.toggleModal}
+            opacity={this.state.opacity}
+            backgroundProps={this.state.opacity}
+          >
+            <div className="styled-modal-div">
+              <p id="current-ingredient-to-edit"></p>
+              <br />
+              <form id="modal-content"
+                onSubmit={this.handleSubmit}
+              >
+                <label>Ingredient:</label>
+                <input
+                  id="ingredient-name"
+                  name="ingredient_name"
+                  type="text"
+                  placeholder={this.props.ingredient_name}></input>
+                <div id="ingredient-in-stock">
+                  <select
+                    id="in-stock"
+                    name="in_stock"
+                  >
+                    In stock:
               <option value="in-stock">In stock</option>
-              <option value="out-of-stock">Out</option>
-              <option value="low">Low</option>
-            </select>
-          </div>
-          <label>Notes:</label>
-          <input
-            id="notes"
-            name="notes"
-            type="text"></input>
-          {/* <button id="update-ingredient-button" type="submit" onClick={() => handleSubmit()}>
-            Update
-        </button> */}
-          <button id="delete-ingredient-button" type="submit" onClick={handleDeleteIngredient}>
-            Delete
-        </button>
-          <button id="go-back-button" type="submit" onClick={() => handleGoBack()}>
-            Go back
-        </button>
-        </form>
-        <button onClick={toggleModal}>Close me</button>
-      </StyledModal>
-    </div >
-  );
+                    <option value="out-of-stock">Out</option>
+                    <option value="low">Low</option>
+                  </select>
+                </div>
+                <label>Notes:</label>
+                <input
+                  id="notes"
+                  name="notes"
+                  type="text"
+                  placeholder={this.props.notes}
+                >
+                </input>
+                <button id="update-ingredient-button" type="submit">
+                  Update
+                </button>
+              </form>
+              <button id="delete-ingredient-button" type="submit" onClick={this.handleDeleteIngredient}>
+                Delete
+              </button>
+            </div>
+          </this.StyledModal>
+        </div >
+      </ModalProvider>
+    );
+  }
 }
-
-const FadingBackground = styled(BaseModalBackground)`
-opacity: ${props => props.opacity};
-transition: opacity ease 200ms;
-`;
-
-function App() {
-  return (
-    <ModalProvider backgroundComponent={FadingBackground}>
-      <div className="App">
-
-        {/* <h1>Hello styled-react-modal</h1>
-      <h2>Start editing to see some magic happen!</h2> */}
-        <FancyModalButton />
-      </div>
-    </ModalProvider>
-  );
-}
-
-
-
-export default App;
