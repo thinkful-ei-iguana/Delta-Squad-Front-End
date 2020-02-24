@@ -66,7 +66,7 @@ class LoginForm extends React.Component {
             </label>
           <input
             id="user_name"
-            className="username-fields"
+            className="inputSmall"
             required
             name="user_name"
             placeholder="Username"
@@ -80,7 +80,7 @@ class LoginForm extends React.Component {
           </label>
           <input
             id="password"
-            className="password-fields"
+            className="inputSmall"
             required
             name="password"
             type="password"
@@ -90,12 +90,12 @@ class LoginForm extends React.Component {
           <div className="btn-row">
             <input
               type="submit"
-              className="submit-login"
+              className="medButton"
               value="Submit"
             />
             <br />
             <Link to="/register">
-              <button className="new-account">Create an account</button>
+              <button className="medButton">Create an account</button>
             </Link>
           </div>
         </form>
