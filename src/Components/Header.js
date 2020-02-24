@@ -12,8 +12,6 @@ class Header extends Component {
   };
 
   renderLogoutLink() {
-    // console.log("nav menu context is", this.context);
-    // console.log("nav menu props is", this.props);
     return (
       <div>
         <nav className="log-out-user">
@@ -54,9 +52,6 @@ class Header extends Component {
         <Link className="nav-link-text pantry" to={"/pantry"}>
           Pantry
         </Link>
-        {/* <Link
-            className="nav-link-text marketplace"
-            to={`/marketplace`}>Marketplace</Link> */}
         <br />
         <Link className="nav-link-text recipes" to={"/recipes"}>
           Recipes
@@ -72,12 +67,12 @@ class Header extends Component {
   render() {
     return (
       <header className="heading">
-        <div className="landing-image">     
+        <div className="landing-image">
           <img src={LandingLogo} alt="Landing Logo" className="landinglogo" />
-            <Link className="login-page-link" to="/">
-            
-            </Link>
-        </div> 
+          <Link className="login-page-link" to="/">
+
+          </Link>
+        </div>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}

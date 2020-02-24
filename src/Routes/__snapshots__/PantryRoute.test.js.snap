@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<section
+  id="pantry-router-container"
+>
+  <h2
+    id="my-pantry-header"
+  >
+    My Pantry
+  </h2>
+  <p>
+    Filter by:
+  </p>
+  <select
+    id="pantry-filter"
+    onChange={[Function]}
+  >
+    <option
+      name="default"
+      value="default"
+    >
+      No filter
+    </option>
+    <option
+      name="in-stock"
+      value="in-stock"
+    >
+      In stock
+    </option>
+    <option
+      name="in-stock"
+      value="low"
+    >
+      Low
+    </option>
+    <option
+      name="in-stock"
+      value="out-of-stock"
+    >
+      Out of stock
+    </option>
+  </select>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="ingredient-search-field"
+    >
+      Search
+    </label>
+    <input
+      id="ingredient-search-field"
+      name="ingredient-search"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      type="submit"
+    >
+      Search
+    </button>
+  </form>
+  <div>
+    <button
+      id="add-ingredient-button"
+      onClick={[Function]}
+    >
+      Add an ingredient
+    </button>
+  </div>
+  <div />
+  <div
+    id="ingredients-container"
+  />
+</section>
+`;
