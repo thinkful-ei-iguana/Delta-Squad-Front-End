@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AuthHelper from "../../Helpers/Auth";
-// import Context from "../../Contexts/Context";
 import UserContext from "../../Contexts/UserContext";
 import "./Login.css";
+// import Context from "../../Contexts/Context";
 
 class LoginForm extends React.Component {
   static defaultProps = {
@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
     },
     onLoginSuccess: () => { }
   };
+
   state = { error: null };
 
   static contextType = UserContext;
