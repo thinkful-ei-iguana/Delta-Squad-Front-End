@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import TokenService from "../Helpers/Token";
-import UserContext from "../Contexts/UserContext";
-import LandingLogo from "../Assets/LandingLogo.gif";
+import TokenService from "../../Helpers/Token";
+import UserContext from "../../Contexts/UserContext";
+import LandingLogo from "../../Assets/LandingLogo.gif";
+import "./HeaderNav.css";
 
 class Header extends Component {
   static contextType = UserContext;
