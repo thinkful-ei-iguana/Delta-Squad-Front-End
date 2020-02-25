@@ -38,7 +38,7 @@ export default class DetailedView extends React.Component {
   }
 
   deleteRecipe = () => {
-    RecipeHelper.delete(this.props.match.params.recipeid).then(
+    RecipeHelper.delete(this.props.match.params.recipeId).then(
       this.props.history.push("/")
     );
   };
@@ -47,7 +47,7 @@ export default class DetailedView extends React.Component {
     if (this.context.currentUser.id === this.state.recipe.owner) {
       return (
         <div className="delete-recipe-button-div">
-          <button className="delete-recipe-button" onClick={this.deleteRecipe}>
+          <button className="medButton" onClick={this.deleteRecipe}>
             Delete Recipe
           </button>
         </div>
@@ -61,9 +61,15 @@ export default class DetailedView extends React.Component {
         <div className="ownerSelectors">
           <Link
             className="editRecipe"
-            to={`/Edit-Recipe/${this.state.recipe.id}`}
+            to={{
+              pathname: `/edit-recipe/${this.state.recipe.id}`,
+              state: this.state,
+            }}
+
+
           >
-            Edit Recipe
+            <button className="medButton">Edit Recipe</button>
+            
           </Link>
         </div>
       );
@@ -104,15 +110,10 @@ export default class DetailedView extends React.Component {
         <p className="recipePageHeader">Time to make the recipe:</p>
         <p className="recipeInfo">{this.state.recipe.time_to_make} Minutes</p>
 
-        <p>Owner:</p>
-        <p className="recipeInfo">{this.state.recipe.owner}</p>
-        <span className="recipe-date_created">
-          Date Created: {this.state.recipe.date_created}
-        </span>
-        <div>{this.deleteOption()}</div>
         <div>{this.ownerOption()}</div>
+        <div>{this.deleteOption()}</div>
         <Link to="/recipes">
-          <button className="cancel-view">Cancel</button>
+          <button className="cancel-view medButton">Cancel</button>
         </Link>
       </div>
     );
