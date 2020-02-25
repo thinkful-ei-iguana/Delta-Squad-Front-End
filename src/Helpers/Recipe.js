@@ -17,7 +17,7 @@ const RecipeHelper = {
   },
   recipeById(id) {
     const authToken = TokenService.getAuthToken();
-    // console.log("getting recipe by id");
+    // console.log("getting recipe by id", id);
     return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
       method: "GET",
       headers: {

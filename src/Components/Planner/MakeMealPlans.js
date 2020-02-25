@@ -2,11 +2,13 @@ import React, { Component } from "react";
 // import config from "../../config";
 // import TokenService from "../../Helpers/Token";
 import PlannerHelper from "../../Helpers/Planner";
-import RecipesRoute from "../../Routes/RecipesRoute";
+// import RecipesRoute from "../../Routes/RecipesRoute";
 import RecipeHelper from "../../Helpers/Recipe";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Context from "../../Contexts/Context";
 import "./Mealplan.css";
+// import PantryRoute from "../../Routes/PantryRoute";
+// import AddIngredient from "../../Components/Pantry/AddIngredient";
 
 class AddMealPlan extends Component {
   constructor(props) {
@@ -16,29 +18,54 @@ class AddMealPlan extends Component {
       addMealPlan: false,
       newMealPlan: [],
       postMealPlan: [],
-      recipe: {},
-      owner: {}
+      recipes: {},
+      ingredients: {},
+      recipe: {}
     };
   }
 
   componentDidMount() {
+    // this.getIngredients();
     RecipeHelper.getRecipes()
       .then(recipeData => {
         console.log(recipeData, "this is foo");
         this.setState({
-          recipe: recipeData
-        });
-        RecipeHelper.getRecipeOwnerData(recipeData.owner).then(ownerData => {
-          this.setState({ owner: ownerData });
+          recipes: recipeData
         });
       })
-      .then(console.log("state is:", this.state.recipe));
+      .then(console.log("state is:", this.state));
   }
+
+  // getIngredients = () => {
+  //   const url = `${config.API_ENDPOINT}/planner`;
+  //   const authToken = TokenService.getAuthToken();
+  //   fetch(url, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-type": "application/json",
+  //       Authorization: `Bearer ${authToken}`
+  //     }
+  //   })
+  //     .then(res => res.json())
+  //     .then(ingredientData => {
+  //       console.log("get ingredients data  is", ingredientData);
+  //       this.setState({
+  //         ingredients: ingredientData
+  //       });
+  //     });
+  // };
 
   handleSubmit = e => {
     e.preventDefault();
-    let { title, planned_date, time_to_make, needed_ingredients } = e.target;
+    let {
+      recipeid,
+      title,
+      planned_date,
+      time_to_make,
+      needed_ingredients
+    } = e.target;
     const mealPlanJson = JSON.stringify({
+      recipeid: recipeid.value,
       title: title.value,
       planned_date: planned_date.value,
       time_to_make: time_to_make.value,
@@ -50,19 +77,45 @@ class AddMealPlan extends Component {
       this.props.closeAddForm();
     });
   };
-
+  // on change/setState?
+  // for drop down to select individual portions of recipeById => recipeId
   handleAddMealPlanWindow = () => {
-    console.log(this.props, "this.props");
-    console.log(this.state, "this.state");
+    console.log(this.state.recipe);
+    let data = this.state.recipe;
+    console.log(data);
+    // const recipeData = this.state.recipe.map(data => {
+    //   console.log(data.id);
+    // });
+    let recipeid = 2;
+    RecipeHelper.recipeById(recipeid)
+      .then(recipeData => {
+        // console.log("recipeDatas:", recipeDatas);
+        this.setState({
+          recipe: recipeData
+        });
+      })
+      // .then(console.log("state is:", this.state))
+      .catch(error => {
+        console.error(error);
+      });
+
     return (
       <div>
         {this.props.addMealPlan === true && (
           <div id="modal-planner">
             <form id="modal-content-planner" onSubmit={this.handleSubmit}>
               <label>MealPlan:</label>
-              <select className="mealplantitle-select" name="title" type="text">
-                <option>{this.state.recipe[0].title}</option>
-                <option>{this.state.recipe[1].title}</option>
+              <select
+                className="mealplantitle-select"
+                name="recipeid"
+                type="text"
+              >
+                <option value="{this.state.recipe[0].recipeid}">
+                  {this.state.recipes[0].title}
+                </option>
+                <option value="{this.state.recipe[0].recipeid}">
+                  {this.state.recipes[1].title}
+                </option>
               </select>
               <label>Meal Date:</label>
               <input name="planned_date" type="text">
@@ -70,32 +123,24 @@ class AddMealPlan extends Component {
               </input>
               <label>Prep Time:</label>
               <h2 name="time_to_make" type="text">
-                {this.state.recipe.time_to_make}
+                {this.state.recipes[0].time_to_make}
               </h2>
-              <label>
-                Ingredients-Required: {this.props.needed_ingredients}
-              </label>
+              <label>Ingredients-Required:</label>
+              <h3>
+                {this.state.recipe.recipe_ingredients &&
+                  this.state.recipe.recipe_ingredients.join(", ")}
+              </h3>
               <h2 name="needed_ingredients" type="text"></h2>
-              <button
-                id="close-planner"
-                // onClick={this.props.toggleAddForm}
-              >
-                Plan it!
-              </button>
+              <button id="close-planner">Plan it!</button>
             </form>
           </div>
         )}
       </div>
-
-      // <Modal />
     );
   };
 
   render() {
-    console.log(this.props);
-    console.log(this.props.addMealPlan, "this.props.addMealPlan");
-    console.log(this.props.planned_date, "props of planned date");
-
+    console.log(this.state, "render this state");
     return <div>{this.handleAddMealPlanWindow()}</div>;
   }
 }

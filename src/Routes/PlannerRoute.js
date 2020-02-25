@@ -47,7 +47,6 @@ class PlannerRoute extends Component {
 
   renderMealPlans = () => {
     const mealplans = this.state.mealplans;
-    console.log("mealplans is", mealplans);
     return mealplans.map(mealplan => (
       <section className="mealplan-section" key={mealplan.id}>
         {/* <Link
@@ -56,7 +55,7 @@ class PlannerRoute extends Component {
             state: {
               title: mealplan.title,
               planned_date: mealplan.planned_date,
-              prep_time: mealplan.prep_time,
+              time_to_make: mealplan.time_to_make,
               needed_ingredients: mealplan.needed_ingredients
             }
           }}
@@ -64,7 +63,7 @@ class PlannerRoute extends Component {
         <h2 className="mealplan-title">{mealplan.title}</h2>
         {/* </Link>{" "} */}
         <span className="planned-date">{mealplan.planned_date}</span>{" "}
-        <span className="prep-time">{mealplan.prep_time}</span>{" "}
+        <span className="prep-time">{mealplan.time_to_make}</span>{" "}
         <Link
           // key={mealplan.id}   ...needs to be unique
           className="edit-mealplan-button"
@@ -74,7 +73,7 @@ class PlannerRoute extends Component {
               id: mealplan.id,
               title: mealplan.title,
               planned_date: mealplan.planned_date,
-              prep_time: mealplan.prep_time,
+              time_to_make: mealplan.time_to_make,
               needed_ingredients: mealplan.needed_ingredients
             }
           }}
@@ -95,7 +94,6 @@ class PlannerRoute extends Component {
   };
 
   render() {
-    console.log("this.state.add", this.state.addMealPlan);
     return (
       <section id="planner-route-container">
         <h2 className="my-planner-header" id="my-planner-header">
@@ -110,7 +108,7 @@ class PlannerRoute extends Component {
           onClick={() => this.setStateAddMealPlanTrue()}
         >
           Add a MealPlan
-          </button>
+        </button>
         {/* )} */}
         <AddMealPlan
           addMealPlan={this.state.addMealPlan}
