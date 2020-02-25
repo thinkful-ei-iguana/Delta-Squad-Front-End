@@ -20,7 +20,7 @@ class AddMealPlan extends Component {
       postMealPlan: [],
       recipes: [],
       ingredients: {},
-      recipe: {}
+      recipe: []
     };
   }
 
@@ -36,10 +36,15 @@ class AddMealPlan extends Component {
         let data = this.state.recipes;
         // console.log(data);
         const indRecipeData = this.state.recipes.map(data => {
-          console.log(data.id, "this is data");
+          // console.log(data.id, "this is data");
         });
-        const recipeid = 1;
-        PlannerHelper.recipeById(recipeid)
+        let id = 2;
+        for (id = 1; id < this.state.recipes.length; id++) {
+          this.state.recipe.id = this.state.recipes.id;
+        }
+        // individual recipe.id === recipes.id
+        const recipeid = id || this.state.recipes.recipes_owner;
+        RecipeHelper.recipeById(recipeid)
           .then(indRecipeData => {
             // console.log("recipeData:", recipeData);
             this.setState({
@@ -98,25 +103,6 @@ class AddMealPlan extends Component {
   // on change/setState?
   // for drop down to select individual portions of recipeById => recipeId
   handleAddMealPlanWindow = () => {
-    // // console.log(this.state.recipes);
-    // let data = this.state.recipes;
-    // // console.log(data);
-    // const recipeData = this.state.recipes.map(data => {
-    //   console.log(data.id, "this is data");
-    // });
-    // const recipeid = 1;
-    // RecipeHelper.recipeById(recipeid)
-    //   .then(recipeData => {
-    //     // console.log("recipeData:", recipeData);
-    //     this.setState({
-    //       recipe: recipeData
-    //     });
-    //   })
-    //   // .then(console.log("state is:", this.state))
-    //   .catch(error => {
-    //     console.error(error);
-    //   });
-
     return (
       <div>
         {this.props.addMealPlan === true && (
@@ -134,6 +120,9 @@ class AddMealPlan extends Component {
                 <option value="{this.state.recipe[0].recipeid}">
                   {this.state.recipes[1].title}
                 </option>
+                <option value="{this.state.recipe[0].recipeid}">
+                  {this.state.recipes[2].title}
+                </option>
               </select>
               <label>Meal Date:</label>
               <input name="planned_date" type="text">
@@ -144,7 +133,7 @@ class AddMealPlan extends Component {
                 {this.state.recipe.time_to_make}
               </h2>
               <label>Ingredients-Required:</label>
-              <h3>
+              <h3 onChange={this.setState()}>
                 {this.state.recipe.recipe_ingredients &&
                   this.state.recipe.recipe_ingredients.join(", ")}
               </h3>
