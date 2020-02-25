@@ -4,6 +4,10 @@ exports[`renders the UI as expected 1`] = `
 <div
   className="login"
 >
+  <div
+    className="login-fail-error"
+    role="alert"
+  />
   <header
     className="Login-Header"
   />

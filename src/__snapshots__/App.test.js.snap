@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders the UI as expected 1`] = `
+<div
+  className="App"
+>
+  <main>
+    <header
+      className="heading"
+    >
+      <div
+        className="landing-image"
+      >
+        <img
+          alt="Landing Logo"
+          className="landinglogo"
+          src="LandingLogo.gif"
+        />
+        <a
+          className="login-page-link"
+          href="/"
+          onClick={[Function]}
+        />
+      </div>
+      <nav
+        className="login-page-heading"
+      >
+        <a
+          className="login-page-login login-page-link"
+          href="/login"
+          onClick={[Function]}
+        >
+          Login
+        </a>
+         
+        <a
+          className="login-page-register login-page-link"
+          href="/register"
+          onClick={[Function]}
+        >
+          Sign up
+        </a>
+      </nav>
+    </header>
+    <div
+      className="Landing"
+    >
+      <header
+        className="flex-container"
+        id="Landing-Header"
+      >
+        <div
+          className="flex-item branding"
+        />
+        <div
+          className="flex-item"
+        />
+      </header>
+      <section
+        id="landingDocumentation"
+      >
+        <div
+          className="site-description"
+        >
+          <p>
+            Kitchen Helper is a best friend in the kitchen. This app combines the ability to track the items in your pantry, the opportunity to plan your meals for a given time period and puts a large database of recipes at your fingertips. You also have the ability to add your own recipes and create shopping lists once your meals are planned.
+          </p>
+          <p>
+            Kitchen Helper will be a time and money saver, helping you create amazing meals at home while staying organized and never running out of that special ingredient you need for your amazing lasagna recipe.
+          </p>
+          <div
+            className="login-signup"
+          >
+            <div
+              className="LoginBtn"
+            >
+              <label
+                className="login-label"
+              >
+                Login: 
+              </label>
+              <a
+                className="login-btn"
+                href="/login"
+                onClick={[Function]}
+              >
+                Let's Get Cooking!
+              </a>
+            </div>
+            <div
+              className="RegistrationBtn"
+            >
+              <label
+                className="registration-label"
+              >
+                Sign Up:
+              </label>
+              <a
+                className="registration-btn"
+                href="/register"
+                onClick={[Function]}
+              >
+                Come Join the Fun!
+              </a>
+            </div>
+          </div>
+          <div
+            className="sampleImages"
+          >
+            <img
+              alt="Recipe Search and Create Buttons"
+              className="landingSamples"
+              id="recipe-search"
+              src="RecipeSearch.JPG"
+            />
+            <img
+              alt="Pantry Ingredient Add Form"
+              className="landingSamples"
+              id="pantry-add-form"
+              src="PantryAddForm.JPG"
+            />
+            <img
+              alt="Meal Planning Add Button"
+              className="landingSamples"
+              id="meal-planning-add-button"
+              src="MealPlanAdd.JPG"
+            />
+          </div>
+        </div>
+      </section>
+      <section
+        id="Landing-Buttons"
+      >
+        <hr
+          id="Connect-Divider"
+        />
+        <div
+          id="buttons"
+        />
+      </section>
+    </div>
+  </main>
+</div>
+`;
