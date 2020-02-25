@@ -1,21 +1,9 @@
-import React, { Component, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useHistory,
-  useLocation,
-  useParams
-} from "react-router-dom";
+import React, { Component } from "react";
 import config from "../config";
 import TokenService from "../Helpers/Token";
 import AddIngredient from "../Components/Pantry/AddIngredient";
+import IndividualIngredient from "../Components/Pantry/IndividualIngredient";
 import "../Components/Pantry/Pantry.css";
-import ModalMod from "../Components/Modal/Modal";
-import styled from "styled-components";
-import Modal, { ModalProvider, BaseModalBackground } from "styled-react-modal";
-
 import "../index.css";
 
 class PantryRoute extends Component {
@@ -72,7 +60,6 @@ class PantryRoute extends Component {
 
   renderIngredients = () => {
     let ingredients = this.state.ingredients;
-    console.log('props pantry route to modal is', this.props);
     if (this.state.filterOption === "in-stock") {
       const ingredientsInStock = this.state.ingredients.sort(this.compareValues('in_stock'));
       ingredients = ingredientsInStock.filter(ingredient => ingredient.in_stock === "in-stock")
@@ -92,7 +79,7 @@ class PantryRoute extends Component {
         <section className="individual-ingredients" key={ingredients[i].id}>
           <h2 className="ingredient-name">{ingredients[i].ingredient_name.toLowerCase()}</h2>
           <span className="ingredient-stock">{ingredients[i].in_stock}</span>{" "}
-          <ModalMod
+          <IndividualIngredient
             id={ingredients[i].id}
             ingredient_name={ingredients[i].ingredient_name}
             in_stock={ingredients[i].in_stock}

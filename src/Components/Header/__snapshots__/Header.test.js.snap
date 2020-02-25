@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<header
+  className="heading"
+>
+  <div
+    className="landing-image"
+  >
+    <img
+      alt="Landing Logo"
+      className="landinglogo"
+      src="LandingLogo.gif"
+    />
+    <a
+      className="login-page-link"
+      href="/"
+      onClick={[Function]}
+    />
+  </div>
+  <nav
+    className="login-page-heading"
+  >
+    <a
+      className="login-page-login login-page-link"
+      href="/login"
+      onClick={[Function]}
+    >
+      Login
+    </a>
+     
+    <a
+      className="login-page-register login-page-link"
+      href="/register"
+      onClick={[Function]}
+    >
+      Sign up
+    </a>
+  </nav>
+</header>
+`;

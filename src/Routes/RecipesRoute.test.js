@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DashboardRoute from './DashboardRoute';
+import RecipesRoute from './RecipesRoute';
 import { BrowserRouter } from 'react-router-dom';
 import renderer from "react-test-renderer";
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<BrowserRouter>
-    <DashboardRoute />
+    <RecipesRoute />
   </BrowserRouter>, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
 it('renders the UI as expected', () => {
   const tree = renderer.create(<BrowserRouter>
-    <DashboardRoute />
+    <RecipesRoute />
   </BrowserRouter>)
     .toJSON();
   expect(tree).toMatchSnapshot();
