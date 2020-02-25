@@ -18,7 +18,7 @@ class AddMealPlan extends Component {
       addMealPlan: false,
       newMealPlan: [],
       postMealPlan: [],
-      recipes: {},
+      recipes: [],
       ingredients: {},
       recipe: {}
     };
@@ -32,6 +32,24 @@ class AddMealPlan extends Component {
         this.setState({
           recipes: recipeData
         });
+        // console.log(this.state.recipes);
+        let data = this.state.recipes;
+        // console.log(data);
+        const indRecipeData = this.state.recipes.map(data => {
+          console.log(data.id, "this is data");
+        });
+        const recipeid = 1;
+        PlannerHelper.recipeById(recipeid)
+          .then(indRecipeData => {
+            // console.log("recipeData:", recipeData);
+            this.setState({
+              recipe: indRecipeData
+            });
+          })
+          // .then(console.log("state is:", this.state))
+          .catch(error => {
+            console.error(error);
+          });
       })
       .then(console.log("state is:", this.state));
   }
@@ -80,24 +98,24 @@ class AddMealPlan extends Component {
   // on change/setState?
   // for drop down to select individual portions of recipeById => recipeId
   handleAddMealPlanWindow = () => {
-    console.log(this.state.recipe);
-    let data = this.state.recipe;
-    console.log(data);
-    // const recipeData = this.state.recipe.map(data => {
-    //   console.log(data.id);
+    // // console.log(this.state.recipes);
+    // let data = this.state.recipes;
+    // // console.log(data);
+    // const recipeData = this.state.recipes.map(data => {
+    //   console.log(data.id, "this is data");
     // });
-    let recipeid = 2;
-    RecipeHelper.recipeById(recipeid)
-      .then(recipeData => {
-        // console.log("recipeDatas:", recipeDatas);
-        this.setState({
-          recipe: recipeData
-        });
-      })
-      // .then(console.log("state is:", this.state))
-      .catch(error => {
-        console.error(error);
-      });
+    // const recipeid = 1;
+    // RecipeHelper.recipeById(recipeid)
+    //   .then(recipeData => {
+    //     // console.log("recipeData:", recipeData);
+    //     this.setState({
+    //       recipe: recipeData
+    //     });
+    //   })
+    //   // .then(console.log("state is:", this.state))
+    //   .catch(error => {
+    //     console.error(error);
+    //   });
 
     return (
       <div>
@@ -123,7 +141,7 @@ class AddMealPlan extends Component {
               </input>
               <label>Prep Time:</label>
               <h2 name="time_to_make" type="text">
-                {this.state.recipes[0].time_to_make}
+                {this.state.recipe.time_to_make}
               </h2>
               <label>Ingredients-Required:</label>
               <h3>
