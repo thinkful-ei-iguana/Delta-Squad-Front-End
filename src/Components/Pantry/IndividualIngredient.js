@@ -1,10 +1,9 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import TokenService from '../../Helpers/Token'
 import config from '../../config';
 import styled from "styled-components";
 import Modal, { ModalProvider, BaseModalBackground } from "styled-react-modal";
 import "../../index.css";
-import { render } from "@testing-library/react";
 
 
 export default class FancyModalButton extends Component {
@@ -53,11 +52,11 @@ export default class FancyModalButton extends Component {
     let { ingredient_name, in_stock, notes } = e.target;
     let updatedIngredient = {
       id: ingredientId,
-      ingredient_name: ingredient_name ? ingredient_name.value : this.props.ingredient_name,
-      in_stock: in_stock ? in_stock.value : this.props.in_stock,
-      notes: notes ? notes.value : this.props.notes
+      ingredient_name: ingredient_name.value || this.props.ingredient_name,
+      in_stock: in_stock.value || this.props.in_stock,
+      notes: notes.value || this.props.notes
     };
-
+    console.log('updated ingredient is', updatedIngredient);
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -70,15 +69,15 @@ export default class FancyModalButton extends Component {
         if (!res.ok) return res.json().then(error => Promise.reject(error));
       })
       .then(data => {
-        this.props.getIngredients();
-        this.toggleModal();
+        // this.props.getIngredients();
+        this.toggleModal(e);
       })
       .catch(error => {
         console.error(error);
       });
   };
 
-  handleDeleteIngredient = () => {
+  handleDeleteIngredient = (e) => {
     let ingredientId = this.props.id;
     const url = `${config.API_ENDPOINT}/pantry/${ingredientId}`;
     const authToken = TokenService.getAuthToken();
@@ -95,7 +94,7 @@ export default class FancyModalButton extends Component {
       })
       .then(data => {
         this.props.getIngredients();
-        this.toggleModal();
+        this.toggleModal(e);
       })
       .catch(error => {
         console.error(error);

@@ -2,16 +2,15 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import LoginRoute from "./Routes/LoginRoute";
 import RegistrationRoute from "./Routes/RegistrationRoute";
-import DashboardRoute from "./Routes/DashboardRoute"; // dashboard route??
+import DashboardRoute from "./Routes/DashboardRoute";
 import PrivateRoute from "./Components/PrivateOnly/PrivateRoute";
 import PublicOnlyRoute from "./Components/PublicOnly/PublicOnlyRoute";
 import RecipesRoute from "./Routes/RecipesRoute";
 import PantryRoute from "./Routes/PantryRoute";
 import PlannerRoute from "./Routes/PlannerRoute";
-import IndividualIngredient from "./Components/Pantry/IndividualIngredient";
+// import IndividualIngredient from "./Components/Pantry/IndividualIngredient";
 import MealPlan from "./Components/Planner/MealPlan";
 import NotFoundRoute from "./Routes/NotFoundRoute";
-// import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
 import Header from "./Components/Header/Header";
 import Landing from "./Routes/LandingPage/LandingPage";
@@ -19,12 +18,6 @@ import searchRecipes from "./Components/Recipes/Search-Recipe";
 import individualRecipe from "./Components/Recipes/Individual-Recipe";
 import createRecipes from "./Components/Recipes/Create-Recipe";
 import viewSearchRecipes from "./Components/Recipes/View-Search";
-// import Modal from "./Components/Modal/Modal";
-// import AuthHelper from "../src/Helpers/Auth";
-// import Context from "./Contexts/UserContext";
-// import config from "./config";
-// import MarketplaceRoute from "./Routes/MarketplaceRoute";
-// import DetailedView from "./Components/Recipes/Individual-Recipe";
 
 const options = {
   bottom: "64px", // default: '32px'
@@ -67,7 +60,11 @@ class App extends React.Component {
               path={"/home"}
               component={DashboardRoute}
             />
-            <PrivateRoute exact path={"/recipes"} component={RecipesRoute} />
+            <PrivateRoute
+              exact
+              path={"/recipes"}
+              component={RecipesRoute}
+            />
             <PrivateRoute
               exact
               path={"/recipes/search"}
@@ -86,15 +83,14 @@ class App extends React.Component {
               exact path={"/recipes/search/:recipeId"}
               component={viewSearchRecipes}
             />
-            <PrivateRoute
+            {/* <PrivateRoute
               exact
               path={"/pantry/:ingredientId"}
               component={IndividualIngredient}
-            />
+            /> */}
             <PrivateRoute
               exact
               path={"/pantry"}
-              // path={[`/pantry/:ingredientId`, `/pantry`]}
               component={PantryRoute}
             />
             <PrivateRoute
@@ -117,7 +113,11 @@ class App extends React.Component {
               path={"/register"}
               component={RegistrationRoute}
             />
-            <PublicOnlyRoute exact path={"/login"} component={LoginRoute} />
+            <PublicOnlyRoute
+              exact
+              path={"/login"}
+              component={LoginRoute}
+            />
             <Route component={NotFoundRoute} />
           </Switch>
         </main>

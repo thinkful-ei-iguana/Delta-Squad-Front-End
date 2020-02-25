@@ -40,21 +40,13 @@ class LoginForm extends React.Component {
       });
   };
 
-  // onLoginSuccess = () => {
-  //   const { location, history } = this.props;
-  //   console.log("this.props is", this.props);
-  //   // const destination = ("/home" || location.state || {}).from;
-  //   history.push("/home");
-  //   // this.context.setUser = this.props.location
-  // };
-  // componentDidMount() {
-  //   console.log('first input is', this.firstInput);
-  //   this.firstInput.current.focus();
-  // }
-
   render() {
+    const { error } = this.state;
     return (
       <div className="login">
+        <div role="alert" className="login-fail-error">
+          {error && <p className="red">{'Something went wrong. Please try again.'}</p>}
+        </div>
         <header className="Login-Header"></header>
         <form
           className="login-form"
