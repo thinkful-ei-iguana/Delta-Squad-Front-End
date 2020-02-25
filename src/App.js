@@ -13,7 +13,7 @@ import MealPlan from "./Components/Planner/MealPlan";
 import NotFoundRoute from "./Routes/NotFoundRoute";
 // import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
-import Header from "./Components/Header";
+import Header from "./Components/Header/Header";
 import Landing from "./Routes/LandingPage/LandingPage";
 import searchRecipes from "./Components/Recipes/Search-Recipe";
 import individualRecipe from "./Components/Recipes/Individual-Recipe";

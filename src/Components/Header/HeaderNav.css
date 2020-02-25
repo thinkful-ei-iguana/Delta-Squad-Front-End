@@ -1,11 +1,10 @@
 @font-face {
   font-family: 'cookiesregular';
-  src: url('./src/Assets/cookies-webfont.woff') format('woff'),
-       url('./src/Assets/cookies-webfont.woff2') format('woff2');
+  src: url('../../Assets/webfontkit-20200213-144022/cookies-webfont.woff') format('woff'),
+       url('../../Assets/webfontkit-20200213-144022/cookies-webfont.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
-
 
 h1 {
   font-family: 'cookiesregular';
