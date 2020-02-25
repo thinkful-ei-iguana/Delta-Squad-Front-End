@@ -1,11 +1,7 @@
 
-import React, { useState, Component } from "react";
-import { useHistory } from "react-router-dom";
-import ReactDOM from "react-dom";
+import React, { Component } from "react";
 import IngredientHelper from "../../Helpers/Ingredient";
 import styled from "styled-components";
-import config from "../../config";
-import TokenService from "../../Helpers/Token";
 import Modal, { ModalProvider, BaseModalBackground } from "styled-react-modal";
 
 export default class FancyModalButton extends Component {

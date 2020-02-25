@@ -1,21 +1,9 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import config from "../config";
 import TokenService from "../Helpers/Token";
 import AddIngredient from "../Components/Pantry/AddIngredient";
 import IndividualIngredient from "../Components/Pantry/IndividualIngredient";
 import "../Components/Pantry/Pantry.css";
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link,
-//   useHistory,
-//   useLocation,
-//   useParams
-// } from "react-router-dom";
-// import styled from "styled-components";
-// import Modal, { ModalProvider, BaseModalBackground } from "styled-react-modal";
-
 import "../index.css";
 
 class PantryRoute extends Component {

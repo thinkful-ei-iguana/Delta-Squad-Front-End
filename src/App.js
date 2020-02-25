@@ -8,7 +8,7 @@ import PublicOnlyRoute from "./Components/PublicOnly/PublicOnlyRoute";
 import RecipesRoute from "./Routes/RecipesRoute";
 import PantryRoute from "./Routes/PantryRoute";
 import PlannerRoute from "./Routes/PlannerRoute";
-import IndividualIngredient from "./Components/Pantry/IndividualIngredient";
+// import IndividualIngredient from "./Components/Pantry/IndividualIngredient";
 import MealPlan from "./Components/Planner/MealPlan";
 import NotFoundRoute from "./Routes/NotFoundRoute";
 import Darkmode from "darkmode-js";
@@ -60,7 +60,11 @@ class App extends React.Component {
               path={"/home"}
               component={DashboardRoute}
             />
-            <PrivateRoute exact path={"/recipes"} component={RecipesRoute} />
+            <PrivateRoute
+              exact
+              path={"/recipes"}
+              component={RecipesRoute}
+            />
             <PrivateRoute
               exact
               path={"/recipes/search"}
@@ -79,15 +83,14 @@ class App extends React.Component {
               exact path={"/recipes/search/:recipeId"}
               component={viewSearchRecipes}
             />
-            <PrivateRoute
+            {/* <PrivateRoute
               exact
               path={"/pantry/:ingredientId"}
               component={IndividualIngredient}
-            />
+            /> */}
             <PrivateRoute
               exact
               path={"/pantry"}
-              // path={[`/pantry/:ingredientId`, `/pantry`]}
               component={PantryRoute}
             />
             <PrivateRoute
@@ -105,17 +108,16 @@ class App extends React.Component {
               path={"/"}
               component={Landing}
             />
-            {/* <PrivateRoute
-              exact
-              path={"/"}
-              component={DashboardRoute}
-            /> */}
             <PublicOnlyRoute
               exact
               path={"/register"}
               component={RegistrationRoute}
             />
-            <PublicOnlyRoute exact path={"/login"} component={LoginRoute} />
+            <PublicOnlyRoute
+              exact
+              path={"/login"}
+              component={LoginRoute}
+            />
             <Route component={NotFoundRoute} />
           </Switch>
         </main>
