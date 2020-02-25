@@ -54,6 +54,7 @@ const RecipeHelper = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
+  //comment
   delete(id) {
     const authToken = TokenService.getAuthToken();
     return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
