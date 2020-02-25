@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import LoginForm from "../Components/Login/LoginForm";
 
 class LoginRoute extends Component {
+
   static defaultProps = {
     location: {},
     history: {
@@ -15,6 +16,7 @@ class LoginRoute extends Component {
     const destination = (location.state || {}).from || "/home";
     history.push(destination);
   };
+
 
   render() {
     return (

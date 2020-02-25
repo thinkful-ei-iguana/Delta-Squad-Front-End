@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import LoginRoute from "./Routes/LoginRoute";
 import RegistrationRoute from "./Routes/RegistrationRoute";
-import DashboardRoute from "./Routes/DashboardRoute"; // dashboard route??
+import DashboardRoute from "./Routes/DashboardRoute";
 import PrivateRoute from "./Components/PrivateOnly/PrivateRoute";
 import PublicOnlyRoute from "./Components/PublicOnly/PublicOnlyRoute";
 import RecipesRoute from "./Routes/RecipesRoute";
@@ -11,7 +11,6 @@ import PlannerRoute from "./Routes/PlannerRoute";
 import IndividualIngredient from "./Components/Pantry/IndividualIngredient";
 import MealPlan from "./Components/Planner/MealPlan";
 import NotFoundRoute from "./Routes/NotFoundRoute";
-// import Profile from "./Components/Profile";
 import Darkmode from "darkmode-js";
 import Header from "./Components/Header/Header";
 import Landing from "./Routes/LandingPage/LandingPage";
@@ -19,12 +18,6 @@ import searchRecipes from "./Components/Recipes/Search-Recipe";
 import individualRecipe from "./Components/Recipes/Individual-Recipe";
 import createRecipes from "./Components/Recipes/Create-Recipe";
 import viewSearchRecipes from "./Components/Recipes/View-Search";
-// import Modal from "./Components/Modal/Modal";
-// import AuthHelper from "../src/Helpers/Auth";
-// import Context from "./Contexts/UserContext";
-// import config from "./config";
-// import MarketplaceRoute from "./Routes/MarketplaceRoute";
-// import DetailedView from "./Components/Recipes/Individual-Recipe";
 
 const options = {
   bottom: "64px", // default: '32px'
@@ -112,6 +105,11 @@ class App extends React.Component {
               path={"/"}
               component={Landing}
             />
+            {/* <PrivateRoute
+              exact
+              path={"/"}
+              component={DashboardRoute}
+            /> */}
             <PublicOnlyRoute
               exact
               path={"/register"}
