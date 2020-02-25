@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Recipe from "../../Helpers/Recipe";
 import Context from "../../Contexts/Context";
 import RecipeHelper from "../../Helpers/Recipe";
-import "../../Styles/Buttons.css";
+
 export default class CreateRecipe extends React.Component {
   static contextType = Context;
   static defaultProps = {
@@ -21,21 +21,16 @@ export default class CreateRecipe extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.context.hasAuthToken()) {
-      this.props.history.push("/Login");
-    }
-    RecipeHelper.recipeById(this.props.match.params.recipeid).then(data => {
+   console.log(this.props.match.params.recipeId);
+    RecipeHelper.recipeById(this.props.match.params.recipeId).then(data => {
+      console.log(data);
       this.setState({ recipe: data });
+      console.log(this.state)
     });
+
   }
 
-  ownerCheck = () => {
-    if (this.context.currentUser.id !== this.state.recipe.owner) {
-      return this.nonOwner();
-    } else {
-      return this.owner();
-    }
-  };
+
 
   handleEditSuccess = () => {
     const { history } = this.props;
@@ -45,18 +40,18 @@ export default class CreateRecipe extends React.Component {
   editSubmit = ev => {
     ev.preventDefault();
     const title = ev.target.title.value;
-    const recipe_description = ev.target.recipe_description.value;
-    const recipe_ingredients = ev.target.recipe_ingredients.value;
+    const recipe_description = ev.target.recipe_description.value.split("\n");
+    const recipe_ingredients = ev.target.recipe_ingredients.value.split(", ");
     const time_to_make = ev.target.time_to_make.value;
 
     this.setState({ error: null });
     Recipe.updateRecipe(
       {
+        id: this.state.recipe.id,
         title,
         recipe_description,
         recipe_ingredients,
         time_to_make,
-        date_created: new Date()
       },
       this.state.recipe.id
     )
@@ -72,55 +67,64 @@ export default class CreateRecipe extends React.Component {
       });
   };
 
-  nonOwner = () => {
-    return <h2>Error: you're not the owner of this recipe</h2>;
-  };
-
   owner = () => {
+    let instructionsArr = []
+    if (this.state.recipe.recipe_description) {
+      let desc = this.state.recipe.recipe_description.slice(2);
+      let desc1 = desc.slice(0, -2);
+      let descarr = desc1.split('","');
+      console.log(descarr);
+      descarr.map(instruction => instructionsArr.push(instruction))
+    }
     return (
       <div className="Creation">
         <header className="Creation-Header"></header>
         <form className="Creation-Form" to="/" onSubmit={this.editSubmit}>
           <label className="field a-field a-field_a2">
+            Title:
             <input
               className="field__input a-field__input"
               required
               name="title"
-              placeholder="Title"
+              defaultValue={this.state.recipe.title}
             />
             <span className="a-field__label-wrap">
               <span className="a-field__label"></span>
             </span>
           </label>
           <label className="field a-field a-field_a2">
-            <input
+            Instructions:
+            <textarea
               className="field__input a-field__input"
               required
               type="textfield"
               name="recipe_description"
-              placeholder="Description"
+              defaultValue={instructionsArr.join("\n")}
             />
             <span className="a-field__label-wrap">
               <span className="a-field__label"></span>
             </span>
           </label>
-          <label>
+          <label className="field a-field a-field_a2">
+            Ingredients: 
             <input
               className="field__input a-field__input"
               required
               type="text"
               name="recipe_ingredients"
-              placeholder="Ingredients"
+              defaultValue={this.state.recipe.recipe_ingredients &&
+                this.state.recipe.recipe_ingredients.join(", ")}
             />
             <span className="a-field__label"></span>
           </label>
-          <label>
+          <label className="field a-field a-field_a2">
+            Time to Make (in minutes):
             <input
               className="field__input a-field__input"
               required
               type="text"
               name="time_to_make"
-              placeholder="Time to make the recipe?"
+              defaultValue={this.state.recipe.time_to_make}
             />
             <span className="a-field__label"></span>
           </label>
@@ -135,6 +139,6 @@ export default class CreateRecipe extends React.Component {
     );
   };
   render() {
-    return <div className="Edit">{this.ownerCheck()}</div>;
+    return <div className="Edit">{this.owner()}</div>;
   }
 }

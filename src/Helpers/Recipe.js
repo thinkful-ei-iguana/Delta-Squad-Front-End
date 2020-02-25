@@ -54,6 +54,7 @@ const RecipeHelper = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
+  //comment
   delete(id) {
     const authToken = TokenService.getAuthToken();
     return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
@@ -76,11 +77,12 @@ const RecipeHelper = {
     );
   },
   updateRecipe(updatedData, id) {
-    return fetch(`${config.API_ENDPOINT}/recipes/edit/${id}`, {
+    const authToken = TokenService.getAuthToken()
+    return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${config.REACT_APP_API_KEY}`
+        Authorization: `Bearer ${authToken}`
       },
       body: JSON.stringify(updatedData)
     });

@@ -16,6 +16,7 @@ import Header from "./Components/Header/Header";
 import Landing from "./Routes/LandingPage/LandingPage";
 import searchRecipes from "./Components/Recipes/Search-Recipe";
 import individualRecipe from "./Components/Recipes/Individual-Recipe";
+import editRecipe from "./Components/Recipes/Edit-Recipe";
 import createRecipes from "./Components/Recipes/Create-Recipe";
 import viewSearchRecipes from "./Components/Recipes/View-Search";
 
@@ -78,6 +79,10 @@ class App extends React.Component {
             <PrivateRoute
               exact path={"/recipes/:recipeId"}
               component={individualRecipe}
+            />
+            <PrivateRoute
+              exact path={"/edit-recipe/:recipeId"}
+              component={editRecipe}
             />
             <PrivateRoute
               exact path={"/recipes/search/:recipeId"}

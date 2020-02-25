@@ -10,6 +10,8 @@
   vertical-align: middle; 
   background-color: #FFCB32;
   font-family: 'cookiesregular';
+  box-shadow: 5px 5px 5px #2F7604;
+  border-radius: 10%;
 }
 
 .dashboard:hover {
