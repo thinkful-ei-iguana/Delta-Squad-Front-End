@@ -30,6 +30,12 @@
     border: black solid 2px;
     margin: 5%;
     padding: 2.5%;
+    box-shadow: 5px 5px 5px #2F7604;
+    border-radius: 2%;
+}
+
+.buttonGroup {
+    text-align: center;
 }
 
 .a-field {

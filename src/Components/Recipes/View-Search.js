@@ -15,6 +15,10 @@ export default class SearchRecipe extends React.Component {
   componentDidMount() {
     this.getRecipeInstructions();
   }
+  
+ backToSearch = () => {
+      this.props.history.push("/recipes/search")
+    }
 
   getRecipeInstructions = () => {
     let recipeId = _.get(this, "props.location.state.recipeId");
@@ -112,11 +116,11 @@ export default class SearchRecipe extends React.Component {
           minutes
         </p>
 
-        <button onClick={this.addRecipe}>Add to my recipes!</button>
-        <Link to="/recipes/search">
-          <button className="cancel-view">Cancel</button>
-        </Link>
-      </div>
-    );
+         <button onClick={this.addRecipe}>Add to my recipes!</button>
+
+         <button onClick={this.backToSearch}className="cancel-view">Cancel</button>
+
+          </div>
+        );
   }
 }

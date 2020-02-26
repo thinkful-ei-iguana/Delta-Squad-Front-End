@@ -72,7 +72,8 @@
 
 #modal-content-planner {
   border: 2px solid black;
-  padding: 5px;
+  border-radius: 10%;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -83,4 +84,19 @@
   font-weight: bold;
   margin-top: 15px;
   margin-bottom: 5px;
+}
+
+.plannerLabel {
+  font-size: 20px;
+}
+
+.plannerInfo {
+  padding-left: 20px;
+  padding-right: 20px;
+  border: black 1px solid;
+  margin: 10px;
+  min-height: 60px;
+  border-radius: 10%;
+  background-color: #B6D084;
+  color: black;
 }
