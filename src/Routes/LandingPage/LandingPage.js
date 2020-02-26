@@ -1,9 +1,9 @@
 import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { Link } from "react-router-dom";
-import MealPlanAdd from "../../Assets/MealPlanAdd.JPG";
-import PantryAddForm from '../../Assets/PantryAddForm.JPG';
-import RecipeSearch from '../../Assets/RecipeSearch.JPG';
+import planLanding from "../../Assets/planLanding.JPG";
+import pantryLanding from '../../Assets/pantryLanding.JPG';
+import recipeDetail from '../../Assets/recipeDetail.JPG';
 import "./LandingPage.css";
 // import Context from "../Contexts/Context";
 // import RecentResults from "../Components/Recent-Results";
@@ -62,13 +62,13 @@ export default class Landing extends React.Component {
             <div className="sampleImages">
               {/* <ul className="appSampleImages"> */}
                 {/* <li className="landingSample"> */}
-                  <img src={RecipeSearch} className="landingSamples" alt="Recipe Search and Create Buttons" id="recipe-search" />
+                  <img src={pantryLanding} className="landingSamples" alt="Pantry Landing" id="recipe-search" />
                 {/* </li>
                 <li className="landingSample"> */}
-                  <img src={PantryAddForm} className="landingSamples" alt="Pantry Ingredient Add Form" id="pantry-add-form" />
+                  <img src={planLanding} className="landingSamples" alt="Meal Plan Landing" id="pantry-add-form" />
                 {/* </li> */}
                 {/* <li className="landingSample"> */}
-                  <img src={MealPlanAdd} className="landingSamples" alt="Meal Planning Add Button" id="meal-planning-add-button" />
+                  <img src={recipeDetail} className="landingSamples" alt="Recipe Detail" id="meal-planning-add-button" />
                 {/* </li> */}
               {/* </ul> */}
             </div>

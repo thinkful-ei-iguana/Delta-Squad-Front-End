@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="Edit"
+>
+  <div
+    className="Creation"
+  >
+    <header
+      className="Creation-Header"
+    />
+    <form
+      className="Creation-Form"
+      onSubmit={[Function]}
+      to="/"
+    >
+      <label
+        className="field a-field a-field_a2"
+      >
+        Title:
+        <input
+          className="field__input a-field__input"
+          name="title"
+          required={true}
+        />
+        <span
+          className="a-field__label-wrap"
+        >
+          <span
+            className="a-field__label"
+          />
+        </span>
+      </label>
+      <label
+        className="field a-field a-field_a2"
+      >
+        Instructions:
+        <textarea
+          className="field__input a-field__input"
+          defaultValue=""
+          name="recipe_description"
+          required={true}
+          type="textfield"
+        />
+        <span
+          className="a-field__label-wrap"
+        >
+          <span
+            className="a-field__label"
+          />
+        </span>
+      </label>
+      <label
+        className="field a-field a-field_a2"
+      >
+        Ingredients:
+        <input
+          className="field__input a-field__input"
+          name="recipe_ingredients"
+          required={true}
+          type="text"
+        />
+        <span
+          className="a-field__label"
+        />
+      </label>
+      <label
+        className="field a-field a-field_a2"
+      >
+        Time to Make (in minutes):
+        <input
+          className="field__input a-field__input"
+          name="time_to_make"
+          required={true}
+          type="text"
+        />
+        <span
+          className="a-field__label"
+        />
+      </label>
+      <div
+        className="btn-row"
+      >
+        <button
+          className="submitRecipeEdit"
+        >
+          Submit
+        </button>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          <button
+            className="cancelEditRecipe"
+          >
+            Cancel
+          </button>
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+`;

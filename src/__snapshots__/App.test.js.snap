@@ -108,22 +108,22 @@ exports[`App renders the UI as expected 1`] = `
             className="sampleImages"
           >
             <img
-              alt="Recipe Search and Create Buttons"
+              alt="Pantry Landing"
               className="landingSamples"
               id="recipe-search"
-              src="RecipeSearch.JPG"
+              src="pantryLanding.JPG"
             />
             <img
-              alt="Pantry Ingredient Add Form"
+              alt="Meal Plan Landing"
               className="landingSamples"
               id="pantry-add-form"
-              src="PantryAddForm.JPG"
+              src="planLanding.JPG"
             />
             <img
-              alt="Meal Planning Add Button"
+              alt="Recipe Detail"
               className="landingSamples"
               id="meal-planning-add-button"
-              src="MealPlanAdd.JPG"
+              src="recipeDetail.JPG"
             />
           </div>
         </div>

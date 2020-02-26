@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import config from "../../config";
 import TokenService from "../../Helpers/Token";
+import _ from "lodash";
 
 class MealPlan extends Component {
   constructor(props) {
@@ -17,9 +18,7 @@ class MealPlan extends Component {
   }
 
   setMealPlan = () => {
-    const originalMealPlan = this.props.location.state;
-    console.log("original mealplan", this.props.location.state);
-
+    const originalMealPlan = _.get(this, "props.location.state");
     this.setState({
       mealplan: originalMealPlan
     });
@@ -138,13 +137,14 @@ class MealPlan extends Component {
         <section id="original-mealplan-data">
           <h2 id="update-header">Update</h2>
           <p>
-            Title: {this.props.location.state.title}
+            Title: {_.get(this, "props.location.state.title")}
             <br />
-            Planned date: {this.props.location.state.planned_date}
+            Planned date: {_.get(this, "props.location.state.planned_date")}
             <br />
-            Time to make: {this.props.location.state.time_to_make}
+            Time to make: {_.get(this, "props.location.state.time_to_make")}
             <br />
-            Ingredients required: {this.props.location.state.needed_ingredients}
+            Ingredients required:
+            {_.get(this, "props.location.state.needed_ingredients")}
           </p>
         </section>
         <button
