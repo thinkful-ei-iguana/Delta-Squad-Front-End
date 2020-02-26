@@ -66,8 +66,9 @@ export default class FancyModalButton extends Component {
     return (
       <ModalProvider backgroundComponent={this.fadingBackground}>
         <div>
-          <button id="add-ingredient-button" onClick={this.toggleModal}>Add an ingredient</button>
+          <button className="medButton" onClick={this.toggleModal}>Add an ingredient</button>
           <this.StyledModal
+         
             isOpen={this.state.isOpen}
             afterOpen={this.afterOpen}
             beforeClose={this.beforeClose}
@@ -82,11 +83,13 @@ export default class FancyModalButton extends Component {
               <label>Ingredient:</label>
               <input
                 id="ingredient-name"
+                className="modalInput"
                 name="ingredient_name"
                 type="text"></input>
               <div id="ingredient-in-stock">
                 <select
                   id="in-stock"
+                  className="dropDown"
                   name="in_stock">In stock:
                 <option value="in-stock">In stock</option>
                   <option value="out-of-stock">Out</option>
@@ -97,8 +100,9 @@ export default class FancyModalButton extends Component {
               <input
                 id="notes"
                 name="notes"
-                type="text"></input>
-              <button id="close"
+                type="text"
+                className="modalInput"></input>
+              <button className="smallButton" id="close"
               // onClick={props.refreshIngredients}
               // onClick={toggleModal}
               >Hit it!</button>

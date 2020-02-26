@@ -46,6 +46,10 @@ export default class SearchRecipe extends React.Component {
       history.push("/");
     };
 
+    backToSearch = () => {
+      this.props.history.push("/recipes/search")
+    }
+
     addRecipe = () => {  
       let instructionsSet = [];
       let ingredientsSet = [];
@@ -103,9 +107,9 @@ export default class SearchRecipe extends React.Component {
     
 
             <button onClick={this.addRecipe}>Add to my recipes!</button>
-            <Link to="/recipes/search">
-              <button className="cancel-view">Cancel</button>
-            </Link>
+
+              <button onClick={this.backToSearch}className="cancel-view">Cancel</button>
+
           </div>
         )
     }

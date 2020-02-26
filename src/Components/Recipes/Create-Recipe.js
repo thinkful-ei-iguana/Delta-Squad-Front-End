@@ -21,7 +21,7 @@ export default class CreateRecipe extends React.Component {
 
   handleCreationSuccess = () => {
     const { history } = this.props;
-    history.push("/");
+    history.push("/recipes");
   };
 
   state = { error: null };
@@ -62,35 +62,23 @@ export default class CreateRecipe extends React.Component {
   render() {
     return (
     
-      <div id="Creation">
+      <div className="Creation">
         <header className="Creation-Header">
           New Recipe!
         </header>
         <form className="Creation-Form" onSubmit={this.createSubmit}>
           <label className="field a-field a-field_a2">
-            Title: 
+            Title
             <input
               className="field__input a-field__input"
               required
               name="title"
               placeholder="Title"
             />
-            <span className="a-field__label-wrap"></span>
+            <span className="a-field__label-wrap"><span className="a-field__label"></span></span>
           </label>
           <label className="field a-field a-field_a2">
-            Instructions (separate by period): <textarea
-              className="field__input a-field__input"
-              required
-              type="text"
-              name="recipe_description"
-              placeholder="Recipe description"
-            ></textarea>
-            <span className="a-field__label-wrap">
-              <span className="a-field__label"></span>
-            </span>
-          </label>
-          <label className="field a-field a-field_a2">
-            Ingredients (separate by commas):
+            Ingredients <div className="inputParam">(separate by commas)</div>
             <input
               className="field__input a-field__input"
               required
@@ -103,7 +91,20 @@ export default class CreateRecipe extends React.Component {
             </span>
           </label>
           <label className="field a-field a-field_a2">
-            Total Prep Time (in minutes):
+            Instructions <div className="inputParam">(separate by period)</div> <textarea
+              className="field__input a-field__input instructionsField"
+              required
+              type="text"
+              name="recipe_description"
+              placeholder="Recipe description"
+            ></textarea>
+            <span className="a-field__label-wrap">
+              <span className="a-field__label"></span>
+            </span>
+          </label>
+
+          <label className="field a-field a-field_a2">
+            Total Prep Time <div className="inputParam">(in minutes)</div>
             <input
               className="field__input a-field__input"
               required
@@ -115,23 +116,12 @@ export default class CreateRecipe extends React.Component {
               <span className="a-field__label"></span>
             </span>
           </label>
-         { /*<label className="field a-field a-field_a2">
-            Image URL:
-            <input
-              className="field__input a-field__input"
-              required
-              type="text"
-              name="image"
-              placeholder="Recipe image url"
-            />
-            <span className="a-field__label-wrap">
-              <span className="a-field__label"></span>
-            </span>
-          </label> */}
           <div className="btn-row">
-            <button className="submitCreateRecipe">Create recipe</button>
+            <div>
+            <button className="medButton" type="submit">Create recipe</button>
+            </div>
             <Link to="/recipes">
-              <button className="cancelEditRecipe">Cancel</button>
+              <button className="medButton">Cancel</button>
             </Link>
           </div>
         </form>
