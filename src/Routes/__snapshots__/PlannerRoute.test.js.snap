@@ -11,8 +11,7 @@ exports[`renders the UI as expected 1`] = `
     My Mealplans
   </h2>
   <button
-    className="Add-Meal-Plan-Button"
-    id="modal-btn"
+    className="bigButton"
     onClick={[Function]}
     type="submit"
   >

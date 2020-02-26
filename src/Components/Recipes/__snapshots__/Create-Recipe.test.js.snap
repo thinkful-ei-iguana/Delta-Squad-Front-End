@@ -2,7 +2,7 @@
 
 exports[`renders the UI as expected 1`] = `
 <div
-  id="Creation"
+  className="Creation"
 >
   <header
     className="Creation-Header"
@@ -16,27 +16,12 @@ exports[`renders the UI as expected 1`] = `
     <label
       className="field a-field a-field_a2"
     >
-      Title:
+      Title
       <input
         className="field__input a-field__input"
         name="title"
         placeholder="Title"
         required={true}
-      />
-      <span
-        className="a-field__label-wrap"
-      />
-    </label>
-    <label
-      className="field a-field a-field_a2"
-    >
-      Instructions (separate by period): 
-      <textarea
-        className="field__input a-field__input"
-        name="recipe_description"
-        placeholder="Recipe description"
-        required={true}
-        type="text"
       />
       <span
         className="a-field__label-wrap"
@@ -49,7 +34,12 @@ exports[`renders the UI as expected 1`] = `
     <label
       className="field a-field a-field_a2"
     >
-      Ingredients (separate by commas):
+      Ingredients 
+      <div
+        className="inputParam"
+      >
+        (separate by commas)
+      </div>
       <input
         className="field__input a-field__input"
         name="recipe_ingredients"
@@ -68,7 +58,37 @@ exports[`renders the UI as expected 1`] = `
     <label
       className="field a-field a-field_a2"
     >
-      Total Prep Time (in minutes):
+      Instructions 
+      <div
+        className="inputParam"
+      >
+        (separate by period)
+      </div>
+       
+      <textarea
+        className="field__input a-field__input instructionsField"
+        name="recipe_description"
+        placeholder="Recipe description"
+        required={true}
+        type="text"
+      />
+      <span
+        className="a-field__label-wrap"
+      >
+        <span
+          className="a-field__label"
+        />
+      </span>
+    </label>
+    <label
+      className="field a-field a-field_a2"
+    >
+      Total Prep Time 
+      <div
+        className="inputParam"
+      >
+        (in minutes)
+      </div>
       <input
         className="field__input a-field__input"
         name="time_to_make"
@@ -87,17 +107,20 @@ exports[`renders the UI as expected 1`] = `
     <div
       className="btn-row"
     >
-      <button
-        className="submitCreateRecipe"
-      >
-        Create recipe
-      </button>
+      <div>
+        <button
+          className="medButton"
+          type="submit"
+        >
+          Create recipe
+        </button>
+      </div>
       <a
         href="/recipes"
         onClick={[Function]}
       >
         <button
-          className="cancelEditRecipe"
+          className="medButton"
         >
           Cancel
         </button>

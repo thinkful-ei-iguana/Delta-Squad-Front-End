@@ -9,10 +9,38 @@ exports[`renders the UI as expected 1`] = `
   >
     My Pantry
   </h2>
-  <p>
+  <form
+    className="pantrySearch"
+    onSubmit={[Function]}
+  >
+    <label
+      className="randomLabel"
+      htmlFor="ingredient-search-field"
+    >
+      Search Pantry
+    </label>
+    <input
+      id="ingredient-search-field"
+      name="ingredient-search"
+      onChange={[Function]}
+      placeholder="ingredient"
+      type="text"
+      value=""
+    />
+    <button
+      className="smallButton"
+      type="submit"
+    >
+      Search
+    </button>
+  </form>
+  <p
+    className="randomLabel"
+  >
     Filter by:
   </p>
   <select
+    className="dropDown"
     id="pantry-filter"
     onChange={[Function]}
   >
@@ -41,30 +69,9 @@ exports[`renders the UI as expected 1`] = `
       Out of stock
     </option>
   </select>
-  <form
-    onSubmit={[Function]}
-  >
-    <label
-      htmlFor="ingredient-search-field"
-    >
-      Search
-    </label>
-    <input
-      id="ingredient-search-field"
-      name="ingredient-search"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-    <button
-      type="submit"
-    >
-      Search
-    </button>
-  </form>
   <div>
     <button
-      id="add-ingredient-button"
+      className="medButton"
       onClick={[Function]}
     >
       Add an ingredient

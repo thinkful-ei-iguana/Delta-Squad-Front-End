@@ -58,15 +58,11 @@ exports[`renders the UI as expected 1`] = `
   >
     Add to my recipes!
   </button>
-  <a
-    href="/recipes/search"
+  <button
+    className="cancel-view"
     onClick={[Function]}
   >
-    <button
-      className="cancel-view"
-    >
-      Cancel
-    </button>
-  </a>
+    Cancel
+  </button>
 </div>
 `;

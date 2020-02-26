@@ -51,44 +51,48 @@ exports[`renders the UI as expected 1`] = `
   >
      Minutes
   </p>
-  <div>
-    <div
-      className="ownerSelectors"
-    >
-      <a
-        className="editRecipe"
-        href="/edit-recipe/undefined"
-        onClick={[Function]}
+  <div
+    className="buttonGroup"
+  >
+    <div>
+      <div
+        className="ownerSelectors"
+      >
+        <a
+          className="editRecipe"
+          href="/edit-recipe/undefined"
+          onClick={[Function]}
+        >
+          <button
+            className="medButton"
+          >
+            Edit Recipe
+          </button>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div
+        className="delete-recipe-button-div"
       >
         <button
           className="medButton"
+          onClick={[Function]}
         >
-          Edit Recipe
+          Delete Recipe
         </button>
-      </a>
+      </div>
     </div>
-  </div>
-  <div>
-    <div
-      className="delete-recipe-button-div"
+    <a
+      href="/recipes"
+      onClick={[Function]}
     >
       <button
-        className="medButton"
-        onClick={[Function]}
+        className="cancel-view medButton"
       >
-        Delete Recipe
+        Cancel
       </button>
-    </div>
+    </a>
   </div>
-  <a
-    href="/recipes"
-    onClick={[Function]}
-  >
-    <button
-      className="cancel-view medButton"
-    >
-      Cancel
-    </button>
-  </a>
 </div>
 `;

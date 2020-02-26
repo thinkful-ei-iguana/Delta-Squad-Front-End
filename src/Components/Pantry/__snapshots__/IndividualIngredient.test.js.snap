@@ -5,12 +5,16 @@ Array [
   <div
     className="modal-container"
   >
-    <button
-      className="edit-ingredient-button"
-      onClick={[Function]}
+    <div
+      className="ingredientInfoContainer"
     >
-      View/Edit
-    </button>
+      <button
+        className="edit-ingredient-button smallButton"
+        onClick={[Function]}
+      >
+        View/Edit
+      </button>
+    </div>
   </div>,
   <div />,
 ]
