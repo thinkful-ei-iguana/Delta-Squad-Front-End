@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<section
+  id="planner-route-container"
+>
+  <h2
+    className="my-planner-header"
+    id="my-planner-header"
+  >
+    My Mealplans
+  </h2>
+  <button
+    className="Add-Meal-Plan-Button"
+    id="modal-btn"
+    onClick={[Function]}
+    type="submit"
+  >
+    Add a MealPlan
+  </button>
+  <div />
+</section>
+`;

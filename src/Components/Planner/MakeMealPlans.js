@@ -32,7 +32,7 @@ class AddMealPlan extends Component {
       .then(recipeData => {
         this.setState({
           recipes: recipeData,
-          recipe_id: recipeData[0].id
+          recipe_id: recipeData.id
         });
         // console.log(this.state.recipes);
         let data = this.state.recipes;
