@@ -1,13 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
 import renderer from "react-test-renderer";
 
-describe('App', () => {
-  it('renders without crashing', () => {
-
-    Object.defineProperty(window, 'matchMedia', {
+describe("App", () => {
+  it("renders without crashing", () => {
+    Object.defineProperty(window, "matchMedia", {
       writable: true,
       value: jest.fn().mockImplementation(query => ({
         matches: false,
@@ -17,22 +16,27 @@ describe('App', () => {
         removeListener: jest.fn(), // deprecated
         addEventListener: jest.fn(),
         removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
-      })),
+        dispatchEvent: jest.fn()
+      }))
     });
-    const div = document.createElement('div');
-    ReactDOM.render(<BrowserRouter>
-      < App />
-    </BrowserRouter>, div);
+    const div = document.createElement("div");
+    ReactDOM.render(
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>,
+      div
+    );
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('renders the UI as expected', () => {
-    const tree = renderer.create(<BrowserRouter>
-      <App />
-    </BrowserRouter>)
+  it("renders the UI as expected", () => {
+    const tree = renderer
+      .create(
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-
-
+});

@@ -22,7 +22,7 @@ exports[`renders the UI as expected 1`] = `
       Username
     </label>
     <input
-      className="username-fields"
+      className="inputSmall"
       id="user_name"
       name="user_name"
       placeholder="Username"
@@ -36,7 +36,7 @@ exports[`renders the UI as expected 1`] = `
       Password
     </label>
     <input
-      className="password-fields"
+      className="inputSmall"
       id="password"
       name="password"
       placeholder="Password"
@@ -47,7 +47,7 @@ exports[`renders the UI as expected 1`] = `
       className="btn-row"
     >
       <input
-        className="submit-login"
+        className="medButton"
         type="submit"
         value="Submit"
       />
@@ -57,7 +57,7 @@ exports[`renders the UI as expected 1`] = `
         onClick={[Function]}
       >
         <button
-          className="new-account"
+          className="medButton"
         >
           Create an account
         </button>

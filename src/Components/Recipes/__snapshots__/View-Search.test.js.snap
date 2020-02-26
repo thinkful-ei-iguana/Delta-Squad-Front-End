@@ -38,8 +38,8 @@ exports[`renders the UI as expected 1`] = `
   >
     Recipe Instructions: 
   </p>
-  <p
-    className="recipeInfo"
+  <section
+    className="recipeInfo instructions"
   />
   <p
     className="recipePageHeader"
@@ -49,43 +49,21 @@ exports[`renders the UI as expected 1`] = `
   <p
     className="recipeInfo"
   >
-     Minutes
+    NaN
+     
+    minutes
   </p>
-  <div>
-    <div
-      className="ownerSelectors"
-    >
-      <a
-        className="editRecipe"
-        href="/edit-recipe/undefined"
-        onClick={[Function]}
-      >
-        <button
-          className="medButton"
-        >
-          Edit Recipe
-        </button>
-      </a>
-    </div>
-  </div>
-  <div>
-    <div
-      className="delete-recipe-button-div"
-    >
-      <button
-        className="medButton"
-        onClick={[Function]}
-      >
-        Delete Recipe
-      </button>
-    </div>
-  </div>
+  <button
+    onClick={[Function]}
+  >
+    Add to my recipes!
+  </button>
   <a
-    href="/recipes"
+    href="/recipes/search"
     onClick={[Function]}
   >
     <button
-      className="cancel-view medButton"
+      className="cancel-view"
     >
       Cancel
     </button>
