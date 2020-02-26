@@ -30,17 +30,17 @@
 
 ## Screenshots:
 
-  > ![Login Page](Assets/loginPage.JPG)
+  > ![Login Page](src/Assets/loginPage.JPG)
 
-  > ![Home Page](Assets/homePage.JPG)
+  > ![Home Page](src/Assets/homePage.JPG)
 
-  > ![Pantry Landing Page](Assets/pantryLanding.JPG)
+  > ![Pantry Landing Page](src/Assets/pantryLanding.JPG)
 
-  > ![Meal Plan Landing Page]Assets/planLanding.JPG)
+  > ![Meal Plan Landing Page](src/Assets/planLanding.JPG)
 
-  > ![Recipe Landing Page](Assets/recipeLanding.JPG)
+  > ![Recipe Landing Page](src/Assets/recipeLanding.JPG)
 
-  > ![Recipe Detail Page](Assets/recipeDetail.JPG)
+  > ![Recipe Detail Page](src/Assets/recipeDetail.JPG)
 
 
 ## Technologies: 
