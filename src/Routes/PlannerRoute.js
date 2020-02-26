@@ -102,8 +102,7 @@ class PlannerRoute extends Component {
         {this.state.mealplans && this.renderMealPlans()}
         {/* {this.state.mealplans.length > 0 && ( */}
         <button
-          id="modal-btn"
-          className="Add-Meal-Plan-Button"
+          className="bigButton"
           type="submit"
           onClick={() => this.setStateAddMealPlanTrue()}
         >

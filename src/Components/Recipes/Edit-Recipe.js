@@ -130,7 +130,7 @@ export default class CreateRecipe extends React.Component {
           </label>
           <div className="btn-row">
             <button className="submitRecipeEdit">Submit</button>
-            <Link to="/">
+            <Link to={`/recipes/${this.state.recipe.id}`}>
               <button className="cancelEditRecipe">Cancel</button>
             </Link>
           </div>

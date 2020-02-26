@@ -139,34 +139,39 @@ class AddMealPlan extends Component {
         {this.props.addMealPlan === true && (
           <div id="modal-planner">
             <form id="modal-content-planner" onSubmit={this.handleSubmit}>
-              <label>MealPlan:</label>
+              <label className="plannerLabel">MealPlan:</label>
               <select
-                className="mealplantitle-select"
+                className="dropDown"
                 name="recipe_id"
                 type="text"
                 onChange={this.handleChange}
               >
                 {this.handleAddMealPlanWindow()}
               </select>
-              <label>Meal Date:</label>
+              <label className="plannerLabel">Meal Date:</label>
               <input
                 name="planned_date"
                 type="text"
+                className="modalInput"
                 onChange={this.handleChange}
               >
                 {this.props.planned_date}
               </input>
-              <label>Prep Time:</label>
+              <label className="plannerLabel">Prep Time:</label>
+              <div className="plannerInfo">
               <h2 name="time_to_make" type="text">
-                {this.state.recipe.time_to_make}
+                {this.state.recipe.time_to_make} Minutes
               </h2>
-              <label>Ingredients-Required:</label>
+              </div>
+              <label className="plannerLabel">Ingredients-Required:</label>
+              <div className="plannerInfo">
               <h3 type="text">
                 {this.state.recipe.recipe_ingredients &&
                   this.state.recipe.recipe_ingredients.join(", ")}
               </h3>
+              </div>
               <h2 name="needed_ingredients" type="text"></h2>
-              <button id="close-planner">Plan it!</button>
+              <button className="smallButton" id="close-planner">Plan it!</button>
             </form>
           </div>
         )}
