@@ -18,23 +18,33 @@
 
 ## Getting Started:
 
-> [Client Side Repo:](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End)
 
-> [Server Side Repo:](https://github.com/thinkful-ei-iguana/Delta-Squad-Server)
+## Getting Started:   
+
+  * [Client Side Repo](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End)
+
+  * [Server Side Repo](https://github.com/thinkful-ei-iguana/Delta-Squad-Server)
+
+  * [Live App](https://delta-squad-app.now.sh/)
+
 
 > [Live App:](https://delta-squad-app.now.sh/)
 
 ## Screenshots:
 
-> [Login Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End/blob/master/src/Assets/loginPage.JPG)
 
-> [Home Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End/blob/master/src/Assets/homePage.JPG)
+   ![Login Page](src/Assets/loginPage.JPG)
 
-> [Pantry Landing Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End/blob/master/src/Assets/pantryLanding.JPG)
+   ![Home Page](src/Assets/homePage.JPG)
 
-> [Meal Plan Landing Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End/blob/master/src/Assets/planLanding.JPG)
+   ![Pantry Landing Page](src/Assets/pantryLanding.JPG)
 
-> [Recipe Landing Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End/blob/master/src/Assets/recipeLanding.JPG)
+   ![Meal Plan Landing Page](src/Assets/planLanding.JPG)
+
+   ![Recipe Landing Page](src/Assets/recipeLanding.JPG)
+
+   ![Recipe Detail Page](src/Assets/recipeDetail.JPG)
+
 
 > [Recipe Detail Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End/blob/master/src/Assets/recipeDetail.JPG)
 
