@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import config from "../../config";
 import TokenService from "../../Helpers/Token";
-import Calendar from "rc-calendar";
 
 class MealPlan extends Component {
   constructor(props) {
@@ -31,14 +30,15 @@ class MealPlan extends Component {
     let mealPlanId = this.props.match.params.mealPlanId;
     const url = `${config.API_ENDPOINT}/planner/${mealPlanId}`;
     const authToken = TokenService.getAuthToken();
-    let { title, planned_date, prep_time, needed_ingredients } = e.target;
+    let { title, planned_date, time_to_make, needed_ingredients } = e.target;
 
     let updatedMealPlan = {
       id: mealPlanId,
       title: title.value || this.props.location.state.title,
       planned_date:
         planned_date.value || this.props.location.state.planned_date,
-      prep_time: prep_time.value || this.props.location.state.prep_time,
+      time_to_make:
+        time_to_make.value || this.props.location.state.time_to_make,
       needed_ingredients:
         needed_ingredients.value || this.props.location.state.needed_ingredients
     };
@@ -88,7 +88,7 @@ class MealPlan extends Component {
               <label id="meaplan-prep-time">Time to make:</label>
               <input
                 id="mealplan-prep-time"
-                name="prep_time"
+                name="time_to_make"
                 type="text"
               ></input>
               <label id="meaplan-needed-ingredients">Ingredients needed:</label>
@@ -142,12 +142,10 @@ class MealPlan extends Component {
             <br />
             Planned date: {this.props.location.state.planned_date}
             <br />
-            Time to make: {this.props.location.state.prep_time}
+            Time to make: {this.props.location.state.time_to_make}
             <br />
             Ingredients required: {this.props.location.state.needed_ingredients}
           </p>
-          ReactDOM.render(
-          <Calendar />, container);
         </section>
         <button
           id="update-mealplan-button"
@@ -178,7 +176,7 @@ class MealPlan extends Component {
   //   <section>
   //     <p>Title: {this.props.location.state.title}</p>
   //     <p>Meal date: {this.props.location.state.planned_date}</p>
-  //     <p>Prep time: {this.props.location.state.prep_time}</p>
+  //     <p>Prep time: {this.props.location.state.time_to_make}</p>
   //     <p>
   //       Ingredients required: {this.props.location.state.recipe_ingredients}
   //     </p>

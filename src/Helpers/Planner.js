@@ -28,6 +28,19 @@ const PlannerHelper = {
       },
       body: JSON.stringify(updatedData)
     });
+  },
+  recipeById(id) {
+    const authToken = TokenService.getAuthToken();
+    console.log("getting recipe by id", id);
+    return fetch(`${config.API_ENDPOINT}/planner/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${authToken}`
+      }
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
   }
 
   // deleteMealPlan(id) {

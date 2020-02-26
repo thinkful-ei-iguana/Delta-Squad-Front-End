@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import config from '../config';
-import TokenService from '../Helpers/Token.js'
-import './RecipesRoute.css';
+import config from "../config";
+import TokenService from "../Helpers/Token.js";
+import "./RecipesRoute.css";
 // import searchRecipe from '../Components/Recipes/Search-Recipe'
 // import IndividualRecipe from '../Components/Recipes/Individual-Recipe'
-
 
 class RecipesRoute extends Component {
   constructor(props) {
@@ -46,7 +45,7 @@ class RecipesRoute extends Component {
 
   renderRecipes = () => {
     const recipes = this.state.recipes;
-    console.log("recipes in render is", this.state);
+    // console.log("recipes in render is", this.state);
     if (recipes.length > 0) {
       return recipes.map(recipe => {
         return (
@@ -68,13 +67,16 @@ class RecipesRoute extends Component {
   render() {
     return (
       <section className="recipeSection">
-        <Link to="recipes/search"><button className="bigButton">Search for new recipes</button></Link>
-        <Link to="recipes/create"><button className="bigButton">Create new recipe</button></Link>
+        <Link to="recipes/search">
+          <button className="bigButton">Search for new recipes</button>
+        </Link>
+        <Link to="recipes/create">
+          <button className="bigButton">Create new recipe</button>
+        </Link>
         <h1 id="recipeHeader">My Recipes:</h1>
         {this.state.recipes && this.renderRecipes()}
-
       </section>
-    )
+    );
   }
 }
 
