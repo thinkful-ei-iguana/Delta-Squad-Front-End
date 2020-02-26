@@ -1,21 +1,22 @@
 
 # Kitchen Helper:
 
-    *Kitchen Helper is a best friend in the kitchen. 
+    Kitchen Helper is a best friend in the kitchen. 
     This app combines the ability to track the items in your pantry, 
     the opportunity to plan your meals for a given time period and puts a 
     large database of recipes at your fingertips. This app also allows
-    you to create and add your own recipes.*
+    you to create and add your own recipes.
 
 
 ## Motivation:
 
-    *The motivation for this app was the idea that it would 
+    The motivation for this app was the idea that it would 
     help those that wish to be more organized and pro-active 
     in the kitchen.  It takes the guess work out of wondering 
     what you have in your kitchen to create meals.  So, if 
-    you are someone who forgets easily, a busy parent that feels frazzled about what to cook, or an older couple looking 
-    to try something new, this app has something for everyone.*
+    you are someone who forgets easily, a busy parent that 
+    feels frazzled about what to cook, or an older couple 
+    looking to try something new, this app has something for everyone.
 
 
 ## Getting Started:   
@@ -30,10 +31,15 @@
 ## Screenshots:
 
   > [Login Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End/blob/master/src/Assets/loginPage.JPG)
+
   > [Home Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End/blob/master/src/Assets/homePage.JPG)
+
   > [Pantry Landing Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End/blob/master/src/Assets/pantryLanding.JPG)
+
   > [Meal Plan Landing Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End/blob/master/src/Assets/planLanding.JPG)
+
   > [Recipe Landing Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End/blob/master/src/Assets/recipeLanding.JPG)
+
   > [Recipe Detail Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End/blob/master/src/Assets/recipeDetail.JPG)
 
 
@@ -62,7 +68,7 @@
 
    * Ability to select a recipe from ones owned by user and set    date for meal plan
 
-   > Ability to display prep time and ingredients needed from the chosen recipe
+   * Ability to display prep time and ingredients needed from the chosen recipe
 
 
 ## Upcoming Features:
@@ -98,10 +104,10 @@
 
 ## Contributors:
 
-    * Maggie McClellan
-    * Calvin Rosehart
-    * Anugrah Lambogo
-    * Christina Chapman
+  * Maggie McClellan
+  * Calvin Rosehart
+  * Anugrah Lambogo
+  * Christina Chapman
 
 
 ## Scripts and Deployment:
