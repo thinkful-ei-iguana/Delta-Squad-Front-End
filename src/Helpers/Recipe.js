@@ -54,6 +54,7 @@ const RecipeHelper = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
+  //comment
   delete(id) {
     const authToken = TokenService.getAuthToken();
     return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
@@ -74,13 +75,20 @@ const RecipeHelper = {
         "Content-type": "application/json",
         Authorization: `Bearer ${authToken}`
       }
-    }).then(res => res.json());
-    // .then(data => {
-    //   // console.log("get recipes data is", data);
-    //   return this.setState({
-    //     recipes: data
-    //   });
-    // });
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
+  updateRecipe(updatedData, id) {
+    const authToken = TokenService.getAuthToken()
+    return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${authToken}`
+      },
+      body: JSON.stringify(updatedData)
+    });
   }
 };
 

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AuthHelper from "../../Helpers/Auth";
-// import Context from "../../Contexts/Context";
 import UserContext from "../../Contexts/UserContext";
 import "./Login.css";
+// import Context from "../../Contexts/Context";
 
 class LoginForm extends React.Component {
   static defaultProps = {
@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
     },
     onLoginSuccess: () => { }
   };
+
   state = { error: null };
 
   static contextType = UserContext;
@@ -39,21 +40,13 @@ class LoginForm extends React.Component {
       });
   };
 
-  // onLoginSuccess = () => {
-  //   const { location, history } = this.props;
-  //   console.log("this.props is", this.props);
-  //   // const destination = ("/home" || location.state || {}).from;
-  //   history.push("/home");
-  //   // this.context.setUser = this.props.location
-  // };
-  // componentDidMount() {
-  //   console.log('first input is', this.firstInput);
-  //   this.firstInput.current.focus();
-  // }
-
   render() {
+    const { error } = this.state;
     return (
       <div className="login">
+        <div role="alert" className="login-fail-error">
+          {error && <p className="red">{'Something went wrong. Please try again.'}</p>}
+        </div>
         <header className="Login-Header"></header>
         <form
           className="login-form"
@@ -66,7 +59,7 @@ class LoginForm extends React.Component {
             </label>
           <input
             id="user_name"
-            className="username-fields"
+            className="inputSmall"
             required
             name="user_name"
             placeholder="Username"
@@ -80,7 +73,7 @@ class LoginForm extends React.Component {
           </label>
           <input
             id="password"
-            className="password-fields"
+            className="inputSmall"
             required
             name="password"
             type="password"
@@ -90,12 +83,12 @@ class LoginForm extends React.Component {
           <div className="btn-row">
             <input
               type="submit"
-              className="submit-login"
+              className="medButton"
               value="Submit"
             />
             <br />
             <Link to="/register">
-              <button className="new-account">Create an account</button>
+              <button className="medButton">Create an account</button>
             </Link>
           </div>
         </form>

@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "alias": "member-delta-squad-app",
-  "name": "delta-squad-app",
+  "name": "kitchen-helper-2020",
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/index.html"
+    }
   ]
 }

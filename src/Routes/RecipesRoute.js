@@ -53,12 +53,7 @@ class RecipesRoute extends Component {
             <Link
               className="individual-recipe"
               to={{
-                pathname: `/recipes/${recipe.id}`,
-                state: {
-                  title: recipe.title,
-                  description: recipe.recipe_description,
-                  timeToMake: recipe.time_to_make
-                }
+                pathname: `/recipes/${recipe.id}`
               }}
             >
               <li>{recipe.title}</li>

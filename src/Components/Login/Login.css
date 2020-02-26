@@ -1,12 +1,23 @@
 .login {
-  display: flex;
+  display: block;
   flex-direction: column;
   align-items: center;
+  background-color: #B6D084;
+  padding: 2.5%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5%;
+  border: black solid 2px;
+  border-radius: 10%;
+  max-width: 300px;
+  box-shadow: 5px 5px 5px #2F7604;
 }
 
 .login-form {
-  margin-top: 50px;
+  margin-top: 10%;
   font-size: 20px;
+  text-align: center;
+  font-family: "cookiesregular"
 }
 
 input {
@@ -23,22 +34,21 @@ label {
   text-align: center;
 }
 
-.submit-login {
-  margin-bottom: -10px;
-  width: 100px;
-  font-size: 18px;
-  background-color: #FFCB32;
-}
-
-.submit-login:hover {
-  background-color: #2F7604;
-  color: #FFCB32;
-}
 
 
 .new-account {
   background-color: #FFCB32;
   margin-top: 10px;
+}
+
+.red {
+  color: red;
+  font-size: 28px;
+}
+
+.login-fail-error {
+  margin-top: 20px;
+  margin-bottom: -20px;
 }
 
 

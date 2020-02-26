@@ -24,7 +24,7 @@ const PlannerHelper = {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${config.TOKEN_KEY}`
+        Authorization: `Bearer ${config.REACT_APP_API_KEY}`
       },
       body: JSON.stringify(updatedData)
     });
