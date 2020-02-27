@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="view"
+  id="recipeView"
+>
+  <div
+    className="image-container"
+  >
+    <div
+      className="image"
+      style={
+        Object {
+          "backgroundImage": "url(undefined)",
+        }
+      }
+    />
+  </div>
+  <p
+    className="recipePageHeader"
+  >
+    Title:
+  </p>
+  <p
+    className="recipeInfo"
+  />
+  <p
+    className="recipePageHeader"
+  >
+    Recipe Ingredients:
+  </p>
+  <p
+    className="recipeInfo"
+  />
+  <p
+    className="recipePageHeader"
+  >
+    Recipe Instructions: 
+  </p>
+  <section
+    className="recipeInfo instructions"
+  />
+  <p
+    className="recipePageHeader"
+  >
+    Time to make the recipe:
+  </p>
+  <p
+    className="recipeInfo"
+  >
+    NaN
+     
+    minutes
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Add to my recipes!
+  </button>
+  <button
+    className="cancel-view"
+    onClick={[Function]}
+  >
+    Cancel
+  </button>
+</div>
+`;

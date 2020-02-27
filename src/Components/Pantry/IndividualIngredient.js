@@ -111,7 +111,9 @@ export default class FancyModalButton extends Component {
     return (
       <ModalProvider backgroundComponent={this.fadingBackground}>
         <div className="modal-container">
-          <button className="edit-ingredient-button" onClick={this.toggleModal}>View/Edit</button>
+          <div className="ingredientInfoContainer">
+          <button className="edit-ingredient-button smallButton" onClick={this.toggleModal}>View/Edit</button>
+          </div>
           <this.StyledModal
             isOpen={this.state.isOpen}
             afterOpen={this.afterOpen}
@@ -124,11 +126,13 @@ export default class FancyModalButton extends Component {
             <div className="styled-modal-div">
               <p id="current-ingredient-to-edit"></p>
               <br />
-              <form id="modal-content"
+              <form 
+                id="modal-content" 
                 onSubmit={this.handleSubmit}
               >
                 <label>Ingredient:</label>
                 <input
+                  className="modalInput"
                   id="ingredient-name"
                   name="ingredient_name"
                   type="text"
@@ -137,6 +141,7 @@ export default class FancyModalButton extends Component {
                   <select
                     id="in-stock"
                     name="in_stock"
+                    className="dropDown"
                   >
                     In stock:
               <option value="in-stock">In stock</option>
@@ -146,19 +151,21 @@ export default class FancyModalButton extends Component {
                 </div>
                 <label>Notes:</label>
                 <input
+                  className="modalInput"
                   id="notes"
                   name="notes"
                   type="text"
                   placeholder={this.props.notes}
                 >
                 </input>
-                <button id="update-ingredient-button" type="submit">
+                <button id="update-ingredient-button" className="smallButton" type="submit">
                   Update
                 </button>
-              </form>
-              <button id="delete-ingredient-button" type="submit" onClick={this.handleDeleteIngredient}>
+                <button id="delete-ingredient-button" className="smallButton" type="submit" onClick={this.handleDeleteIngredient}>
                 Delete
-              </button>
+                </button>
+              </form>
+
             </div>
           </this.StyledModal>
         </div >

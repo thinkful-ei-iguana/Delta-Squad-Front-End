@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import config from "../../config";
 import TokenService from "../../Helpers/Token";
+import _ from "lodash";
 
 class MealPlan extends Component {
   constructor(props) {
@@ -17,9 +18,7 @@ class MealPlan extends Component {
   }
 
   setMealPlan = () => {
-    const originalMealPlan = this.props.location.state;
-    console.log("original mealplan", this.props.location.state);
-
+    const originalMealPlan = _.get(this, "props.location.state");
     this.setState({
       mealplan: originalMealPlan
     });
@@ -78,7 +77,7 @@ class MealPlan extends Component {
       <div>
         {this.state.updateMealPlan === true && (
           <div>
-            <form id="modal-content" onSubmit={this.handleSubmit}>
+            <form id="modal-content-update" className="editMealplanModal" onSubmit={this.handleSubmit}>
               <label>Mealplan:</label>
               <input id="mealplan" name="title" type="text"></input>
               <label id="planned-date" name="planned_date">
@@ -134,28 +133,29 @@ class MealPlan extends Component {
   render() {
     console.log("this.props", this.props);
     return (
-      <div id="individual-mealplan-view">
+      <div className="individual-mealplan-view">
         <section id="original-mealplan-data">
-          <h2 id="update-header">Update</h2>
-          <p>
-            Title: {this.props.location.state.title}
+          <h2 id="update-header">Edit MealPlan</h2>
+          <p className="mealplanInfo">
+            <p className="boldLabel">Title:</p> {_.get(this, "props.location.state.title")}
             <br />
-            Planned date: {this.props.location.state.planned_date}
+            <p className="boldLabel">Planned date:</p> {_.get(this, "props.location.state.planned_date")}
             <br />
-            Time to make: {this.props.location.state.time_to_make}
+            <p className="boldLabel">Time to make:</p> {_.get(this, "props.location.state.time_to_make")}
             <br />
-            Ingredients required: {this.props.location.state.needed_ingredients}
+            <p className="boldLabel">Ingredients required:</p>
+            {_.get(this, "props.location.state.needed_ingredients")}
           </p>
         </section>
         <button
-          id="update-mealplan-button"
+          className="smallButton"
           type="submit"
           onClick={() => this.setStateUpdateMealPlanTrue()}
         >
           Update
         </button>
         <button
-          id="delete-mealplan-button"
+          className="smallButton"
           type="submit"
           onClick={e => this.handleDeleteMealPlan(e)}
         >
@@ -163,7 +163,7 @@ class MealPlan extends Component {
         </button>
         {this.handleUpdateMealPlan()}
         <button
-          id="go-back-button"
+          className="smallButton"
           type="submit"
           onClick={() => this.handleGoBack()}
         >

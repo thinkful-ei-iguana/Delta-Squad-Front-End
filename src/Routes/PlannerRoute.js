@@ -66,7 +66,6 @@ class PlannerRoute extends Component {
         <span className="prep-time">{mealplan.time_to_make}</span>{" "}
         <Link
           // key={mealplan.id}   ...needs to be unique
-          className="edit-mealplan-button"
           to={{
             pathname: `/planner/${mealplan.id}`,
             state: {
@@ -78,7 +77,8 @@ class PlannerRoute extends Component {
             }
           }}
         >
-          Edit MealPlan
+          <button className="smallButton">
+          Edit MealPlan</button>
         </Link>
         <br />
       </section>
@@ -102,8 +102,7 @@ class PlannerRoute extends Component {
         {this.state.mealplans && this.renderMealPlans()}
         {/* {this.state.mealplans.length > 0 && ( */}
         <button
-          id="modal-btn"
-          className="Add-Meal-Plan-Button"
+          className="bigButton"
           type="submit"
           onClick={() => this.setStateAddMealPlanTrue()}
         >

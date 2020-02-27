@@ -1,5 +1,6 @@
 {
   "name": "kitchen-helper",
+  "license": "ISC",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +11,7 @@
     "hookrouter": "^1.2.3",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "rc-calendar": "^9.15.9",
     "react": "^16.12.0",

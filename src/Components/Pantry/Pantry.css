@@ -36,52 +36,49 @@
 }
 
 #ingredients-container {
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
+
   /* align-items: flex-start; */
   /* border: 2px solid black; */
-  min-width: 305px;
-  margin-bottom: 5px;
+  min-width: 310px;
+  margin: 2.5%;
+  border-radius: 10%;
+  border: solid black 1px;
+  box-shadow: 5px 5px 5px #2F7604;
+  background-color: #B6D084;
+  padding: 2.5%;
 }
 
-.edit-ingredient-button {
-  /* display: inline; */
-  text-decoration: none;
-  /* border: 1px solid black; */
-  /* border-radius: 3px; */
-  margin-bottom: 45px;
-  /* padding: 4px; */
-  margin-left: 10px;
-  margin-top: 20px;
-  background-color: #FFCB32;
-  color: #141514;
+.ingredientNameContainer{
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+}
+
+.ingredientInfoContainer {
+  min-width: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .individual-ingredients {
-  display:flex;
+  display: flex;
   flex-direction: row;
-  justify-content: center;
-  margin-bottom: -35px;
+  justify-content: flex-end;
   background-color: #B6D084;
-  padding: 5px;
+  padding: 1%;
+  border-bottom: black solid 1px;
 }
 
-#add-ingredient-button {
-  font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 15px;
-}
-
-.ingredient-name {
-  /* display: inline; */
-  font-weight: bold;
-}
 
 .ingredient-stock {
   /* display: inline; */
-  margin-left: 15px;
-  margin-top: 27px;
+  margin-left: 5%;
+  margin-top: 10%;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
 }
 
 #pantry-text {
@@ -132,8 +129,8 @@
 }
 
 #modal-content {
-  /* border: 2px solid black; */
-  padding: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -142,8 +139,9 @@
   background-color: #2F7604;
   color: white;
   font-weight: bold;
-  margin-top: 15px;
-  margin-bottom: 5px;
+  border: black solid 2px;
+  border-radius: 10%;
+  margin: -50px
 }
 
 /* #update-ingredient-button {
@@ -166,11 +164,29 @@
 } */
 
 .styled-modal-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #2F7604;
+  background-color: transparent;
 }
+
+
+#ingredient-search-field {
+  height: 25px;
+  font-size: 20px;
+  width: 300px;
+  margin: 1%;
+}
+
+.modalInput {
+  height: 25px;
+  width: 200px;
+  font-size: 20px;
+}
+
+.pantrySearch {
+  text-align: center;
+  width: 100%;
+  margin: 2.5%;
+}
+
 
 /* #current-ingredient-to-edit {
 } */

@@ -51,51 +51,48 @@ exports[`renders the UI as expected 1`] = `
   >
      Minutes
   </p>
-  <p>
-    Owner:
-  </p>
-  <p
-    className="recipeInfo"
-  />
-  <span
-    className="recipe-date_created"
+  <div
+    className="buttonGroup"
   >
-    Date Created: 
-  </span>
-  <div>
-    <div
-      className="delete-recipe-button-div"
+    <div>
+      <div
+        className="ownerSelectors"
+      >
+        <a
+          className="editRecipe"
+          href="/edit-recipe/undefined"
+          onClick={[Function]}
+        >
+          <button
+            className="medButton"
+          >
+            Edit Recipe
+          </button>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div
+        className="delete-recipe-button-div"
+      >
+        <button
+          className="medButton"
+          onClick={[Function]}
+        >
+          Delete Recipe
+        </button>
+      </div>
+    </div>
+    <a
+      href="/recipes"
+      onClick={[Function]}
     >
       <button
-        className="delete-recipe-button"
-        onClick={[Function]}
+        className="cancel-view medButton"
       >
-        Delete Recipe
+        Cancel
       </button>
-    </div>
+    </a>
   </div>
-  <div>
-    <div
-      className="ownerSelectors"
-    >
-      <a
-        className="editRecipe"
-        href="/Edit-Recipe/undefined"
-        onClick={[Function]}
-      >
-        Edit Recipe
-      </a>
-    </div>
-  </div>
-  <a
-    href="/recipes"
-    onClick={[Function]}
-  >
-    <button
-      className="cancel-view"
-    >
-      Cancel
-    </button>
-  </a>
 </div>
 `;

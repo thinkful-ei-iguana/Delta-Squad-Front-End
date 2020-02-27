@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import Recipe from "../../Helpers/Recipe";
 import Context from "../../Contexts/Context";
 import RecipeHelper from "../../Helpers/Recipe";
+import _ from "lodash";
 
 export default class CreateRecipe extends React.Component {
   static contextType = Context;
   static defaultProps = {
     location: {},
     history: {
-      push: () => { }
+      push: () => {}
     }
   };
 
@@ -21,20 +22,19 @@ export default class CreateRecipe extends React.Component {
   }
 
   componentDidMount() {
-   console.log(this.props.match.params.recipeId);
-    RecipeHelper.recipeById(this.props.match.params.recipeId).then(data => {
-      console.log(data);
-      this.setState({ recipe: data });
-      console.log(this.state)
-    });
-
+    RecipeHelper.recipeById(_.get(this, "props.match.params.recipeId")).then(
+      data => {
+        console.log(data);
+        this.setState({ recipe: data });
+        console.log(this.state);
+      }
+    );
   }
-
-
 
   handleEditSuccess = () => {
     const { history } = this.props;
-    history.push("/");
+
+    history.push(`/recipes/${this.state.recipe.id}`);
   };
 
   editSubmit = ev => {
@@ -51,16 +51,16 @@ export default class CreateRecipe extends React.Component {
         title,
         recipe_description,
         recipe_ingredients,
-        time_to_make,
+        time_to_make
       },
       this.state.recipe.id
     )
       .then(recipe => {
+        this.handleEditSuccess();
         title.value = "";
         recipe_description.value = "";
         recipe_ingredients.value = "";
         time_to_make.value = "";
-        this.handleEditSuccess();
       })
       .catch(res => {
         this.setState({ error: res.error });
@@ -68,13 +68,13 @@ export default class CreateRecipe extends React.Component {
   };
 
   owner = () => {
-    let instructionsArr = []
+    let instructionsArr = [];
     if (this.state.recipe.recipe_description) {
       let desc = this.state.recipe.recipe_description.slice(2);
       let desc1 = desc.slice(0, -2);
       let descarr = desc1.split('","');
       console.log(descarr);
-      descarr.map(instruction => instructionsArr.push(instruction))
+      descarr.map(instruction => instructionsArr.push(instruction));
     }
     return (
       <div className="Creation">
@@ -93,9 +93,23 @@ export default class CreateRecipe extends React.Component {
             </span>
           </label>
           <label className="field a-field a-field_a2">
+            Ingredients:
+            <input
+              className="field__input a-field__input"
+              required
+              type="text"
+              name="recipe_ingredients"
+              defaultValue={
+                this.state.recipe.recipe_ingredients &&
+                this.state.recipe.recipe_ingredients.join(", ")
+              }
+            />
+            <span className="a-field__label"></span>
+          </label>
+          <label className="field a-field a-field_a2">
             Instructions:
             <textarea
-              className="field__input a-field__input"
+              className="field__input a-field__input instructionsField"
               required
               type="textfield"
               name="recipe_description"
@@ -105,18 +119,7 @@ export default class CreateRecipe extends React.Component {
               <span className="a-field__label"></span>
             </span>
           </label>
-          <label className="field a-field a-field_a2">
-            Ingredients: 
-            <input
-              className="field__input a-field__input"
-              required
-              type="text"
-              name="recipe_ingredients"
-              defaultValue={this.state.recipe.recipe_ingredients &&
-                this.state.recipe.recipe_ingredients.join(", ")}
-            />
-            <span className="a-field__label"></span>
-          </label>
+          
           <label className="field a-field a-field_a2">
             Time to Make (in minutes):
             <input
@@ -129,9 +132,9 @@ export default class CreateRecipe extends React.Component {
             <span className="a-field__label"></span>
           </label>
           <div className="btn-row">
-            <button className="submitRecipeEdit">Submit</button>
-            <Link to="/">
-              <button className="cancelEditRecipe">Cancel</button>
+            <button className="smallButton">Submit</button>
+            <Link to={`/recipes/${this.state.recipe.id}`}>
+              <button className="smallButton">Cancel</button>
             </Link>
           </div>
         </form>
