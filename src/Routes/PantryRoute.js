@@ -163,6 +163,9 @@ class PantryRoute extends Component {
 
       <section id="pantry-router-container">
         <h2 id="my-pantry-header">My Pantry</h2>
+        <p id="pantry-text">
+          Add, organize, and keep track of the ingredients in your kitchen!
+        </p>
         <p>Filter by:</p>
         <select id="pantry-filter" onChange={(e) => this.setFilterOption(e)}>
           <option name="default" value="default">No filter</option>
