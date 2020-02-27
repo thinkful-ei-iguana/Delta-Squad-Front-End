@@ -62,8 +62,7 @@ export default class SearchRecipe extends React.Component {
       title: this.state.recipe.title,
       recipe_description: instructionsSet,
       recipe_ingredients: ingredientsSet,
-      time_to_make:
-        this.state.recipe.preparationMinutes + this.state.recipe.cookingMinutes
+      time_to_make: this.state.recipe.readyInMinutes
     };
     console.log("recipeObj: ", recipeObj);
     Recipe.createRecipe(recipeObj)
@@ -111,15 +110,13 @@ export default class SearchRecipe extends React.Component {
 
         <p className="recipePageHeader">Time to make the recipe:</p>
         <p className="recipeInfo">
-          {this.state.recipe.preparationMinutes +
-            this.state.recipe.cookingMinutes}{" "}
+          {this.state.recipe.readyInMinutes}{" "}
           minutes
         </p>
-
-         <button onClick={this.addRecipe}>Add to my recipes!</button>
-
-         <button onClick={this.backToSearch}className="cancel-view">Cancel</button>
-
+            <div className="buttonGroupSearch">
+         <button className="medButton" onClick={this.addRecipe}>Add to my recipes!</button>
+         <button className="medButton" onClick={this.backToSearch}>Cancel</button>
+         </div>
           </div>
         );
   }
