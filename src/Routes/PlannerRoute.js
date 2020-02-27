@@ -62,8 +62,10 @@ class PlannerRoute extends Component {
         > */}
         <h2 className="mealplan-title">{mealplan.title}</h2>
         {/* </Link>{" "} */}
-        <span className="planned-date">{mealplan.planned_date}</span>{" "}
-        <span className="prep-time">{mealplan.time_to_make}</span>{" "}
+        <span className="planned-date">Planned for: {mealplan.planned_date}</span>{" "}
+        <br />
+        <br />
+        {/* <span className="prep-time">{mealplan.time_to_make}</span>{" "} */}
         <Link
           // key={mealplan.id}   ...needs to be unique
           to={{
@@ -78,7 +80,7 @@ class PlannerRoute extends Component {
           }}
         >
           <button className="smallButton">
-          Edit MealPlan</button>
+            View/Edit Meal Plan</button>
         </Link>
         <br />
       </section>
