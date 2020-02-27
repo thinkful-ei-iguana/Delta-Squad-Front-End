@@ -110,12 +110,6 @@
             })
         }
 
-## Contributors:
-
-- Maggie McClellan
-- Calvin Rosehart
-- Anugrah Lambogo
-- Christina Chapman
 
 ## Scripts and Deployment:
 
