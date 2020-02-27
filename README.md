@@ -34,15 +34,15 @@
 
    ![Home Page](src/Assets/homePage.JPG)
 
-   ![Pantry Landing Page](src/Assets/pantryLanding.JPG)
+   ![Pantry Landing Page](src/Assets/pantryLanding.gof)
 
    ![Meal Plan Landing Page](src/Assets/planLanding.JPG)
 
    ![Recipe Landing Page](src/Assets/recipeLanding.JPG)
 
-   ![Recipe Detail Page](src/Assets/recipeDetail.JPG)
+   ![Recipe Detail Page](src/Assets/recipeDetail.gif)
 
-   ![Recipe Detail Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-   End/blob/master/src/Assets/recipeDetail.JPG)
+   ![Recipe Detail Page](src/Assets/recipeDetail.gif)
    
 
 ## Technologies:
