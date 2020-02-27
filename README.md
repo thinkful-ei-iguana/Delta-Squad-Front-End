@@ -7,6 +7,14 @@
     you to create and add your own recipes.
     
 
+## Contributors:
+
+- Maggie McClellan
+- Calvin Rosehart
+- Anugrah Lambogo
+- Christina Chapman
+
+
 ## Motivation:
 
     The motivation for this app was the idea that it would
@@ -30,19 +38,21 @@
 
 ## Screenshots:
 
-   ![Login Page](src/Assets/loginPage.JPG)
+   ![Landing Logo](src/Assets/LandingLogo.gif)
 
-   ![Home Page](src/Assets/homePage.JPG)
+   ![Home Page](src/Assets/homePage.gif)
 
-   ![Pantry Landing Page](src/Assets/pantryLanding.gof)
+   ![Pantry Landing Page](src/Assets/pantryLanding.gif)   
 
-   ![Meal Plan Landing Page](src/Assets/planLanding.JPG)
-
-   ![Recipe Landing Page](src/Assets/recipeLanding.JPG)
+   ![Recipe Landing Page](src/Assets/recipeLanding.gif)
 
    ![Recipe Detail Page](src/Assets/recipeDetail.gif)
+   
+   ![Meal Plan Add](src/Assets/planAdd.gif)
+   
+   ![Dark Mode Banner](src/Assets/DarkMode-Banner.gif)
 
-   ![Recipe Detail Page](src/Assets/recipeDetail.gif)
+   
    
 
 ## Technologies:
