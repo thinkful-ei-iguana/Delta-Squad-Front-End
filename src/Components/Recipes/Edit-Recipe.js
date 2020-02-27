@@ -33,7 +33,8 @@ export default class CreateRecipe extends React.Component {
 
   handleEditSuccess = () => {
     const { history } = this.props;
-    history.push("/");
+
+    history.push(`/recipes/${this.state.recipe.id}`);
   };
 
   editSubmit = ev => {
@@ -55,11 +56,11 @@ export default class CreateRecipe extends React.Component {
       this.state.recipe.id
     )
       .then(recipe => {
+        this.handleEditSuccess();
         title.value = "";
         recipe_description.value = "";
         recipe_ingredients.value = "";
         time_to_make.value = "";
-        this.handleEditSuccess();
       })
       .catch(res => {
         this.setState({ error: res.error });
@@ -92,19 +93,6 @@ export default class CreateRecipe extends React.Component {
             </span>
           </label>
           <label className="field a-field a-field_a2">
-            Instructions:
-            <textarea
-              className="field__input a-field__input"
-              required
-              type="textfield"
-              name="recipe_description"
-              defaultValue={instructionsArr.join("\n")}
-            />
-            <span className="a-field__label-wrap">
-              <span className="a-field__label"></span>
-            </span>
-          </label>
-          <label className="field a-field a-field_a2">
             Ingredients:
             <input
               className="field__input a-field__input"
@@ -119,6 +107,20 @@ export default class CreateRecipe extends React.Component {
             <span className="a-field__label"></span>
           </label>
           <label className="field a-field a-field_a2">
+            Instructions:
+            <textarea
+              className="field__input a-field__input instructionsField"
+              required
+              type="textfield"
+              name="recipe_description"
+              defaultValue={instructionsArr.join("\n")}
+            />
+            <span className="a-field__label-wrap">
+              <span className="a-field__label"></span>
+            </span>
+          </label>
+          
+          <label className="field a-field a-field_a2">
             Time to Make (in minutes):
             <input
               className="field__input a-field__input"
@@ -130,9 +132,9 @@ export default class CreateRecipe extends React.Component {
             <span className="a-field__label"></span>
           </label>
           <div className="btn-row">
-            <button className="submitRecipeEdit">Submit</button>
+            <button className="smallButton">Submit</button>
             <Link to={`/recipes/${this.state.recipe.id}`}>
-              <button className="cancelEditRecipe">Cancel</button>
+              <button className="smallButton">Cancel</button>
             </Link>
           </div>
         </form>

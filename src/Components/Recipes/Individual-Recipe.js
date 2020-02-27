@@ -26,11 +26,10 @@ export default class DetailedView extends React.Component {
       recipeData =>
       {console.log('recipeData:', recipeData)
         this.setState({
-          recipe: recipeData
-        }) 
-        RecipeHelper.getRecipeOwnerData(recipeData.owner).then(ownerData => {
-          this.setState({ owner: ownerData });
-        })}
+          recipe: recipeData,
+          owner: recipeData.recipe_owner
+        })
+      }  
     )
     .then(console.log('state is:', this.state.recipe));
 
@@ -102,10 +101,10 @@ export default class DetailedView extends React.Component {
         </p>
        
         <p className="recipePageHeader">Recipe Instructions: </p>
-        <p className="recipeInfo">
+        <div className="recipeInfo">
           {instructionsArr.map(
             inst => <p key={inst}>{inst}</p> )}
-        </p>
+        </div>
 
         <p className="recipePageHeader">Time to make the recipe:</p>
         <p className="recipeInfo">{this.state.recipe.time_to_make} Minutes</p>
