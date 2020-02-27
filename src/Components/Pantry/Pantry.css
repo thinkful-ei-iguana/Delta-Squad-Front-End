@@ -81,6 +81,10 @@ justify-content: flex-start;
   font-style: italic;
 }
 
+#pantry-text {
+  font-style: italic;
+  font-weight: bold;
+}
 
 /* AddIngredient.js */
 

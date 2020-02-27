@@ -165,6 +165,20 @@ class PantryRoute extends Component {
 
       <section id="pantry-router-container">
         <h2 id="my-pantry-header">My Pantry</h2>
+        <p id="pantry-text">
+          Add, organize, and keep track of the ingredients in your kitchen!
+        </p>
+        <p>Filter by:</p>
+        <select id="pantry-filter" onChange={(e) => this.setFilterOption(e)}>
+          <option name="default" value="default">No filter</option>
+          <option name="in-stock" value="in-stock">In stock</option>
+          <option name="in-stock" value="low">Low</option>
+
+          <option name="in-stock" value="out-of-stock">Out of stock</option>
+        </select>
+
+//         <form onSubmit={this.handleSearchSubmit}>
+
         <form onSubmit={this.handleSearchSubmit} className="pantrySearch">
           <label
             htmlFor="ingredient-search-field" className="randomLabel"
