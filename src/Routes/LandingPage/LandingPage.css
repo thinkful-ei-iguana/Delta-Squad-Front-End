@@ -1,8 +1,37 @@
+@media screen and (max-width: 800px) {
+    .Landing {
+        text-align: center;
+        font-size: smaller;       
+    }
+
+    .landingSamples {
+        display: inline-block;            
+    }
+
+    .p1, .p2 {
+        font-size: 10px;
+    }
+    
+    .RegistrationBtn, .LoginBtn {
+        font-size: 15px;
+    }
+}
+
+
+
 .Landing {
     text-align: center;
+    justify-content: center;
+    align-items: center;
     background-color: #B6D084;
-    margin-top: 0;
-    /* padding: 10px; */
+    margin-top: 20px;
+    margin-left: 13px;
+    margin-right: 13px;    
+    border: 2px black solid;
+    border-radius: 7%;
+    box-shadow: 5px 5px 5px #2F7604;
+    
+    /* padding-bottom: 40px; */
 }
 
 .flex-container {
@@ -31,29 +60,50 @@
 } */
 
 .site-description {
-    padding-left: 25px;
-    padding-right: 25px;
-    margin-left: 20px; 
-    margin-right: 20px;   
-    justify-content: center;
-    align-items: center;
-}
+    text-align: center;
+    
+    }
 
 .landingSamples {
-    display: inline-block;
-    padding: 10px;
-
+    align-items: center;
+    text-align: center;
+    margin-left: 10px;
+    width: 150px;
+    height: 50px;
+    flex-direction: column;
+    font-size: smaller;
+    border: black solid 2px;
+    border-radius: 10%;
+    color: rgb(40, 158, 14);
+    text-decoration: none;
+    box-shadow: 5px 5px 5px #2F7604;    
+    padding: 1%;
     width: 25%;
+    height: auto;
 }
 
-/* .appSampleImages {
-    list-style-type: none;
-    width: 200px;
-    height: 200px;
+.p1  {
+    font-size: 20px;
+    padding-left: 8px;
+    padding-right: 8px;    
 }
 
-.landingSample {
-    display: inline;
-    
+.p2 {
+    font-size: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
 
-} */
+.RegistrationBtn {
+    font-family: "cookiesregular";
+    font-size: 25px;
+    margin: 10px ;
+    padding: 5px;
+}
+
+.LoginBtn {
+    font-family: "cookiesregular";
+    font-size: 25px;
+    margin: 10px;
+    padding: 5px;
+}
