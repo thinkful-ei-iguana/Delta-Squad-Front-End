@@ -1,9 +1,9 @@
 import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { Link } from "react-router-dom";
-import homePage from "../../Assets/homePage.JPG";
-import pantryLanding from '../../Assets/pantryLanding.JPG';
-import recipeDetail from '../../Assets/recipeDetail.JPG';
+import homePage from "../../Assets/homePage.gif";
+import pantryLanding from '../../Assets/pantryLanding.gif';
+import recipeDetail from '../../Assets/recipeDetail.gif';
 import "./LandingPage.css";
 // import Context from "../Contexts/Context";
 // import RecentResults from "../Components/Recent-Results";
