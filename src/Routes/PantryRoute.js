@@ -79,7 +79,7 @@ class PantryRoute extends Component {
         <section className="individual-ingredients" key={ingredients[i].id}>
           <div className="ingredientNameContainer"><h2 className="ingredient-name ">{ingredients[i].ingredient_name.toLowerCase()}</h2></div>
           <div className="ingredientInfoContainer">
-          <span className="ingredient-stock">{ingredients[i].in_stock}</span>{" "}
+            <span className="ingredient-stock">{ingredients[i].in_stock}</span>{" "}
           </div>
           <IndividualIngredient
             id={ingredients[i].id}
@@ -168,16 +168,16 @@ class PantryRoute extends Component {
         <p id="pantry-text">
           Add, organize, and keep track of the ingredients in your kitchen!
         </p>
-        <p>Filter by:</p>
+        {/* <p>Filter by:</p>
         <select id="pantry-filter" onChange={(e) => this.setFilterOption(e)}>
           <option name="default" value="default">No filter</option>
           <option name="in-stock" value="in-stock">In stock</option>
           <option name="in-stock" value="low">Low</option>
 
           <option name="in-stock" value="out-of-stock">Out of stock</option>
-        </select>
+        </select> */}
 
-//         <form onSubmit={this.handleSearchSubmit}>
+        {/* <form onSubmit={this.handleSearchSubmit} /> */}
 
         <form onSubmit={this.handleSearchSubmit} className="pantrySearch">
           <label
@@ -201,14 +201,10 @@ class PantryRoute extends Component {
 
           <option name="in-stock" value="out-of-stock">Out of stock</option>
         </select>
-        {/* <button id="add-ingredient-button" type="submit" onClick={() => this.setStateAddIngredientTrue()}>
-          Add an ingredient
-          </button> */}
         <AddIngredient
           addIngredient={this.state.addIngredient}
           allIngredients={this.state.ingredients}
           refreshIngredients={this.getIngredients}
-        // closeAddForm={this.setStateAddIngredientFalse}
         />
         <div id="ingredients-container">
 
