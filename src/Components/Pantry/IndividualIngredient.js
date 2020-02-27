@@ -138,7 +138,7 @@ export default class FancyModalButton extends Component {
                   type="text"
                   placeholder={this.props.ingredient_name}></input>
                 <div id="ingredient-in-stock">
-                  <label className="inventory-dropdown-text">In stock:</label>
+                  <label className="inventory-dropdown-text">In stock?:</label>
                   <br />
                   <select
                     id="in-stock"
