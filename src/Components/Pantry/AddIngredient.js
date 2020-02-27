@@ -68,7 +68,7 @@ export default class FancyModalButton extends Component {
         <div>
           <button className="medButton" onClick={this.toggleModal}>Add an ingredient</button>
           <this.StyledModal
-         
+
             isOpen={this.state.isOpen}
             afterOpen={this.afterOpen}
             beforeClose={this.beforeClose}
@@ -80,17 +80,19 @@ export default class FancyModalButton extends Component {
             <form id="modal-content"
               onSubmit={this.handleSubmit}
             >
-              <label>Ingredient:</label>
+              <label>Ingredient*:</label>
               <input
                 id="ingredient-name"
                 className="modalInput"
                 name="ingredient_name"
+                required
                 type="text"></input>
               <div id="ingredient-in-stock">
                 <select
                   id="in-stock"
                   className="dropDown"
-                  name="in_stock">In stock:
+                  required
+                  name="in_stock">In stock*:
                 <option value="in-stock">In stock</option>
                   <option value="out-of-stock">Out</option>
                   <option value="low">Low</option>
