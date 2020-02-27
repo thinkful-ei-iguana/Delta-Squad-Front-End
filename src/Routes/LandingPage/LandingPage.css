@@ -1,21 +1,37 @@
 @media screen and (max-width: 800px) {
     .Landing {
-        display: flex;
+        text-align: center;
+        font-size: smaller;       
     }
 
     .landingSamples {
-        display: flex;
-        text-align: center;
-        margin-bottom: 10px;        
+        display: inline-block;            
+    }
+
+    .p1, .p2 {
+        font-size: 10px;
+    }
+    
+    .RegistrationBtn, .LoginBtn {
+        font-size: 15px;
     }
 }
 
+
+
 .Landing {
     text-align: center;
+    justify-content: center;
+    align-items: center;
     background-color: #B6D084;
-    margin-top: 0;
-    padding: 10px;
-    padding-bottom: 40px;
+    margin-top: 20px;
+    margin-left: 13px;
+    margin-right: 13px;    
+    border: 2px black solid;
+    border-radius: 7%;
+    box-shadow: 5px 5px 5px #2F7604;
+    
+    /* padding-bottom: 40px; */
 }
 
 .flex-container {
@@ -44,10 +60,9 @@
 } */
 
 .site-description {
-       
-    justify-content: center;
-    align-items: center;
-}
+    text-align: center;
+    
+    }
 
 .landingSamples {
     align-items: center;
@@ -67,8 +82,16 @@
     height: auto;
 }
 
-.p1, .p2 {
+.p1  {
     font-size: 20px;
+    padding-left: 8px;
+    padding-right: 8px;    
+}
+
+.p2 {
+    font-size: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .RegistrationBtn {
