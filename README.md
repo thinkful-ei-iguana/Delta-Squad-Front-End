@@ -5,6 +5,7 @@
     the opportunity to plan your meals for a given time period and puts a
     large database of recipes at your fingertips. This app also allows
     you to create and add your own recipes.
+    
 
 ## Motivation:
 
@@ -15,11 +16,9 @@
     you are someone who forgets easily, a busy parent that
     feels frazzled about what to cook, or an older couple
     looking to try something new, this app has something for everyone.
+    
 
-## Getting Started:
-
-
-## Getting Started:   
+## Visit Kitchen Helper:
 
   * [Client Side Repo](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End)
 
@@ -28,10 +27,8 @@
   * [Live App](https://delta-squad-app.now.sh/)
 
 
-> [Live App:](https://delta-squad-app.now.sh/)
 
 ## Screenshots:
-
 
    ![Login Page](src/Assets/loginPage.JPG)
 
@@ -45,16 +42,16 @@
 
    ![Recipe Detail Page](src/Assets/recipeDetail.JPG)
 
-
-> [Recipe Detail Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End/blob/master/src/Assets/recipeDetail.JPG)
+   ![Recipe Detail Page](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-   End/blob/master/src/Assets/recipeDetail.JPG)
+   
 
 ## Technologies:
 
-- Front End Tech: HTML, CSS, Javascript, React, Modal, Widgets(Dark Mode)
+**Front End Tech:** HTML, CSS, Javascript, React, Modal, Widgets(Dark Mode)
 
-- Back End Tech: NodeJs, ExpressJs, PostgresQl
+**Back End Tech:** NodeJs, ExpressJs, PostgresQl
 
-- Testing Tech: Jest, Snapshot, Enzyme, Lodash
+**Testing Tech:** Jest, Snapshot, Enzyme, Lodash
 
 ## Core Features:
 
