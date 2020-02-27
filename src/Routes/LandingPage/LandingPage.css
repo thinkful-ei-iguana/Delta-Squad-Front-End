@@ -1,8 +1,21 @@
+@media screen and (max-width: 800px) {
+    .Landing {
+        display: flex;
+    }
+
+    .landingSamples {
+        display: flex;
+        text-align: center;
+        margin-bottom: 10px;        
+    }
+}
+
 .Landing {
     text-align: center;
     background-color: #B6D084;
     margin-top: 0;
-    /* padding: 10px; */
+    padding: 10px;
+    padding-bottom: 40px;
 }
 
 .flex-container {
@@ -31,29 +44,43 @@
 } */
 
 .site-description {
-    padding-left: 25px;
-    padding-right: 25px;
-    margin-left: 20px; 
-    margin-right: 20px;   
+       
     justify-content: center;
     align-items: center;
 }
 
 .landingSamples {
-    display: inline-block;
-    padding: 10px;
-
+    align-items: center;
+    text-align: center;
+    margin-left: 10px;
+    width: 150px;
+    height: 50px;
+    flex-direction: column;
+    font-size: smaller;
+    border: black solid 2px;
+    border-radius: 10%;
+    color: rgb(40, 158, 14);
+    text-decoration: none;
+    box-shadow: 5px 5px 5px #2F7604;    
+    padding: 1%;
     width: 25%;
+    height: auto;
 }
 
-/* .appSampleImages {
-    list-style-type: none;
-    width: 200px;
-    height: 200px;
+.p1, .p2 {
+    font-size: 20px;
 }
 
-.landingSample {
-    display: inline;
-    
+.RegistrationBtn {
+    font-family: "cookiesregular";
+    font-size: 25px;
+    margin: 10px ;
+    padding: 5px;
+}
 
-} */
+.LoginBtn {
+    font-family: "cookiesregular";
+    font-size: 25px;
+    margin: 10px;
+    padding: 5px;
+}

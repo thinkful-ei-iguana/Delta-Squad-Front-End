@@ -1,7 +1,7 @@
 import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { Link } from "react-router-dom";
-import planLanding from "../../Assets/planLanding.JPG";
+import homePage from "../../Assets/homePage.JPG";
 import pantryLanding from '../../Assets/pantryLanding.JPG';
 import recipeDetail from '../../Assets/recipeDetail.JPG';
 import "./LandingPage.css";
@@ -30,7 +30,7 @@ export default class Landing extends React.Component {
         </header>
         <section id="landingDocumentation">
           <div className="site-description">
-            <p>
+            <p className="p1">
               Kitchen Helper is a best friend in the kitchen. This app combines
               the ability to track the items in your pantry, the opportunity to
               plan your meals for a given time period and puts a large database
@@ -38,7 +38,7 @@ export default class Landing extends React.Component {
               your own recipes and create shopping lists once your meals are
               planned.
             </p>
-            <p>
+            <p className="p2">
               Kitchen Helper will be a time and money saver, helping you create
               amazing meals at home while staying organized and never running
               out of that special ingredient you need for your amazing lasagna
@@ -65,7 +65,7 @@ export default class Landing extends React.Component {
                   <img src={pantryLanding} className="landingSamples" alt="Pantry Landing" id="recipe-search" />
                 {/* </li>
                 <li className="landingSample"> */}
-                  <img src={planLanding} className="landingSamples" alt="Meal Plan Landing" id="pantry-add-form" />
+                  <img src={homePage} className="landingSamples" alt="Home Page" id="pantry-add-form" />
                 {/* </li> */}
                 {/* <li className="landingSample"> */}
                   <img src={recipeDetail} className="landingSamples" alt="Recipe Detail" id="meal-planning-add-button" />
