@@ -112,7 +112,7 @@ export default class FancyModalButton extends Component {
       <ModalProvider backgroundComponent={this.fadingBackground}>
         <div className="modal-container">
           <div className="ingredientInfoContainer">
-          <button className="edit-ingredient-button smallButton" onClick={this.toggleModal}>View/Edit</button>
+            <button className="edit-ingredient-button smallButton" onClick={this.toggleModal}>View/Edit</button>
           </div>
           <this.StyledModal
             isOpen={this.state.isOpen}
@@ -126,8 +126,8 @@ export default class FancyModalButton extends Component {
             <div className="styled-modal-div">
               <p id="current-ingredient-to-edit"></p>
               <br />
-              <form 
-                id="modal-content" 
+              <form
+                id="modal-content"
                 onSubmit={this.handleSubmit}
               >
                 <label>Ingredient:</label>
@@ -138,6 +138,8 @@ export default class FancyModalButton extends Component {
                   type="text"
                   placeholder={this.props.ingredient_name}></input>
                 <div id="ingredient-in-stock">
+                  <label className="inventory-dropdown-text">In stock:</label>
+                  <br />
                   <select
                     id="in-stock"
                     name="in_stock"
@@ -162,7 +164,7 @@ export default class FancyModalButton extends Component {
                   Update
                 </button>
                 <button id="delete-ingredient-button" className="smallButton" type="submit" onClick={this.handleDeleteIngredient}>
-                Delete
+                  Delete
                 </button>
               </form>
 
