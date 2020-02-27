@@ -100,13 +100,17 @@ justify-content: flex-start;
 }
 
 #ingredient-in-stock {
-  margin-top: -8px;
-  margin-bottom: 10px;
+  margin-top: 1px;
+  margin-bottom: 7px;
   margin-left: -8px;
 }
 
 #close {
   font-size: 16px;
+}
+
+.inventory-dropdown-text {
+  margin-left: 77px;
 }
 
 /* IndividualIngredient.js */

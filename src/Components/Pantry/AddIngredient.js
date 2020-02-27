@@ -88,12 +88,14 @@ export default class FancyModalButton extends Component {
                 required
                 type="text"></input>
               <div id="ingredient-in-stock">
+                <label className="inventory-dropdown-text">In stock?*:</label>
+                <br />
                 <select
                   id="in-stock"
                   className="dropDown"
                   required
-                  name="in_stock">In stock*:
-                <option value="in-stock">In stock</option>
+                  name="in_stock">
+                  <option value="in-stock">In stock</option>
                   <option value="out-of-stock">Out</option>
                   <option value="low">Low</option>
                 </select>
