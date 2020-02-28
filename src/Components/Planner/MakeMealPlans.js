@@ -39,7 +39,6 @@ class AddMealPlan extends Component {
             console.error(error);
           });
       })
-      .then(console.log("state is:", this.state));
   }
 
   handleChange = e => {
