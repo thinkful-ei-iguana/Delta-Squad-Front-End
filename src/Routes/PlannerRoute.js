@@ -41,76 +41,68 @@ class PlannerRoute extends Component {
     this.setState({ filterOption: e.target.value });
   }
 
+  renderMealPlans = () => {
+    let mealplans = this.state.mealplans;
+    if (this.state.filterOption === "Make a recipe and select it") {
+    }
+    console.log(this.state, "this is state")
+    return mealplans.map(mealplan => (
+      <section className="mealplan-section" key={mealplan.id}>
+        <h2 className="mealplan-title">{mealplan.title}</h2>
+        <span className="planned-date">Planned for: {mealplan.planned_date}</span>{" "}
+        <br />
+        <br />
+        <Link
+          to={{
+            pathname: `/planner/${mealplan.id}`,
+            state: {
+              id: mealplan.id,
+              title: mealplan.title,
+              planned_date: mealplan.planned_date,
+              time_to_make: mealplan.time_to_make,
+              needed_ingredients: mealplan.needed_ingredients
+            }
+          }}
+        >
+          <button className="smallButton">
+            View/Edit Meal Plan</button>
+        </Link>
+        <br />
+      </section>
+    ));
+  };
 
-  if(this.state.filterOption === "in-stock") {
-  const ingredientsInStock = this.state.ingredients.sort(this.compareValues('in_stock'));
-  ingredients = ingredientsInStock.filter(ingredient => ingredient.in_stock === "in-stock")
-}
-  else if (this.state.filterOption === "out-of-stock") {
-  const ingredientsOutOfStock = this.state.ingredients.sort(this.compareValues('in_stock'));
-  ingredients = ingredientsOutOfStock.filter(ingredient => ingredient.in_stock === "out-of-stock")
-}
+  setStateAddMealPlanTrue = () => {
+    this.setState({ addMealPlan: true });
+  };
 
+  setStateAddMealPlanFalse = () => {
+    this.setState({ addMealPlan: false });
+  };
 
-renderMealPlans = () => {
-  let mealplans = this.state.mealplans;
-  return mealplans.map(mealplan => (
-    <section className="mealplan-section" key={mealplan.id}>
-      <h2 className="mealplan-title">{mealplan.title}</h2>
-      <span className="planned-date">Planned for: {mealplan.planned_date}</span>{" "}
-      <br />
-      <br />
-      <Link
-        to={{
-          pathname: `/planner/${mealplan.id}`,
-          state: {
-            id: mealplan.id,
-            title: mealplan.title,
-            planned_date: mealplan.planned_date,
-            time_to_make: mealplan.time_to_make,
-            needed_ingredients: mealplan.needed_ingredients
-          }
-        }}
-      >
-        <button className="smallButton">
-          View/Edit Meal Plan</button>
-      </Link>
-      <br />
-    </section>
-  ));
-};
-
-setStateAddMealPlanTrue = () => {
-  this.setState({ addMealPlan: true });
-};
-
-setStateAddMealPlanFalse = () => {
-  this.setState({ addMealPlan: false });
-};
-
-render() {
-  return (
-    <section id="planner-route-container">
-      <h2 className="my-planner-header" id="my-planner-header">
-        My Mealplans
+  render() {
+    return (
+      <section id="planner-route-container">
+        <h2 className="my-planner-header" id="my-planner-header">
+          My Mealplans
         </h2>
-      {this.state.mealplans && this.renderMealPlans()}
-      <button
-        className="bigButton"
-        type="submit"
-        onClick={() => this.setStateAddMealPlanTrue()}
-      >
-        Add a MealPlan
+        {this.state.mealplans && this.renderMealPlans()}
+        <button
+          className="bigButton"
+          type="submit"
+          onClick={() => this.setStateAddMealPlanTrue()}
+        >
+          Add a MealPlan
         </button>
-      <AddMealPlan
-        addMealPlan={this.state.addMealPlan}
-        allMealPlans={this.state.mealplans}
-        refreshMealPlans={this.getMealPlans}
-        closeAddForm={this.setStateAddMealPlanFalse}
-      />
-    </section>
-  );
-}
+        <AddMealPlan
+          addMealPlan={this.state.addMealPlan}
+          allMealPlans={this.state.mealplans}
+          refreshMealPlans={this.getMealPlans}
+          closeAddForm={this.setStateAddMealPlanFalse}
+        />
+      </section>
+    );
+  }
 }
 
 export default PlannerRoute;
