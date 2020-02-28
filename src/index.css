@@ -27,7 +27,8 @@
 
  
  main {
-   height:2500px;
+   padding-bottom: 250px;
+   padding-top: 10px;
  }
 
 .App {
@@ -131,6 +132,7 @@ button:hover {
   border-radius: 10%;
   box-shadow: 5px 5px 5px #2F7604;
   padding: 2.5%;
+  margin-top: 10px;
 }
 
 
