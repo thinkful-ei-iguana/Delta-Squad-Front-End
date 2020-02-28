@@ -72,6 +72,11 @@ box-shadow: 5px 5px 5px #2F7604;
   color: #141514;
 }
 
+#planner-text {
+  font-style: italic;
+  font-weight: bold;
+}
+
 #modal-planner {
   display:flex;
   flex-direction: column;

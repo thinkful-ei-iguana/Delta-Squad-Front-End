@@ -29,3 +29,25 @@
     font-size: 32px;
     font-family: 'cookiesregular';
 }
+
+#recipe-search-text {
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
+#larger-search-text {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#searchBar {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* .recipeResults {
+    text-align: center;
+} */
