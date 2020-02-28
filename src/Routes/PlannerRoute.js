@@ -78,9 +78,11 @@ class PlannerRoute extends Component {
     return (
       <section id="planner-route-container">
         <h2 className="my-planner-header" id="my-planner-header">
-          My Mealplans
+          My Meal Plans
         </h2>
-        {this.state.mealplans && this.renderMealPlans()}
+        <p id="planner-text">
+          Create, update, and manage your meal plans
+        </p>
         <button
           className="bigButton"
           type="submit"
@@ -88,6 +90,7 @@ class PlannerRoute extends Component {
         >
           Add a MealPlan
         </button>
+        {this.state.mealplans && this.renderMealPlans()}
         <AddMealPlan
           addMealPlan={this.state.addMealPlan}
           allMealPlans={this.state.mealplans}

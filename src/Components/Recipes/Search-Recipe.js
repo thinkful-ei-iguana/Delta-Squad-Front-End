@@ -58,6 +58,11 @@ export default class SearchRecipe extends React.Component {
   render() {
     return (
       <div className="searchRecipe">
+        <p id="larger-search-text">Search our collection of recipes!</p>
+        <p id="recipe-search-text">
+          For best results, please use whole words as search terms. <br />Feel free to include more than one search term at a time.
+        </p>
+        <br />
         <form className="searchArea" onSubmit={this.handleSearch}>
           <input id="searchBar" type="text" placeholder="Search by ingredients" onChange={e => this.setState({ searchTerms: e.target.value })}></input>
           <button id="searchButton" type="submit">Search</button>
