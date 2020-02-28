@@ -88,15 +88,15 @@ class PlannerRoute extends Component {
           type="submit"
           onClick={() => this.setStateAddMealPlanTrue()}
         >
-          Add a MealPlan
+          Add a Meal Plan
         </button>
-        {this.state.mealplans && this.renderMealPlans()}
         <AddMealPlan
           addMealPlan={this.state.addMealPlan}
           allMealPlans={this.state.mealplans}
           refreshMealPlans={this.getMealPlans}
           closeAddForm={this.setStateAddMealPlanFalse}
         />
+        {this.state.mealplans && this.renderMealPlans()}
       </section>
     );
   }

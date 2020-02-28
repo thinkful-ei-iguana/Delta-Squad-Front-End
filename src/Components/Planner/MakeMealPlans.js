@@ -100,7 +100,7 @@ class AddMealPlan extends Component {
         {this.props.addMealPlan === true && (
           <div id="modal-planner">
             <form id="modal-content-planner" onSubmit={this.handleSubmit}>
-              <label className="plannerLabel">MealPlan:</label>
+              <label className="plannerLabel">Meal Plan:</label>
               <select
                 className="dropDown"
                 name="recipe_id"
