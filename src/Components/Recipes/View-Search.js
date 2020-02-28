@@ -48,7 +48,7 @@ export default class SearchRecipe extends React.Component {
 
   handleCreationSuccess = () => {
     const { history } = this.props;
-    history.push("/");
+    history.push("/recipes/");
   };
 
   addRecipe = () => {
