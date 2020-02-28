@@ -16,7 +16,7 @@ class AddMealPlan extends Component {
       ingredients: {},
       recipe: [],
       recipe_id: 0,
-      planned_date: ""
+      planned_date: "",
     };
   }
 
@@ -45,7 +45,15 @@ class AddMealPlan extends Component {
   handleChange = e => {
     const value = e.target.value;
     const fieldName = e.target.name;
-    if (e.target.name === "recipe_id") {
+    if (e.target.value === "default") {
+      this.setState({
+        recipe: {
+          time_to_make: "",
+          recipe_ingredients: ""
+        }
+      });
+    }
+    else if (e.target.name === "recipe_id") {
       RecipeHelper.recipeById(value)
         .then(indRecipeData => {
           this.setState({
@@ -83,6 +91,7 @@ class AddMealPlan extends Component {
       this.props.closeAddForm();
     });
   };
+
   handleAddMealPlanWindow = () => {
     const indRecipeData = this.state.recipes.map((data, index) => {
       return (
@@ -107,6 +116,9 @@ class AddMealPlan extends Component {
                 type="text"
                 onChange={this.handleChange}
               >
+                <option name="default" value="default">
+                  Select a recipe
+                </option>
                 {this.handleAddMealPlanWindow()}
               </select>
               <label className="plannerLabel">Meal Date:</label>
