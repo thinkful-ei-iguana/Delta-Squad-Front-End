@@ -17,7 +17,6 @@ const IngredientHelper = {
       },
       body: ingredientData
     }).then(res => {
-      console.log('res from POST is', res);
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     }
     );

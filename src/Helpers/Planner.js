@@ -3,7 +3,6 @@ import TokenService from "./Token";
 
 const PlannerHelper = {
   addMealPlan(mealPlanData) {
-    console.log(mealPlanData, "mealPlanData");
     const authToken = TokenService.getAuthToken();
     const url = `${config.API_ENDPOINT}/planner`;
 
@@ -15,7 +14,6 @@ const PlannerHelper = {
       },
       body: mealPlanData
     }).then(res => {
-      console.log("res from POST is", res);
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
     });
   },
@@ -31,7 +29,6 @@ const PlannerHelper = {
   },
   recipeById(id) {
     const authToken = TokenService.getAuthToken();
-    console.log("getting recipe by id", id);
     return fetch(`${config.API_ENDPOINT}/planner/${id}`, {
       method: "GET",
       headers: {
@@ -42,37 +39,6 @@ const PlannerHelper = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   }
-
-  // deleteMealPlan(id) {
-  //   return fetch(`${config.API_ENDPOINT}/planner/${id}`, {
-  //     method: "DELETE",
-  //     headers: {
-  //       Authorization: `Bearer ${config.TOKEN_KEY}`
-  //     }
-  //   });
-  // },
-
-  // mealPlanById(id) {
-  //   // console.log("getting recipe by id");
-  //   return fetch(`${config.API_ENDPOINT}/planner/${id}`, {
-  //     method: "GET",
-  //     headers: {
-  //       "content-type": "application/json"
-  //     }
-  //   }).then(res =>
-  //     !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-  //   );
-  // },
-  // getAllMyMealPlans(mealplan_owner) {
-  //   return fetch(`${config.API_ENDPOINT}/planner/user/${mealplan_owner}`, {
-  //     method: "GET",
-  //     headers: {
-  //       "content-type": "application/json"
-  //     }
-  //   }).then(res =>
-  //     !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-  //   );
-  // },
 };
 
 export default PlannerHelper;
