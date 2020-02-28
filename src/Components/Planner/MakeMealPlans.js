@@ -106,6 +106,7 @@ class AddMealPlan extends Component {
                 type="text"
                 onChange={this.handleChange}
               >
+                <option>Make a recipe and select it</option>
                 {this.handleAddMealPlanWindow()}
               </select>
               <label className="plannerLabel">Meal Date:</label>
