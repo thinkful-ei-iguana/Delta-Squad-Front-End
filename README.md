@@ -28,8 +28,6 @@
 
 ## Visit Kitchen Helper:
 
-  * [Client Side Repo](https://github.com/thinkful-ei-iguana/Delta-Squad-Front-End)
-
   * [Server Side Repo](https://github.com/thinkful-ei-iguana/Delta-Squad-Server)
 
   * [Live App](https://delta-squad-app.now.sh/)
@@ -53,11 +51,10 @@
    ![Dark Mode Banner](src/Assets/DarkMode-Banner.gif)
 
    
-   
 
 ## Technologies:
 
-**Front End Tech:** HTML, CSS, Javascript, React, Modal, Widgets(Dark Mode)
+**Front End Tech:** HTML, CSS, JavaScript, React, Modal, Widgets(Dark Mode)
 
 **Back End Tech:** NodeJs, ExpressJs, PostgreSQL
 
