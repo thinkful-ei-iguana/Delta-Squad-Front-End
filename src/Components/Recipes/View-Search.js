@@ -46,16 +46,21 @@ export default class SearchRecipe extends React.Component {
   };
 
   handleCreationSuccess = () => {
-    const { history } = this.props;
-    history.push("/recipes/");
+    //const { history } = this.props;
+    //history.replace("/recipes/");
+    window.location.pathname = "/recipes"
   };
 
   addRecipe = () => {
     let instructionsSet = [];
     let ingredientsSet = [];
+    if (this.state.instructions) {
     this.state.instructions.steps.map(instruction =>
       instructionsSet.push(instruction.step)
-    );
+    );}
+    else {
+      instructionsSet = ["Instructions N/A"];
+    }
     this.state.ingredients.map(ing => ingredientsSet.push(ing.name));
     let recipeObj = {
       title: this.state.recipe.title,
