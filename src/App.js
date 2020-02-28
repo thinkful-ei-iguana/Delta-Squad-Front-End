@@ -8,7 +8,6 @@ import PublicOnlyRoute from "./Components/PublicOnly/PublicOnlyRoute";
 import RecipesRoute from "./Routes/RecipesRoute";
 import PantryRoute from "./Routes/PantryRoute";
 import PlannerRoute from "./Routes/PlannerRoute";
-// import IndividualIngredient from "./Components/Pantry/IndividualIngredient";
 import MealPlan from "./Components/Planner/MealPlan";
 import NotFoundRoute from "./Routes/NotFoundRoute";
 import Darkmode from "darkmode-js";
@@ -54,8 +53,16 @@ class App extends React.Component {
         <main>
           <Header user={this.state.currentUser} />
           <Switch>
-            <PrivateRoute exact path={"/home"} component={DashboardRoute} />
-            <PrivateRoute exact path={"/recipes"} component={RecipesRoute} />
+            <PrivateRoute
+              exact
+              path={"/home"}
+              component={DashboardRoute}
+            />
+            <PrivateRoute
+              exact
+              path={"/recipes"}
+              component={RecipesRoute}
+            />
             <PrivateRoute
               exact
               path={"/recipes/search"}
@@ -81,31 +88,42 @@ class App extends React.Component {
               path={"/recipes/search/:recipeId"}
               component={viewSearchRecipes}
             />
-            {/* <PrivateRoute
+            <PrivateRoute
               exact
-              path={"/pantry/:ingredientId"}
-              component={IndividualIngredient}
-            /> */}
-            <PrivateRoute exact path={"/pantry"} component={PantryRoute} />
-            <PrivateRoute exact path={"/planner"} component={PlannerRoute} />
+              path={"/pantry"}
+              component={PantryRoute}
+            />
+            <PrivateRoute
+              exact
+              path={"/planner"}
+              component={PlannerRoute}
+            />
             <PrivateRoute
               exact
               path={"/planner/:mealPlanId"}
               component={MealPlan}
             />
-            <PublicOnlyRoute exact path={"/"} component={Landing} />
+            <PublicOnlyRoute
+              exact
+              path={"/"}
+              component={Landing}
+            />
             <PublicOnlyRoute
               exact
               path={"/register"}
               component={RegistrationRoute}
             />
-            <PublicOnlyRoute exact path={"/login"} component={LoginRoute} />
-            <Route component={NotFoundRoute} />
+            <PublicOnlyRoute
+              exact
+              path={"/login"}
+              component={LoginRoute}
+            />
+            <Route
+              component={NotFoundRoute}
+            />
           </Switch>
         </main>
       </div>
-      //{" "}
-      // </Context.Provider>
     );
   }
 }

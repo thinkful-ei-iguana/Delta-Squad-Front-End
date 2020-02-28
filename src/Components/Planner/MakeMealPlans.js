@@ -1,14 +1,8 @@
 import React, { Component } from "react";
-// import config from "../../config";
-// import TokenService from "../../Helpers/Token";
 import PlannerHelper from "../../Helpers/Planner";
-// import RecipesRoute from "../../Routes/RecipesRoute";
 import RecipeHelper from "../../Helpers/Recipe";
-// import { Link } from "react-router-dom";
-import Context from "../../Contexts/Context";
 import "./Mealplan.css";
-// import PantryRoute from "../../Routes/PantryRoute";
-// import AddIngredient from "../../Components/Pantry/AddIngredient";
+
 
 class AddMealPlan extends Component {
   constructor(props) {
@@ -27,7 +21,6 @@ class AddMealPlan extends Component {
   }
 
   componentDidMount() {
-    // this.getIngredients();
     RecipeHelper.getRecipes()
       .then(recipeData => {
         this.setState({

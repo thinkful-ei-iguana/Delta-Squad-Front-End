@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import AuthHelper from "../../Helpers/Auth";
 import UserContext from "../../Contexts/UserContext";
 import "./Login.css";
-// import Context from "../../Contexts/Context";
 
 class LoginForm extends React.Component {
   static defaultProps = {
@@ -17,9 +16,6 @@ class LoginForm extends React.Component {
   state = { error: null };
 
   static contextType = UserContext;
-
-  // firstInput = React.createRef();
-
 
   loginSubmit = e => {
     e.preventDefault();

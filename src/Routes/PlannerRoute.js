@@ -19,12 +19,9 @@ class PlannerRoute extends Component {
     this.getMealPlans();
   }
 
-  // GET; then set state.title with response
   getMealPlans = () => {
-    console.log("planner route get mealplans");
     const url = `${config.API_ENDPOINT}/planner`;
     const authToken = TokenService.getAuthToken();
-    console.log("auth token is", authToken);
     fetch(url, {
       method: "GET",
       headers: {
@@ -34,40 +31,22 @@ class PlannerRoute extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        // console.log("get mealplans data is", data);
         return this.setState({
           mealplans: data
         });
       });
   };
 
-  // POST - add ingredient in pop-out view
-
-  // PATCH using ingredient id, new route
 
   renderMealPlans = () => {
     const mealplans = this.state.mealplans;
     return mealplans.map(mealplan => (
       <section className="mealplan-section" key={mealplan.id}>
-        {/* <Link
-          to={{
-            pathname: `/planner/${mealplan.id}`,
-            state: {
-              title: mealplan.title,
-              planned_date: mealplan.planned_date,
-              time_to_make: mealplan.time_to_make,
-              needed_ingredients: mealplan.needed_ingredients
-            }
-          }}
-        > */}
         <h2 className="mealplan-title">{mealplan.title}</h2>
-        {/* </Link>{" "} */}
         <span className="planned-date">Planned for: {mealplan.planned_date}</span>{" "}
         <br />
         <br />
-        {/* <span className="prep-time">{mealplan.time_to_make}</span>{" "} */}
         <Link
-          // key={mealplan.id}   ...needs to be unique
           to={{
             pathname: `/planner/${mealplan.id}`,
             state: {
@@ -102,7 +81,6 @@ class PlannerRoute extends Component {
           My Mealplans
         </h2>
         {this.state.mealplans && this.renderMealPlans()}
-        {/* {this.state.mealplans.length > 0 && ( */}
         <button
           className="bigButton"
           type="submit"
@@ -110,7 +88,6 @@ class PlannerRoute extends Component {
         >
           Add a MealPlan
         </button>
-        {/* )} */}
         <AddMealPlan
           addMealPlan={this.state.addMealPlan}
           allMealPlans={this.state.mealplans}

@@ -20,20 +20,17 @@ export default class DetailedView extends React.Component {
 
   componentDidMount() {
     const { recipeId } = this.props.match.params;
-    //console.log('recipeid is:', recipeId);
-    //console.log('ingredients:', this.state.recipe.recipe_ingredients)
     RecipeHelper.recipeById(recipeId).then(
-      recipeData =>
-      {console.log('recipeData:', recipeData)
+      recipeData => {
         this.setState({
           recipe: recipeData,
           owner: recipeData.recipe_owner
         })
-      }  
+      }
     )
-    .then(console.log('state is:', this.state.recipe));
+      .then(console.log('state is:', this.state.recipe));
 
-    
+
   }
 
   deleteRecipe = () => {
@@ -68,7 +65,7 @@ export default class DetailedView extends React.Component {
 
           >
             <button className="medButton">Edit Recipe</button>
-            
+
           </Link>
         </div>
       );
@@ -81,8 +78,7 @@ export default class DetailedView extends React.Component {
       let desc = this.state.recipe.recipe_description.slice(2);
       let desc1 = desc.slice(0, -2);
       let descarr = desc1.split('","');
-      console.log(descarr);
-      descarr.map(instruction => instructionsArr.push(instruction))
+      z      descarr.map(instruction => instructionsArr.push(instruction))
     }
     return (
       <div className="view" id="recipeView">
@@ -99,22 +95,22 @@ export default class DetailedView extends React.Component {
           {this.state.recipe.recipe_ingredients &&
             this.state.recipe.recipe_ingredients.join(', ')}
         </p>
-       
+
         <p className="recipePageHeader">Recipe Instructions: </p>
         <div className="recipeInfo">
           {instructionsArr.map(
-            inst => <p key={inst}>{inst}</p> )}
+            inst => <p key={inst}>{inst}</p>)}
         </div>
 
         <p className="recipePageHeader">Time to make the recipe:</p>
         <p className="recipeInfo">{this.state.recipe.time_to_make} Minutes</p>
-        
+
         <div className="buttonGroup">
-        <div>{this.ownerOption()}</div>
-        <div>{this.deleteOption()}</div>
-        <Link to="/recipes">
-          <button className="cancel-view medButton">Cancel</button>
-        </Link>
+          <div>{this.ownerOption()}</div>
+          <div>{this.deleteOption()}</div>
+          <Link to="/recipes">
+            <button className="cancel-view medButton">Cancel</button>
+          </Link>
         </div>
       </div>
     );
