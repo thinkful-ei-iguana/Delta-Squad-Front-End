@@ -78,7 +78,7 @@ export default class DetailedView extends React.Component {
       let desc = this.state.recipe.recipe_description.slice(2);
       let desc1 = desc.slice(0, -2);
       let descarr = desc1.split('","');
-      z      descarr.map(instruction => instructionsArr.push(instruction))
+      descarr.map(instruction => instructionsArr.push(instruction))
     }
     return (
       <div className="view" id="recipeView">

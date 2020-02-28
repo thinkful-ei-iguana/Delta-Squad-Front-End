@@ -22,14 +22,11 @@ const TokenService = {
   },
   parseAuthToken() {
     const authToken = TokenService.getAuthToken();
-    // console.log('authtoekn is', authToken);
-    // console.log('tokenservice.parsejwt(authtoken) is', TokenService.parseJwt(authToken));
 
     if (authToken) return TokenService.parseJwt(authToken);
     else return undefined;
   },
   _getMsUntilExpiry(payload) {
-    console.log("payload", payload);
     return payload.exp * 1000 - Date.now();
   },
   queueCallbackBeforeExpiry(callback) {
@@ -37,8 +34,7 @@ const TokenService = {
       TokenService.parseAuthToken()
     );
     _timeoutId = setTimeout(callback, msUntilExpiry - _TEN_SECONDS_IN_MS);
-    console.log("timeout msuntilexpiry", msUntilExpiry);
-    console.log("timeout tenseconds", _TEN_SECONDS_IN_MS);
+
   },
   clearCallbackBeforeExpiry() {
     clearTimeout(_timeoutId);
