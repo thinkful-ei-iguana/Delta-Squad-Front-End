@@ -5,8 +5,7 @@ import homePage from "../../Assets/homePage.gif";
 import pantryLanding from '../../Assets/pantryLanding.gif';
 import recipeDetail from '../../Assets/recipeDetail.gif';
 import "./LandingPage.css";
-// import Context from "../Contexts/Context";
-// import RecentResults from "../Components/Recent-Results";
+
 
 export default class Landing extends React.Component {
   constructor(props) {
@@ -19,11 +18,7 @@ export default class Landing extends React.Component {
       <div className="Landing">
         <header id="Landing-Header" className="flex-container">
           <div className="flex-item branding">
-            {/* <img 
-              classname="Landing-Logo" 
-              src={LandingLogo} 
-              alt="Kitchen Helper Logo" 
-              /> */}
+           
 
           </div>
           <div className="flex-item"></div>
@@ -60,17 +55,13 @@ export default class Landing extends React.Component {
               </div>
             </div>
             <div className="sampleImages">
-              {/* <ul className="appSampleImages"> */}
-                {/* <li className="landingSample"> */}
+     
                   <img src={pantryLanding} className="landingSamples" alt="Pantry Landing" id="recipe-search" />
-                {/* </li>
-                <li className="landingSample"> */}
+              
                   <img src={homePage} className="landingSamples" alt="Home Page" id="pantry-add-form" />
-                {/* </li> */}
-                {/* <li className="landingSample"> */}
+             
                   <img src={recipeDetail} className="landingSamples" alt="Recipe Detail" id="meal-planning-add-button" />
-                {/* </li> */}
-              {/* </ul> */}
+              
             </div>
           </div>
         </section>
