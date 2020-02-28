@@ -14,7 +14,6 @@ export default class FancyModalButton extends Component {
     }
   }
 
-
   StyledModal = Modal.styled`
   display: flex;
   align-items: center;
@@ -107,8 +106,6 @@ export default class FancyModalButton extends Component {
                 type="text"
                 className="modalInput"></input>
               <button className="smallButton" id="close"
-              // onClick={props.refreshIngredients}
-              // onClick={toggleModal}
               >Hit it!</button>
             </form>
           </this.StyledModal>

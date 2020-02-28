@@ -10,7 +10,7 @@ export default class CreateRecipe extends React.Component {
   static defaultProps = {
     location: {},
     history: {
-      push: () => {}
+      push: () => { }
     }
   };
 
@@ -24,9 +24,7 @@ export default class CreateRecipe extends React.Component {
   componentDidMount() {
     RecipeHelper.recipeById(_.get(this, "props.match.params.recipeId")).then(
       data => {
-        console.log(data);
         this.setState({ recipe: data });
-        console.log(this.state);
       }
     );
   }
@@ -73,7 +71,6 @@ export default class CreateRecipe extends React.Component {
       let desc = this.state.recipe.recipe_description.slice(2);
       let desc1 = desc.slice(0, -2);
       let descarr = desc1.split('","');
-      console.log(descarr);
       descarr.map(instruction => instructionsArr.push(instruction));
     }
     return (
@@ -119,7 +116,7 @@ export default class CreateRecipe extends React.Component {
               <span className="a-field__label"></span>
             </span>
           </label>
-          
+
           <label className="field a-field a-field_a2">
             Time to Make (in minutes):
             <input

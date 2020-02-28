@@ -6,15 +6,13 @@ const Context = React.createContext({
   isLoggedIn: false,
   recipes: [],
   mealplans: [],
-  lightMode: () => {},
-  saveAuthToken: () => {},
-  getAuthToken: () => {},
-  hasAuthToken: () => {},
-  makeBasicAuthToken: () => {},
-  onLogin: () => {},
-  onLogout: () => {}
+  lightMode: () => { },
+  saveAuthToken: () => { },
+  getAuthToken: () => { },
+  hasAuthToken: () => { },
+  makeBasicAuthToken: () => { },
+  onLogin: () => { },
+  onLogout: () => { }
 });
 
 export default Context;
-
-// export default context = React.createContext;

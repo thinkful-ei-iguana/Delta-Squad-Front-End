@@ -41,7 +41,6 @@ class MealPlan extends Component {
       needed_ingredients:
         needed_ingredients.value || this.props.location.state.needed_ingredients
     };
-    console.log("updated mealplan to be sent to server is:", updatedMealPlan);
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -54,7 +53,6 @@ class MealPlan extends Component {
         if (!res.ok) return res.json().then(error => Promise.reject(error));
       })
       .then(data => {
-        console.log("patch data is", data);
         this.props.history.push("/planner");
       })
       .catch(error => {
@@ -110,7 +108,6 @@ class MealPlan extends Component {
     const url = `${config.API_ENDPOINT}/planner/${mealPlanId}`;
     const authToken = TokenService.getAuthToken();
 
-    console.log("mealplan to be sent to server is", mealPlanId);
     fetch(url, {
       method: "DELETE",
       headers: {
@@ -122,7 +119,6 @@ class MealPlan extends Component {
         if (!res.ok) return res.json().then(error => Promise.reject(error));
       })
       .then(data => {
-        console.log("delete is", data);
         this.props.history.push("/planner");
       })
       .catch(error => {
@@ -131,7 +127,6 @@ class MealPlan extends Component {
   };
 
   render() {
-    console.log("this.props", this.props);
     return (
       <div className="individual-mealplan-view">
         <section id="original-mealplan-data">
@@ -172,20 +167,6 @@ class MealPlan extends Component {
       </div>
     );
   }
-  // return (
-  //   <section>
-  //     <p>Title: {this.props.location.state.title}</p>
-  //     <p>Meal date: {this.props.location.state.planned_date}</p>
-  //     <p>Prep time: {this.props.location.state.time_to_make}</p>
-  //     <p>
-  //       Ingredients required: {this.props.location.state.recipe_ingredients}
-  //     </p>
-  //   </section>
-  // )
-
-  // <div key={mealplan.id} className="food-item">
-  //   <mealplan {...mealplan} />;
-  // </div>
 }
 
 export default MealPlan;

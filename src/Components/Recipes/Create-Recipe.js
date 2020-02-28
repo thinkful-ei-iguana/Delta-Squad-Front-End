@@ -13,12 +13,6 @@ export default class CreateRecipe extends React.Component {
     }
   };
 
-  componentDidMount() {
-   /* if (!this.context.hasAuthToken()) {
-      this.props.history.push("/Login");
-    }*/
-  }
-
   handleCreationSuccess = () => {
     const { history } = this.props;
     history.push("/recipes");
@@ -37,15 +31,12 @@ export default class CreateRecipe extends React.Component {
 
     this.setState({ error: null });
     let recipeIngredients = recipe_ingredients.value.split(', ');
-    console.log('split does this: ', recipe_description.value.split('. '))
 
     Recipe.createRecipe({
       title: title.value,
-      //owner: this.context.currentUser.id,
       recipe_description: recipe_description.value.split('. '),
       recipe_ingredients: recipeIngredients,
       time_to_make: time_to_make.value,
-    //  created_by: created_by.value
     })
       .then(recipe => {
         title.value = "";
@@ -61,7 +52,7 @@ export default class CreateRecipe extends React.Component {
 
   render() {
     return (
-    
+
       <div className="Creation">
         <header className="Creation-Header">
           New Recipe!
@@ -118,7 +109,7 @@ export default class CreateRecipe extends React.Component {
           </label>
           <div className="btn-row">
             <div>
-            <button className="medButton" type="submit">Create recipe</button>
+              <button className="medButton" type="submit">Create recipe</button>
             </div>
             <Link to="/recipes">
               <button className="medButton">Cancel</button>

@@ -15,10 +15,10 @@ export default class SearchRecipe extends React.Component {
   componentDidMount() {
     this.getRecipeInstructions();
   }
-  
- backToSearch = () => {
-      this.props.history.push("/recipes/search")
-    }
+
+  backToSearch = () => {
+    this.props.history.push("/recipes/search")
+  }
 
   getRecipeInstructions = () => {
     let recipeId = _.get(this, "props.location.state.recipeId");
@@ -64,7 +64,6 @@ export default class SearchRecipe extends React.Component {
       recipe_ingredients: ingredientsSet,
       time_to_make: this.state.recipe.readyInMinutes
     };
-    console.log("recipeObj: ", recipeObj);
     Recipe.createRecipe(recipeObj)
       .then(recipe => {
         this.handleCreationSuccess();
@@ -75,12 +74,9 @@ export default class SearchRecipe extends React.Component {
   };
 
   render() {
-    console.log("we here");
-    console.log(this.state.recipe);
-    //console.log(this.state.instructions)
+
     let instructionsArr = [];
     if (this.state.instructions) {
-      console.log(this.state.instructions);
       this.state.instructions.steps.map(instruction =>
         instructionsArr.push(instruction.step)
       );
@@ -113,11 +109,11 @@ export default class SearchRecipe extends React.Component {
           {this.state.recipe.readyInMinutes}{" "}
           minutes
         </p>
-            <div className="buttonGroupSearch">
-         <button className="medButton" onClick={this.addRecipe}>Add to my recipes!</button>
-         <button className="medButton" onClick={this.backToSearch}>Cancel</button>
-         </div>
-          </div>
-        );
+        <div className="buttonGroupSearch">
+          <button className="medButton" onClick={this.addRecipe}>Add to my recipes!</button>
+          <button className="medButton" onClick={this.backToSearch}>Cancel</button>
+        </div>
+      </div>
+    );
   }
 }

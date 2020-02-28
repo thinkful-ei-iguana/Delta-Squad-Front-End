@@ -291,9 +291,4 @@
     transition: all 0.5s;
   }
 }
-/* 
-@media screen and (min-width: 1px) {
-  .flex-container {
-    margin-top: 5%;
-  }
-} */
+

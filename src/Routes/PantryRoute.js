@@ -32,7 +32,6 @@ class PantryRoute extends Component {
     });
   };
 
-  // GET; then set state.ingredients with response
   getIngredients = () => {
     const url = `${config.API_ENDPOINT}/pantry`;
     const authToken = TokenService.getAuthToken();
@@ -45,7 +44,6 @@ class PantryRoute extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log("get ingredients data  is", data);
         this.setState({
           ingredients: data,
           filteredIngredients: data
@@ -54,7 +52,6 @@ class PantryRoute extends Component {
   };
 
   setFilterOption = (e) => {
-    console.log('setfilter option this.state.filterOption is', e.target.value);
     this.setState({ filterOption: e.target.value });
   }
 
@@ -96,12 +93,6 @@ class PantryRoute extends Component {
     return ingredientJSXArray;
   };
 
-  // console.log("name selected");
-  //     const ingredientsName = this.state.ingredients.sort(this.compareValues('in_stock'));
-  //     console.log("ingredientsName", ingredientsName);
-  //     this.setState({ filteredIngredients: ingredientsName });
-
-
   compareValues(key, order = 'asc') {
     return function innerSort(a, b) {
       if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
@@ -133,7 +124,6 @@ class PantryRoute extends Component {
     const searchInput = this.state.searchTerm;
     const url = `${config.API_ENDPOINT}/pantry`;
 
-    // create a query string with the band being searched for
     let queryString = "?q=" + searchInput;
     const newUrl = url + queryString
     const authToken = TokenService.getAuthToken();
@@ -147,13 +137,12 @@ class PantryRoute extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log('data of ingredient search req is', data);
         this.setState({ ingredients: data })
       });
 
   }
 
-  handleInput(e) {  // from search bar
+  handleInput(e) {
     e.preventDefault();
     this.setState({ searchTerm: e.target.value });
   }
@@ -168,17 +157,6 @@ class PantryRoute extends Component {
         <p id="pantry-text">
           Add, organize, and keep track of the ingredients in your kitchen!
         </p>
-        {/* <p>Filter by:</p>
-        <select id="pantry-filter" onChange={(e) => this.setFilterOption(e)}>
-          <option name="default" value="default">No filter</option>
-          <option name="in-stock" value="in-stock">In stock</option>
-          <option name="in-stock" value="low">Low</option>
-
-          <option name="in-stock" value="out-of-stock">Out of stock</option>
-        </select> */}
-
-        {/* <form onSubmit={this.handleSearchSubmit} /> */}
-
         <form onSubmit={this.handleSearchSubmit} className="pantrySearch">
           <label
             htmlFor="ingredient-search-field" className="randomLabel"

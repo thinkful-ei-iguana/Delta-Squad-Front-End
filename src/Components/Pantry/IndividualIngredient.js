@@ -16,7 +16,6 @@ export default class FancyModalButton extends Component {
     }
   }
 
-
   StyledModal = Modal.styled`
   display: flex;
   align-items: center;
@@ -56,7 +55,6 @@ export default class FancyModalButton extends Component {
       in_stock: in_stock.value || this.props.in_stock,
       notes: notes.value || this.props.notes
     };
-    console.log('updated ingredient is', updatedIngredient);
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -69,7 +67,6 @@ export default class FancyModalButton extends Component {
         if (!res.ok) return res.json().then(error => Promise.reject(error));
       })
       .then(data => {
-        // this.props.getIngredients();
         this.toggleModal(e);
       })
       .catch(error => {
