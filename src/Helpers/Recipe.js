@@ -26,7 +26,7 @@ const RecipeHelper = {
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
-  }
+  },
 
   getRecipeOwnerData(id) {
     const authToken = TokenService.getAuthToken();

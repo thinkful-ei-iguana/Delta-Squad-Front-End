@@ -131,7 +131,7 @@ class MealPlan extends Component {
       <div className="individual-mealplan-view">
         <section id="original-mealplan-data">
           <h2 id="update-header">Edit MealPlan</h2>
-          <p className="mealplanInfo">
+          <h3 className="mealplanInfo">
             <p className="boldLabel">Title:</p> {_.get(this, "props.location.state.title")}
             <br />
             <p className="boldLabel">Planned date:</p> {_.get(this, "props.location.state.planned_date")}
@@ -140,7 +140,7 @@ class MealPlan extends Component {
             <br />
             <p className="boldLabel">Ingredients required:</p>
             {_.get(this, "props.location.state.needed_ingredients")}
-          </p>
+          </h3>
         </section>
         <button
           className="smallButton"

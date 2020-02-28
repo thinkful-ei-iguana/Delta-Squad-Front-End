@@ -39,7 +39,6 @@ class AddMealPlan extends Component {
             console.error(error);
           });
       })
-      .then(console.log("state is:", this.state));
   }
 
   handleChange = e => {
@@ -132,7 +131,7 @@ class AddMealPlan extends Component {
                 </h3>
               </div>
               <h2 name="needed_ingredients" type="text"></h2>
-              <button className="smallButton" id="close-planner">
+              <button className="smallButton" id="close-planner" href="#">
                 Plan it!
               </button>
             </form>
