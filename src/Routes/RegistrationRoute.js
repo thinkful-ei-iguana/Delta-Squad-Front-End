@@ -83,18 +83,18 @@ export default class Login extends React.Component {
             Password
           </label>
           <input
-            className="field__input a-field__input"
+            className="password-fields"
             required
             name="password"
             type="password"
             placeholder="Password"
           />
           <div className="btn-row">
-            <button className="register-submit">Create</button>
+            <button className="medButton">Create</button>
             <br />
 
             <Link to="/Login">
-              <button className="new-account">Already have an account?</button>
+              <button className="medButton">Already have an account?</button>
             </Link>
           </div>
         </form>
