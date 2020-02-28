@@ -136,7 +136,7 @@ class MealPlan extends Component {
             <br />
             <p className="boldLabel">Planned date:</p> {_.get(this, "props.location.state.planned_date")}
             <br />
-            <p className="boldLabel">Time to make:</p> {_.get(this, "props.location.state.time_to_make")}
+            <p className="boldLabel">Time to make:</p> {_.get(this, "props.location.state.time_to_make")} minutes
             <br />
             <p className="boldLabel">Ingredients required:</p>
             {_.get(this, "props.location.state.needed_ingredients")}
