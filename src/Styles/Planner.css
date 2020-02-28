@@ -77,6 +77,11 @@ box-shadow: 5px 5px 5px #2F7604;
   font-weight: bold;
 }
 
+#add-plan-error {
+  color: #ffcb32;
+  font-size: 25px;
+  font-weight: bold;
+}
 #modal-planner {
   display:flex;
   flex-direction: column;

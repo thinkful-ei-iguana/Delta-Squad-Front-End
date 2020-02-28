@@ -17,6 +17,7 @@ class AddMealPlan extends Component {
       recipe: [],
       recipe_id: 0,
       planned_date: "",
+      error: null
     };
   }
 
@@ -72,29 +73,37 @@ class AddMealPlan extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    let selectedRecipe = this.state.recipes.filter(
-      recipe => recipe.id === parseInt(this.state.recipe_id)
-    );
-    const mealPlanJson = JSON.stringify({
-      recipeid: selectedRecipe[0].id,
-      title: selectedRecipe[0].title,
-      planned_date: this.state.planned_date,
-      time_to_make: selectedRecipe[0].time_to_make,
-      needed_ingredients:
-        this.state.recipe.recipe_ingredients.length > 1
-          ? this.state.recipe.recipe_ingredients.join(", ")
-          : this.state.recipe.recipe_ingredients
-    });
-    PlannerHelper.addMealPlan(mealPlanJson).then(data => {
-      this.props.refreshMealPlans();
-      this.props.closeAddForm();
-    });
+    console.log('this state', this.state);
+    if (!this.state.recipe.id) {
+      this.setState({
+        error: true
+      });
+    }
+    else {
+      let selectedRecipe = this.state.recipes.filter(
+        recipe => recipe.id === parseInt(this.state.recipe_id)
+      );
+      const mealPlanJson = JSON.stringify({
+        recipeid: selectedRecipe[0].id,
+        title: selectedRecipe[0].title,
+        planned_date: this.state.planned_date,
+        time_to_make: selectedRecipe[0].time_to_make,
+        needed_ingredients:
+          this.state.recipe.recipe_ingredients.length > 1
+            ? this.state.recipe.recipe_ingredients.join(", ")
+            : this.state.recipe.recipe_ingredients
+      });
+      PlannerHelper.addMealPlan(mealPlanJson).then(data => {
+        this.props.refreshMealPlans();
+        this.props.closeAddForm();
+      });
+    }
   };
 
   handleAddMealPlanWindow = () => {
     const indRecipeData = this.state.recipes.map((data, index) => {
       return (
-        <option key={index} value={data.id}>
+        <option key={index} value={data.id} required>
           {data.title}
         </option>
       );
@@ -103,11 +112,13 @@ class AddMealPlan extends Component {
   };
 
   render() {
+    let error = this.state.error;
     return (
       <div>
         {this.props.addMealPlan === true && (
           <div id="modal-planner">
             <form id="modal-content-planner" onSubmit={this.handleSubmit}>
+              {error && <p id="add-plan-error">Something went wrong. <br />Please try again.</p>}
               <label className="plannerLabel">Meal Plan:</label>
               <select
                 className="dropDown"
@@ -125,6 +136,7 @@ class AddMealPlan extends Component {
                 name="planned_date"
                 type="text"
                 className="modalInput"
+                required
                 onChange={this.handleChange}
               >
                 {this.props.planned_date}
