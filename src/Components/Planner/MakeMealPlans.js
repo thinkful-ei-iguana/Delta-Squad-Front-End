@@ -121,6 +121,7 @@ class AddMealPlan extends Component {
               {error && <p id="add-plan-error">Something went wrong. <br />Please try again.</p>}
               <label className="plannerLabel">Meal Plan:</label>
               <select
+                id="drop-down"
                 className="dropDown"
                 name="recipe_id"
                 type="text"
@@ -131,17 +132,22 @@ class AddMealPlan extends Component {
                 </option>
                 {this.handleAddMealPlanWindow()}
               </select>
-              {this.state.recipe.id && <>
-                <label className="plannerLabel">Meal Date:</label>
+              {this.state.recipe.id && <div id="hidden-add-plan">
+                <label className="plannerLabel" id="meal-date-label">Meal Date:</label>
                 <input
+                  id="meal-date-label"
                   name="planned_date"
-                  type="text"
+                  type="date"
                   className="modalInput"
                   required
+                  placeholder="mm/dd/yyyy"
+                  min="01/01/2020"
+                  max="12/31/3000"
                   onChange={this.handleChange}
                 >
                   {this.props.planned_date}
                 </input>
+                <br />
                 <label className="plannerLabel">Prep Time:</label>
                 <div className="plannerInfo">
                   <h2 name="time_to_make" type="text">
@@ -154,11 +160,12 @@ class AddMealPlan extends Component {
                     {this.state.recipe.recipe_ingredients &&
                       this.state.recipe.recipe_ingredients.join(", ")}
                   </h3>
-                </div></>}
-              <h2 name="needed_ingredients" type="text"></h2>
-              <button className="smallButton" id="close-planner">
-                Plan it!
+                </div>
+                <h2 name="needed_ingredients" type="text"></h2>
+                <button className="smallButton" id="close-planner">
+                  Plan it!
               </button>
+              </div>}
             </form>
           </div>
         )}
