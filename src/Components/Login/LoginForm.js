@@ -41,7 +41,7 @@ class LoginForm extends React.Component {
     return (
       <div className="login">
         <div role="alert" className="login-fail-error">
-          {error && <p className="red">{'Something went wrong. Please try again.'}</p>}
+          {error && <p className="red" id="error-message">{'Incorrect username or password. Please try again.'}</p>}
         </div>
         <header className="Login-Header"></header>
         <form
