@@ -37,22 +37,27 @@ export default class SearchRecipe extends React.Component {
   }
 
   displaySearchResults = () => {
-    if (this.state.searchResults === []) {
+    if (this.state.searchResults.length === 0) {
       return;
     }
-    return (
-      this.state.searchResults.map(recipe => <li key={recipe.id}>
-        <Link className="individualResult"
-          to={{
-            pathname: `/recipes/search/${recipe.id}`,
-            state: {
-              recipeId: recipe.id
-            }
-          }}>
-          {recipe.title}
-        </Link>
-      </li>)
-    )
+    else {// if (this.state.searchRe)
+      return (
+        <div>
+          <h2 id="results">Results:</h2>
+          {this.state.searchResults.map(recipe => <li key={recipe.id}>
+            <Link className="individualResult"
+              to={{
+                pathname: `/recipes/search/${recipe.id}`,
+                state: {
+                  recipeId: recipe.id
+                }
+              }}>
+              {recipe.title}
+            </Link>
+          </li>)}
+        </div>
+      )
+    }
   }
 
   render() {
@@ -69,7 +74,6 @@ export default class SearchRecipe extends React.Component {
         </form>
 
         <section className="recipeResults">
-          <h2 id="results">Results:</h2>
           {this.displaySearchResults()}
 
         </section>

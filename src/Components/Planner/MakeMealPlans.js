@@ -131,29 +131,30 @@ class AddMealPlan extends Component {
                 </option>
                 {this.handleAddMealPlanWindow()}
               </select>
-              <label className="plannerLabel">Meal Date:</label>
-              <input
-                name="planned_date"
-                type="text"
-                className="modalInput"
-                required
-                onChange={this.handleChange}
-              >
-                {this.props.planned_date}
-              </input>
-              <label className="plannerLabel">Prep Time:</label>
-              <div className="plannerInfo">
-                <h2 name="time_to_make" type="text">
-                  {this.state.recipe.time_to_make} Minutes
+              {this.state.recipe.id && <>
+                <label className="plannerLabel">Meal Date:</label>
+                <input
+                  name="planned_date"
+                  type="text"
+                  className="modalInput"
+                  required
+                  onChange={this.handleChange}
+                >
+                  {this.props.planned_date}
+                </input>
+                <label className="plannerLabel">Prep Time:</label>
+                <div className="plannerInfo">
+                  <h2 name="time_to_make" type="text">
+                    {this.state.recipe.time_to_make} Minutes
                 </h2>
-              </div>
-              <label className="plannerLabel">Ingredients-Required:</label>
-              <div className="plannerInfo">
-                <h3 type="text">
-                  {this.state.recipe.recipe_ingredients &&
-                    this.state.recipe.recipe_ingredients.join(", ")}
-                </h3>
-              </div>
+                </div>
+                <label className="plannerLabel">Ingredients Required:</label>
+                <div className="plannerInfo">
+                  <h3 type="text">
+                    {this.state.recipe.recipe_ingredients &&
+                      this.state.recipe.recipe_ingredients.join(", ")}
+                  </h3>
+                </div></>}
               <h2 name="needed_ingredients" type="text"></h2>
               <button className="smallButton" id="close-planner">
                 Plan it!

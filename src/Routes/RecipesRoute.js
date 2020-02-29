@@ -9,7 +9,8 @@ class RecipesRoute extends Component {
     super(props);
 
     this.state = {
-      ingredients: []
+      ingredients: [],
+      recipes: []
     };
   }
 
@@ -40,15 +41,18 @@ class RecipesRoute extends Component {
     if (recipes.length > 0) {
       return recipes.map(recipe => {
         return (
-          <div key={recipe.id}>
-            <Link
-              className="individual-recipe"
-              to={{
-                pathname: `/recipes/${recipe.id}`
-              }}
-            >
-              <li>{recipe.title}</li>
-            </Link>
+          <div>
+            <h1 id="recipeHeader">My Recipes:</h1>
+            <div key={recipe.id}>
+              <Link
+                className="individual-recipe"
+                to={{
+                  pathname: `/recipes/${recipe.id}`
+                }}
+              >
+                <li>{recipe.title}</li>
+              </Link>
+            </div>
           </div>
         );
       });
@@ -64,7 +68,7 @@ class RecipesRoute extends Component {
         <Link to="recipes/create">
           <button className="bigButton">Create new recipe</button>
         </Link>
-        <h1 id="recipeHeader">My Recipes:</h1>
+        {this.state.recipes.length === 0 && <><p id="no-recipes-in-list">You don't have any saved recipes yet.</p> <p>Click above to search for or create a recipe.</p></>}
         {this.state.recipes && this.renderRecipes()}
       </section>
     );

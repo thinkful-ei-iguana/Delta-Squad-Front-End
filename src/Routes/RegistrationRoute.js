@@ -31,13 +31,12 @@ export default class Login extends React.Component {
     Auth.createAccount({
       first_name: first_name.value,
       user_name: user_name.value,
-      // user_email: user_email.value,
       password: password.value
     })
       .then(user => {
+        console.log('woopdeedoodah');
         first_name.value = "";
         user_name.value = "";
-        // user_email.value = "";
         password.value = "";
         this.handleRegistrationSuccess();
       })

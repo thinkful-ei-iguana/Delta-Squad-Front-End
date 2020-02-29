@@ -3,15 +3,17 @@ import TokenService from './Token'
 
 const AuthHelper = {
   createAccount(newAccount) {
+    console.log('new account is', newAccount)
     return fetch(`${config.API_ENDPOINT}/accounts`, {
       method: "POST",
       headers: {
         "content-type": "application/json"
       },
       body: JSON.stringify(newAccount)
-    }).then(res =>
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    })
+      .then(res =>
+        !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+      );
   },
   deleteAccount(user_name) {
     return fetch(`${config.API_ENDPOINT}/accounts/${user_name}`, {
