@@ -88,7 +88,7 @@ box-shadow: 5px 5px 5px #2F7604;
   align-items: center; 
 }
 
-#modal-content-planner {
+#modal-content-planner, .dropDown {
   border: 2px solid black;
   border-radius: 10%;
   padding: 20px;
@@ -96,7 +96,7 @@ box-shadow: 5px 5px 5px #2F7604;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 305px;
+  width: 305px;
   background-color: #2F7604;
   color: white;
   font-weight: bold;
@@ -104,8 +104,22 @@ box-shadow: 5px 5px 5px #2F7604;
   margin-bottom: 5px;
 }
 
+.dropDown {
+ background-color: #ffcb32;
+ color: black;
+ font-weight:normal;
+}
+
 .plannerLabel {
   font-size: 20px;
+}
+
+#meal-date-label {
+  margin-top: 10px;
+}
+
+#drop-down {
+  margin-bottom: 10px;
 }
 
 .plannerInfo {
