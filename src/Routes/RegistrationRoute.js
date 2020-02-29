@@ -7,8 +7,12 @@ export default class Login extends React.Component {
   static defaultProps = {
     location: {},
     history: {
-      push: () => {}
+      push: () => { }
     }
+  };
+
+  state = {
+    error: null
   };
 
   handleRegistrationSuccess = () => {
@@ -20,20 +24,19 @@ export default class Login extends React.Component {
 
   createSubmit = ev => {
     ev.preventDefault();
-    const { first_name, user_name, user_email, password } = ev.target;
+    const { first_name, user_name, password } = ev.target;
 
     this.setState({ error: null });
 
     Auth.createAccount({
       first_name: first_name.value,
       user_name: user_name.value,
-      user_email: user_email.value,
       password: password.value
     })
       .then(user => {
+        console.log('woopdeedoodah');
         first_name.value = "";
         user_name.value = "";
-        user_email.value = "";
         password.value = "";
         this.handleRegistrationSuccess();
       })
@@ -43,10 +46,14 @@ export default class Login extends React.Component {
   };
 
   render() {
+    let error = this.state.error;
     return (
       <div className="register">
         <header className="Creation-Header"></header>
         <form className="register-form" onSubmit={this.createSubmit}>
+          <div role="alert">
+            {error && <p className="red" id="error-message">{this.state.error}</p>}
+          </div>
           <label className="field a-field a-field_a2">
             Display name
           </label>
@@ -66,7 +73,7 @@ export default class Login extends React.Component {
             name="user_name"
             placeholder="Username"
           />
-          <br />
+          {/* <br />
           <label className="field a-field a-field_a2">
             Email
           </label>
@@ -76,7 +83,7 @@ export default class Login extends React.Component {
             type="email"
             name="user_email"
             placeholder="Email"
-          />
+          /> */}
           <br />
 
           <label className="field a-field a-field_a2">
