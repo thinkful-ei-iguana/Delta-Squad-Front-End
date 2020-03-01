@@ -39,11 +39,15 @@ export default class CreateRecipe extends React.Component {
       time_to_make: time_to_make.value,
     })
       .then(recipe => {
-        title.value = "";
-        recipe_description.value = "";
-        recipe_ingredients.value = "";
-        time_to_make.value = "";
-        this.handleCreationSuccess();
+        console.log('recipe is', recipe);
+        if (!recipe.ok) { this.setState({ error: !recipe.ok }) }
+        else {
+          title.value = "";
+          recipe_description.value = "";
+          recipe_ingredients.value = "";
+          time_to_make.value = "";
+          this.handleCreationSuccess();
+        }
       })
       .catch(res => {
         this.setState({ error: res.error });
@@ -52,14 +56,16 @@ export default class CreateRecipe extends React.Component {
 
   render() {
     let error = this.state.error;
+
     return (
 
       <div className="Creation">
-        <header className="Creation-Header">
-          New Recipe!
+        <header className="Creation-Header" id="add-recipe-header">
+          New Recipe
         </header>
-        {/* {error && this.state.error} */}
         <form className="Creation-Form" onSubmit={this.createSubmit}>
+          {error && <p className="empty-fields-error-message">Fields cannot be empty. Please try again.</p>}
+
           <label className="field a-field a-field_a2">
             Title
             <input

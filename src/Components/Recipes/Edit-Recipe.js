@@ -4,6 +4,7 @@ import Recipe from "../../Helpers/Recipe";
 import Context from "../../Contexts/Context";
 import RecipeHelper from "../../Helpers/Recipe";
 import _ from "lodash";
+import "../../Routes/RecipesRoute.css";
 
 export default class CreateRecipe extends React.Component {
   static contextType = Context;
@@ -37,10 +38,10 @@ export default class CreateRecipe extends React.Component {
 
   editSubmit = ev => {
     ev.preventDefault();
-    const title = ev.target.title.value;
-    const recipe_description = ev.target.recipe_description.value.split("\n");
-    const recipe_ingredients = ev.target.recipe_ingredients.value.split(", ");
-    const time_to_make = ev.target.time_to_make.value;
+    let title = ev.target.title.value;
+    let recipe_description = ev.target.recipe_description.value.split("\n");
+    let recipe_ingredients = ev.target.recipe_ingredients.value.split(", ");
+    let time_to_make = ev.target.time_to_make.value;
 
     console.log('update recipe', recipe_description, recipe_ingredients, title, time_to_make);
     this.setState({ error: null });
@@ -55,14 +56,18 @@ export default class CreateRecipe extends React.Component {
       this.state.recipe.id
     )
       .then(recipe => {
-        this.handleEditSuccess();
-        title.value = "";
-        recipe_description.value = "";
-        recipe_ingredients.value = "";
-        time_to_make.value = "";
+        console.log('recipe is', recipe);
+        if (!recipe.ok) { this.setState({ error: !recipe.ok }) }
+        else {
+          // this.location.aboutProps.error({ error: !recipe.ok });
+          this.handleEditSuccess();
+          title = "";
+          recipe_description = "";
+          recipe_ingredients = "";
+          time_to_make = "";
+        }
       })
       .catch(res => {
-        console.log('res is', res);
         this.setState({ error: res.error });
       });
   };
@@ -75,10 +80,12 @@ export default class CreateRecipe extends React.Component {
       let descarr = desc1.split('","');
       descarr.map(instruction => instructionsArr.push(instruction));
     }
+    let error = this.state.error;
     return (
       <div className="Creation">
         <header className="Creation-Header"></header>
         <form className="Creation-Form" to="/" onSubmit={this.editSubmit}>
+          {error && <p className="empty-fields-error-message">Fields cannot be empty. Please try again.</p>}
           <label className="field a-field a-field_a2">
             Title:
             <input
@@ -142,6 +149,9 @@ export default class CreateRecipe extends React.Component {
     );
   };
   render() {
-    return <div className="Edit">{this.owner()}</div>;
+
+    return <div className="Edit">
+      {this.owner()}
+    </div>;
   }
 }

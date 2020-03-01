@@ -16,10 +16,7 @@ const IngredientHelper = {
         Authorization: `Bearer ${authToken}`
       },
       body: ingredientData
-    }).then(res => {
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    }
-    );
+    })
   },
 
   updateRecipe(updatedData, id) {
