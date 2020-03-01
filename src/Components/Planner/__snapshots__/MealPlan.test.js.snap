@@ -12,6 +12,11 @@ exports[`renders the UI as expected 1`] = `
     >
       Edit MealPlan
     </h2>
+    <p
+      id="edit-plan-text"
+    >
+      Click below to update your meal plan. Edit any or all fields; untouched fields in the edit window will retain their original values.
+    </p>
     <h3
       className="mealplanInfo"
     >

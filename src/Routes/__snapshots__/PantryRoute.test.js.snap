@@ -83,8 +83,5 @@ exports[`renders the UI as expected 1`] = `
     </button>
   </div>
   <div />
-  <div
-    id="ingredients-container"
-  />
 </section>
 `;

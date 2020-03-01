@@ -38,9 +38,9 @@ export default class CreateRecipe extends React.Component {
       recipe_ingredients: recipeIngredients,
       time_to_make: time_to_make.value,
     })
-      .then(recipe => {
-        console.log('recipe is', recipe);
-        if (!recipe.ok) { this.setState({ error: !recipe.ok }) }
+      .then(res => {
+        console.log('recipe is', res);
+        if (!res.ok) { this.setState({ error: !res.ok }) }
         else {
           title.value = "";
           recipe_description.value = "";
@@ -49,6 +49,18 @@ export default class CreateRecipe extends React.Component {
           this.handleCreationSuccess();
         }
       })
+
+      // .then(recipe => {
+      //   console.log('recipe is', recipe);
+      //   if (!recipe) { this.setState({ error: true }) }
+      //   else {
+      //     title.value = "";
+      //     recipe_description.value = "";
+      //     recipe_ingredients.value = "";
+      //     time_to_make.value = "";
+      //     this.handleCreationSuccess();
+      //   }
+      // })
       .catch(res => {
         this.setState({ error: res.error });
       });
@@ -56,7 +68,7 @@ export default class CreateRecipe extends React.Component {
 
   render() {
     let error = this.state.error;
-
+    console.log('error is', error);
     return (
 
       <div className="Creation">

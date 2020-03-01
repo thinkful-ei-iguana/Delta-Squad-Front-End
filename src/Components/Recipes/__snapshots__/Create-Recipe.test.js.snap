@@ -6,8 +6,9 @@ exports[`renders the UI as expected 1`] = `
 >
   <header
     className="Creation-Header"
+    id="add-recipe-header"
   >
-    New Recipe!
+    New Recipe
   </header>
   <form
     className="Creation-Form"
