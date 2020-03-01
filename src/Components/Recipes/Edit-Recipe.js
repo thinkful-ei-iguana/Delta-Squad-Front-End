@@ -42,6 +42,7 @@ export default class CreateRecipe extends React.Component {
     const recipe_ingredients = ev.target.recipe_ingredients.value.split(", ");
     const time_to_make = ev.target.time_to_make.value;
 
+    console.log('update recipe', recipe_description, recipe_ingredients, title, time_to_make);
     this.setState({ error: null });
     Recipe.updateRecipe(
       {
@@ -122,7 +123,8 @@ export default class CreateRecipe extends React.Component {
             <input
               className="field__input a-field__input"
               required
-              type="text"
+              type="number"
+              min="1"
               name="time_to_make"
               defaultValue={this.state.recipe.time_to_make}
             />

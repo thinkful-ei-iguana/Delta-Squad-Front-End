@@ -99,7 +99,8 @@ export default class CreateRecipe extends React.Component {
             <input
               className="field__input a-field__input"
               required
-              type="textfield"
+              type="number"
+              min="1"
               name="time_to_make"
               placeholder="Time to make the recipe"
             />

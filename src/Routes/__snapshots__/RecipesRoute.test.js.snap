@@ -24,10 +24,14 @@ exports[`renders the UI as expected 1`] = `
       Create new recipe
     </button>
   </a>
-  <h1
-    id="recipeHeader"
+  <p
+    id="no-recipes-in-list"
   >
-    My Recipes:
-  </h1>
+    You don't have any saved recipes yet.
+  </p>
+   
+  <p>
+    Click above to search for or create a recipe.
+  </p>
 </section>
 `;

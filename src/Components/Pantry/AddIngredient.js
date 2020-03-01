@@ -91,7 +91,7 @@ export default class FancyModalButton extends Component {
                 <br />
                 <select
                   id="in-stock"
-                  className="dropDown"
+                  className="drop-down"
                   required
                   name="in_stock">
                   <option value="in-stock">In stock</option>

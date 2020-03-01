@@ -81,7 +81,7 @@ class MealPlan extends Component {
               <label id="planned-date" name="planned_date">
                 Mealplan Date:
               </label>
-              <input id="planned-date" name="planned_date"></input>
+              <input id="planned-date" type="date" name="planned_date"></input>
               <label id="meaplan-prep-time">Time to make:</label>
               <input
                 id="mealplan-prep-time"

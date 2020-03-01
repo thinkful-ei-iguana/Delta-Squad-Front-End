@@ -2,7 +2,7 @@
 
 exports[`renders the UI as expected 1`] = `
 <div
-  id="individual-mealplan-view"
+  className="individual-mealplan-view"
 >
   <section
     id="original-mealplan-data"
@@ -10,27 +10,49 @@ exports[`renders the UI as expected 1`] = `
     <h2
       id="update-header"
     >
-      Update
+      Edit MealPlan
     </h2>
-    <p>
-      Title: 
+    <h3
+      className="mealplanInfo"
+    >
+      <p
+        className="boldLabel"
+      >
+        Title:
+      </p>
+       
       <br />
-      Planned date: 
+      <p
+        className="boldLabel"
+      >
+        Planned date:
+      </p>
+       
       <br />
-      Time to make: 
+      <p
+        className="boldLabel"
+      >
+        Time to make:
+      </p>
+       
+       minutes
       <br />
-      Ingredients required:
-    </p>
+      <p
+        className="boldLabel"
+      >
+        Ingredients required:
+      </p>
+    </h3>
   </section>
   <button
-    id="update-mealplan-button"
+    className="smallButton"
     onClick={[Function]}
     type="submit"
   >
     Update
   </button>
   <button
-    id="delete-mealplan-button"
+    className="smallButton"
     onClick={[Function]}
     type="submit"
   >
@@ -38,7 +60,7 @@ exports[`renders the UI as expected 1`] = `
   </button>
   <div />
   <button
-    id="go-back-button"
+    className="smallButton"
     onClick={[Function]}
     type="submit"
   >

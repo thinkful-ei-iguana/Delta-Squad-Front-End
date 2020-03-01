@@ -91,10 +91,11 @@ exports[`renders the UI as expected 1`] = `
       </div>
       <input
         className="field__input a-field__input"
+        min="1"
         name="time_to_make"
         placeholder="Time to make the recipe"
         required={true}
-        type="textfield"
+        type="number"
       />
       <span
         className="a-field__label-wrap"

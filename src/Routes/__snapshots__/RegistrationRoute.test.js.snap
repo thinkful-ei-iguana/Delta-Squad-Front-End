@@ -11,6 +11,9 @@ exports[`renders the UI as expected 1`] = `
     className="register-form"
     onSubmit={[Function]}
   >
+    <div
+      role="alert"
+    />
     <label
       className="field a-field a-field_a2"
     >
@@ -38,23 +41,10 @@ exports[`renders the UI as expected 1`] = `
     <label
       className="field a-field a-field_a2"
     >
-      Email
-    </label>
-    <input
-      className="register-email-input"
-      name="user_email"
-      placeholder="Email"
-      required={true}
-      type="email"
-    />
-    <br />
-    <label
-      className="field a-field a-field_a2"
-    >
       Password
     </label>
     <input
-      className="field__input a-field__input"
+      className="password-fields"
       name="password"
       placeholder="Password"
       required={true}
@@ -64,7 +54,7 @@ exports[`renders the UI as expected 1`] = `
       className="btn-row"
     >
       <button
-        className="register-submit"
+        className="medButton"
       >
         Create
       </button>
@@ -74,7 +64,7 @@ exports[`renders the UI as expected 1`] = `
         onClick={[Function]}
       >
         <button
-          className="new-account"
+          className="medButton"
         >
           Already have an account?
         </button>

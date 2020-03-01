@@ -141,8 +141,6 @@ class AddMealPlan extends Component {
                   className="modalInput"
                   required
                   placeholder="mm/dd/yyyy"
-                  min="01/01/2020"
-                  max="12/31/3000"
                   onChange={this.handleChange}
                 >
                   {this.props.planned_date}
