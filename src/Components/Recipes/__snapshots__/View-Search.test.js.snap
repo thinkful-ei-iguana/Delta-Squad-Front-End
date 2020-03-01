@@ -49,20 +49,24 @@ exports[`renders the UI as expected 1`] = `
   <p
     className="recipeInfo"
   >
-    NaN
      
     minutes
   </p>
-  <button
-    onClick={[Function]}
+  <div
+    className="buttonGroupSearch"
   >
-    Add to my recipes!
-  </button>
-  <button
-    className="cancel-view"
-    onClick={[Function]}
-  >
-    Cancel
-  </button>
+    <button
+      className="medButton"
+      onClick={[Function]}
+    >
+      Add to my recipes!
+    </button>
+    <button
+      className="medButton"
+      onClick={[Function]}
+    >
+      Cancel
+    </button>
+  </div>
 </div>
 `;

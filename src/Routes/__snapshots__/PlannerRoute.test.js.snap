@@ -8,14 +8,19 @@ exports[`renders the UI as expected 1`] = `
     className="my-planner-header"
     id="my-planner-header"
   >
-    My Mealplans
+    My Meal Plans
   </h2>
+  <p
+    id="planner-text"
+  >
+    Create, update, and manage your meal plans
+  </p>
   <button
     className="bigButton"
     onClick={[Function]}
     type="submit"
   >
-    Add a MealPlan
+    Add a Meal Plan
   </button>
   <div />
 </section>

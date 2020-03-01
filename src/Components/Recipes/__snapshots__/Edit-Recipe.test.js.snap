@@ -35,9 +35,23 @@ exports[`renders the UI as expected 1`] = `
       <label
         className="field a-field a-field_a2"
       >
+        Ingredients:
+        <input
+          className="field__input a-field__input"
+          name="recipe_ingredients"
+          required={true}
+          type="text"
+        />
+        <span
+          className="a-field__label"
+        />
+      </label>
+      <label
+        className="field a-field a-field_a2"
+      >
         Instructions:
         <textarea
-          className="field__input a-field__input"
+          className="field__input a-field__input instructionsField"
           defaultValue=""
           name="recipe_description"
           required={true}
@@ -54,26 +68,13 @@ exports[`renders the UI as expected 1`] = `
       <label
         className="field a-field a-field_a2"
       >
-        Ingredients:
-        <input
-          className="field__input a-field__input"
-          name="recipe_ingredients"
-          required={true}
-          type="text"
-        />
-        <span
-          className="a-field__label"
-        />
-      </label>
-      <label
-        className="field a-field a-field_a2"
-      >
         Time to Make (in minutes):
         <input
           className="field__input a-field__input"
+          min="1"
           name="time_to_make"
           required={true}
-          type="text"
+          type="number"
         />
         <span
           className="a-field__label"
@@ -83,7 +84,7 @@ exports[`renders the UI as expected 1`] = `
         className="btn-row"
       >
         <button
-          className="submitRecipeEdit"
+          className="smallButton"
         >
           Submit
         </button>
@@ -92,7 +93,7 @@ exports[`renders the UI as expected 1`] = `
           onClick={[Function]}
         >
           <button
-            className="cancelEditRecipe"
+            className="smallButton"
           >
             Cancel
           </button>

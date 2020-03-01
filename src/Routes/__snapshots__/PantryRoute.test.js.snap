@@ -9,6 +9,11 @@ exports[`renders the UI as expected 1`] = `
   >
     My Pantry
   </h2>
+  <p
+    id="pantry-text"
+  >
+    Add, organize, and keep track of the ingredients in your kitchen
+  </p>
   <form
     className="pantrySearch"
     onSubmit={[Function]}

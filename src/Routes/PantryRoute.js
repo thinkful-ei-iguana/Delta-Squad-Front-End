@@ -18,7 +18,8 @@ class PantryRoute extends Component {
       searchTerm: "",
       filterOption: "",
       isOpen: false,
-      show: false
+      show: false,
+      error: null
     };
   }
 
@@ -137,7 +138,9 @@ class PantryRoute extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ ingredients: data })
+        this.setState({
+          ingredients: data
+        })
       });
 
   }
@@ -149,7 +152,8 @@ class PantryRoute extends Component {
 
 
   render() {
-
+    console.log('this.state.ingr', this.state.ingredients)
+    let error = this.state.error;
     return (
 
       <section id="pantry-router-container">
@@ -184,14 +188,15 @@ class PantryRoute extends Component {
           allIngredients={this.state.ingredients}
           refreshIngredients={this.getIngredients}
         />
-        <div id="ingredients-container">
+        {this.state.ingredients.length > 0 &&
+          <div id="ingredients-container">
 
-          {(this.renderIngredients())}
+            {this.renderIngredients()}
 
-        </div>
+          </div>}
 
 
-      </section>
+      </section >
     );
   }
 }

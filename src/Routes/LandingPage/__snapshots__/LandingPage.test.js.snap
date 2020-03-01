@@ -21,10 +21,14 @@ exports[`renders the UI as expected 1`] = `
     <div
       className="site-description"
     >
-      <p>
+      <p
+        className="p1"
+      >
         Kitchen Helper is a best friend in the kitchen. This app combines the ability to track the items in your pantry, the opportunity to plan your meals for a given time period and puts a large database of recipes at your fingertips. You also have the ability to add your own recipes and create shopping lists once your meals are planned.
       </p>
-      <p>
+      <p
+        className="p2"
+      >
         Kitchen Helper will be a time and money saver, helping you create amazing meals at home while staying organized and never running out of that special ingredient you need for your amazing lasagna recipe.
       </p>
       <div
@@ -70,19 +74,19 @@ exports[`renders the UI as expected 1`] = `
           alt="Pantry Landing"
           className="landingSamples"
           id="recipe-search"
-          src="pantryLanding.JPG"
+          src="pantryLanding.gif"
         />
         <img
-          alt="Meal Plan Landing"
+          alt="Home Page"
           className="landingSamples"
           id="pantry-add-form"
-          src="planLanding.JPG"
+          src="homePage.gif"
         />
         <img
           alt="Recipe Detail"
           className="landingSamples"
           id="meal-planning-add-button"
-          src="recipeDetail.JPG"
+          src="recipeDetail.gif"
         />
       </div>
     </div>

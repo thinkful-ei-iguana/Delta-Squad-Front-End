@@ -38,7 +38,7 @@ exports[`renders the UI as expected 1`] = `
   >
     Recipe Instructions: 
   </p>
-  <p
+  <div
     className="recipeInfo"
   />
   <p
