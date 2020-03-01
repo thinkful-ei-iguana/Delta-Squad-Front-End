@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PlannerHelper from "../../Helpers/Planner";
 import RecipeHelper from "../../Helpers/Recipe";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import "./Mealplan.css";
 
 
@@ -17,7 +19,8 @@ class AddMealPlan extends Component {
       recipe: [],
       recipe_id: 0,
       planned_date: "",
-      error: null
+      error: null,
+      selectedDate: new Date()
     };
   }
 
@@ -86,7 +89,7 @@ class AddMealPlan extends Component {
       const mealPlanJson = JSON.stringify({
         recipeid: selectedRecipe[0].id,
         title: selectedRecipe[0].title,
-        planned_date: this.state.planned_date,
+        planned_date: e.target.planned_date.value,
         time_to_make: selectedRecipe[0].time_to_make,
         needed_ingredients:
           this.state.recipe.recipe_ingredients.length > 1
@@ -111,6 +114,12 @@ class AddMealPlan extends Component {
     return indRecipeData;
   };
 
+  setStateDate = e => {
+    this.setState({
+      selectedDate: e
+    });
+  }
+
   render() {
     let error = this.state.error;
     return (
@@ -134,17 +143,10 @@ class AddMealPlan extends Component {
               </select>
               {this.state.recipe.id && <div id="hidden-add-plan">
                 <label className="plannerLabel" id="meal-date-label">Meal Date:</label>
-                <input
-                  id="meal-date-label"
-                  name="planned_date"
-                  type="date"
-                  className="modalInput"
-                  required
-                  placeholder="mm/dd/yyyy"
-                  onChange={this.handleChange}
-                >
-                  {this.props.planned_date}
-                </input>
+                <DatePicker name="planned_date" selected={this.state.selectedDate} onChange={(e) => this.setStateDate(e)} >
+
+                  {/* {this.props.planned_date} */}
+                </DatePicker>
                 <br />
                 <label className="plannerLabel">Prep Time:</label>
                 <div className="plannerInfo">

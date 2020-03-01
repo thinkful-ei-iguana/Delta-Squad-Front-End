@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import config from "../../config";
 import TokenService from "../../Helpers/Token";
 import _ from "lodash";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 class MealPlan extends Component {
   constructor(props) {
@@ -9,7 +11,8 @@ class MealPlan extends Component {
 
     this.state = {
       mealplan: [],
-      updateMealPlan: false
+      updateMealPlan: false,
+      selectedDate: new Date()
     };
   }
 
@@ -70,6 +73,13 @@ class MealPlan extends Component {
     });
   };
 
+  setStateDate = e => {
+    this.setState({
+      selectedDate: e
+    });
+  }
+
+
   handleUpdateMealPlan = () => {
     return (
       <div>
@@ -81,12 +91,14 @@ class MealPlan extends Component {
               <label id="planned-date" name="planned_date">
                 Mealplan Date:
               </label>
-              <input id="planned-date" type="date" name="planned_date"></input>
+              <DatePicker name="planned_date" selected={this.state.selectedDate} onChange={(e) => this.setStateDate(e)} />
+              {/* <input id="planned-date" type="date" required name="planned_date"></input> */}
               <label id="meaplan-prep-time">Time to make:</label>
               <input
                 id="mealplan-prep-time"
+                type="number"
+                min="1"
                 name="time_to_make"
-                type="text"
               ></input>
               <label id="meaplan-needed-ingredients">Ingredients needed:</label>
               <input

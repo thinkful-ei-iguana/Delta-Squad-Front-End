@@ -62,6 +62,7 @@ export default class CreateRecipe extends React.Component {
         time_to_make.value = "";
       })
       .catch(res => {
+        console.log('res is', res);
         this.setState({ error: res.error });
       });
   };

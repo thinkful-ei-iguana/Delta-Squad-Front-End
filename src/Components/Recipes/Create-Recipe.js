@@ -51,12 +51,14 @@ export default class CreateRecipe extends React.Component {
   };
 
   render() {
+    let error = this.state.error;
     return (
 
       <div className="Creation">
         <header className="Creation-Header">
           New Recipe!
         </header>
+        {/* {error && this.state.error} */}
         <form className="Creation-Form" onSubmit={this.createSubmit}>
           <label className="field a-field a-field_a2">
             Title
