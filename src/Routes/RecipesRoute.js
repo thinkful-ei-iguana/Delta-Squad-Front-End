@@ -10,7 +10,8 @@ class RecipesRoute extends Component {
 
     this.state = {
       ingredients: [],
-      recipes: []
+      recipes: [],
+      error: null
     };
   }
 
@@ -36,6 +37,12 @@ class RecipesRoute extends Component {
       });
   };
 
+  setStateErrorTrue = () => {
+    this.setState({
+      error: true
+    })
+  }
+
   renderRecipes = () => {
     const recipes = this.state.recipes;
     if (recipes.length > 0) {
@@ -45,7 +52,10 @@ class RecipesRoute extends Component {
             <Link
               className="individual-recipe"
               to={{
-                pathname: `/recipes/${recipe.id}`
+                pathname: `/recipes/${recipe.id}`,
+                // aboutProps: {
+                //   error: this.setStateErrorTrue()
+                // }
               }}
             >
               <li>{recipe.title}</li>

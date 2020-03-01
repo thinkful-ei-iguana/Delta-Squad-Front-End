@@ -12,7 +12,8 @@ class MealPlan extends Component {
     this.state = {
       mealplan: [],
       updateMealPlan: false,
-      selectedDate: new Date()
+      selectedDate: new Date(),
+      error: null
     };
   }
 
@@ -53,13 +54,21 @@ class MealPlan extends Component {
       body: JSON.stringify(updatedMealPlan)
     })
       .then(res => {
-        if (!res.ok) return res.json().then(error => Promise.reject(error));
+        console.log('mealplan res is', res);
+        if (!res.ok) { this.setState({ error: !res.ok }) }
+        else {
+          this.props.history.push("/planner");
+
+        }
+        // return res.json().then(error => Promise.reject(error));
       })
-      .then(data => {
-        this.props.history.push("/planner");
-      })
+      // .then(data => {
+      //   this.props.history.push("/planner");
+      // })
+
       .catch(error => {
         console.error(error);
+        this.setState({ error: error.error });
       });
   };
 
@@ -81,15 +90,18 @@ class MealPlan extends Component {
 
 
   handleUpdateMealPlan = () => {
+    let error = this.state.error;
+    console.log('mealplanedit error is', error);
     return (
       <div>
         {this.state.updateMealPlan === true && (
           <div>
             <form id="modal-content-update" className="editMealplanModal" onSubmit={this.handleSubmit}>
-              <label>Mealplan:</label>
+              {error && <p className="empty-fields-error-message-green-bg">Fields must either be left empty, or contain characters (cannot contain only spaces). Please try again.</p>}
+              <label>Title:</label>
               <input id="mealplan" name="title" type="text"></input>
               <label id="planned-date" name="planned_date">
-                Mealplan Date:
+                Meal plan date:
               </label>
               <DatePicker name="planned_date" selected={this.state.selectedDate} onChange={(e) => this.setStateDate(e)} />
               {/* <input id="planned-date" type="date" required name="planned_date"></input> */}
@@ -143,6 +155,7 @@ class MealPlan extends Component {
       <div className="individual-mealplan-view">
         <section id="original-mealplan-data">
           <h2 id="update-header">Edit MealPlan</h2>
+          <p id="edit-plan-text">Click below to update your meal plan. Edit any or all fields; untouched fields in the edit window will retain their original values.</p>
           <h3 className="mealplanInfo">
             <p className="boldLabel">Title:</p> {_.get(this, "props.location.state.title")}
             <br />

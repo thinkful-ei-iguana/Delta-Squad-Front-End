@@ -12,7 +12,8 @@ export default class FancyModalButton extends Component {
 
     this.state = {
       isOpen: false,
-      opacity: 0
+      opacity: 0,
+      error: null
     }
   }
 
@@ -44,6 +45,7 @@ export default class FancyModalButton extends Component {
   }
 
   handleSubmit = (e) => {
+    e.preventDefault();
     let ingredientId = this.props.id;
 
     const url = `${config.API_ENDPOINT}/pantry/${ingredientId}`;
@@ -55,6 +57,7 @@ export default class FancyModalButton extends Component {
       in_stock: in_stock.value || this.props.in_stock,
       notes: notes.value || this.props.notes
     };
+    console.log('updatedingredient is', updatedIngredient);
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -64,10 +67,12 @@ export default class FancyModalButton extends Component {
       body: JSON.stringify(updatedIngredient)
     })
       .then(res => {
-        if (!res.ok) return res.json().then(error => Promise.reject(error));
-      })
-      .then(data => {
-        this.toggleModal(e);
+        console.log('ingredient res patch is', res);
+        if (!res.ok) { this.setState({ error: !res.ok }) }
+        else {
+          this.props.getIngredients();
+          this.toggleModal(e);
+        }
       })
       .catch(error => {
         console.error(error);
@@ -105,6 +110,7 @@ export default class FancyModalButton extends Component {
     `;
 
   render() {
+    let error = this.state.error;
     return (
       <ModalProvider backgroundComponent={this.fadingBackground}>
         <div className="modal-container">
@@ -127,6 +133,8 @@ export default class FancyModalButton extends Component {
                 id="modal-content"
                 onSubmit={this.handleSubmit}
               >
+                {error && <p className="empty-fields-error-message-green-bg">Fields must either be left empty, or contain <br /> characters (cannot contain only spaces). <br />Please try again.</p>}
+
                 <label>Ingredient:</label>
                 <input
                   className="modalInput"

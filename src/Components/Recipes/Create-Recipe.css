@@ -20,6 +20,10 @@
     margin: 2%;
 }
 
+form {
+    margin-top: 15px;
+}
+
 .Creation-Header {
     font-family: 'cookiesregular';
     text-align: center;
@@ -38,4 +42,11 @@ textarea {
 
 .instructionsField {
     min-height: 150px;
+}
+
+.empty-fields-error-message {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
 }

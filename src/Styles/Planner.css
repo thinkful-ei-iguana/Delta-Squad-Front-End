@@ -132,3 +132,17 @@ box-shadow: 5px 5px 5px #2F7604;
   background-color: #B6D084;
   color: black;
 }
+
+.empty-fields-error-message-green-bg {
+  text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffcb32;
+    padding: 10px;
+}
+
+#edit-plan-text {
+  font-family: "Nanum Gothic", sans-serif;
+  font-style: italic;
+  font-weight: bold;
+}

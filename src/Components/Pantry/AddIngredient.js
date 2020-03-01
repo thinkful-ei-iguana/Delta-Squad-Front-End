@@ -10,7 +10,8 @@ export default class FancyModalButton extends Component {
 
     this.state = {
       isOpen: false,
-      opacity: 0
+      opacity: 0,
+      error: null
     }
   }
 
@@ -50,10 +51,20 @@ export default class FancyModalButton extends Component {
       notes: notes.value
     });
     IngredientHelper.addIngredient(ingredientJson)
-      .then(data => {
-        this.props.refreshIngredients();
-        this.toggleModal(e);
-      });
+      .then(res => {
+        console.log('ingredient res is', res);
+        if (!res.ok) { this.setState({ error: !res.ok }) }
+        else {
+          this.props.refreshIngredients();
+          this.toggleModal(e);
+        }
+      })
+    // .then(data => {
+
+    //   this.props.refreshIngredients();
+    //   this.toggleModal(e);
+
+    // });
   }
 
   fadingBackground = styled(BaseModalBackground)`
@@ -62,6 +73,7 @@ export default class FancyModalButton extends Component {
   `;
 
   render() {
+    let error = this.state.error;
     return (
       <ModalProvider backgroundComponent={this.fadingBackground}>
         <div>
@@ -79,6 +91,8 @@ export default class FancyModalButton extends Component {
             <form id="modal-content"
               onSubmit={this.handleSubmit}
             >
+              {error && <p className="empty-fields-error-message-green-bg">Ingredient field must contain <br /> characters (not just spaces). <br />Please try again.</p>}
+
               <label>Ingredient*:</label>
               <input
                 id="ingredient-name"
@@ -99,10 +113,11 @@ export default class FancyModalButton extends Component {
                   <option value="low">Low</option>
                 </select>
               </div>
-              <label>Notes:</label>
+              <label>Notes*:</label>
               <input
                 id="notes"
                 name="notes"
+                required
                 type="text"
                 className="modalInput"></input>
               <button className="smallButton" id="close"
