@@ -35,6 +35,7 @@ class MealPlan extends Component {
     const authToken = TokenService.getAuthToken();
     let { title, planned_date, time_to_make, needed_ingredients } = e.target;
 
+    console.log("updatedmealplan props option", this.props.location.state.needed_ingredients)
     let updatedMealPlan = {
       id: mealPlanId,
       title: title.value || this.props.location.state.title,
@@ -45,6 +46,7 @@ class MealPlan extends Component {
       needed_ingredients:
         needed_ingredients.value || this.props.location.state.needed_ingredients
     };
+    console.log('updatedmealplan', updatedMealPlan);
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -60,12 +62,7 @@ class MealPlan extends Component {
           this.props.history.push("/planner");
 
         }
-        // return res.json().then(error => Promise.reject(error));
       })
-      // .then(data => {
-      //   this.props.history.push("/planner");
-      // })
-
       .catch(error => {
         console.error(error);
         this.setState({ error: error.error });
@@ -96,7 +93,7 @@ class MealPlan extends Component {
       <div>
         {this.state.updateMealPlan === true && (
           <div>
-            <form id="modal-content-update" className="editMealplanModal" onSubmit={this.handleSubmit}>
+            <form id="modal-content-update" className="editMealplanModal" onSubmit={(e) => this.handleSubmit(e)}>
               {error && <p className="empty-fields-error-message-green-bg">Fields must either be left empty, or contain characters (cannot contain only spaces). Please try again.</p>}
               <label>Title:</label>
               <input id="mealplan" name="title" type="text"></input>
