@@ -53,9 +53,7 @@ class RecipesRoute extends Component {
               className="individual-recipe"
               to={{
                 pathname: `/recipes/${recipe.id}`,
-                // aboutProps: {
-                //   error: this.setStateErrorTrue()
-                // }
+
               }}
             >
               <li>{recipe.title}</li>

@@ -65,7 +65,6 @@ class AddMealPlan extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log('this state', this.state);
     if (!this.state.recipe.id) {
       this.setState({
         error: true
@@ -111,7 +110,6 @@ class AddMealPlan extends Component {
 
   render() {
     let error = this.state.error;
-    console.log('recipe is', this.state.recipe);
     return (
       <div>
         {this.props.addMealPlan === true && (

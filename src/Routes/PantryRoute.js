@@ -152,7 +152,6 @@ class PantryRoute extends Component {
 
 
   render() {
-    console.log('this.state.ingr', this.state.ingredients)
     let error = this.state.error;
     return (
 

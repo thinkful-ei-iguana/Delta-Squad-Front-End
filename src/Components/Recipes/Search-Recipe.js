@@ -40,7 +40,7 @@ export default class SearchRecipe extends React.Component {
     if (this.state.searchResults.length === 0) {
       return;
     }
-    else {// if (this.state.searchRe)
+    else {
       return (
         <div>
           <h2 id="results">Results:</h2>

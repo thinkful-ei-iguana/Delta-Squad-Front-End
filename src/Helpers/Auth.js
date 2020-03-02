@@ -3,7 +3,6 @@ import TokenService from './Token'
 
 const AuthHelper = {
   createAccount(newAccount) {
-    console.log('new account is', newAccount)
     return fetch(`${config.API_ENDPOINT}/accounts`, {
       method: "POST",
       headers: {
@@ -73,17 +72,7 @@ const AuthHelper = {
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
-  },
-  // updateAccount(updatedData, id) {
-  //   return fetch(`${config.API_ENDPOINT}/accounts/edit/${id}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       Authorization: `Bearer ${TokenService.getAuthToken()}`
-  //     },
-  //     body: JSON.stringify(updatedData)
-  //   });
-  // }
+  }
 };
 
 export default AuthHelper;

@@ -35,7 +35,6 @@ class MealPlan extends Component {
     const authToken = TokenService.getAuthToken();
     let { title, planned_date, time_to_make, needed_ingredients } = e.target;
 
-    console.log("updatedmealplan props option", this.props.location.state.needed_ingredients)
     let updatedMealPlan = {
       id: mealPlanId,
       title: title.value || this.props.location.state.title,
@@ -46,7 +45,6 @@ class MealPlan extends Component {
       needed_ingredients:
         needed_ingredients.value || this.props.location.state.needed_ingredients
     };
-    console.log('updatedmealplan', updatedMealPlan);
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -56,7 +54,6 @@ class MealPlan extends Component {
       body: JSON.stringify(updatedMealPlan)
     })
       .then(res => {
-        console.log('mealplan res is', res);
         if (!res.ok) { this.setState({ error: !res.ok }) }
         else {
           this.props.history.push("/planner");
@@ -88,7 +85,6 @@ class MealPlan extends Component {
 
   handleUpdateMealPlan = () => {
     let error = this.state.error;
-    console.log('mealplanedit error is', error);
     return (
       <div>
         {this.state.updateMealPlan === true && (
