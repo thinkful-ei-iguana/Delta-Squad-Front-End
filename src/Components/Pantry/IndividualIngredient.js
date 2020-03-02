@@ -57,7 +57,6 @@ export default class FancyModalButton extends Component {
       in_stock: in_stock.value || this.props.in_stock,
       notes: notes.value || this.props.notes
     };
-    console.log('updatedingredient is', updatedIngredient);
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -67,7 +66,6 @@ export default class FancyModalButton extends Component {
       body: JSON.stringify(updatedIngredient)
     })
       .then(res => {
-        console.log('ingredient res patch is', res);
         if (!res.ok) { this.setState({ error: !res.ok }) }
         else {
           this.props.getIngredients();

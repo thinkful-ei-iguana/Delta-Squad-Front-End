@@ -43,7 +43,6 @@ export default class CreateRecipe extends React.Component {
     let recipe_ingredients = ev.target.recipe_ingredients.value.split(", ");
     let time_to_make = ev.target.time_to_make.value;
 
-    console.log('update recipe', recipe_description, recipe_ingredients, title, time_to_make);
     this.setState({ error: null });
     Recipe.updateRecipe(
       {
@@ -56,10 +55,8 @@ export default class CreateRecipe extends React.Component {
       this.state.recipe.id
     )
       .then(recipe => {
-        console.log('recipe is', recipe);
         if (!recipe.ok) { this.setState({ error: !recipe.ok }) }
         else {
-          // this.location.aboutProps.error({ error: !recipe.ok });
           this.handleEditSuccess();
           title = "";
           recipe_description = "";

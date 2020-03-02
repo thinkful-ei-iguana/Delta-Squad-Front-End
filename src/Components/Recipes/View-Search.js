@@ -46,8 +46,6 @@ export default class SearchRecipe extends React.Component {
   };
 
   handleCreationSuccess = () => {
-    //const { history } = this.props;
-    //history.replace("/recipes/");
     window.location.pathname = "/recipes"
   };
 
@@ -55,9 +53,10 @@ export default class SearchRecipe extends React.Component {
     let instructionsSet = [];
     let ingredientsSet = [];
     if (this.state.instructions) {
-    this.state.instructions.steps.map(instruction =>
-      instructionsSet.push(instruction.step)
-    );}
+      this.state.instructions.steps.map(instruction =>
+        instructionsSet.push(instruction.step)
+      );
+    }
     else {
       instructionsSet = ["Instructions N/A"];
     }

@@ -52,19 +52,12 @@ export default class FancyModalButton extends Component {
     });
     IngredientHelper.addIngredient(ingredientJson)
       .then(res => {
-        console.log('ingredient res is', res);
         if (!res.ok) { this.setState({ error: !res.ok }) }
         else {
           this.props.refreshIngredients();
           this.toggleModal(e);
         }
       })
-    // .then(data => {
-
-    //   this.props.refreshIngredients();
-    //   this.toggleModal(e);
-
-    // });
   }
 
   fadingBackground = styled(BaseModalBackground)`

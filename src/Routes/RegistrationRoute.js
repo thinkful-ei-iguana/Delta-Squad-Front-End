@@ -34,7 +34,6 @@ export default class Login extends React.Component {
       password: password.value
     })
       .then(user => {
-        console.log('woopdeedoodah');
         first_name.value = "";
         user_name.value = "";
         password.value = "";
