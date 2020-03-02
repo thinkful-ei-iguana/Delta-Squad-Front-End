@@ -30,18 +30,7 @@ class AddMealPlan extends Component {
         this.setState({
           recipes: recipeData,
           recipe_id: recipeData.id
-        });
-        let id = 2;
-        const recipeid = id || this.state.recipes.recipes_owner;
-        RecipeHelper.recipeById(recipeid)
-          .then(indRecipeData => {
-            this.setState({
-              recipe: indRecipeData
-            });
-          })
-          .catch(error => {
-            console.error(error);
-          });
+        })
       })
   }
 
@@ -122,6 +111,7 @@ class AddMealPlan extends Component {
 
   render() {
     let error = this.state.error;
+    console.log('recipe is', this.state.recipe);
     return (
       <div>
         {this.props.addMealPlan === true && (
@@ -144,8 +134,6 @@ class AddMealPlan extends Component {
               {this.state.recipe.id && <div id="hidden-add-plan">
                 <label className="plannerLabel" id="meal-date-label">Meal Date:</label>
                 <DatePicker name="planned_date" selected={this.state.selectedDate} onChange={(e) => this.setStateDate(e)} >
-
-                  {/* {this.props.planned_date} */}
                 </DatePicker>
                 <br />
                 <label className="plannerLabel">Prep Time:</label>
