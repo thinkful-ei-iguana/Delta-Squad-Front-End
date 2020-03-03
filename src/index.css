@@ -45,7 +45,7 @@ button {
   width: 200px;
   height: 100px;
   font-family: 'cookiesregular';
-  font-size: 25px;
+  font-size: 20px;
   cursor: pointer;
   border: solid 1px;
   border-radius: 10%;
@@ -58,7 +58,7 @@ button {
   width: 150px;
   height: 50px;
   font-family: 'cookiesregular';
-  font-size: 20px;
+  font-size: 17px;
   cursor: pointer;
   border: solid 1px;
   border-radius: 10%;
@@ -71,7 +71,7 @@ button {
   width: 100px;
   height: 30px;
   font-family: 'cookiesregular';
-  font-size: 15px;
+  font-size: 13px;
   cursor: pointer;
   border: solid 1px;
   border-radius: 10%;
