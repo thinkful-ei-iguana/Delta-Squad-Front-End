@@ -88,21 +88,4 @@
 
 - Ability to use the camera and a barcode scanner to add items to your pantry and then in turn to the shopping list
 
-## Code Example:
 
-    Code snippet For Modal Pop-up
-
-        StyledModal = Modal.styled`
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: white;
-            opacity: ${props => this.props.opacity};
-            transition: opacity ease 500ms;
-        `;
-
-        toggleModal = (e) => {
-            this.setState({
-            isOpen: !this.state.isOpen
-            })
-        }
