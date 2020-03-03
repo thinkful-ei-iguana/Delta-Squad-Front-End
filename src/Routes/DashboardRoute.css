@@ -40,6 +40,15 @@
   vertical-align: middle;
 }
 
+@media(max-width: 700px) {
+#dashboard-links-list {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-right:9%;
+  /* margin: auto; */
+}
+}
 Link {
   margin-top: 40px;
 }

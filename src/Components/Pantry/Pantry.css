@@ -82,6 +82,7 @@ justify-content: flex-start;
 }
 
 #pantry-text {
+  padding:15px;
   font-style: italic;
   font-weight: bold;
 }

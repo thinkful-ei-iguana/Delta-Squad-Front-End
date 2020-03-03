@@ -142,6 +142,7 @@ box-shadow: 5px 5px 5px #2F7604;
 }
 
 #edit-plan-text {
+  padding: 15px;
   font-family: "Nanum Gothic", sans-serif;
   font-style: italic;
   font-weight: bold;
