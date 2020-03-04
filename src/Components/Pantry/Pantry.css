@@ -49,10 +49,20 @@
 }
 
 .ingredientNameContainer{
-width: 100%;
+width: 125px;
 display: flex;
+font-size: 13px;
 flex-direction: row;
 justify-content: flex-start;
+}
+
+#ingredient-name, #notes {
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.ingredient-name {
+  font-size:5vw;
 }
 
 .ingredientInfoContainer {
@@ -103,10 +113,6 @@ justify-content: flex-start;
   margin-top: 10px;
   margin-bottom: 20px;
   width: 200px;
-}
-
-#ingredient-name, #notes {
-  margin-top: 5px;
 }
 
 #ingredient-in-stock {
@@ -216,6 +222,12 @@ justify-content: flex-start;
   margin: 2.5%;
 }
 
+@media only screen and (min-width: 350px) {
+  .ingredient-name {
+    font-size:4vw;
+  }
+}
+
 @media only screen and (min-width: 480px) {
   #ingredients-container {
  
@@ -228,5 +240,8 @@ justify-content: flex-start;
   box-shadow: 5px 5px 5px #2F7604;
   background-color: #B6D084;
   padding: 2.5%;
+  }
+  .ingredient-name {
+    font-size:1.5em;
   }
 }
