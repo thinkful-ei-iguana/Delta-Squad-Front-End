@@ -68,10 +68,10 @@ button {
 }
 
 .smallButton {
-  width: 100px;
-  height: 30px;
+  width: 150px;
+  height: 60px;
   font-family: 'cookiesregular';
-  font-size: 13px;
+  font-size: 14px;
   cursor: pointer;
   border: solid 1px;
   border-radius: 10%;
