@@ -152,7 +152,7 @@ class PantryRoute extends Component {
 
 
   render() {
-    let error = this.state.error;
+    // let error = this.state.error;
     return (
 
       <section id="pantry-router-container">

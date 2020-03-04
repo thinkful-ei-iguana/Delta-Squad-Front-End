@@ -131,7 +131,7 @@ class AddMealPlan extends Component {
               </select>
               {this.state.recipe.id && <div id="hidden-add-plan">
                 <label className="plannerLabel" id="meal-date-label">Meal Date:</label>
-                <DatePicker name="planned_date" selected={this.state.selectedDate} onChange={(e) => this.setStateDate(e)} >
+                <DatePicker id="datepicker" name="planned_date" selected={this.state.selectedDate} onChange={(e) => this.setStateDate(e)} >
                 </DatePicker>
                 <br />
                 <label className="plannerLabel">Prep Time:</label>
@@ -147,7 +147,7 @@ class AddMealPlan extends Component {
                       this.state.recipe.recipe_ingredients.join(", ")}
                   </h3>
                 </div>
-                <h2 name="needed_ingredients" type="text"></h2>
+                {/* <h2 name="needed_ingredients" type="text"></h2> */}
                 <button className="smallButton" id="close-planner">
                   Plan it!
               </button>

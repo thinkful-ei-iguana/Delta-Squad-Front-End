@@ -39,7 +39,7 @@
 
   /* align-items: flex-start; */
   /* border: 2px solid black; */
-  min-width: 310px;
+  width: 280px;
   margin: 2.5%;
   border-radius: 10%;
   border: solid black 1px;
@@ -214,4 +214,19 @@ justify-content: flex-start;
   text-align: center;
   width: 100%;
   margin: 2.5%;
+}
+
+@media only screen and (min-width: 480px) {
+  #ingredients-container {
+ 
+  /* align-items: flex-start; */
+  /* border: 2px solid black; */
+  min-width: 310px;
+  margin: 2.5%;
+  border-radius: 10%;
+  border: solid black 1px;
+  box-shadow: 5px 5px 5px #2F7604;
+  background-color: #B6D084;
+  padding: 2.5%;
+  }
 }
