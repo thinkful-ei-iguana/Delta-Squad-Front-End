@@ -69,7 +69,9 @@ class Header extends Component {
     return (
       <header className="heading">
         <div className="landing-image">
-          <img src={LandingLogo} alt="Landing Logo" className="landinglogo" />
+          <a href="http://localhost:3000/">
+            <img src={LandingLogo} alt="Landing Logo" className="landinglogo" />
+          </a>
           <Link className="login-page-link" to="/">
 
           </Link>
