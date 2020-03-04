@@ -43,6 +43,7 @@ exports[`renders the UI as expected 1`] = `
       </div>
       <input
         className="field__input a-field__input"
+        maxLength="2000"
         name="recipe_ingredients"
         placeholder="Recipe ingredients"
         required={true}
@@ -68,6 +69,7 @@ exports[`renders the UI as expected 1`] = `
        
       <textarea
         className="field__input a-field__input instructionsField"
+        maxLength="4000"
         name="recipe_description"
         placeholder="Recipe description"
         required={true}
