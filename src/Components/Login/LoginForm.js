@@ -75,6 +75,7 @@ class LoginForm extends React.Component {
             type="password"
             placeholder="Password"
           />
+          <h4 id="guestlogin">Are you a guest, please log in with 'Guestuser' and the password of !1asdf@@@M</h4>
 
           <div className="btn-row">
             <input
