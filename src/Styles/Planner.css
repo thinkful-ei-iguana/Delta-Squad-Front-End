@@ -97,7 +97,7 @@ box-shadow: 5px 5px 5px #2F7604;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 305px;
+  width: 240px;
   background-color: #2F7604;
   color: white;
   font-weight: bold;
@@ -161,5 +161,20 @@ box-shadow: 5px 5px 5px #2F7604;
   margin-bottom: 2px;
   border-radius: 10%;
   box-shadow: 5px 5px 5px #2F7604;
+  }
+  #modal-content-planner, .dropDown {
+    border: 2px solid black;
+    border-radius: 10%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 305px;
+    background-color: #2F7604;
+    color: white;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
   }
 }

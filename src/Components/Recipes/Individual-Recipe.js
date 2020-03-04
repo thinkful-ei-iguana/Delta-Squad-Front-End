@@ -28,7 +28,7 @@ export default class DetailedView extends React.Component {
         })
       }
     )
-      .then(console.log('state is:', this.state.recipe));
+    // .then(console.log('state is:', this.state.recipe));
 
 
   }

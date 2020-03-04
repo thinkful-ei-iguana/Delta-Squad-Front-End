@@ -7,6 +7,10 @@
   text-align: center;
 }
 
+#datepicker {
+  width: 240px;
+}
+
 .individual-mealplan-view {
   text-align: center;
   font-family: "cookiesregular";
