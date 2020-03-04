@@ -50,7 +50,7 @@ export default class Landing extends React.Component {
                 </Link>
               </div>
             </div>
-            <h4>Please test out our site using the username of 'Testuser' and the password of !1asdf@@@m</h4>
+            <h4>Please test out our site using the username of 'Guestuser' and the password of !1asdf@@@M</h4>
             <div className="sampleImages">
               <img src={pantryLanding} className="landingSamples" alt="Pantry Landing" id="recipe-search" />
               <img src={homePage} className="landingSamples" alt="Home Page" id="pantry-add-form" />
