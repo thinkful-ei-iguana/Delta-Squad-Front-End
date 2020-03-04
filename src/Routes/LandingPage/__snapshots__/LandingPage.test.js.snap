@@ -67,6 +67,9 @@ exports[`renders the UI as expected 1`] = `
           </a>
         </div>
       </div>
+      <h4>
+        Please test out our site using the username of 'Guestuser' and the password of !1asdf@@@M
+      </h4>
       <div
         className="sampleImages"
       >
