@@ -80,7 +80,7 @@ export default class CreateRecipe extends React.Component {
               className="field__input a-field__input"
               required
               type="text"
-              maxLength="2000"
+              maxLength="60"
               name="recipe_ingredients"
               placeholder="Recipe ingredients"
             />
@@ -93,7 +93,7 @@ export default class CreateRecipe extends React.Component {
               className="field__input a-field__input instructionsField"
               required
               type="text"
-              maxLength="4000"
+              maxLength="300"
               name="recipe_description"
               placeholder="Recipe description"
             ></textarea>
