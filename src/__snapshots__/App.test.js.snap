@@ -11,11 +11,15 @@ exports[`App renders the UI as expected 1`] = `
       <div
         className="landing-image"
       >
-        <img
-          alt="Landing Logo"
-          className="landinglogo"
-          src="LandingLogo.gif"
-        />
+        <a
+          href="http://localhost:3000/"
+        >
+          <img
+            alt="Landing Logo"
+            className="landinglogo"
+            src="LandingLogo.gif"
+          />
+        </a>
         <a
           className="login-page-link"
           href="/"

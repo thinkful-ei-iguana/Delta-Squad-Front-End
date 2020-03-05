@@ -43,6 +43,11 @@ exports[`renders the UI as expected 1`] = `
       required={true}
       type="password"
     />
+    <h4
+      id="guestlogin"
+    >
+      Are you a guest, please log in with 'Guestuser' and the password of !1asdf@@@M
+    </h4>
     <div
       className="btn-row"
     >
