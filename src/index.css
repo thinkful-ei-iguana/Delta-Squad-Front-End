@@ -44,7 +44,8 @@ button {
 .bigButton {
   width: 200px;
   height: 100px;
-  font-family: 'cookiesregular';
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bold;
   font-size: 20px;
   cursor: pointer;
   border: solid 1px;
@@ -57,7 +58,8 @@ button {
 .medButton {
   width: 150px;
   height: 50px;
-  font-family: 'cookiesregular';
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bold;
   font-size: 17px;
   cursor: pointer;
   border: solid 1px;
@@ -70,7 +72,8 @@ button {
 .smallButton {
   width: 150px;
   height: 60px;
-  font-family: 'cookiesregular';
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bold;
   font-size: 14px;
   cursor: pointer;
   border: solid 1px;
@@ -110,7 +113,8 @@ button:hover {
 
 .randomLabel {
   font-size: 20px;
-  font-family: "cookiesregular";
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bold;
   margin: 5px;
 }
 

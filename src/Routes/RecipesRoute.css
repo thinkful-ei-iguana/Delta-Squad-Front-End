@@ -17,7 +17,8 @@
     text-align: center;
     font-size: 24px;
     text-decoration: none;
-    font-family: 'cookiesregular';
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: bold;
 }
 
 .individual-recipe:hover {

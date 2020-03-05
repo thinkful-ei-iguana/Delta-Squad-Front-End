@@ -10,7 +10,8 @@
 .mealplan-title {
   color: #141514;
   text-decoration: none;
-  font-family: "cookiesregular";
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bold;
   padding: 5px;
   text-align: center;
   font-size: x-large;
@@ -41,7 +42,8 @@ box-shadow: 5px 5px 5px #2F7604;
 .bigButton {
   width: 200px;
   height: 100px;
-  font-family: "cookiesregular";
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bold;
   font-size: 25px;
 }
 

@@ -39,7 +39,8 @@
 }
 
 .a-field {
-    font-family: 'cookiesregular';
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: bold;
 }
 
 @media screen and (max-width: 720px) {

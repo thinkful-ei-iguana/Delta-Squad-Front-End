@@ -13,7 +13,8 @@
 
 .individual-mealplan-view {
   text-align: center;
-  font-family: "cookiesregular";
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bold;
   background-color: #B6D084;
   width: 240px;
   margin-top: 30px;
@@ -62,7 +63,8 @@
 @media screen and (min-width: 480px) {
   .individual-mealplan-view {
     text-align: center;
-    font-family: "cookiesregular";
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: bold;
     background-color: #B6D084;
     width: 310px;
     margin-top: 30px;
