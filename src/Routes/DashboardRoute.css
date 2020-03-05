@@ -19,6 +19,9 @@
   color: #FFCB32;
 }
 
+Link {
+  margin-top: 40px;
+}
 
 .dashboard-link-text {
   text-decoration: none;
@@ -40,39 +43,31 @@
   vertical-align: middle;
 }
 
-@media(max-width: 700px) {
 #dashboard-links-list {
   text-align: center;
   justify-content: center;
   align-items: center;
-  padding-right:9%;
+  padding-right: 12.5%;
   /* margin: auto; */
 }
-}
-Link {
-  margin-top: 40px;
-}
 
-@media screen and (max-width: 700px){
-
-  .dashboard {
-    height: 200px;
-    min-width: 200px;
-  }
-
-  .dashboard-link-text {
-    line-height: 185px;
-    padding: 0px;
-  }
-
-  .dashboard.meal-plan {
-    font-size: 30px;
-  }
-
-  #dashboard-container {
-    display: flex;
-    flex-direction: row;
+@media(min-width: 375px) {
+  #dashboard-links-list {
+    text-align: center;
     justify-content: center;
+    align-items: center;
+    padding-right: 10.8%;
+    /* margin: auto; */
+  }
+}
+
+@media(min-width: 425px) {
+  #dashboard-links-list {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-right: 9.5%;
+    /* margin: auto; */
   }
 }
 
@@ -86,10 +81,67 @@ Link {
 
   .dashboard-link-text {
     line-height: 230px;
+    /* line-height: 185px; */
+    padding: 0px;
   }
-  
+
+  .dashboard.meal-plan {
+    font-size: 30px;
+  }
+
+  #dashboard-links-list {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-right: 5.2%;
+    /* margin: auto; */
+  }
+
   #dashboard-container {
     margin-top: 50px;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media(min-width: 768px) {
+  #dashboard-links-list {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-right: 5.2%;
+    /* margin: auto; */
+  }
+}
+
+@media(min-width: 1023px) {
+  #dashboard-links-list {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-right: 3.9%;
+    /* margin: auto; */
+  }
+}
+
+@media(min-width: 1044px) {
+  #dashboard-links-list {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-right: 2.8%;
+    /* margin: auto; */
+  }
+}
+
+@media(min-width: 1920px) {
+  #dashboard-links-list {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-right: 2.1%;
+    /* margin: auto; */
   }
 }
