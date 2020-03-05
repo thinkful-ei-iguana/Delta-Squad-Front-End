@@ -15,14 +15,15 @@
 
 #guestlogin {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 400 bold;
 }
 
 .login-form {
   margin-top: 10%;
   font-size: 20px;
   text-align: center;
-  font-family: "cookiesregular"
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bold;
 }
 
 #error-message {

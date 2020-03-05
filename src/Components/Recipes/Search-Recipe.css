@@ -54,7 +54,8 @@
 #searchButton {
     padding: 10px;
     font-size: 20px;
-    font-family: 'cookiesregular'
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: bold;
 }
 
 .buttonGroupSearch {
