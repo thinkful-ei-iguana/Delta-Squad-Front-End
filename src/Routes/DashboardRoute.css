@@ -1,3 +1,15 @@
+.pantrytag {
+  margin-top: 38%;
+}
+
+.recipetag {
+  margin-top: 38%;
+}
+
+.mealplantag {
+  margin-top: 38%;
+}
+
 .dashboard {
   /* display: inline-block; */
   list-style: none;
@@ -25,7 +37,7 @@ Link {
 
 .dashboard-link-text {
   text-decoration: none;
-  line-height: 140px;
+  /* line-height: 140px; */
   padding: 3px; 
   color: black;
   font-weight: bold;
@@ -80,7 +92,7 @@ Link {
   }
 
   .dashboard-link-text {
-    line-height: 230px;
+    /* line-height: 230px; */
     /* line-height: 185px; */
     padding: 0px;
   }
@@ -98,7 +110,6 @@ Link {
   }
 
   #dashboard-container {
-    margin-top: 50px;
     text-align: center;
     display: flex;
     flex-direction: row;

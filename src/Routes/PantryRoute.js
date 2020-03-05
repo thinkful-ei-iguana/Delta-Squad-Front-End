@@ -164,6 +164,7 @@ class PantryRoute extends Component {
           <label
             htmlFor="ingredient-search-field" className="randomLabel"
           >Search Pantry</label>
+          <br></br>
           <input
             type="text"
             name="ingredient-search"
@@ -172,6 +173,7 @@ class PantryRoute extends Component {
             value={this.state.searchTerm}
             onChange={this.handleInput.bind(this)}
           ></input>
+          <br></br>
           <button type="submit" className="smallButton">Search</button>
         </form>
         <p className="randomLabel">Filter by:</p>

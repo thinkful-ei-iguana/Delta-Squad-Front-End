@@ -52,9 +52,8 @@ button {
   border-radius: 10%;
   background-color: #FFCB32;
   box-shadow: 5px 5px 5px #2F7604;
-  margin: 2%;
+  margin: 20px;
 }
-
 .medButton {
   width: 150px;
   height: 50px;
@@ -67,11 +66,12 @@ button {
   background-color: #FFCB32;
   box-shadow: 5px 5px 5px #2F7604;
   margin: 1%;
+  margin-bottom: 20px;
 }
 
 .smallButton {
-  width: 150px;
-  height: 60px;
+  width: 90px;
+  height: 50px;
   font-family: "Nanum Gothic", sans-serif;
   font-weight: bold;
   font-size: 14px;
@@ -80,6 +80,7 @@ button {
   border-radius: 10%;
   background-color: #FFCB32;
   box-shadow: 5px 5px 5px #2F7604;
+  margin: 10px;
 }
 
 .smallButton:hover {
@@ -255,3 +256,44 @@ code {
   font-size: 20px;
 }
 
+@media screen and (min-width: 768px) {
+  .smallButton {
+    width: 150px;
+    height: 60px;
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    border: solid 1px;
+    border-radius: 10%;
+    background-color: #FFCB32;
+    box-shadow: 5px 5px 5px #2F7604;
+  }
+
+  .medButton {
+    width: 150px;
+    height: 50px;
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+    border: solid 1px;
+    border-radius: 10%;
+    background-color: #FFCB32;
+    box-shadow: 5px 5px 5px #2F7604;
+    margin: 1%;
+  }
+  .bigButton {
+    width: 200px;
+    height: 100px;
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    border: solid 1px;
+    border-radius: 10%;
+    background-color: #FFCB32;
+    box-shadow: 5px 5px 5px #2F7604;
+    margin: 2%;
+  }
+}

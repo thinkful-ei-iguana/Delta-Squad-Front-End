@@ -94,7 +94,7 @@ box-shadow: 5px 5px 5px #2F7604;
 #modal-content-planner, .dropDown {
   border: 2px solid black;
   border-radius: 10%;
-  padding: 20px;
+  /* padding: 20px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,7 +104,7 @@ box-shadow: 5px 5px 5px #2F7604;
   color: white;
   font-weight: bold;
   margin-top: 15px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .dropDown {
@@ -164,7 +164,7 @@ box-shadow: 5px 5px 5px #2F7604;
   border-radius: 10%;
   box-shadow: 5px 5px 5px #2F7604;
   }
-  #modal-content-planner, .dropDown {
+  /* #modal-content-planner, .dropDown {
     border: 2px solid black;
     border-radius: 10%;
     padding: 20px;
@@ -178,5 +178,5 @@ box-shadow: 5px 5px 5px #2F7604;
     font-weight: bold;
     margin-top: 15px;
     margin-bottom: 5px;
-  }
+  } */
 }

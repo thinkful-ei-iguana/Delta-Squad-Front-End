@@ -19,22 +19,28 @@ class DashboardRoute extends Component {
                         className="dashboard-link-text"
                         to={"/pantry"}>
                         <li className="dashboard pantry">
-                            Pantry
-                    </li>
+                            <p className="pantrytag">
+                                Pantry
+                            </p>
+                        </li>
                     </Link>
                     <Link
                         className="dashboard-link-text"
                         to={"/recipes"}>
                         <li className="dashboard recipes">
-                            Recipes
-                    </li>
+                            <p className="recipetag">
+                                Recipes
+                            </p>
+                        </li>
                     </Link>
                     <Link
                         className="dashboard-link-text"
                         to={"/planner"}>
                         <li className="dashboard meal-plan">
-                            Plan a Meal
-                    </li>
+                            <p className="mealplantag">
+                                Plan a Meal
+                            </p>
+                        </li>
                     </Link>
                 </ul>
             </div >
