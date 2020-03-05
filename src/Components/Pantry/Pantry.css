@@ -63,6 +63,7 @@ justify-content: flex-start;
 
 .ingredient-name {
   font-size:5vw;
+  margin-right: 9px;
 }
 
 .ingredientInfoContainer {
